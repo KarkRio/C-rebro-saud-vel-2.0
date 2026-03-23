@@ -960,6 +960,7 @@ const HELP_DB={
   how:['Define 2h antes da hora alvo de dormir.','O aviso aparece na barra do topo com countdown.','Combina com o Wind-Down no separador Saúde.'],
   tip:'Modo escuro do telemóvel + temperatura de cor quente (Night Mode) reduzem o impacto mas não eliminam — o brightness ainda activa os fotorreceptores.'},
 
+'refs':{title:'📖 Referências',icon:'📖',what:'As obras científicas e estudos em que o CortexOS é baseado. Cada protocolo, cada número, cada conselho tem origem numa destas fontes.',why:'Transparência: deves saber de onde vêm as informações que seguem o teu comportamento. Podes verificar, questionar e aprofundar.',how:['Não precisas de ler tudo.','Se um tema te fascinar, o livro/podcast do autor vai muito mais fundo.','Os mais acessíveis para começar: Atomic Habits (Clear) e Why We Sleep (Walker).'],examples:['Walker — Why We Sleep: toda a secção de sono vem daqui.','Harvard Study — os dados sobre relações sociais e saúde cerebral.','Huberman Lab — os protocolos de luz matinal, NSDR e respiração.'],tip:'Se quiseres ir mais fundo num tema, procura o autor no YouTube. Huberman, Walker e Sapolsky têm conteúdo gratuito excelente.'},
 'dados':{title:'💾 Dados',icon:'💾',
   what:'Exportação, importação e limpeza dos teus dados. Todos os dados ficam no dispositivo — nunca saem para nenhum servidor.',
   why:'Os teus dados são teus. Sem conta, sem cloud, sem empresa a aceder. Se perderes o telemóvel e não tiveres backup, perdes os dados — por isso o backup manual importa.',
@@ -980,46 +981,30 @@ const HELP_DB={
   tip:'Progressão recomendada após 3 semanas de adaptação: +2 reps/série nas flexões, +10s na prancha, +5 reps nos agachamentos.'}
 };
 const BF_EXT=[
-{i:'🐟',n:'Salmão',cat:'Ómega-3',mech:'DHA e EPA: componentes estruturais das membranas neuronais. Deficiência associada a depressão e défice cognitivo.'},
-{i:'🫐',n:'Blueberry',cat:'Antioxidante',mech:'Antocianinas atravessam barreira hematoencefálica → reduzem inflamação neuronal e melhoram sinalização entre neurónios.'},
-{i:'🥦',n:'Brócolis',cat:'Neuroprotector',mech:'Sulforafano: ativa Nrf2, o gene master de defesa antioxidante. Vitamina K crucial para formação de esfingolípidos.'},
-{i:'🥑',n:'Abacate',cat:'Gorduras saudáveis',mech:'Ácido oleico suporta mielinização. Vitamina K e folato protegem contra dano vascular cerebral.'},
-{i:'🥚',n:'Ovos',cat:'Colina',mech:'Colina: precursor de acetilcolina, o neurotransmissor da memória. 1 ovo = 147mg colina.'},
-{i:'🫘',n:'Nozes',cat:'Ómega-3/E',mech:'ALA + vitamina E: dupla proteção contra stress oxidativo. Forma similar ao cérebro não é coincidência.'},
-{i:'🍫',n:'Choc.70%',cat:'Flavonoides',mech:'Flavanóis aumentam fluxo sanguíneo cerebral em 8%. Teobromina: estimulante suave neuroprotector.'},
-{i:'🫒',n:'Azeite',cat:'Oleocanthal',mech:'Oleocanthal inibe enzimas inflamatórias como ibuprofeno. Polifenóis protegem neurónios do stress oxidativo.'},
-{i:'🍵',n:'Chá verde',cat:'EGCG',mech:'EGCG atravessa barreira hematoencefálica e estimula neurogénese. L-teanina + cafeína = foco calmo.'},
-{i:'🫚',n:'Cúrcuma',cat:'Curcumina',mech:'Curcumina + pimenta preta (biodisponibilidade 2000×): reduz placa amiloide e aumenta BDNF.'},
-{i:'🥬',n:'Espinafre',cat:'Folato/K',mech:'Folato: cofator na síntese de dopamina e serotonina. Vitamina K para mielinização.'},
-{i:'☕',n:'Café',cat:'Cafeína',mech:'Bloqueia receptores de adenosina. Antioxidantes reduzem risco Parkinson em 30%.'},
-{i:'🐠',n:'Sardinha',cat:'Ómega-3',mech:'Rácio DHA/EPA mais favorável entre peixes acessíveis. 100g cobre 100% das necessidades diárias.'},
-{i:'🫙',n:'Kefir',cat:'Probiótico',mech:'Eixo intestino-cérebro: microbioma produz 90% da serotonina. Kefir tem 30+ estirpes benéficas.'},
-{i:'🍊',n:'Laranja',cat:'Vitamina C',mech:'Vitamina C cofactor na síntese de norepinefrina. 1 laranja = dose diária completa.'},
-{i:'🌿',n:'Gengibre',cat:'Anti-inflamatório',mech:'Gingeróis inibem COX-2. Aumenta acetilcolina no hipocampo e melhora memória de trabalho.'},
-{i:'🍇',n:'Uvas tintas',cat:'Resveratrol',mech:'Resveratrol activa sirtuínas (genes da longevidade) e melhora fluxo sanguíneo cerebral.'},
-{i:'🧄',n:'Alho',cat:'Alicina',mech:'Alicina: anti-inflamatório potente. Melhora circulação cerebral e pode reduzir risco Alzheimer.'},
-{i:'🫐',n:'Amoras',cat:'Polifenóis',mech:'Polifenóis atravessam barreira hematoencefálica → activam vias de BDNF → neurogénese.'},
-{i:'🫘',n:'Lentilha',cat:'Folato/Fe',mech:'Ferro essencial para transporte de oxigénio ao cérebro. Alta fibra pré-biótica para microbioma.'},
-{i:'🌾',n:'Aveia',cat:'Beta-glucano',mech:'Glucose de libertação lenta → energia cerebral constante sem picos glicémicos.'},
-{i:'🥝',n:'Kiwi',cat:'C/K/Folato',mech:'Tripla protecção: vitamina C (neurotransmissores), K (mielinização), folato (serotonina).'},
-{i:'🍑',n:'Sem.Abóbora',cat:'Zinco/Mg',mech:'Zinco (cognição e imunidade) + magnésio (relaxamento neural, sono). 30g = 37% RDA zinco.'},
-{i:'🫘',n:'Grão-bico',cat:'Triptofano',mech:'Triptofano: precursor da serotonina. O rácio mais alto entre leguminosas.'},
-{i:'🥦',n:'Couve',cat:'K,C,A',mech:'Super-vegetal: K1 (mielinização), vitamina C (norepinefrina), vitamina A (plasticidade sináptica).'},
-{i:'🥩',n:'Carne vermelha',cat:'B12/Zinco',mech:'Ferro heme (absorção 3x superior), B12 e zinco biodisponíveis. Com moderação.'},
-{i:'🫙',n:'Iog. grego',cat:'Probiótico',mech:'Lactobacillus reuteri produz GABA directamente. Proteína completa para síntese neurotransmissores.'},
-{i:'🌿',n:'Espirulina',cat:'Fitocianinas',mech:'Ficocianina: neuroprotetor potente. Rica em B12, ferro e triptofano biodisponíveis.'},
-{i:'🍄',n:'Cogumelos',cat:'NGF',mech:'Lion\'s Mane estimula NGF (Nerve Growth Factor). Vitamina D2 neuroprotector.'},
-{i:'🐟',n:'Atum',cat:'Ómega-3/Se',mech:'Selénio: cofactor da glutationa peroxidase, principal enzima antioxidante cerebral.'},
-{i:'🍓',n:'Morango',cat:'Antocianinas',mech:'Antocianinas vermelhas: reduzem inflamação cerebral e melhoram neuroplasticidade.'},
-{i:'🥕',n:'Cenoura',cat:'Beta-caroteno',mech:'Precursor vitamina A: essencial para plasticidade sináptica e saúde do nervo óptico.'},
-{i:'🫘',n:'Cacau cru',cat:'Mg/Teobromina',mech:'Magnésio em alta concentração: relaxa sistema nervoso, essencial para sono profundo.'},
-{i:'🧅',n:'Cebola',cat:'Quercetina',mech:'Quercetina: neuroprotetor, reduz inflamação e protege neurónios dopaminérgicos.'},
-{i:'🌰',n:'Amendoim',cat:'Resveratrol/B3',mech:'Resveratrol + vitamina E + niacina: combinação neuroprotectora. Niacina essencial para energia neuronal.'},
-{i:'🥜',n:'Amêndoa',cat:'Vitamina E',mech:'A fonte mais rica de vitamina E natural. 30g = 37% RDA. Protege membranas neuronais.'},
-{i:'🍋',n:'Limão',cat:'Hesperidina',mech:'Hesperidina nos flavonóides: melhora memória e reduz ansiedade em modelos experimentais.'},
-{i:'🌱',n:'Gérmen trigo',cat:'E/B1',mech:'Vitamina B1 (tiamina): défice causa encefalopatia. Vitamina E natural mais biodisponível.'},
-{i:'🦐',n:'Gambas',cat:'Astaxantina',mech:'Astaxantina: o antioxidante mais potente conhecido, 6000× a vitamina C. Cruza barreira hematoencefálica.'},
-{i:'🫐',n:'Açaí',cat:'Antocianinas',mech:'Concentração de antocianinas superior ao blueberry. ORAC score entre os mais altos de alimentos.'}
+// ── PROTEÍNAS E GORDURAS ──
+{i:'🥚',n:'Ovos',cat:'Colina',mech:'Colina: precursor da acetilcolina (neurotransmissor da memória). 1 ovo cobre ~30% da necessidade diária.'},
+{i:'🐟',n:'Peixe (qualquer)',cat:'Ómega-3',mech:'DHA e EPA: componentes das membranas neuronais. Peixe fresco, sardinha ou atum — todos servem.'},
+{i:'🥩',n:'Carne/Frango',cat:'B12+Ferro',mech:'Ferro heme transporta oxigénio ao cérebro. B12 essencial para formação de mielina (velocidade neural).'},
+{i:'🫘',n:'Feijão/Grão',cat:'Triptofano',mech:'Precursor da serotonina. Ferro + folato para síntese de neurotransmissores. Alimento base rico em nutrientes cerebrais.'},
+{i:'🥜',n:'Amendoim',cat:'Vitamina E',mech:'Vitamina E + resveratrol + niacina: protegem as membranas neuronais do stress oxidativo.'},
+// ── VEGETAIS E FRUTAS LOCAIS ──
+{i:'🍌',n:'Banana',cat:'B6+Triptofano',mech:'Vitamina B6 converte triptofano em serotonina. Potássio para condução neural. Uma das mais acessíveis.'},
+{i:'🍠',n:'Batata-doce',cat:'Beta-caroteno',mech:'Beta-caroteno (vitamina A): essencial para plasticidade sináptica. Glucose de libertação lenta = energia cerebral constante.'},
+{i:'🥬',n:'Folhas verdes',cat:'Folato+K',mech:'Espinafre, couve, folhas locais: folato para síntese de dopamina e serotonina. Vitamina K para mielinização.'},
+{i:'🧅',n:'Cebola/Alho',cat:'Quercetina',mech:'Quercetina e alicina: anti-inflamatórios potentes. Melhoram circulação cerebral. Usados em praticamente todas as refeições.'},
+{i:'🥕',n:'Cenoura',cat:'Beta-caroteno',mech:'Precursor da vitamina A: essencial para plasticidade sináptica e desenvolvimento neurológico.'},
+{i:'🍅',n:'Tomate',cat:'Licopeno',mech:'Licopeno: antioxidante potente que reduz inflamação neuronal. Base da maioria das refeições moçambicanas.'},
+{i:'🍋',n:'Limão/Laranja',cat:'Vitamina C',mech:'Cofactor na síntese de norepinefrina (atenção). Protege neurónios do stress oxidativo. 1 laranja = dose diária.'},
+{i:'🍇',n:'Fruta vermelha',cat:'Antocianinas',mech:'Morangos, uvas tintas, framboesas: antocianinas atravessam a barreira hematoencefálica → menos inflamação neuronal.'},
+{i:'🍍',n:'Manga/Papaia',cat:'Vitamina C+A',mech:'Ricas em vitaminas A e C: protecção neuronal e síntese de neurotransmissores. Disponíveis e acessíveis.'},
+// ── GRÃOS E HIDRATOS ──
+{i:'🌽',n:'Milho/Xima',cat:'Energia+B3',mech:'Niacina (B3): essencial para produção de energia nos neurónios. Base da dieta — garante combustível cerebral.'},
+{i:'🌾',n:'Arroz integral',cat:'B1+Fibra',mech:'Tiamina (B1): défice causa danos neurológicos. Glucose de libertação gradual evita picos glicémicos que afectam foco.'},
+{i:'🥑',n:'Abacate',cat:'Gorduras saudáveis',mech:'Ácido oleico suporta mielinização (velocidade de processamento). Folato e vitamina K protecção vascular cerebral.'},
+// ── OUTROS ACESSÍVEIS ──
+{i:'🍫',n:'Cacau/Choc.escuro',cat:'Flavonóides',mech:'Flavanóis aumentam fluxo sanguíneo cerebral em 8%. Mesmo cacau em pó sem açúcar funciona.'},
+{i:'🌿',n:'Chá (qualquer)',cat:'L-teanina',mech:'L-teanina + cafeína = foco calmo sem ansiedade. Mesmo chá de ervas tem antioxidantes benéficos.'},
+{i:'🧄',n:'Gengibre',cat:'Anti-inflam.',mech:'Gingeróis inibem inflamação cerebral. Usado em chás, refeições. Aumenta acetilcolina no hipocampo.'}
 ];
 
 // ═══ EXPANDED CONVERSATION CARDS (30) ═══
@@ -1114,19 +1099,27 @@ water:{title:'Hidratação Cerebral',icon:'💧',color:'#5B8DEF',
 
 // ═══ SLEEP FACTORS ═══
 const SLEEP_FACTORS=[
-{id:'caffeine',label:'☕ Cafeína após 14h',type:'bad',effect:'Bloqueia adenosina por 5-6h após consumo'},
-{id:'screen',label:'📱 Ecrã 1h antes',type:'bad',effect:'Suprime melatonina 2-3h'},
-{id:'alcohol',label:'🍺 Álcool',type:'bad',effect:'Fragmenta sono e suprime REM'},
-{id:'stress',label:'😤 Stress alto',type:'bad',effect:'Eleva cortisol → dificulta N3'},
-{id:'exercise',label:'💪 Exercício (manhã)',type:'good',effect:'Aumenta sono profundo à noite'},
-{id:'cool',label:'🌡 Quarto fresco',type:'good',effect:'18-20°C facilita descida da temperatura corporal'},
-{id:'dark',label:'🌑 Quarto escuro',type:'good',effect:'Maximiza produção de melatonina'},
-{id:'consistent',label:'⏰ Horário fixo',type:'good',effect:'Sincroniza ritmo circadiano'}
+// Coisas que PREJUDICARAM
+{id:'screen',label:'📱 Ecrã até tarde',type:'bad',effect:'Luz azul suprime melatonina por 2-3h'},
+{id:'stress',label:'😰 Preocupações/ansiedade',type:'bad',effect:'Cortisol elevado dificulta entrar no sono profundo'},
+{id:'noise',label:'🔊 Barulho externo',type:'bad',effect:'Interrupções fragmentam os ciclos de sono'},
+{id:'hot',label:'🥵 Muito calor no quarto',type:'bad',effect:'Corpo precisa de arrefecer para entrar no N3'},
+{id:'woke',label:'😬 Acordei no meio da noite',type:'bad',effect:'Fragmentação do ciclo — possível stress ou barulho'},
+{id:'latestudying',label:'📚 Estudei/trabalhei muito tarde',type:'bad',effect:'CPF activo dificulta transição para sono'},
+{id:'earlyschool',label:'🏫 Acordei cedo para escola/EF',type:'bad',effect:'Sono encurtado por horário externo'},
+{id:'caffeine',label:'☕/🍵 Chá ou cafeína tarde',type:'bad',effect:'Mesmo o chá tem cafeína que bloqueia adenosina'},
+// Coisas que AJUDARAM
+{id:'consistent',label:'⏰ Deitei no horário habitual',type:'good',effect:'Ritmo circadiano sincronizado'},
+{id:'dark',label:'🌑 Quarto escuro',type:'good',effect:'Escuridão maximiza produção de melatonina'},
+{id:'calm',label:'😌 Fiz wind-down antes',type:'good',effect:'Sistema nervoso parasimpático activo facilita sono'},
+{id:'exercise',label:'💪 Fiz exercício hoje',type:'good',effect:'Aumenta sono profundo e reduz latência de adormecer'},
+{id:'noscreen',label:'📵 Sem ecrã 30min antes',type:'good',effect:'Melatonina produzida sem interferência'},
+{id:'read',label:'📖 Li antes de dormir',type:'good',effect:'Actividade relaxante que reduz cortisol'}
 ];
 
 // ═══ CAFEÍNA ITEMS ═══
 const CAFF_ITEMS=[
-{n:'Café expresso',mg:63},{n:'Café filtrado',mg:95},{n:'Café instantâneo',mg:60},{n:'Chá preto',mg:47},{n:'Chá verde',mg:28},{n:'Refrigerante cola',mg:34},{n:'Energy drink',mg:80},{n:'Chocolate negro',mg:12},{n:'Chá matcha',mg:70}
+{n:'Chá preto',mg:47},{n:'Chá verde',mg:28},{n:'Chá de ervas',mg:3},{n:'Café (se tomas)',mg:80},{n:'Refrigerante cola',mg:34},{n:'Energy drink',mg:80},{n:'Nido/achocolatado',mg:5},{n:'Chocolate escuro',mg:12},{n:'Cremora c/ café',mg:60}
 ];
 
 // ═══ DAILY FACTS (1 por dia) ═══
@@ -1518,6 +1511,82 @@ function go(p){
 function renderTabs(){const tabs=document.getElementById('tabs');tabs.innerHTML='';WKS.forEach((w,i)=>{const b=document.createElement('button');b.className='tbtn'+(S.view===i?' on':'');const{p}=wDn(S,i);b.innerHTML=`${w.i} S${w.n}${p===100?' ✓':''}`;b.style.borderColor=S.view===i?w.c:'';b.style.color=S.view===i?w.c:'';b.style.background=S.view===i?w.c+'20':'';b.onclick=()=>{S.view=i;save();renderTabs();renderWeek()};tabs.appendChild(b)});const mb=document.createElement('button');mb.className='tbtn'+(S.view===6?' on':'');mb.textContent='♾';mb.style.borderColor=S.view===6?'#aaa':'';mb.style.color=S.view===6?'#ddd':'';mb.style.background=S.view===6?'#ffffff15':'';mb.onclick=()=>{S.view=6;save();renderTabs();renderMaint()};tabs.appendChild(mb)}
 
 // ════ WEEK VIEW ════
+
+// ════ SMART DAILY ASSISTANT ════
+function getSmartSuggestion(){
+  const h=new Date().getHours();const tk=tkey();
+  const sl=S.sleep[tk]||{};const wt=S.water[tk]||0;
+  const mLog=S.moodLog?.[tk]||{};const bf=S.brainFood[tk]||{};
+  const bfCount=Object.values(bf).filter(Boolean).length;
+  const hasMIT=S.mit?.[tk]?.task&&!S.mit?.[tk]?.done;
+  const noMood=Object.keys(mLog).length===0;
+  const noSleep=!sl.h&&!sl.bedtime;
+  const pomToday=S.distractions?.filter(d=>d.date===tk).length||0;
+  
+  // Build priority list based on time + missing data
+  const actions=[];
+  
+  if(h>=5&&h<9){
+    // MANHÃ
+    if(noSleep)actions.push({icon:'😴',priority:'alta',action:'Regista o sono de ontem',why:'Só demora 30 segundos. Vai ao separador Saúde → Sono.',tab:'health'});
+    actions.push({icon:'☀️',priority:'alta',action:'Apanha luz solar agora (5-15min)',why:'Os primeiros 60min são a janela de ouro para sincronizar o ritmo circadiano.',tab:null});
+    actions.push({icon:'💧',priority:'alta',action:'Bebe 1 copo de água agora',why:'Acordaste com 6-8h de desidratação. O cérebro precisa de água para funcionar.',tab:'health'});
+    if(!S.mit?.[tk]?.task)actions.push({icon:'🎯',priority:'alta',action:'Define a tua MIT (tarefa mais importante)',why:'Decide agora, antes de o dia te controlar.',tab:'home'});
+    actions.push({icon:'🌬',priority:'média',action:'2 min de respiração antes de estudar',why:'Activa o sistema parassimpático → melhor foco.',tab:'tools'});
+  } else if(h>=9&&h<13){
+    // MANHÃ — PICO DE FOCO
+    if(hasMIT)actions.push({icon:'🎯',priority:'urgente',action:`Faz a tua MIT agora: "${S.mit[tk].task}"`,why:'Estás na janela de pico cognitivo. É agora ou nunca.',tab:'home'});
+    actions.push({icon:'⏱',priority:'alta',action:'Abre um Pomodoro de 25-50min',why:'Janela de máximo foco — 90-120min após acordar.',tab:'tools'});
+    if(wt<3)actions.push({icon:'💧',priority:'média',action:'Bebe água (ainda estás no início)',why:'2% de desidratação = 20% menos atenção.',tab:'health'});
+  } else if(h>=13&&h<15){
+    // DIP PÓS-PRANDIAL
+    actions.push({icon:'💤',priority:'alta',action:'Powernap de 20min agora',why:'O dip pós-prandial é biológico. 20min restaura 90% da energia sem inércia.',tab:'health'});
+    actions.push({icon:'🚶',priority:'alta',action:'Caminhada de 10min ao ar livre',why:'Alternativa ao nap: movimento físico e luz solar quebram o dip.',tab:null});
+    if(bfCount<3)actions.push({icon:'🍓',priority:'média',action:'Regista o que comeste ao almoço',why:'Tens menos de 3 brain foods hoje.',tab:'health'});
+  } else if(h>=15&&h<18){
+    // TARDE
+    actions.push({icon:'💪',priority:'alta',action:'Hora ideal para treinar',why:'Temperatura corporal alta = melhor performance. BDNF pico 2h depois = estuda a seguir.',tab:'rotina'});
+    if(noMood)actions.push({icon:'😊',priority:'média',action:'Regista como estás a sentir-te',why:'Tarde é boa altura para o registo de humor.',tab:'home'});
+    if(wt<6)actions.push({icon:'💧',priority:'média',action:`Bebe mais ${8-wt} copos até ao fim do dia`,why:`Estás em ${wt}/8 — ainda a tempo de atingir a meta.`,tab:'health'});
+  } else if(h>=18&&h<21){
+    // NOITE INICIAL
+    actions.push({icon:'🌱',priority:'alta',action:'Escreve 1 aprendizado de hoje',why:'Capturar antes de dormir consolida a memória durante o sono.',tab:'health'});
+    actions.push({icon:'📝',priority:'média',action:'Escreve no diário (5 min)',why:'Processar o dia em escrita reduz cortisol noturno.',tab:'home'});
+    if(bfCount<4)actions.push({icon:'🍓',priority:'média',action:'Adiciona brain food do jantar',why:'Ainda a tempo de atingir 6+ hoje.',tab:'health'});
+    if(!mLog.n)actions.push({icon:'😊',priority:'média',action:'Registo de humor noturno',why:'Fecha o ciclo do dia.',tab:'home'});
+  } else if(h>=21){
+    // WIND-DOWN
+    actions.push({icon:'🌙',priority:'urgente',action:'Inicia o wind-down agora',why:'Tens menos de 1-2h para o sono. Sistema nervoso precisa de abrandar.',tab:'health'});
+    actions.push({icon:'📵',priority:'alta',action:'Modo avião no telemóvel',why:'Ecrã agora suprime melatonina por 2-3h.',tab:null});
+    actions.push({icon:'🙏',priority:'média',action:'Escreve 3 gratidões',why:'Reduz actividade cerebral nocturna. Adormeces mais rápido.',tab:'health'});
+    if(!sl.h)actions.push({icon:'😴',priority:'baixa',action:'Prepara para registar o sono amanhã de manhã',why:'Ao acordar, regista logo a hora de deitar e acordar.',tab:null});
+  }
+  
+  return actions.slice(0,3);
+}
+
+function renderSmartAssistant(){
+  const actions=getSmartSuggestion();
+  if(!actions.length)return'';
+  const h=new Date().getHours();
+  const period=h<9?'🌅 Manhã':h<13?'☀️ Pico de foco':h<15?'😴 Dip pós-almoço':h<18?'🌤 Tarde':h<21?'🌆 Noite':'🌙 Wind-down';
+  const priorityColor={'urgente':'var(--rose)','alta':'var(--ac)','média':'var(--gold)','baixa':'var(--tx3)'};
+  return`<div class="mit-card" style="margin-bottom:10px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+    <div class="mit-label">⚡ O QUE FAZER AGORA</div>
+    <div style="font-size:.65em;color:var(--tx3);font-family:'Share Tech Mono',monospace">${period}</div>
+  </div>
+  ${actions.map((a,i)=>`<div style="display:flex;gap:10px;padding:9px 0;${i<actions.length-1?'border-bottom:1px solid var(--bd)20':''}">
+    <div style="font-size:1.2em;flex-shrink:0">${a.icon}</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:.82em;font-weight:600;color:${priorityColor[a.priority]||'var(--tx)'}">${a.action}</div>
+      <div style="font-size:.68em;color:var(--tx3);margin-top:2px">${a.why}</div>
+    </div>
+    ${a.tab?`<button onclick="go('${a.tab}')" style="background:var(--bg3);border:1px solid var(--bd);border-radius:8px;padding:5px 8px;font-size:.65em;color:var(--tx2);cursor:pointer;white-space:nowrap;flex-shrink:0">Ir →</button>`:''}
+  </div>`).join('')}
+</div>`;
+}
+
 function renderWeek(){const wi=S.view,w=WKS[wi];const{d,t,p}=wDn(S,wi);const tk=tkey();const dm=S.mood[tk];const g=WK_GUIDES[wi];
 const mv=Object.values(S.mood),sv=Object.values(S.sleep).filter(v=>v.h>0);
 const avgM=mv.length?(mv.reduce((a,v)=>a+v,0)/mv.length).toFixed(1):'—';
@@ -1526,6 +1595,8 @@ const avgSl=sv.length?(sv.reduce((a,v)=>a+v.h,0)/sv.length).toFixed(1):'—';
 // Morning briefing
 let h=getMorningBriefing();
 
+// Smart assistant
+h+=renderSmartAssistant();
 // MIT Task
 h+=renderMIT();
 
@@ -2066,28 +2137,53 @@ function spTap(i){if(spPhase!=='input')return;if(spSel.includes(i)){spSel=spSel.
 
 // ════ HEALTH ════
 let convIdx=Math.floor(Math.random()*CONV.length);
+
+function showREMplan(){
+  const inp=document.getElementById('planWake');if(!inp||!inp.value)return;
+  const rem=calcREM(inp.value);if(!rem.length)return;
+  const box=document.getElementById('remPlanBox');if(!box)return;
+  box.innerHTML=`<div class="ibox sci" style="font-size:.72em">
+    <strong>Para acordar às ${inp.value} com energia:</strong><br>
+    ${rem.slice(0,3).map(r=>`<div style="padding:4px 0;border-bottom:1px solid var(--bd)30">
+      <span style="color:var(--ac);font-weight:600">${r.sleep}</span> → dorme ${r.cycles} ciclos de 90min 
+      <span style="font-size:.85em;color:var(--tx3)">(${r.cycles*1.5}h)</span>
+    </div>`).join('')}
+    <div style="margin-top:6px;font-size:.88em;color:var(--tx2)">Cada ciclo = 90min. O ideal é acordar ENTRE ciclos, não no meio de um.</div>
+  </div>`;
+  snd(400,600,.1);
+}
 function renderHealth(){const tk=tkey(),sl=S.sleep[tk]||{h:0,q:0},wt=S.water[tk]||0,bf=S.brainFood[tk]||{},wd=S.windDown[tk]||[],gr=S.gratitude[tk]||['','',''];
 const sleepScore=calcSleepScore();
 document.getElementById('ct').innerHTML=`
-<div class="card fu"><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-  <div><div class="ct2" style="margin-bottom:0">😴 Sono <span class="info-btn" onclick="openHelp('sono')">ⓘ</span></div></div>
-  <div style="margin-left:auto;text-align:center"><div style="font-family:Fraunces,serif;font-size:1.4em;color:${sleepScore>=70?'var(--ac)':sleepScore>=50?'var(--gold)':'var(--rose)'}">${sleepScore}</div><div style="font-size:.58em;color:var(--tx3)">Sleep Score</div></div>
+<div class="card fu">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+  <div><div class="ct2" style="margin-bottom:2px">😴 Sono <span class="info-btn" onclick="openHelp('sono')">ⓘ</span></div>
+  <div style="font-size:.65em;color:var(--tx3)">Regista ao acordar — refere ao sono da noite passada</div></div>
+  <div style="margin-left:auto;text-align:center;background:var(--bg3);border-radius:10px;padding:7px 10px;border:1px solid var(--bd)">
+    <div style="font-family:'Share Tech Mono',monospace;font-size:1.3em;color:${sleepScore>=70?'var(--ac)':sleepScore>=50?'var(--gold)':'var(--rose)'}">${sleepScore}</div>
+    <div style="font-size:.52em;color:var(--tx3)">SLEEP SCORE</div>
+  </div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0">
-<div><label style="font-size:.68em;color:var(--tx3);display:block;margin-bottom:4px">Hora de deitar</label><input type="time" value="${sl.bedtime||''}" oninput="setSleepTime('bedtime',this.value,'${tk}')"/></div>
-<div><label style="font-size:.68em;color:var(--tx3);display:block;margin-bottom:4px">Hora de acordar</label><input type="time" value="${sl.waketime||''}" oninput="setSleepTime('waketime',this.value,'${tk}')"/></div>
+<div class="ibox tip" style="font-size:.72em;margin-bottom:10px">⏰ <strong>Regista de manhã</strong> — quando acordas, preenches a hora que deitaste ontem e a hora que acordaste hoje. O app calcula as horas automaticamente.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+<div><label style="font-size:.68em;color:var(--tx3);display:block;margin-bottom:4px">Deitei (ontem) às</label><input type="time" value="${sl.bedtime||''}" oninput="setSleepTime('bedtime',this.value,'${tk}')"/></div>
+<div><label style="font-size:.68em;color:var(--tx3);display:block;margin-bottom:4px">Acordei hoje às</label><input type="time" value="${sl.waketime||''}" oninput="setSleepTime('waketime',this.value,'${tk}')"/></div>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
-<div><label style="font-size:.68em;color:var(--tx3);display:block;margin-bottom:4px">Ou horas direto</label><input type="number" min="0" max="12" step=".5" value="${sl.h||''}" oninput="setSleep('h',parseFloat(this.value)||0,'${tk}')"/></div>
-<div><label style="font-size:.68em;color:var(--tx3);display:block;margin-bottom:4px">Qualidade (1-5 ⭐)</label><div style="display:flex;gap:3px;margin-top:7px">${[1,2,3,4,5].map(i=>`<span id="star-${i}" style="font-size:1.2em;cursor:pointer;opacity:${sl.q>=i?1:.22};transition:opacity .2s" onclick="setSleep('q',${i},'${tk}')">⭐</span>`).join('')}</div></div>
+${sl.h>0?`<div style="background:var(--bg3);border-radius:10px;padding:10px;margin-bottom:10px;text-align:center;border:1px solid ${sl.h>=(S.sleepGoal||8)?'var(--ac)':'var(--bd)'}"><span style="font-family:'Share Tech Mono',monospace;font-size:1.4em;color:${sl.h>=7?'var(--ac)':sl.h>=6?'var(--gold)':'var(--rose)'};">${sl.h}h</span> <span style="font-size:.72em;color:var(--tx3)">${sl.h>=(S.sleepGoal||8)?'✓ Meta atingida':'⚠️ '+Math.round(((S.sleepGoal||8)-sl.h)*10)/10+'h abaixo da meta'}</span>${(()=>{const debt=calcSleepDebt();return debt>0?` <span style="font-size:.65em;color:var(--rose)">· Dívida acum.: ${debt.toFixed(1)}h</span>`:''})()}</div>`:'<div style="font-size:.72em;color:var(--tx3);margin-bottom:8px;text-align:center">Preenche as horas acima para calcular automaticamente.</div>'}
+<div style="margin-bottom:10px"><label style="font-size:.68em;color:var(--tx3);display:block;margin-bottom:6px">Como foi a qualidade? (toca)</label><div style="display:flex;gap:8px;justify-content:center">${[{v:1,l:'😫 Péssimo'},{v:2,l:'😕 Ruim'},{v:3,l:'😐 OK'},{v:4,l:'🙂 Bom'},{v:5,l:'😄 Ótimo'}].map(({v,l})=>`<div onclick="setSleep('q',${v},'${tk}')" style="flex:1;text-align:center;padding:7px 3px;border-radius:9px;border:2px solid ${sl.q===v?'var(--ac)':'var(--bd)'};background:${sl.q===v?'#00D4FF15':'var(--bg3)'};cursor:pointer;transition:all .18s"><div style="font-size:.9em">${l.split(' ')[0]}</div><div style="font-size:.48em;color:var(--tx3);margin-top:2px">${l.split(' ')[1]}</div></div>`).join('')}</div></div>
+<div style="border-top:1px solid var(--bd);padding-top:10px;margin-bottom:8px">
+  <div style="font-size:.68em;color:var(--tx3);margin-bottom:8px">🔍 O quê afectou o teu sono esta noite? <span class="info-btn" onclick="openHelp('sleepfactors')">ⓘ</span></div>
+  ${renderSleepFactors()}
 </div>
-<div style="font-size:.72em;color:${sl.h>=7?'var(--ac)':'var(--tx3)'}">
-  ${sl.h>0?sl.h+'h · '+(sl.h>=(S.sleepGoal||8)?'✓ Na meta':'⚠️ '+Math.round(((S.sleepGoal||8)-(sl.h||0))*10)/10+'h abaixo'):''}
-  ${(()=>{const debt=calcSleepDebt();return debt>0?`<span style="color:var(--rose)"> · Dívida 7d: ${debt.toFixed(1)}h</span>`:'';})()}
+${sl.h>0?renderMoodCorrelation():''}
+<div style="border-top:1px solid var(--bd);padding-top:10px;margin-top:4px">
+  <div style="font-size:.68em;color:var(--tx3);margin-bottom:7px">🌙 <strong>Planear esta noite</strong> — A que horas queres acordar amanhã?</div>
+  <div style="display:flex;gap:6px;align-items:center;margin-bottom:6px">
+    <input type="time" id="planWake" style="margin:0;flex:1" placeholder="Hora acordar amanhã"/>
+    <button class="btn ac" style="font-size:.72em;padding:7px 10px;white-space:nowrap" onclick="showREMplan()">Ver ciclos →</button>
+  </div>
+  <div id="remPlanBox"></div>
 </div>
-${(()=>{if(!sl.waketime)return'';const rem=calcREM(sl.waketime);if(!rem.length)return'';return`<div class="ibox sci" style="margin-top:8px;font-size:.72em"><strong>⏰ Calculadora REM</strong> — Para acordar às ${sl.waketime}:<br>${rem.map(r=>`${r.sleep} → ${r.cycles} ciclos`).join(' · ')}</div>`})()}
-${renderSleepFactors()}
-${renderMoodCorrelation()}
 <button class="btn" style="margin-top:10px;font-size:.72em;width:100%" onclick="openPowernap()">💤 Powernap 20min</button></div>
 
 <div class="card fu"><div class="ct2">💧 Hidratação — ${wt}/8 copos <span class="info-btn" onclick="openHelp('mood')">ⓘ</span></div>
@@ -2296,7 +2392,18 @@ if(reply.includes('**')){const facts=reply.match(/\*\*([^*]{5,60})\*\*/g)?.slice
     if(p==='anthropic'){const r2=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:PROVIDERS.anthropic.model,max_tokens:600,system:getSysPr(),messages:S.aiHistory.map(m=>({role:m.role,content:m.content}))})});const d2=await r2.json();reply2=d2.content?.[0]?.text||''}
     if(reply2){S.aiHistory.push({role:'assistant',content:reply2});S.aiChats=(S.aiChats||0)+1;save()}
     else throw err;
-  }catch(err2){S.aiHistory.push({role:'assistant',content:'⚠️ Erro: '+err2.message+'. Verifica a API Key e a ligação.'});save()}
+  }catch(err2){let errMsg=err2.message||'';
+    let errHtml='';
+    if(errMsg.includes('quota')||errMsg.includes('Quota')||errMsg.includes('exceeded')){
+      errHtml='⚠️ <strong>Quota gratuita esgotada no Gemini.</strong><br><br>Soluções:<br>1. Aguarda até amanhã (quota renova diariamente)<br>2. Cria uma nova chave em <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--ac)">aistudio.google.com</a><br>3. Muda para Anthropic ou OpenAI (se tiveres chave)';
+    } else if(errMsg.includes('API key')||errMsg.includes('api_key')||errMsg.includes('invalid')){
+      errHtml='⚠️ <strong>Chave API inválida.</strong><br>Verifica que copiaste a chave completa sem espaços.';
+    } else if(errMsg.includes('network')||errMsg.includes('fetch')){
+      errHtml='⚠️ <strong>Sem ligação à internet.</strong><br>Verifica a conexão e tenta novamente.';
+    } else {
+      errHtml='⚠️ Erro: '+errMsg.slice(0,120);
+    }
+    S.aiHistory.push({role:'assistant',content:errHtml});save()}
 }
 if(btn){btn.textContent='↑';btn.disabled=false}const box2=document.getElementById('chatBox');if(box2){box2.innerHTML=renderChat();box2.scrollTop=box2.scrollHeight}}
 
@@ -2611,7 +2718,7 @@ function renderAcademia(){
   </div>
 </div>
 <div class="card">
-  <div class="ct2">📖 REFERÊNCIAS</div>
+  <div class="ct2">📖 REFERÊNCIAS <span class="info-btn" onclick="openHelp('refs')">ⓘ</span></div><div style="font-size:.72em;color:var(--tx3);margin-bottom:10px">Estas são as obras e estudos científicos nos quais o CortexOS é baseado. Tudo que o app ensina vem destas fontes reais — não é inventado.</div>
   <div style="font-size:.77em;color:var(--tx2);line-height:2">
     ${[['Matthew Walker','Why We Sleep (2017)'],['Andrew Huberman','Huberman Lab Podcast'],['Robert Sapolsky','Why Zebras Don\'t Get Ulcers'],['Mihaly Csikszentmihalyi','Flow (1990)'],['Kirk Erickson','Hippocampus growth study (2011)'],['Cal Newport','Deep Work (2016)'],['Anna Lembke','Dopamine Nation (2021)'],['John Ratey','Spark (2008)'],['Sara Lazar','Meditação e espessamento cortical (2005)'],['Harvard Study','Adult Development (85 anos)']].map(([a,b])=>`<div style="display:flex;gap:6px;padding:5px 0;border-bottom:1px solid var(--bd)"><span style="color:var(--ac);font-weight:500;min-width:140px">${a}</span><span style="color:var(--tx3)">${b}</span></div>`).join('')}
   </div>
