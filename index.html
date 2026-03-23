@@ -1895,7 +1895,7 @@ function delGoal(i){if(confirm('Remover objetivo?')){S.goals_data.splice(i,1);sa
 let fcIdx=S.fcIdx||0,fcFlip=false;
 function renderFC(){const card=BFACTS[fcIdx];return`<div style="perspective:1000px"><div style="background:${fcFlip?'var(--bg3)':'#4FC3A115'};border:1px solid ${fcFlip?'var(--bd)':'#4FC3A140'};border-radius:var(--r);padding:16px;min-height:105px;cursor:pointer;transition:all .2s;margin-bottom:9px" onclick="flipFC()"><div style="font-size:.62em;letter-spacing:2px;color:${fcFlip?'var(--tx3)':'var(--ac)'};text-transform:uppercase;margin-bottom:7px">${fcFlip?'Resposta ▼':'Pergunta ▲'}</div><p style="font-family:Fraunces,serif;font-size:${fcFlip?.82:.92}em;font-weight:300;line-height:1.7;color:${fcFlip?'var(--tx2)':'var(--tx)'}">${fcFlip?card.a:card.q}</p></div></div><div style="display:flex;gap:8px;justify-content:space-between"><span style="font-size:.68em;color:var(--tx3)">${fcIdx+1}/${BFACTS.length}</span><div style="display:flex;gap:7px"><button class="btn" style="font-size:.72em" onclick="prevFC()">← Anterior</button><button class="btn ac" style="font-size:.72em" onclick="nextFC()">Próximo →</button></div></div>`}
 function flipFC(){fcFlip=!fcFlip;const fw=document.getElementById('fcWrap');if(fw)fw.innerHTML=renderFC()}
-function nextFC(){fcIdx=(fcIdx+1)%BFACTS.length;fcFlip=false;S.fcIdx=fcIdx;save();const fw=document.getElementById('fcWrap');if(fw)fw.innerHTML=renderFC()}
+function nextFC(){acadFcIdx=(acadFcIdx+1)%BFACTS.length;fcFlip=false;S.fcIdx=fcIdx;save();const fw=document.getElementById('fcWrap');if(fw)fw.innerHTML=renderFC()}
 function prevFC(){fcIdx=(fcIdx-1+BFACTS.length)%BFACTS.length;fcFlip=false;S.fcIdx=fcIdx;save();const fw=document.getElementById('fcWrap');if(fw)fw.innerHTML=renderFC()}
 
 function openWeekReport(){const days=Object.keys(S.sleep||{}).filter(d=>{const dd=new Date(d);const now=new Date();return(now-dd)<7*86400000}).sort();const avgSl=days.length?days.reduce((a,k)=>a+(S.sleep[k]?.h||0),0)/days.length:0;const avgMd=days.length?days.reduce((a,k)=>a+(S.mood[k]!==undefined?S.mood[k]:2),0)/days.length:2;const sc=calcScore();const grade=sc>=90?'A+':sc>=80?'A':sc>=70?'B':sc>=60?'C':sc>=50?'D':'E';const html=`<div class="report"><div style="font-size:.55em;letter-spacing:4px;color:var(--ac);text-transform:uppercase;margin-bottom:10px">Relatório Semanal</div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:12px"><div><div style="font-family:Fraunces,serif;font-size:2.5em;font-weight:300;color:var(--ac)">${grade}</div><div style="font-size:.65em;color:var(--tx3)">Nota geral</div></div><div><div style="font-family:Fraunces,serif;font-size:2em;font-weight:300;color:var(--gold)">🔥${S.streak}</div><div style="font-size:.65em;color:var(--tx3)">Dias streak</div></div></div><div style="display:flex;flex-direction:column;gap:5px"><div style="font-size:.78em;color:var(--tx2)">😴 Sono médio: <strong>${avgSl.toFixed(1)}h</strong></div><div style="font-size:.78em;color:var(--tx2)">😊 Humor médio: <strong>${MOODS[Math.round(avgMd)]} ${MLBL[Math.round(avgMd)]}</strong></div><div style="font-size:.78em;color:var(--tx2)">⏱ Pomodoros: <strong>${S.pomT||0}</strong></div><div style="font-size:.78em;color:var(--tx2)">💪 Treinos: <strong>${S.workoutDays||0}</strong></div><div style="font-size:.78em;color:var(--tx2)">🏅 Conquistas: <strong>${S.unlocked?.length||0}/${ACH.length}</strong></div></div></div>`;openModal('📊 Relatório Semanal',html)}
@@ -2173,19 +2173,19 @@ function answerQuiz(chosen,correct){
   setTimeout(()=>{quizIdx++;const qb=document.getElementById('quizBox');if(qb)qb.innerHTML=renderQuiz()},2000)
 }
 
-// ════ FLASHCARDS ════
-let fcIdx=0,fcFlipped=false;
+// ════ FLASHCARDS (Academia) ════
+let acadFcIdx=0,acadFcFlipped=false;
 function renderFlashcardBox(){
   if(!S.flashcards?.length)return`<div style="font-size:.78em;color:var(--tx3);text-align:center;padding:12px">Nenhum flashcard ainda. Adiciona abaixo! ⬇️</div>`;
-  const fc=S.flashcards[fcIdx%S.flashcards.length];
+  const fc=S.flashcards[acadFcIdx%S.flashcards.length];
   return`<div class="fc-wrap" onclick="flipCard()">
-  <div class="fc-card ${fcFlipped?'flipped':''}" id="fcCard">
+  <div class="fc-card ${acadFcFlipped?'flipped':''}" id="fcCard">
     <div class="fc-front"><div style="font-size:.65em;color:var(--tx3);margin-bottom:8px">❓ FRENTE — toca para ver resposta</div><div class="fc-q">${fc.q}</div></div>
     <div class="fc-back"><div style="font-size:.65em;color:var(--ac);margin-bottom:8px">✓ RESPOSTA</div><div class="fc-a">${fc.a}</div></div>
   </div>
 </div>
 <div style="display:flex;gap:6px;justify-content:center;margin-top:8px">
-  <span style="font-size:.65em;color:var(--tx3)">${fcIdx+1}/${S.flashcards.length}</span>
+  <span style="font-size:.65em;color:var(--tx3)">${acadFcIdx+1}/${S.flashcards.length}</span>
 </div>
 <div class="fc-conf">
   <button class="btn" style="font-size:.72em;border-color:var(--rose);color:var(--rose)" onclick="fcScore(0)">😕 Difícil</button>
@@ -2193,8 +2193,8 @@ function renderFlashcardBox(){
   <button class="btn" style="font-size:.72em;border-color:var(--ac);color:var(--ac)" onclick="fcScore(2)">✅ Fácil</button>
 </div>`;
 }
-function flipCard(){fcFlipped=!fcFlipped;const el=document.getElementById('fcCard');if(el){el.classList.toggle('flipped',fcFlipped);snd(fcFlipped?600:400,fcFlipped?700:300,.08)}}
-function fcScore(score){fcFlipped=false;if(score===2)addXP(10);else if(score===1)addXP(5);fcIdx=(fcIdx+1)%(S.flashcards?.length||1);const fb=document.getElementById('fcBox');if(fb)fb.innerHTML=renderFlashcardBox();toast(score===2?'✅ Fácil! +10 XP':score===1?'🤔 Ok +5 XP':'😕 Revejas em breve')}
+function flipCard(){acadFcFlipped=!acadFcFlipped;const el=document.getElementById('fcCard');if(el){el.classList.toggle('flipped',acadFcFlipped);snd(acadFcFlipped?600:400,acadFcFlipped?700:300,.08)}}
+function fcScore(score){acadFcFlipped=false;if(score===2)addXP(10);else if(score===1)addXP(5);acadFcIdx=(acadFcIdx+1)%(S.flashcards?.length||1);const fb=document.getElementById('fcBox');if(fb)fb.innerHTML=renderFlashcardBox();toast(score===2?'✅ Fácil! +10 XP':score===1?'🤔 Ok +5 XP':'😕 Revejas em breve')}
 function addFlashcard(){const q=document.getElementById('fcQ')?.value?.trim(),a=document.getElementById('fcA')?.value?.trim();if(!q||!a)return;S.flashcards=S.flashcards||[];S.flashcards.push({q,a,date:tkey(),score:0});save();addXP(5);document.getElementById('fcQ').value='';document.getElementById('fcA').value='';const fb=document.getElementById('fcBox');if(fb)fb.innerHTML=renderFlashcardBox();toast('📇 Flashcard adicionado! +5 XP')}
 
 // ════ MORNING BRIEFING ════
@@ -2454,9 +2454,9 @@ function endDNB(){
 
 // ════ WORD COUNT DIARY ════
 function renderWordCountJournal(){
-  const tk=tkey();const prev=S.journal['prev7']||[];
+  const tk=tkey();const ago7=new Date(Date.now()-7*86400000).toISOString().split('T')[0];const prev=S.journal[ago7]||'';
   return`<div class="card fu"><div class="ct2">📝 Diário <span class="info-btn" onclick="openKnowledge('sleep')">ⓘ</span><span class="wc-badge" id="wcDiary">0 palavras</span></div>
-${prev.length?`<div class="ibox tip" style="font-size:.72em;margin-bottom:8px"><strong>Há 7 dias escreveste:</strong> "${prev.slice(0,80)}..."</div>`:''}
+${prev?`<div class="ibox tip" style="font-size:.72em;margin-bottom:8px"><strong>Há 7 dias escreveste:</strong> "${prev.slice(0,80)}..."</div>`:''}
 <div style="font-size:.68em;color:var(--tx3);margin-bottom:5px">Prompt: <em>${getDiaryPrompt()}</em></div>
 <textarea class="jarea" id="journalIn" placeholder="O teu espaço para escrever..." oninput="updateWC(this.value,'${tk}')">${S.journal[tk]||''}</textarea>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:5px">
@@ -2555,6 +2555,8 @@ function toggleVoice(inputId){
 function checkMorningBriefing(){const h=new Date().getHours();const tk=tkey();if(h>=5&&h<10&&!S.morningBriefingShown?.[tk]){S.morningBriefingShown=S.morningBriefingShown||{};S.morningBriefingShown[tk]=true;save();// Show in home page
 }}
 
+// ════ GREETING ════
+function updateGreeting(){
   const h=new Date().getHours();const g=h<5?'Boa madrugada':h<12?'Bom dia':h<18?'Boa tarde':'Boa noite';
   const d=document.getElementById('greetLbl');
   const today=new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
