@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"/>
-<title>CortexOS</title>
+<title>CortexOS v14</title>
 <link rel="manifest" href="manifest.json"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,500;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 <style>
@@ -388,6 +388,99 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .pop{animation:pop .2s ease}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 .shake{animation:shake .3s ease}
+
+/* ══ V14 IMPROVEMENTS ══ */
+
+/* Better glassmorphism cards */
+.card{backdrop-filter:blur(8px);transition:transform .18s,box-shadow .18s}
+.card:active{transform:translateY(1px)}
+
+/* Improved score ring glow */
+.ring-fill{filter:drop-shadow(0 0 6px var(--ac))}
+
+/* Animated gradient background for onboarding */
+.ob{background:radial-gradient(ellipse at 20% 80%,#00D4FF08 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,#4F8BFF08 0%,transparent 50%),var(--bg)}
+
+/* Better button press feel */
+.btn:active,.ib:active,.sav:active{transform:scale(.94);transition:transform .08s}
+
+/* Smoother nav transitions */
+.ni{transition:color .2s,transform .18s}
+.ni.on .nic{transform:scale(1.15);display:inline-block;transition:transform .2s}
+
+/* Better input focus */
+input:focus,textarea:focus{box-shadow:0 0 0 2px #00D4FF20;transition:border .2s,box-shadow .2s}
+
+/* Improved modal */
+.modal{animation:slideUp .3s cubic-bezier(.34,1.2,.64,1)}
+@keyframes slideUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* Better toast */
+.toast{backdrop-filter:blur(12px);background:#0D1018EE;font-weight:500}
+
+/* Streak fire animation */
+@keyframes firePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.fire-active{animation:firePulse 1.2s ease-in-out infinite}
+
+/* Habit completion burst */
+@keyframes burstIn{0%{transform:scale(0) rotate(-20deg);opacity:0}70%{transform:scale(1.25) rotate(5deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+.burst{animation:burstIn .35s cubic-bezier(.34,1.56,.64,1)}
+
+/* Brain Score card */
+.score-bar{background:linear-gradient(135deg,var(--bg2),#00D4FF04);transition:background .5s}
+
+/* MIT card glow when done */
+.mit-done-glow{box-shadow:0 0 20px #00D4FF15,0 2px 8px #00000040}
+
+/* Better tabs scroll */
+.tabs{-webkit-overflow-scrolling:touch}
+.tbtn.on{background:#00D4FF18;color:var(--ac);border-color:var(--ac)}
+
+/* Coach card improvements */
+.ai-bub{border-radius:4px 14px 14px 14px}
+.user-bub{border-radius:14px 4px 14px 14px}
+
+/* Provider button improved */
+.provider-btn.on{box-shadow:0 0 12px #00D4FF20}
+
+/* Health section water drops */
+.water-drop{transition:all .2s cubic-bezier(.34,1.56,.64,1)}
+.water-drop.filled{filter:drop-shadow(0 0 4px #4F8BFF60)}
+
+/* Stats improvements */
+.sc{transition:transform .15s,box-shadow .15s;cursor:default}
+.sc:hover{transform:translateY(-2px);box-shadow:0 4px 16px #00000030}
+
+/* Achievement unlock animation */
+@keyframes achUnlock{0%{transform:scale(.5) rotate(-15deg);opacity:0}60%{transform:scale(1.2) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+.ach-item.ul{animation:achUnlock .5s cubic-bezier(.34,1.56,.64,1)}
+
+/* Better heatmap */
+.hcell{transition:transform .12s,background .3s;cursor:pointer}
+.hcell:hover{transform:scale(1.3)}
+
+/* Scroll padding for nav */
+.ct{scroll-behavior:smooth}
+
+/* Improved guide steps */
+.guide-num{box-shadow:0 0 10px #00D4FF40}
+
+/* Offline coach mode badge */
+.offline-badge{background:linear-gradient(90deg,#00D4FF20,#4F8BFF20);border:1px solid #00D4FF30;border-radius:20px;padding:3px 10px;font-size:.65em;color:var(--ac);display:inline-flex;align-items:center;gap:4px}
+
+/* Typing animation for coach */
+@keyframes typingBounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-4px)}}
+.ai-dot{animation:typingBounce 1.2s infinite}
+
+/* Quick action buttons */
+.quick-action{background:linear-gradient(135deg,var(--bg2),var(--bg3));border:1px solid var(--bd);border-radius:12px;padding:10px;cursor:pointer;transition:all .18s;text-align:center}
+.quick-action:active{transform:scale(.95);border-color:var(--ac)}
+.quick-action-icon{font-size:1.4em;margin-bottom:4px}
+.quick-action-label{font-size:.62em;color:var(--tx3);font-weight:500;letter-spacing:.5px}
+
+/* DAILY WISDOM improved */
+.wisdom-card{background:linear-gradient(135deg,#0D1A2A,#071018);border:1px solid #00D4FF20;border-radius:var(--r);padding:14px;margin-bottom:10px;position:relative;overflow:hidden}
+.wisdom-card::before{content:'';position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle,#00D4FF10,transparent);pointer-events:none}
 </style>
 </head>
 <body>
@@ -422,10 +515,10 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
       </svg>
     </div>
     <h1 style="font-family:'Share Tech Mono',monospace;font-size:1.7em;font-weight:400;letter-spacing:3px;margin-bottom:4px">Cortex<span style="color:#00D4FF">OS</span></h1>
-    <p style="font-size:.6em;color:var(--tx3);letter-spacing:3px;margin-bottom:14px;font-family:'Share Tech Mono',monospace">v13.0 // NEURAL PROTOCOL</p>
+    <p style="font-size:.6em;color:var(--tx3);letter-spacing:3px;margin-bottom:14px;font-family:'Share Tech Mono',monospace">v14.0 // NEURAL PROTOCOL</p>
     <p style="font-size:.78em;color:var(--tx2);line-height:1.7;margin-bottom:18px;max-width:270px;text-align:center">Sistema operativo para o teu cérebro. 6 semanas · Coach IA · Ciência aplicada.</p>
     <input id="obName" placeholder="identificar utilizador..." style="max-width:250px;text-align:center;margin-bottom:12px;font-family:'Share Tech Mono',monospace;letter-spacing:1px"/>
-    <button class="btn ac" style="border-radius:8px;padding:11px 26px;font-family:'Share Tech Mono',monospace;letter-spacing:2px;font-size:.8em" onclick="obNext(1)">INICIAR →</button>
+    <button class="btn ac" style="border-radius:8px;padding:11px 26px;font-family:'Share Tech Mono',monospace;letter-spacing:2px;font-size:.8em" onclick="obNext(1)">INICIAR PROTOCOLO →</button>
   </div>
   <div class="ob-step" id="ob2">
     <div style="font-size:2em;margin-bottom:10px">🎯</div>
@@ -480,7 +573,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
       </div>
     </div>
   </div>
-  <div class="score-bar">
+  <div class="score-bar" id="scorePulse">
     <div class="ring-wrap">
       <svg class="ring-svg" width="46" height="46" viewBox="0 0 46 46">
         <circle class="ring-bg" cx="23" cy="23" r="19"/>
@@ -2320,6 +2413,93 @@ function renderReadings(){const tk=tkey();const r=S.readingLog?.[tk]||[];if(!r.l
 function addReading(){const b=document.getElementById('bookIn')?.value?.trim(),p=parseInt(document.getElementById('pagesIn')?.value)||0;if(!b||!p)return;const tk=tkey();S.readingLog=S.readingLog||{};S.readingLog[tk]=S.readingLog[tk]||[];S.readingLog[tk].push({book:b,pages:p,time:ptTime()});save();addXP(p>=10?15:5);document.getElementById('bookIn').value='';document.getElementById('pagesIn').value='';const rl=document.getElementById('readList');if(rl)rl.innerHTML=renderReadings();toast('📚 +'+p+' páginas!')}
 function setSun(v,tk){S.sunLog=S.sunLog||{};S.sunLog[tk]=parseInt(v)||0;save();if(S.sunLog[tk]>=10)addXP(10);renderHealth()}
 
+
+// ════ OFFLINE AI COACH (sem API Key) ════
+const OFFLINE_COACH_RESPONSES = {
+  'sono': (ctx) => {
+    const h = ctx.sleepH || 0;
+    const q = ctx.sleepQ || 0;
+    if (h >= 7 && q >= 4) return `**Sono excelente!** ${h}h com qualidade ${q}/5 — estás a optimizar a consolidação de memória REM.\n\nMantém o horário fixo, mesmo ao fim de semana. O ritmo circadiano leva 3+ dias para ajustar, e qualquer variação reduz eficiência do sono profundo.\n\n**Próxima optimização:** 18-20°C no quarto + modo avião 30min antes = +15% de sono profundo.`;
+    if (h >= 6) return `**${h}h de sono** é razoável, mas ainda abaixo do ideal de 7-9h para desempenho cognitivo.\n\n**Impacto real:** Cada hora de déficit reduz a velocidade de processamento do córtex pré-frontal em ~10%.\n\n**Acção imediata:** Deita 30min mais cedo amanhã. Não precisas mudar tudo — pequenos avanços consistentes funcionam.`;
+    return `**Atenção: ${h}h é insuficiente.** O hipocampo precisa de sono REM para consolidar memórias. Com menos de 6h, o sistema glinfático não consegue limpar proteínas tóxicas acumuladas.\n\n**Plano de 7 dias:**\n1. Horário fixo de deitar (mesmo hora todos os dias)\n2. Modo avião 30min antes\n3. Quarto escuro e fresco (18-20°C)\n\n**Meta esta semana:** atingir 6h30 consistente — depois aumenta 15min/semana.`;
+  },
+  'foco': (ctx) => {
+    const pom = ctx.pom || 0;
+    const score = ctx.score || 0;
+    if (pom >= 4) return `**${pom} Pomodoros hoje — muito bem!** Estás a construir o músculo da atenção.\n\n**Próximo nível:** Tenta blocos de 50min quando estiveres aquecido. O ultradianos rhythm do cérebro tem picos de 90min — explorar isso multiplica a produção.\n\nDica: escreve a intenção de cada sessão antes de começar. Activa o córtex pré-frontal para filtrar distractores automaticamente.`;
+    if (pom >= 1) return `**${pom} Pomodoro(s) — bom início!** Consistência diária > sessões longas ocasionais.\n\n**O que está a funcionar:** Estás a criar o hábito de foco. A neuroplasticidade opera em repetição.\n\n**Desafio desta semana:** ${pom + 2} Pomodoros por dia. Aumenta gradualmente — o CPF adapta-se melhor a desafios progressivos.`;
+    return `**0 Pomodoros hoje.** Não é julgamento — é informação.\n\n**A barreira mais comum:** começar. O cérebro resiste a tarefas difíceis porque antecipa desconforto.\n\n**Acção agora:** Abre o timer por 10 minutos. Só 10. Se quiseres parar depois, podes. Geralmente não vais querer.`;
+  },
+  'agua': (ctx) => {
+    const w = ctx.water || 0;
+    if (w >= 8) return `**Hidratação excelente!** ${w}/8 copos — o teu cérebro opera a 100% de eficiência hídrica.\n\nDesidratação de apenas 2% reduz performance cognitiva em 10-20%. Estás a evitar isso.\n\n**Bónus:** água consistente melhora qualidade do sono e reduz dores de cabeça por tensão muscular.`;
+    if (w >= 5) return `**${w}/8 copos** — quase lá! Faltam ${8-w} copos para atingir a meta.\n\n**Estratégia:** 1 copo ao acordar (o corpo desidrata 200-400ml durante o sono), 1 antes de cada refeição, 1 antes do treino.\n\nO reminder de água no app pode ajudar — activa nas Configurações.`;
+    return `**${w}/8 copos** — o teu cérebro pode estar a operar abaixo do potencial por desidratação.\n\n**Agora mesmo:** bebe 1 copo antes de continuar.\n\n**Sistema simples:** garrafa de 500ml → bebe 4x por dia = meta atingida sem pensar.`;
+  },
+  'treino': (ctx) => {
+    const streak = ctx.streak || 0;
+    return `**Plano de treino CortexOS** — Calistenia + neurofitness.\n\n**Os teus dados:** ${streak} dias de streak.\n\n**O segredo da progressão:**\n• **Semanas 1-2:** Forma correcta > repetições\n• **Semanas 3-4:** Adiciona 1-2 reps por série\n• **Semanas 5-6:** Variações mais difíceis\n\n**BDNF** (proteína do crescimento neuronal) aumenta 2-3x com exercício aeróbico moderado. Cardio + força = combo máximo para o cérebro.\n\nO descanso é treino — músculos crescem na recuperação, não durante o exercício.`;
+  },
+  'estudo': (ctx) => {
+    return `**Sistema de aprendizagem de alta performance:**\n\n**1. Active Recall** (3x mais eficaz que releitura)\n→ Fecha o livro e recita de memória. Erro = aprendizagem.\n\n**2. Espaçamento (Ebbinghaus)**\n→ Revê em: 1 dia, 3 dias, 1 semana, 1 mês\n\n**3. Interleaving**\n→ Alterna entre matérias em vez de estudar uma por horas\n\n**4. Sono após estudo**\n→ O hipocampo consolida durante o sono REM\n\n**Regra de ouro:** 45min de estudo activo > 3h de leitura passiva.`;
+  },
+  'motivacao': (ctx) => {
+    const streak = ctx.streak || 0;
+    const level = ctx.level || 1;
+    const name = ctx.name || 'amigo';
+    if (streak >= 7) return `**${name}, ${streak} dias de streak.** Isso não é motivação — é identidade. Estás a tornar-te alguém diferente.\n\nA motivação é volátil. O que te trouxe até aqui foi **decisão + sistema**. Continua o sistema mesmo quando não sentires motivação — é exactamente nesses dias que o hábito se forja.\n\n**Nível ${level}** — cada ponto de XP é evidência de quem és.`;
+    return `**${name}, o início é o mais difícil.** O teu cérebro resiste a novos padrões — é biologia, não fraqueza.\n\n**Verdade inconfortável:** Motivação segue acção, não precede. Age primeiro — o "querer" vem depois.\n\n**Hoje:** 1 tarefa. Só 1. Completa ela e o sistema toma conta do resto. Streak começa com 1 dia.\n\n**Visão de 6 semanas:** não estás a mudar comportamentos — estás a instalar um novo sistema operativo.`;
+  },
+  'analise': (ctx) => {
+    const score = ctx.score || 0;
+    const streak = ctx.streak || 0;
+    const h = ctx.sleepH || 0;
+    const w = ctx.water || 0;
+    const pom = ctx.pom || 0;
+    const level = ctx.level || 1;
+    
+    let recs = [];
+    if (h < 7) recs.push(`**Sono (prioridade #1):** ${h}h → meta 7h. Deita 30min mais cedo esta semana.`);
+    if (w < 6) recs.push(`**Hidratação:** ${w}/8 copos. 1 copo ao acordar + 1 antes de cada refeição.`);
+    if (pom < 3) recs.push(`**Foco:** ${pom} Pomodoros → meta 3/dia. Usa o timer na aba Foco.`);
+    if (recs.length === 0) recs.push('**Excelente semana!** Mantém a consistência — é a variável mais importante.');
+    
+    return `**Análise do teu progresso — Nível ${level} | ${streak} dias de streak | Brain Score ${score}%**\n\n**Top ${recs.length} recomendações:**\n${recs.map((r,i)=>`${i+1}. ${r}`).join('\n')}\n\n**O que está a funcionar:** streak de ${streak} dias mostra consistência real. Continua — a 66 dias os hábitos tornam-se automáticos.`;
+  }
+};
+
+function getOfflineResponse(msg, ctx) {
+  const m = msg.toLowerCase();
+  if (m.includes('sono') || m.includes('dormir') || m.includes('sleep')) return OFFLINE_COACH_RESPONSES['sono'](ctx);
+  if (m.includes('foco') || m.includes('concentr') || m.includes('pomodoro') || m.includes('distrac')) return OFFLINE_COACH_RESPONSES['foco'](ctx);
+  if (m.includes('água') || m.includes('agua') || m.includes('hidrat')) return OFFLINE_COACH_RESPONSES['agua'](ctx);
+  if (m.includes('treino') || m.includes('exerc') || m.includes('muscula')) return OFFLINE_COACH_RESPONSES['treino'](ctx);
+  if (m.includes('estud') || m.includes('aprend') || m.includes('memor')) return OFFLINE_COACH_RESPONSES['estudo'](ctx);
+  if (m.includes('motiv') || m.includes('animo') || m.includes('continuar') || m.includes('desistir')) return OFFLINE_COACH_RESPONSES['motivacao'](ctx);
+  if (m.includes('analis') || m.includes('progresso') || m.includes('semana') || m.includes('recomend')) return OFFLINE_COACH_RESPONSES['analise'](ctx);
+  
+  // Generic response with user data
+  const score = ctx.score || 0;
+  const streak = ctx.streak || 0;
+  return `**Coach CortexOS** aqui! Analisei os teus dados:\n\n📊 Brain Score: ${score}% | 🔥 Streak: ${streak} dias | Nível ${ctx.level||1}\n\nPodes perguntar-me sobre: **sono**, **foco**, **água**, **treino**, **estudo** ou pedir uma **análise semanal**. Estou aqui para te ajudar com base nos teus dados reais!`;
+}
+
+function buildOfflineCtx() {
+  const tk = tkey();
+  return {
+    name: S.name || 'amigo',
+    score: calcScore(),
+    streak: S.streak || 0,
+    level: S.level || 1,
+    sleepH: S.sleep[tk]?.h || 0,
+    sleepQ: S.sleep[tk]?.q || 0,
+    water: S.water[tk] || 0,
+    pom: S.pomT || 0,
+    mood: S.mood[tk],
+    xp: S.xp || 0
+  };
+}
+
 // ════ AI COACH — Multi-provider ════
 // AI MODES
 const AI_MODES={
@@ -2343,9 +2523,10 @@ document.getElementById('ct').innerHTML=`
   <div style="display:flex;gap:6px;margin-bottom:10px">
     ${Object.entries(PROVIDERS).map(([id,pr])=>`<div class="provider-btn ${p===id?'on':''}" style="${p===id?'border-color:'+pr.color+';color:'+pr.color:'color:var(--tx3)'}" onclick="setProvider('${id}')">${pr.name.split(' ')[0]}</div>`).join('')}
   </div>
-  <div style="font-size:.7em;color:var(--tx3);margin-bottom:7px">🔑 API Key — <a href="${getKeyUrl(p)}" target="_blank" style="color:var(--ac);text-decoration:none">Obter gratuitamente →</a></div>
-  <div style="display:flex;gap:6px"><input id="apiKeyIn" type="password" placeholder="Cole aqui a tua chave..." value="${keys[p]||''}" style="margin:0;font-size:.8em"/><button class="btn ac" style="padding:7px 10px;font-size:.7em;white-space:nowrap;flex-shrink:0" onclick="saveApiKey()">💾</button></div>
-  ${keys[p]?`<div style="font-size:.65em;color:var(--ac);margin-top:5px">✓ Chave guardada · ${p==='anthropic'?'console.anthropic.com':p==='gemini'?'aistudio.google.com':'platform.openai.com'}</div>`:``}
+  <div class="offline-badge" style="margin-bottom:8px">⚡ Modo Offline Activo — Coach baseado nos teus dados (sem API Key)</div>
+  <div style="font-size:.7em;color:var(--tx3);margin-bottom:7px">🔑 API Key <em>(opcional)</em> — potencia o Coach com IA real: <a href="${getKeyUrl(p)}" target="_blank" style="color:var(--ac);text-decoration:none">Obter →</a></div>
+  <div style="display:flex;gap:6px"><input id="apiKeyIn" type="password" placeholder="Cole aqui a chave para IA avançada..." value="${keys[p]||''}" style="margin:0;font-size:.8em"/><button class="btn ac" style="padding:7px 10px;font-size:.7em;white-space:nowrap;flex-shrink:0" onclick="saveApiKey()">💾</button></div>
+  ${keys[p]?`<div style="font-size:.65em;color:var(--ac);margin-top:5px">✓ Chave activa · IA completa activada</div>`:`<div style="font-size:.65em;color:var(--tx3);margin-top:5px">Sem chave: Coach offline com os teus dados. Com chave: IA completa.</div>`}
 </div>
 <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
   ${Object.entries(AI_MODES).map(([k,m])=>`<button class="btn ${(S.aiMode||'coach')===k?'ac':''}" style="font-size:.68em" onclick="S.aiMode='${k}';save();renderCoach()">${m.icon} ${m.name}</button>`).join('')}
@@ -2362,14 +2543,28 @@ function getKeyUrl(p){return{anthropic:'https://console.anthropic.com',gemini:'h
 function setProvider(id){S.aiProvider=id;save();renderCoach();toast('Provider: '+PROVIDERS[id].name)}
 function saveApiKey(){const k=document.getElementById('apiKeyIn')?.value?.trim();if(!k){toast('⚠️ Cola a chave!');return}S.apiKeys=S.apiKeys||{};S.apiKeys[S.aiProvider||'anthropic']=k;save();renderCoach();toast('✅ Chave guardada!')}
 function quickAI(q){const el=document.getElementById('aiIn');if(el)el.value=q;sendAI()}
-function renderChat(){if(!S.aiHistory?.length)return`<div style="text-align:center;color:var(--tx3);font-size:.78em;padding:20px 10px">Olá ${S.name||'amigo'}! Sou o teu Coach IA. Faz-me uma pergunta ou usa os atalhos acima.</div>`;return S.aiHistory.map(m=>m.role==='user'?`<div style="display:flex;justify-content:flex-end"><div class="user-bub">${m.content}</div></div>`:`<div style="display:flex;gap:7px;align-items:flex-start"><div class="ai-av">🧠</div><div class="ai-bub">${m.content.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>')}</div></div>`).join('')}
+function renderChat(){if(!S.aiHistory?.length)return`<div style="text-align:center;padding:20px 10px"><div style="font-size:2em;margin-bottom:8px">🧠</div><div style="font-size:.82em;font-weight:500;color:var(--tx);margin-bottom:4px">Coach CortexOS</div><div style="font-size:.72em;color:var(--tx3);line-height:1.6">Olá ${S.name||'amigo'}! Pergunta sobre <strong style="color:var(--ac)">sono</strong>, <strong style="color:var(--ac)">foco</strong>, <strong style="color:var(--ac)">treino</strong> ou pede uma <strong style="color:var(--ac)">análise semanal</strong>.<br><span style="font-size:.9em;color:var(--tx3)">⚡ Funciona offline com os teus dados reais</span></div></div>`;return S.aiHistory.map(m=>m.role==='user'?`<div style="display:flex;justify-content:flex-end"><div class="user-bub">${m.content}</div></div>`:`<div style="display:flex;gap:7px;align-items:flex-start"><div class="ai-av">🧠</div><div class="ai-bub">${m.content.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>')}</div></div>`).join('')}
 function buildCtx(){const tk=tkey(),sl=S.sleep[tk]||{},wt=S.water[tk]||0,md=S.mood[tk],bf=S.brainFood[tk]||{};
   const mode=AI_MODES[S.aiMode||'coach'];
   const last7sleep=Object.keys(S.sleep||{}).sort().slice(-7).map(k=>`${k}: ${S.sleep[k].h||0}h`).join(', ');
   const aiMem=(S.aiMemory||[]).slice(-5).map(m=>m.fact).join('; ');return`Utilizador: ${S.name||'Anónimo'} | Semana: ${S.view+1} | Streak: ${S.streak} dias | Brain Score: ${calcScore()} | Sono hoje: ${sl.h||'N/A'}h Q${sl.q||'N/A'}/5 | Água: ${wt}/8 | Humor: ${md!==undefined?MOODS[md]+' ('+MLBL[md]+')':'N/A'} | Brain food: ${Object.values(bf).filter(Boolean).length}/12 | Pomodoros: ${S.pomT} | Nível: ${S.level} | Desafios: ${(S.challenges||[]).join(', ')||'N/A'} | Objetivos: ${(S.goals||[]).join(', ')||'N/A'} | XP: ${S.xp} | Conquistas: ${S.unlocked?.length||0}/${ACH.length} | Hoje: ${new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}`}
 function getSysPr(){const mode=AI_MODES[S.aiMode||'coach'];const mem=buildCtx();return`${mode.sys}\n\nMáx 280 palavras. Formato natural com **negrito** para pontos-chave.\n\nMemória de longo prazo do utilizador: ${(S.aiMemory||[]).map(m=>m.fact).join('; ')||'Nenhuma ainda.'}\n\nContexto actual: ${buildCtx()}`}
 
-async function sendAI(){const msg=document.getElementById('aiIn')?.value?.trim();if(!msg)return;const p=S.aiProvider||'anthropic',key=(S.apiKeys||{})[p];if(!key){toast('⚠️ Cola a API Key acima!');return}const btn=document.getElementById('aiBtn');if(btn){btn.textContent='⏳';btn.disabled=true}S.aiHistory=S.aiHistory||[];S.aiHistory.push({role:'user',content:msg});const box=document.getElementById('chatBox');if(box){box.innerHTML=renderChat();const wait=document.createElement('div');wait.className='fu';wait.innerHTML=`<div style="display:flex;gap:7px;align-items:flex-start"><div class="ai-av">🧠</div><div class="ai-bub" style="display:flex;gap:4px;padding:12px"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div></div>`;box.appendChild(wait);box.scrollTop=box.scrollHeight}if(document.getElementById('aiIn'))document.getElementById('aiIn').value='';
+async function sendAI(){const msg=document.getElementById('aiIn')?.value?.trim();if(!msg)return;const p=S.aiProvider||'anthropic',key=(S.apiKeys||{})[p];
+// OFFLINE MODE: if no key, use built-in coach
+if(!key){
+  S.aiHistory=S.aiHistory||[];
+  S.aiHistory.push({role:'user',content:msg});
+  const box=document.getElementById('chatBox');
+  if(box){box.innerHTML=renderChat();const wait=document.createElement('div');wait.className='fu';wait.innerHTML=`<div style="display:flex;gap:7px;align-items:flex-start"><div class="ai-av">🧠</div><div class="ai-bub" style="display:flex;gap:4px;padding:12px"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div></div>`;box.appendChild(wait);box.scrollTop=box.scrollHeight}
+  if(document.getElementById('aiIn'))document.getElementById('aiIn').value='';
+  await new Promise(r=>setTimeout(r,900+Math.random()*600));
+  const offlineReply = getOfflineResponse(msg, buildOfflineCtx());
+  S.aiHistory.push({role:'assistant',content:offlineReply});
+  S.aiChats=(S.aiChats||0)+1;save();checkAch();addXP(3);
+  const box2=document.getElementById('chatBox');if(box2){box2.innerHTML=renderChat();box2.scrollTop=box2.scrollHeight}
+  return;
+}const btn=document.getElementById('aiBtn');if(btn){btn.textContent='⏳';btn.disabled=true}S.aiHistory=S.aiHistory||[];S.aiHistory.push({role:'user',content:msg});const box=document.getElementById('chatBox');if(box){box.innerHTML=renderChat();const wait=document.createElement('div');wait.className='fu';wait.innerHTML=`<div style="display:flex;gap:7px;align-items:flex-start"><div class="ai-av">🧠</div><div class="ai-bub" style="display:flex;gap:4px;padding:12px"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div></div>`;box.appendChild(wait);box.scrollTop=box.scrollHeight}if(document.getElementById('aiIn'))document.getElementById('aiIn').value='';
 try{let reply='';
 if(p==='anthropic'){
   const resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:PROVIDERS.anthropic.model,max_tokens:600,system:getSysPr(),messages:S.aiHistory.map(m=>({role:m.role,content:m.content}))})});const d=await resp.json();if(d.error)throw new Error(d.error.message);reply=d.content?.[0]?.text||'Sem resposta.'
@@ -2580,7 +2775,7 @@ const TUTORIAL_PAGES=[
 {i:'📋',t:'Aba: Rotina',d:'💪 Treino: Plano de calistenia diário com timer por exercício.\n📋 Agenda: A tua rotina diária. Marca cada item ao longo do dia. Podes editar com o botão ✏️.'},
 {i:'🛠',t:'Aba: Foco',d:'⏱ Pomodoro: 15/25/50/90min + pote de distrações\n🌊 Foco Profundo: Blocos de 90min (ritmo ultradiano)\n🌬 Respiração: 6 técnicas\n✅ Tarefas da sessão\n⚡ Energia\n🎮 Jogos cognitivos'},
 {i:'💊',t:'Aba: Saúde',d:'Regista sono, hidratação (10 gotinhas), brain food (12 alimentos), sons ambiente, wind-down, log de aprendizados com revisão espaçada (Ebbinghaus) e gratidão.'},
-{i:'🤖',t:'Coach IA — Multi-provider',d:'Chat com IA usando Anthropic Claude, Google Gemini (gratuito!) ou OpenAI. Cola a tua API Key na aba. Gemini Flash 2.0 é gratuito sem cartão — começa por aí!'},
+{i:'🤖',t:'Coach IA — Offline + IA',d:'v14: o Coach funciona OFFLINE sem precisar de API Key! Analisa os teus dados reais (sono, foco, água, streaks) e dá recomendações personalizadas. Com API Key (opcional) activas IA avançada com Gemini gratuito, Claude ou GPT-4.'},
 {i:'🔑',t:'Como obter API Key Gemini',d:'1. Vai a aistudio.google.com/app/apikey\n2. Faz login com Google\n3. Clica "Create API Key"\n4. Copia e cola na aba Coach IA\n✓ Gratuito, sem cartão de crédito.'},
 {i:'⚙️',t:'Configurações',d:'Edita treino e agenda sem código. Muda tema (dark/light/sépia/floresta), tamanho de fonte. Exporta/importa backup JSON. Os teus dados ficam no telemóvel — funciona offline.'},
 {i:'📊',t:'Estatísticas',d:'Heatmap 42 dias, progresso por semana, recordes dos jogos, objetivos pessoais com barra de progresso e relatório semanal com nota A+-E.'},

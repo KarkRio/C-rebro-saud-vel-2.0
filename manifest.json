@@ -1,7 +1,7 @@
 {
-  "name": "CortexOS",
+  "name": "CortexOS v14",
   "short_name": "CortexOS",
-  "description": "Sistema operativo para o teu cérebro. Protocolo neural de 6 semanas.",
+  "description": "Sistema operativo para o teu cérebro. Protocolo neural de 6 semanas com Coach IA offline.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#07090F",
