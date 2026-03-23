@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="theme-color" content="#4FC3A1"/>
+<meta name="theme-color" content="#00D4FF"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"/>
-<title>Cérebro Saudável v13</title>
+<title>CortexOS</title>
 <link rel="manifest" href="manifest.json"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:ital,wght@0,300;0,500;1,300&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 <style>
-:root{--fs:16px;--bg:#0c0c10;--bg2:#141419;--bg3:#1c1c24;--bd:#262632;--tx:#e2ddd4;--tx2:#8a8598;--tx3:#46445a;--ac:#4FC3A1;--gold:#d4a853;--rose:#e07070;--blue:#6b9fe4;--pu:#a07fe8;--r:13px;--nav:64px}
-.th-sepia{--bg:#1a1510;--bg2:#201a14;--bg3:#28211a;--bd:#35291e;--tx:#e8d8c0;--tx2:#a09070;--tx3:#5a4830}
-.th-forest{--bg:#0a1410;--bg2:#101c14;--bg3:#162318;--bd:#1e2f20;--tx:#c8e8c0;--tx2:#78a870;--tx3:#405840}
-.lt{--bg:#f0ede8;--bg2:#faf9f6;--bg3:#eeecea;--bd:#ddd8d0;--tx:#1a1814;--tx2:#6b6560;--tx3:#a09a94}
+:root{--fs:16px;--bg:#07090F;--bg2:#0D1018;--bg3:#141820;--bd:#1E2433;--tx:#E0E8FF;--tx2:#7A8AB0;--tx3:#394060;--ac:#00D4FF;--gold:#FFB830;--rose:#FF5C7A;--blue:#4F8BFF;--pu:#A066FF;--r:13px;--nav:64px}
+.th-sepia{--bg:#0A0A14;--bg2:#10101E;--bg3:#161628;--bd:#22223A;--tx:#E0D8FF;--tx2:#9090C0;--tx3:#484870}
+.th-forest{--bg:#071410;--bg2:#0D1E18;--bg3:#132820;--bd:#1A3828;--tx:#C0FFE0;--tx2:#60B880;--tx3:#306840}
+.lt{--bg:#F0F4FF;--bg2:#FAFCFF;--bg3:#E8EDF8;--bd:#D0D8EE;--tx:#0A0F1E;--tx2:#4A5575;--tx3:#8A96B8}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{font-size:var(--fs)}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100dvh;overscroll-behavior:none;transition:background .3s,color .3s}
@@ -340,6 +340,34 @@ select{cursor:pointer}
 /* MIT done */
 .mit-done{opacity:.5;text-decoration:line-through}
 
+/* ══ CORTEXOS BRANDING ══ */
+@keyframes cortexPulse{0%,100%{opacity:.5;transform:scale(.96)}50%{opacity:1;transform:scale(1)}}
+@keyframes cortexGlow{0%,100%{filter:drop-shadow(0 0 5px #00D4FF30)}50%{filter:drop-shadow(0 0 16px #00D4FF80)}}
+@keyframes cortexScan{0%{stroke-dashoffset:220}100%{stroke-dashoffset:0}}
+@keyframes bootBlink{0%,100%{opacity:1}50%{opacity:0}}
+.cortex-icon{width:72px;height:72px;margin:0 auto 14px;animation:cortexGlow 2.5s ease-in-out infinite}
+.cortex-node{animation:cortexPulse 2.5s ease-in-out infinite}
+.cortex-scan{stroke-dasharray:220;stroke-dashoffset:220;animation:cortexScan 1.8s ease-out .3s forwards}
+.cortex-logo{font-family:'Share Tech Mono',monospace!important;letter-spacing:3px}
+.hdr h1{font-family:'Share Tech Mono',monospace!important;letter-spacing:2px;font-size:1.1em!important}
+.hdr h1 em{font-style:normal!important;color:var(--ac)!important}
+.tbtn{font-family:'Share Tech Mono',monospace!important;font-size:.6em!important;letter-spacing:.5px}
+.ring-fill{filter:drop-shadow(0 0 4px var(--ac))}
+.momentum-fill{background:linear-gradient(90deg,#00D4FF,#4F8BFF)!important}
+.xp-fill{background:linear-gradient(90deg,#00D4FF,#A066FF)!important}
+.modal{border-top:2px solid #00D4FF40!important}
+.report{background:linear-gradient(135deg,#0D1A2A,#071018)!important;border-color:#00D4FF25!important}
+.cert{border-color:#00D4FF40!important;background:linear-gradient(135deg,#0A1525,#071018)!important}
+.mit-card{background:linear-gradient(135deg,#00D4FF08,#4F8BFF05)!important;border-color:#00D4FF35!important}
+.mit-label{color:var(--ac)!important}
+.brief-card{border-color:#00D4FF18!important}
+.sigh-btn{background:linear-gradient(135deg,#00D4FF15,#4F8BFF10)!important;border:1px solid #00D4FF25!important;color:var(--ac)!important}
+.acad-card:hover{border-color:#00D4FF50!important;background:#00D4FF06!important}
+.info-btn{border-color:#00D4FF30!important;color:#00D4FF60!important}
+.info-btn:hover{border-color:var(--ac)!important;color:var(--ac)!important;background:#00D4FF10!important}
+/* OS scanline texture overlay */
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,#00000008 2px,#00000008 4px);pointer-events:none;z-index:999;opacity:.4}
+
 .toast{position:fixed;bottom:calc(env(safe-area-inset-bottom,0px)+78px);left:50%;transform:translateX(-50%) translateY(14px);background:var(--bg2);border:1px solid var(--bd);border-radius:12px;padding:8px 14px;font-size:.82em;color:var(--tx);box-shadow:0 8px 28px #0009;z-index:202;opacity:0;transition:all .3s;pointer-events:none;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .modal-bg{position:fixed;inset:0;background:#0009;z-index:150;display:flex;align-items:flex-end}
@@ -373,11 +401,31 @@ select{cursor:pointer}
 <!-- ONBOARD -->
 <div class="ob" id="obScreen" style="display:none">
   <div class="ob-step act" id="ob1">
-    <div style="font-size:3em;margin-bottom:12px">🧠</div>
-    <h1 style="font-family:Fraunces,serif;font-size:1.4em;font-weight:300;margin-bottom:6px">Cérebro <em style="color:var(--ac)">Saudável</em></h1>
-    <p style="font-size:.8em;color:var(--tx3);line-height:1.6;margin-bottom:18px;max-width:270px">Protocolo completo: Coach IA, treino, rotina diária e ciência aplicada para mente e corpo.</p>
-    <input id="obName" placeholder="Como posso te chamar?" style="max-width:250px;text-align:center;margin-bottom:12px"/>
-    <button class="btn ac" style="border-radius:12px;padding:11px 26px" onclick="obNext(1)">Continuar →</button>
+    <div class="cortex-icon">
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="30" stroke="#00D4FF" stroke-width="1.5" opacity="0.25"/>
+        <circle cx="36" cy="36" r="22" stroke="#00D4FF" stroke-width="1" opacity="0.4" class="cortex-node"/>
+        <circle cx="36" cy="36" r="5" fill="#00D4FF" opacity="0.9" class="cortex-node"/>
+        <path class="cortex-scan" d="M36 14 L58 27 L58 45 L36 58 L14 45 L14 27 Z" stroke="#00D4FF" stroke-width="1.2" fill="none"/>
+        <line x1="36" y1="14" x2="36" y2="31" stroke="#00D4FF" stroke-width=".8" opacity="0.5"/>
+        <line x1="58" y1="27" x2="43" y2="33" stroke="#00D4FF" stroke-width=".8" opacity="0.5"/>
+        <line x1="58" y1="45" x2="43" y2="39" stroke="#00D4FF" stroke-width=".8" opacity="0.5"/>
+        <line x1="36" y1="58" x2="36" y2="41" stroke="#00D4FF" stroke-width=".8" opacity="0.5"/>
+        <line x1="14" y1="45" x2="29" y2="39" stroke="#00D4FF" stroke-width=".8" opacity="0.5"/>
+        <line x1="14" y1="27" x2="29" y2="33" stroke="#00D4FF" stroke-width=".8" opacity="0.5"/>
+        <circle cx="36" cy="14" r="2" fill="#00D4FF"/>
+        <circle cx="58" cy="27" r="2" fill="#00D4FF"/>
+        <circle cx="58" cy="45" r="2" fill="#00D4FF"/>
+        <circle cx="36" cy="58" r="2" fill="#00D4FF"/>
+        <circle cx="14" cy="45" r="2" fill="#00D4FF"/>
+        <circle cx="14" cy="27" r="2" fill="#00D4FF"/>
+      </svg>
+    </div>
+    <h1 style="font-family:'Share Tech Mono',monospace;font-size:1.7em;font-weight:400;letter-spacing:3px;margin-bottom:4px">Cortex<span style="color:#00D4FF">OS</span></h1>
+    <p style="font-size:.6em;color:var(--tx3);letter-spacing:3px;margin-bottom:14px;font-family:'Share Tech Mono',monospace">v13.0 // NEURAL PROTOCOL</p>
+    <p style="font-size:.78em;color:var(--tx2);line-height:1.7;margin-bottom:18px;max-width:270px;text-align:center">Sistema operativo para o teu cérebro. 6 semanas · Coach IA · Ciência aplicada.</p>
+    <input id="obName" placeholder="identificar utilizador..." style="max-width:250px;text-align:center;margin-bottom:12px;font-family:'Share Tech Mono',monospace;letter-spacing:1px"/>
+    <button class="btn ac" style="border-radius:8px;padding:11px 26px;font-family:'Share Tech Mono',monospace;letter-spacing:2px;font-size:.8em" onclick="obNext(1)">INICIAR →</button>
   </div>
   <div class="ob-step" id="ob2">
     <div style="font-size:2em;margin-bottom:10px">🎯</div>
@@ -420,8 +468,8 @@ select{cursor:pointer}
   <div class="hdr">
     <div class="hdr-r">
       <div>
-        <div class="hdr-g" id="greetLbl">Protocolo</div>
-        <h1>Cérebro <em>Saudável</em></h1>
+        <div class="hdr-g" id="greetLbl">CortexOS</div>
+        <h1>Cortex<em>OS</em></h1>
       </div>
       <div class="hbtns">
         <div class="ib" id="themeBtn" title="Tema">🌙</div>
@@ -508,7 +556,429 @@ const MLBL=['Péssimo','Ruim','Neutro','Bom','Ótimo'];
 const QUOTES=["O cérebro não descansa — ele processa.","Consistência > Perfeição.","Sono: manutenção do hardware cerebral.","Atenção é o recurso mais valioso do séc. XXI.","Neuroplasticidade: podes sempre mudar.","Cada página lida fortalece a mente.","Faz o difícil enquanto é fácil.","Disciplina é liberdade silenciosa.","O teu futuro é construído nos teus hábitos de hoje.","O músculo mais importante é o que está entre as tuas orelhas."];
 const BF=[{i:'🐟',n:'Salmão'},{i:'🫐',n:'Blueberry'},{i:'🥦',n:'Brócolis'},{i:'🥑',n:'Abacate'},{i:'🥚',n:'Ovos'},{i:'🫘',n:'Nozes'},{i:'🍫',n:'Choc.70%'},{i:'🫒',n:'Azeite'},{i:'🍵',n:'Chá verde'},{i:'🫚',n:'Cúrcuma'},{i:'🥬',n:'Espinafre'},{i:'☕',n:'Café'}];
 
-// ═══ EXTENDED BRAIN FOOD (40 alimentos com mecanismo) ═══
+// ═══ HELP DB — Explicações detalhadas para CADA secção ═══
+const HELP_DB={
+// ────────────── INÍCIO ──────────────
+'intencao':{title:'🌅 Intenção do Dia',icon:'🌅',
+  what:'Uma frase que define o "tom" do teu dia antes de começares. Não é uma to-do list — é uma declaração de quem queres ser hoje.',
+  why:'Pesquisa em psicologia do objectivo (Gollwitzer, 1999): intenções de implementação ("quando X, farei Y") aumentam conclusão de tarefas em 300%. Activa o CPF para filtrar distractores.',
+  how:['Escreve 1 frase no início do dia — antes de abrir o telemóvel se possível.','Não tem de ser uma tarefa — pode ser um estado: "Hoje serei paciente com a minha aprendizagem."','Mantém-na visível — relê no meio do dia para recalibrar.'],
+  examples:['Hoje vou completar o capítulo 3 de Física e não distraio até às 14h.','Hoje quero estar presente nas conversas, sem pressa.','Hoje avança 1% no projecto de Matemática.'],
+  science:'Intenções escritas activam o giro frontal inferior — a região responsável por manter objectivos activos durante o dia. É literalmente "gravar" o objectivo no cérebro.',
+  tip:'Se esqueceres de escrever, escreve à tarde sobre como queres fechar o dia — ainda tem efeito.'},
+
+'missoes':{title:'🎯 Missões do Dia',icon:'🎯',
+  what:'Desafios diários gerados automaticamente com XP de bónus. São diferentes das tarefas do protocolo — são missões extra que te empurram além da rotina base.',
+  why:'Sistemas de gamificação com objetivos de curto prazo aumentam motivação intrínseca em 45% vs objetivos só de longo prazo (Bandura, 1997). O daily reset mantém a novidade.',
+  how:['Aparecem automaticamente no início do dia.','Não és obrigado a completar todas — são bónus.','Algumas completam-se automaticamente ao usares o app normalmente.'],
+  examples:['Regista humor 3× hoje → completa-se ao registar manhã, tarde e noite.','Bebe 8 copos de água → completa ao atingir a meta de hidratação.','Faz 2 Pomodoros → completa ao terminar 2 sessões.'],
+  tip:'O Daily Boss (👑) é a missão mais difícil — vale mais XP e reinicia toda segunda-feira.'},
+
+'mit':{title:'🎯 MIT — Most Important Task',icon:'🎯',
+  what:'A única tarefa que, se concluída, faz o teu dia ser considerado bem-sucedido — independentemente de tudo o mais.',
+  why:'Gary Keller (The One Thing, 2013): o sucesso é construído em sequência, não em paralelo. Identificar a tarefa mais alavancada e focares nela primeiro maximiza impacto real vs sensação de estar ocupado.',
+  how:['Antes de qualquer coisa, identifica a tarefa mais importante do dia.','Faz-a primeiro — antes de e-mail, redes sociais ou tarefas fáceis.','Quando terminares, o resto do dia é bónus.'],
+  examples:['Estudar o capítulo X para o exame de sexta.','Terminar o exercício de Matemática que andei a adiar.','Escrever 2 páginas do projecto.'],
+  science:'Pesquisa sobre "ego depletion" (Baumeister): a força de vontade é um recurso que depleta ao longo do dia. Fazer a tarefa mais difícil de manhã quando o CPF está em pico → muito maior probabilidade de conclusão.',
+  tip:'Se tens dificuldade em identificar a MIT, pergunta: "Se só pudesse fazer 1 coisa hoje, qual seria?"'},
+
+'mood':{title:'😊 Registo de Humor',icon:'😊',
+  what:'Registo do teu estado emocional 3 vezes por dia (manhã, tarde, noite) para identificar padrões e correlações com outros hábitos.',
+  why:'Investigação em psicologia positiva (Lyubomirsky, 2005): pessoas que monitorizam o próprio humor têm melhor regulação emocional e resiliência. Auto-conhecimento é a base de qualquer mudança.',
+  how:['Regista honestamente — não há "certo" ou "errado".','Faz 3x/dia: ao acordar, ao meio-dia, antes de dormir.','Adiciona uma nota curta quando o humor for muito baixo ou muito alto.'],
+  examples:['😩 Manhã: mal dormi, ansioso com teste. | 😐 Tarde: melhorou depois do treino. | 🙂 Noite: bom depois de conversar.'],
+  science:'O modelo circumplex de Russell (1980): emoções têm 2 dimensões — valência (positivo/negativo) e activação (alto/baixo). Rastrear ambas ao longo do dia revela o padrão real do teu sistema nervoso.',
+  tip:'Depois de 7 dias, o app mostra a correlação sono × humor. Costuma ser a correlação mais forte de todas.'},
+
+'diario':{title:'📝 Diário',icon:'📝',
+  what:'Espaço de escrita livre e guiada para processar o dia, capturar pensamentos e fortalecer memórias.',
+  why:'James Pennebaker (1997), Universidade do Texas: 20 minutos de escrita expressiva por 3-4 dias consecutivos reduz cortisol, melhora saúde física mensuravelmente e aumenta bem-estar psicológico. Não é motivação — é fisiologia.',
+  how:['Responde ao prompt do dia ou escreve livremente — ambos funcionam.','Não edites enquanto escreves — o fluxo é mais importante que a qualidade.','Mínimo de 3 frases; idealmente 100+ palavras para efeito terapêutico completo.'],
+  examples:['Prompt: "Em que tarefa estiveste focado?" → "Estudei Física durante 90min. Senti dificuldade nas derivadas mas continuei. O que aprendi: quando resisto à dificuldade, eventualmente entendo."'],
+  science:'A escrita organiza experiências em narrativa — o hipocampo processa eventos mais eficientemente quando são transformados em linguagem. Reduz actividade da amígdala (processamento do medo) e aumenta actividade do CPF (regulação).',
+  tip:'O contador de palavras ajuda — tenta atingir 100 palavras. A partir daí o processamento terapêutico aprofunda.'},
+
+'sigh':{title:'💨 Sigh Fisiológico',icon:'💨',
+  what:'2 inspirações nasais rápidas seguidas de 1 expiração longa pela boca. O reset do sistema nervoso mais rápido existente.',
+  why:'Andrew Huberman, Stanford (2022): o sigh fisiológico é o mecanismo mais eficiente para baixar a frequência cardíaca e activar o sistema parassimpático — mais rápido que qualquer técnica de respiração convencional.',
+  how:['Inspira pelo nariz até ao limite.','Faz uma segunda inspiração curta para "encher mais" os pulmões.','Expira lentamente pela boca até ao vazio total.','Repete 2-3 vezes.'],
+  examples:['Antes de um teste difícil — 2 ciclos reduzem ansiedade aguda.','Após receber uma notícia stressante.','Quando sentes que a paciência está a acabar.','Antes de uma conversa difícil.'],
+  science:'A dupla inspiração reabre alvéolos colapsados (os sacos de ar nos pulmões) — aumenta a superfície de troca de gases e acelera a remoção de CO2. A expiração longa activa o nervo vago e baixa a frequência cardíaca em segundos.',
+  tip:'Demora 10 segundos. É a ferramenta de regulação emocional com melhor rácio tempo/efeito que existe.'},
+
+// ────────────── SAÚDE ──────────────
+'sono':{title:'😴 Registo de Sono',icon:'😴',
+  what:'Registo da hora de deitar, hora de acordar, duração calculada automaticamente e qualidade subjectiva (1-5 estrelas).',
+  why:'Matthew Walker (Why We Sleep, 2017): o sono é a intervenção de saúde mais impactante da medicina — supera dieta e exercício em múltiplos marcadores. 1 semana de sono insuficiente reduz a função imunitária em 70%.',
+  how:['Regista hora de deitar e acordar — a duração calcula-se automaticamente.','Avalia a qualidade com as estrelas (1=péssimo, 5=excelente).','Marca os factores que afectaram o sono na secção abaixo.'],
+  examples:['Deitar: 22:30 | Acordar: 06:30 → 8h | Qualidade: ⭐⭐⭐⭐','Deitar: 00:15 | Acordar: 07:00 → 6.75h | Qualidade: ⭐⭐ (cafeína à tarde)'],
+  science:'Arquitectura do sono em ciclos de 90min: N1 (adormecer) → N2 (sono leve) → N3 (sono profundo, glinfático activo) → REM (consolidação de memórias). Interromper a cada 90min minimiza inércia de sono.',
+  tip:'O Sleep Score combina duração, qualidade e consistência de horário. Consistência de horário (±30min) conta 30 pontos no score — é tão importante quanto a duração total.'},
+
+'sleepfactors':{title:'🔍 Factores de Sono',icon:'🔍',
+  what:'Lista de factores que afectam positiva ou negativamente a qualidade do sono — para identificar causas reais dos teus padrões.',
+  why:'A maioria das pessoas tem sono ruim por razões específicas e rastreáveis — não aleatórias. Identificar os factores permite intervenção precisa em vez de tentar "tudo ao mesmo tempo".',
+  how:['Marca os factores que estiveram presentes no dia/noite.','Após 1 semana, o padrão torna-se óbvio.','Elimina 1 factor negativo por semana — mudança incremental é mais sustentável.'],
+  examples:['Cafeína às 17h → dormiu mal | Remove cafeína após 14h → sono melhora | Confirmação do mecanismo pessoal.'],
+  science:'Semi-vida da cafeína: 5-6h. Se beberes café às 16h, ainda tens 50% de cafeína no sangue à meia-noite. Álcool: fragmenta o sono e suprime REM em 24-40% mesmo com 2 bebidas moderadas.',
+  tip:'Luz azul é o factor mais subestimado. 30min de ecrã antes de dormir suprime melatonina por 2-3h — mesmo com brilho baixo.'},
+
+'agua':{title:'💧 Hidratação',icon:'💧',
+  what:'Rastreador de consumo de água diário. Meta padrão: 8 copos (2L). Ajustável por peso corporal (30ml/kg).',
+  why:'Lieberman et al. (2011): 2% de desidratação (equivalente a 1.4kg perdidos por transpiração) reduz a memória de trabalho em 20%, a atenção em 15% e aumenta a fadiga percebida em 25%. É mensurável e replicável.',
+  how:['Toca nos ícones 💧 para contar os copos.','Bebe um copo ao acordar (antes do café) — repõe 6-8h de perda nocturna.','Distribui ao longo do dia — não bebas tudo de uma vez.'],
+  examples:['07:00 — 1 copo ao acordar | 09:00 — 1 copo | 11:00 — 1 copo | 13:00 — 1 copo (com almoço)...'],
+  science:'O sinal de sede já indica 1-2% de desidratação — já estás atrasado. O cérebro é 73% água. Neurónios desidratados têm menor condutividade eléctrica → pensamento mais lento.',
+  tip:'Chá (sem cafeína), água com limão e alimentos ricos em água (pepino, melancia, laranja) contam para a meta.'},
+
+'brainfood':{title:'🍓 Brain Food',icon:'🍓',
+  what:'40 alimentos com mecanismos neurológicos específicos. Toca em qualquer um para ver o mecanismo exacto de como protege ou potencia o cérebro.',
+  why:'Gomez-Pinilla, UCLA (2008): a composição da dieta é um dos factores mais modificáveis da saúde cerebral. DHA (Ómega-3) — o principal componente estrutural das membranas neuronais — só vem da dieta.',
+  how:['Marca os alimentos cerebrais que consumiste hoje.','Meta: 6+ alimentos por dia para Brain Score máximo.','Hover ou toque longo para ver o mecanismo neurológico de cada alimento.'],
+  examples:['Café manhã: ovos + espinafres + blueberry smoothie = 3 alimentos.','Almoço: sardinha + abacate + brócolis = +3 alimentos. Total: 6 ✅'],
+  science:'O microbioma intestinal produz 90% da serotonina do corpo via eixo intestino-cérebro. Diversidade alimentar = diversidade do microbioma = maior produção de neurotransmissores.',
+  tip:'Cúrcuma + pimenta preta: a piperina aumenta absorção de curcumina em 2000%. É a sinergia alimentar mais potente conhecida.'},
+
+'cafeina':{title:'☕ Tracker de Cafeína',icon:'☕',
+  what:'Registo do consumo de cafeína com curva farmacocinética em tempo real — mostra quanto ainda está activo no teu sangue agora.',
+  why:'A cafeína bloqueia os receptores de adenosina no cérebro. A adenosina acumula-se enquanto estás acordado — é o que cria a "pressão de sono". Cafeína não elimina esta pressão, adia-a. Quando passa, a "fadiga adiada" chega toda de uma vez.',
+  how:['Regista cada consumo com a hora exacta.','A curva calcula quando o nível desce a 50% (semi-vida ≈ 5.5h).','Evita cafeína quando o nível activo ainda for >100mg — vai prejudicar o sono.'],
+  examples:['Café às 08h (95mg) → às 13h30 ainda tens 47mg activos. Às 14h o nível volta abaixo de 50mg.','Energy drink às 17h (80mg) → meia-noite ainda tens 40mg → sono fragmentado.'],
+  science:'Semi-vida da cafeína: 5-6h. 400mg/dia é o limite seguro (FDA). Tolerância aumenta com uso regular — o que antes te acordava deixa de funcionar.',
+  tip:'Cafeína + L-teanina (chá verde) = foco sem ansiedade. O chá verde tem 28mg de cafeína + L-teanina que suaviza o pico.'},
+
+'sons':{title:'🎵 Sons Ambiente',icon:'🎵',
+  what:'17 sons sintetizados em tempo real pelo browser (sem ficheiros de áudio). Cada som é gerado matematicamente — o app inteiro cabe em 96KB.',
+  why:'Investigação sobre ruído de fundo (Mehta et al., 2012, Journal of Consumer Research): ruído ambiente moderado (~70dB) aumenta criatividade em 84% vs silêncio. Sons específicos activam estados cerebrais diferentes.',
+  how:['Activa 1 ou mais sons simultaneamente.','Usa os presets para combinações optimizadas por objectivo.','O timer de parar é ideal para adormecer — som desliga automaticamente.'],
+  examples:['Chuva + Binaural 40Hz → foco profundo de estudo.','Bowl Tibetano + Cosmos → meditação profunda.','Floresta Noturna + Cosmos → adormecer.','Workout → treino de calistenia.'],
+  science:'Batimentos binaurais: o cérebro "calcula" a diferença entre 2 frequências (ex: 200Hz no ouvido esq + 240Hz no dir = 40Hz percebido). 40Hz = ondas gamma associadas a atenção e integração cognitiva.',
+  tip:'Sons binaurais (Alpha, Theta, 40Hz) requerem FONES para funcionar — sem fones o efeito não ocorre.'},
+
+'conversa':{title:'💬 Cartas de Conversa',icon:'💬',
+  what:'30 cartas com perguntas para conversas profundas — do nível leve ao profundo, por categoria (passado, valores, coragem, etc).',
+  why:'Harvard Study (85 anos): a qualidade das relações é o preditor #1 de saúde cerebral na velhice. Mas qualidade requer profundidade — conversas superficiais não activam os circuitos neurais sociais completos.',
+  how:['Usa numa conversa presencial — não por mensagem.','Começa pelas cartas "Leve" com pessoas menos próximas.','"Profundo" requer confiança — só com pessoas com quem já tens laço.'],
+  examples:['Jantar em família: carta "Leve" — "Qual foi a última vez que riste de verdade?"','Amigo próximo: carta "Profundo" — "Se soubesses que irias morrer em 5 anos, o que mudavas?"'],
+  science:'Conversas presenciais activam simultaneamente: linguagem (Broca/Wernicke), empatia (neurónios espelho), teoria da mente (CPF medial) e memória episódica (hipocampo). Nenhuma outra actividade activa tantas regiões ao mesmo tempo.',
+  tip:'Marcar "+10 XP: Usei numa conversa real" não é opcional — é o momento de comprometimento. Apenas marcar quando fizeste de verdade.'},
+
+'meditacao':{title:'🧘 Meditação',icon:'🧘',
+  what:'Timer de meditação com sino de início e fim (sintetizado). Integra com o NSDR (Non-Sleep Deep Rest) no separador Foco.',
+  why:'Lazar et al., Harvard (2005): praticantes de meditação têm córtex pré-frontal mais espesso — mensurável em ressonância magnética. Hölzel et al. (2011): 8 semanas de MBSR reduzem o volume da amígdala (centro do medo/stress).',
+  how:['Começa com 3 ou 5 minutos se és iniciante.','Senta em posição confortável, fecha os olhos, foca na respiração.','Quando a mente vaguear, volta à respiração — sem julgamento.'],
+  examples:['5min antes de estudar → activa o CPF.','10min após treino → consolida o BDNF elevado.','20min antes de dormir → baixa cortisol e facilita entrada no sono.'],
+  science:'O objetivo não é não pensar — é observar os pensamentos sem os seguir. A mente a vaguear não é falha: é o material de treino. Cada vez que notas e voltas = 1 repetição de "músculo de atenção".',
+  tip:'NSDR (Yoga Nidra): 20 minutos restaura dopamina e consolida aprendizagem quase tão eficazmente como uma sesta.'},
+
+'winddown':{title:'🌙 Wind-Down',icon:'🌙',
+  what:'Ritual nocturno de 7 passos para preparar o sistema nervoso para o sono profundo. Leva 15-20 minutos.',
+  why:'O sono não começa quando fechas os olhos — começa com a descida de cortisol e temperatura corporal nas horas antes. A maioria das pessoas vai directamente de ecrã para cama e depois queixa-se de não adormecer.',
+  how:['Inicia 30-60min antes da hora alvo de dormir.','Marca cada passo ao completar.','Não tens de fazer todos — 4+ já têm impacto measurável.'],
+  examples:['22:00: Apagar luzes fortes → modo avião → 18°C no quarto → escrever 3 pensamentos no papel → 4-7-8 por 2 ciclos → ler 10 páginas → gratidão.'],
+  science:'Temperatura corporal desce 1-2°C para entrar no sono profundo. Quarto fresco acelera isso. Escrever pensamentos "descarrega" a memória de trabalho — reduz actividade cerebral nocturna.',
+  tip:'O maior inimigo do wind-down é o "só mais 5 minutos" de ecrã. Define um alarme de "início de wind-down" às 21h30 se precisas de um gatilho externo.'},
+
+'leitura':{title:'📚 Registo de Leitura',icon:'📚',
+  what:'Registo de livros lidos com páginas por dia — para construir o hábito e rastrear o progresso.',
+  why:'A leitura activa de papel (vs scroll passivo) é uma das poucas actividades que activa simultaneamente: linguagem, memória episódica, visualização espacial, inferência lógica e empatia. É um treino cognitivo completo.',
+  how:['Regista o título e o número de páginas que leste hoje.','Não precisas de ler muito — 10 páginas/dia = 12 livros por ano.','Prefere leitura física ou ebook sem backlight → menos impacto no sono.'],
+  examples:['"Atomic Habits" — James Clear → 15 páginas | "Sapiens" → 20 páginas'],
+  science:'Emilio Ferretti, 2021 (Neuron): leitura de ficção activa os neurónios espelho — literalmente simulas as experiências dos personagens. Melhora empatia, teoria da mente e regulação emocional.',
+  tip:'Ler antes de dormir tem bónus duplo: activa a DMN (Default Mode Network) que processa o que aprendeste durante o dia.'},
+
+'solar':{title:'☀️ Exposição Solar',icon:'☀️',
+  what:'Registo de minutos de luz solar directa ao ar livre. Meta: 10-20min nos primeiros 60min após acordar.',
+  why:'Andrew Huberman, Stanford: exposição à luz solar matinal define o ritmo circadiano com precisão de ±30min. É o "zeitgeber" (dador de tempo) mais potente que existe — mais do que qualquer suplemento.',
+  how:['Sai para fora nos primeiros 60min após acordar.','Não precisa de ser sol directo — luz do céu nublado ainda funciona.','Sem óculos de sol nos primeiros 10min — a luz precisa de chegar à retina.'],
+  examples:['Pequeno-almoço no exterior: 15min.','Caminhada para a escola: 20min.','5min no terraço/varanda logo ao acordar.'],
+  science:'A luz solar activa células retinais específicas (ipRGC com melanopsina) que enviam sinal directamente ao núcleo supraquiasmático (relógio interno). Este sinal inicia cascata: cortisol matinal → melatonina nocturna 14-16h depois.',
+  tip:'No inverno ou dias muito nublados: precisa de 2-3x mais tempo de exposição para o mesmo efeito. Uma caixa de luz de 10.000 lux substitui em 5-10min.'},
+
+'aprendizados':{title:'🌱 Aprendizados — Revisão Espaçada',icon:'🌱',
+  what:'Sistema de captura e revisão de aprendizados com algoritmo de revisão espaçada (similar ao Anki). Cada item revisado nos intervalos certos = retenção de 90%+ ao fim do mês.',
+  why:'Ebbinghaus (1885): sem revisão, esqueces 57% em 1 hora, 66% em 1 dia, 75% em 1 semana, 79% em 1 mês. Com revisão espaçada nos momentos certos: retenção de 90%+ com esforço mínimo.',
+  how:['Escreve o aprendizado logo após aprenderes — o timing importa.','Quando aparecer "🔁 Rever", testa-te antes de ver o conteúdo.','"Difícil" → revisado amanhã. "Médio" → em 3 dias. "Fácil" → em 7 dias.'],
+  examples:['"A cafeína tem semi-vida de 5-6h — não tomar após as 14h."','"Exercício aeróbico aumenta BDNF em 20% por 2-3h."','"O hipocampo é a única região com neurogénese adulta."'],
+  science:'O mecanismo é a "curva de Ebbinghaus" invertida: cada revisão bem-sucedida consolida a memória e alarga o intervalo antes da próxima revisão necessária — o esforço de recuperação (retrieval practice) é mais eficaz que re-leitura em 3-4×.',
+  tip:'A revisão activa ("fecha o livro e tenta recordar") é 3-4× mais eficaz que a releitura passiva. Não faças batota — o esforço de recordar é o mecanismo.'},
+
+'gratidao':{title:'🙏 Gratidão',icon:'🙏',
+  what:'Registo de 3 coisas pelas quais és grato hoje. A Gratitude Jar anima-se conforme encheres os 3 campos.',
+  why:'Emmons & McCullough (2003), UC Davis: 3 gratidões/dia durante 3 semanas aumentam bem-estar subjectivo, reduzem sintomas de depressão e melhoram sono (adormecimento mais rápido). É uma das intervenções mais replicadas da psicologia positiva.',
+  how:['Sê específico — "grato pelo meu telemóvel" tem menos impacto que "grato pela conversa de ontem com o João".','Varia — não repitas as mesmas coisas todos os dias.','Antes de dormir é o timing mais eficaz.'],
+  examples:['"1. Grato por ter percebido o exercício de Física que estava errado.","2. Grato pela música que ouvi na caminhada.","3. Grato por ter dormido bem."\n'],
+  science:'Gratidão activa o córtex pré-frontal medial (processamento de valor social) e o estriado ventral (sistema de recompensa). Reduz a amígdala reactiva e aumenta a oxitocina circulante.',
+  tip:'Pesquisa de Martin Seligman: escrever uma carta de gratidão a alguém e lê-la pessoalmente é a intervenção de psicologia positiva com maior impacto mensurado.'},
+
+'smartgoals':{title:'🤖 Meta SMART com IA',icon:'🤖',
+  what:'A IA converte um objetivo vago numa meta SMART: Específica, Mensurável, Atingível, Relevante e Temporal.',
+  why:'Edwin Locke (1968): objectivos específicos e desafiantes levam a performance 250% superior vs objectivos vagos ("faz o teu melhor"). A maioria das pessoas falha não por falta de vontade mas por objectivos mal definidos.',
+  how:['Escreve o objectivo como o pensas normalmente ("quero ser mais saudável").','A IA reformula nos 5 critérios SMART.','Adiciona como objectivo real para acompanhar o progresso.'],
+  examples:['Vago: "quero estudar mais" → SMART: "Completar 25 Pomodoros de estudo de Matemática até 15 de Março, medindo pelo contador do app."'],
+  science:'Critérios SMART ativam circuitos de planeamento específicos no CPF dorsolateral — a região responsável por converter intenções em acções sequenciadas.',
+  tip:'O objectivo não precisa de ser perfeito logo à primeira. A IA pode refinar múltiplas vezes até ficares satisfeito.'},
+
+'habitosp':{title:'➕ Hábitos Personalizados',icon:'➕',
+  what:'Cria qualquer hábito que queiras rastrear além dos 6 do protocolo. Aparecem na lista de tarefas diárias com streak próprio.',
+  why:'James Clear (Atomic Habits, 2018): hábitos são construídos por repetição e identidade, não por força de vontade. Rastrear cria "accountability" visual que aumenta consistência.',
+  how:['Adiciona 1-3 hábitos no início — não 10 de uma vez.','Hábitos pequenos (2 minutos) têm maior probabilidade de se tornarem automáticos.','Liga o hábito a um gatilho existente (habit stacking).'],
+  examples:['"10 agachamentos ao acordar", "Ler 5 páginas após o jantar", "1 minuto de respiração antes de estudar"'],
+  science:'A regra dos 66 dias (Phillippa Lally, 2010, UCL): é a mediana real de formação de hábito — não "21 dias" como se diz popularmente. Hábitos complexos podem demorar 254 dias.',
+  tip:'Quando criares um hábito, liga-o a um hábito já existente: "Após escovar os dentes, faço 5 flexões." É o método mais eficaz de instalação de novos hábitos.'},
+
+// ────────────── FOCO ──────────────
+'pomodoro':{title:'⏱ Pomodoro',icon:'⏱',
+  what:'Timer de foco dividido em blocos (15/25/50/90min) + pausas. O pote de distrações regista impulsos sem quebrar o foco.',
+  why:'Francesco Cirillo, 1987. A ciência por trás: respeita a capacidade de atenção limitada do CPF, cria urgência artificial (o timer aumenta foco), e os pontos de pausa definidos evitam a fadiga cumulativa.',
+  how:['Escolhe a duração.','Define a intenção da sessão (1 tarefa específica).','Quando surgir impulso de distração, escreve no pote — não agas.','Pausa sem ecrã: fica de pé, alonga, bebe água.'],
+  examples:['25min: escrever a introdução do trabalho de Inglês.','50min: resolver a ficha de exercícios de Física p.45-60.','90min: ler capítulos 5 e 6 de História.'],
+  science:'Gloria Mark, UC Irvine: após uma interrupção, demoras em média 23 minutos a recuperar o nível de foco anterior. Com o pote de distrações, o impulso é "registado" sem quebrar o trabalho.',
+  tip:'Modo Monge: esconde TUDO excepto o timer. Usa quando precisas de foco máximo e sem distracções visuais.'},
+
+'flowtime':{title:'🌊 Flowtime',icon:'🌊',
+  what:'Alternativa ao Pomodoro: trabalhas sem parar até sentires que o foco diminuiu. A pausa ideal = 20% do tempo trabalhado.',
+  why:'Mihaly Csikszentmihalyi (Flow, 1990): o estado de flow não tem horário fixo — ocorre quando o desafio corresponde exactamente à capacidade. Interromper artificialmente aos 25min pode quebrar sessões de flow genuínas.',
+  how:['Carrega Iniciar quando começares a trabalhar.','Quando sentires o foco a diminuir (não force), carrega Parar.','A pausa calculada (20%) restaura sem over-rest.'],
+  examples:['Trabalhaste 47min → pausa ideal: 9-10min.','Trabalhaste 25min → pausa ideal: 5min.'],
+  science:'O ritmo ultradiano de 90min é o ciclo natural de atenção. O Flowtime respeita esse ciclo organicamente — sem o interromper nem o prolongar artificialmente.',
+  tip:'52/17 (DeskTime study): o padrão identificado nos trabalhadores mais produtivos estudados — 52min de trabalho + 17min de pausa completa.'},
+
+'focoprofundo':{title:'🌊 Foco Profundo',icon:'🌊',
+  what:'Blocos de 45/60/90 minutos de trabalho completamente sem interrupções. É o Deep Work de Cal Newport aplicado.',
+  why:'Cal Newport (Deep Work, 2016): a capacidade de trabalho cognitivo profundo sem distracção é a competência mais valiosa e mais rara do séc. XXI. 4h de deep work por dia superam 8h de trabalho fragmentado.',
+  how:['Antes de começar: telemóvel desligado, porta fechada, água na mesa, uma única tarefa definida.','Não pausas no meio — pautas antes e depois.','90min = 1 ciclo ultradiano completo.'],
+  examples:['90min de estudo de Matemática, problema de cada vez, sem telemóvel nem música com letra.'],
+  science:'Cada mudança de tarefa tem um "custo de mudança" que o CPF paga em energia e tempo de recuperação. 90min sem mudança = 90min de produtividade real vs 90min fragmentados = ~45min reais.',
+  tip:'3 sessões de foco profundo por dia = produção cognitiva de uma semana de trabalho médio. Começa com 1.'},
+
+'respiracao':{title:'🌬 Respiração',icon:'🌬',
+  what:'6 técnicas de respiração com animação guiada, cada uma com efeito fisiológico específico.',
+  why:'A respiração é o único sistema autónomo que podes controlar conscientemente — é a entrada directa no sistema nervoso autónomo. Respiração lenta activa o parassimpático; rápida activa o simpático.',
+  how:['Escolhe a técnica pelo objectivo (ver abaixo).','Segue a animação circular.','Mínimo de 4 ciclos para efeito completo.'],
+  examples:['4-7-8: 4seg inspirar, 7seg segurar, 8seg expirar → para dormir ou ansiedade aguda.','Box 5-5-5-5: 4 lados de 5seg → para clareza mental e foco.','Physiological Sigh (dupla inspiração): para reset de stress imediato em 10 segundos.'],
+  science:'O nervo vago (nervo mais longo do corpo) conecta cérebro a coração, pulmões e intestino. A expiração longa activa o ramo parassimpático do nervo vago → bradicardia → estado de calma medido em HRV.',
+  tip:'4-7-8 (Dr. Weil): baseado em pranayama. A apneia de 7 segundos aumenta CO2 → activa quimiorreceptores → sinaliza ao sistema nervoso para relaxar.'},
+
+'nsdr':{title:'💫 NSDR — Non-Sleep Deep Rest',icon:'💫',
+  what:'20 minutos deitado em estado entre vigília e sono (Yoga Nidra). Recupera energia e consolida aprendizagem sem sono completo.',
+  why:'Andrew Huberman, Stanford: NSDR de 20min repõe dopamina em 60%, consolida o que aprendeste nas 2h anteriores, e recupera o sistema nervoso de forma similar a uma sesta — sem inércia de sono.',
+  how:['Deita-te, fecha os olhos, mantém-te consciente.','Faz um scan do corpo de cima para baixo — atenção em cada parte.','Se adormeceres — óptimo. Se não — ainda assim funciona.'],
+  examples:['Após estudo intenso de 90min: 20min de NSDR → consolidação das memórias.','Após treino: 20min de NSDR → recuperação mais rápida.','Após mau sono nocturno: NSDR de 30min substitui parcialmente.'],
+  science:'Diferentes do sono: durante NSDR o cérebro mantém alfa (8-13Hz) e theta (4-7Hz) — estados de "processamento suave" onde memórias são consolidadas sem aprofundar para N3.',
+  tip:'Yoga Nidra no YouTube (procura "Yoga Nidra 20 minutes") é a forma mais acessível de NSDR guiado externo ao app.'},
+
+'tarefassessao':{title:'✅ Tarefas da Sessão',icon:'✅',
+  what:'Lista do que vais completar neste bloco de foco antes de começar. Comprometer-te com tarefas específicas aumenta a conclusão em 40%.',
+  why:'Peter Gollwitzer (1999): "implementation intentions" (se X então Y) — comprometer-se especificamente antes de começar activa uma "intenção prospectiva" no hipocampo que filtra distractores automaticamente.',
+  how:['Antes de iniciar qualquer sessão de foco, lista 1-3 tarefas específicas.','Sê realista — sub-estima o que consegues fazer.','Ao concluir uma tarefa, marca. A satisfação liberta dopamina → reforça o comportamento.'],
+  examples:['"Nesta sessão: 1) ler cap.3 Física (20min), 2) fazer exercícios 1-5 (25min), 3) resumo em 5 frases (5min)"'],
+  science:'Efeito Zeigarnik: o cérebro mantém tarefas incompletas em memória activa (usando energia do CPF). Listar e depois completar "fecha" esses loops — liberta capacidade cognitiva.',
+  tip:'Lista as tarefas no papel físico se possível — escrever à mão activa zonas motoras e de linguagem que aumentam o comprometimento.'},
+
+'energia':{title:'⚡ Energia',icon:'⚡',
+  what:'Tracker de nível de energia (1-5) ao longo do dia. Após 14 dias, identifica automaticamente as tuas horas de pico de produtividade.',
+  why:'Não toda a gente tem o pico de energia pela manhã. A identificação do teu pico pessoal permite agendar trabalho cognitivo difícil quando estás naturalmente no melhor estado.',
+  how:['Regista o nível de energia 3-4× por dia (manhã, almoço, tarde, noite).','Depois de 7-14 dias, o histograma revela o teu padrão pessoal.','Agenda as tarefas mais difíceis nos teus picos identificados.'],
+  examples:['Se o pico é entre 9h-11h: estuda Matemática nesse bloco. Tarefas administrativas após almoço.'],
+  science:'Ritmo ultradiano de 90min + ritmo circadiano de 24h. O dip pós-prandial das 13-15h é biológico, não fraqueza. O app detecta automaticamente.'},
+
+'notas':{title:'📝 Notas Rápidas',icon:'📝',
+  what:'Campo de texto para capturar ideias durante sessões de foco sem quebrar o trabalho. Histórico das últimas 3 sessões.',
+  why:'O sistema "inbox" de David Allen (GTD): quando uma ideia não relacionada surge durante trabalho focado, o melhor é capturá-la rapidamente e voltar ao foco — em vez de perder 23min a seguir cada pensamento.',
+  how:['Abre com 1 toque quando surge uma ideia.','Escreve brevemente — palavras-chave bastam.','Processa as notas depois da sessão — não durante.'],
+  examples:['"pesquisar: mecanismo adenosina", "ligar ao Pedro depois", "ideia para o projecto: usar dados do BDNF"'],
+  tip:'Dica: uma folha de papel ao lado do computador funciona igualmente bem e tem zero fricção tecnológica.'},
+
+// ────────────── JOGOS ──────────────
+'stroop':{title:'🎨 Stroop',icon:'🎨',
+  what:'Vês uma palavra de cor escrita em cor diferente — seleccionas a cor em que está escrita, não o que diz. Mede controlo inibitório do CPF.',
+  why:'John Ridley Stroop (1935): um dos testes neuropsicológicos mais replicados da história. A interferência entre leitura automática e identificação de cor mede directamente a eficácia do córtex pré-frontal em inibir respostas automáticas.',
+  how:['Foca na COR em que a palavra está escrita.','Ignora completamente o significado da palavra.','Velocidade e precisão ambas contam.'],
+  examples:['Vês "AZUL" escrito em VERMELHO → tocas no botão VERMELHO.'],
+  science:'A leitura é um processo automático (não podes "desligar"). O CPF precisa de inibir essa resposta automática para responder correctamente à cor. Este "conflito cognitivo" fortalece as vias de controlo inibitório.',
+  tip:'O efeito Stroop é maior quando estás cansado ou stressado — o CPF tem menos recursos para inibir a resposta automática. Mede o teu estado mental.'},
+
+'memoria':{title:'🧩 Memória Sequencial',icon:'🧩',
+  what:'Memoriza sequências crescentes de emojis e repete. Testa a memória de trabalho visuoespacial.',
+  why:'O "digit span" e variantes (como este) são os testes de memória de trabalho mais usados em neuropsicologia clínica. Capacidade de memória de trabalho correlaciona com QI fluido, aprendizagem académica e sucesso profissional.',
+  how:['Observa a sequência quando é mostrada.','Reproduz na mesma ordem.','A dificuldade aumenta automaticamente.'],
+  science:'Memória de trabalho = "RAM" do cérebro. Capacidade típica: 7±2 itens (George Miller, 1956). Treino regular aumenta a capacidade e as estratégias de chunking.',
+  tip:'Técnica de chunking: agrupa itens em "pacotes" — 3 grupos de 3 são mais fáceis de memorizar que 9 items individuais.'},
+
+'reacao':{title:'⚡ Tempo de Reação',icon:'⚡',
+  what:'Mede o tempo em milissegundos entre um estímulo visual e a tua resposta motora.',
+  why:'O tempo de reação é um indicador proximal da velocidade de processamento neural — correlaciona com o estado de alerta, sono e saúde cognitiva geral.',
+  how:['Espera que o fundo mude de cor.','Toca o mais rapidamente possível.','Não antecipes — aguarda o sinal real.'],
+  examples:['< 200ms: excelente (atletas de elite)','200-250ms: média normal','> 300ms: acima da média — possível fadiga ou privação de sono'],
+  science:'Tempo de reação simples envolve: processamento visual (córtex occipital) → transferência (fibras de mielina) → resposta motora (córtex motor). Mielinização adequada (gorduras essenciais na dieta) acelera este processo.',
+  tip:'Testa de manhã vs à noite — verás diferença significativa. Após cafeína é mais rápido mas menos preciso. Após exercício melhora durante 2h.'},
+
+'palavras':{title:'🔤 Associação de Palavras',icon:'🔤',
+  what:'Liga termos científicos de neurociência às suas definições correctas. Aprende enquanto jogas.',
+  why:'Active recall (Roediger & Karpicke, 2006): testar a ti próprio durante aprendizagem é 3-4× mais eficaz que reler. Este jogo usa o mecanismo de teste para solidificar conceitos chave.',
+  how:['Lê o termo ou definição.','Selecciona o par correcto.','Tentativas erradas mostram a resposta correcta — aprende do erro.'],
+  science:'Efeito de geração: quando geras a resposta (vs reconheceres) o hipocampo e CPF trabalham em conjunto criando uma memória mais duradoura. 10 termos de neurociência bem dominados = base para entender o resto do app.',
+  tip:'Quando errares, lê a explicação completa — o erro aumenta a atenção ao conteúdo correcto.'},
+
+'nback':{title:'🔢 N-Back',icon:'🔢',
+  what:'Quando a letra actual é igual à de N posições atrás, tocas Sim. N=1 é fácil, N=3+ é desafiante.',
+  why:'Jaeggi et al. (2008), Michigan: treino de N-Back aumenta QI fluido em ~40% após 4 semanas de prática diária — um dos poucos estudos a mostrar transferência genuína de treino cognitivo.',
+  how:['N=1: responde quando a letra actual = a letra anterior.','N=2: responde quando = há 2 letras atrás.','Aumenta o N gradualmente — não saltes níveis.'],
+  science:'O N-Back treina directamente a memória de trabalho — a capacidade de manter e manipular informação "online" no CPF. É distinto da memória de longo prazo.',
+  tip:'Praticar 20min/dia durante 4 semanas é o protocolo do estudo original. A dificuldade deve ser calibrada para 70-80% de precisão — se és sempre 100%, aumenta o N.'},
+
+'arith':{title:'➕ Sprint Aritmético',icon:'➕',
+  what:'Cálculos mentais cronometrados. 60 segundos para responder o máximo possível com precisão.',
+  why:'Cálculo mental activa circuitos de memória de trabalho, atenção e processamento numérico (sulco intraparietal). Antes de usar a calculadora = treino gratuito todos os dias.',
+  how:['Faz o cálculo mentalmente antes de responder.','Velocidade cresce com a prática — não te preocupes no início.'],
+  science:'O número de Dunbar: o cérebro humano evoluiu para manipular números até ~150. Aritmética mental activa os mesmos circuitos pré-frontais que o planeamento e raciocínio abstracto.',
+  tip:'Depois de treinar este jogo, tenta fazer aritmética mental no dia-a-dia: divisão das contas, calcular gorjetas, estimar preços. Cada cálculo mental é 1 "rep" de ginásio cognitivo.'},
+
+'espacial':{title:'📐 Memória Espacial',icon:'📐',
+  what:'Memoriza posições coloridas numa grelha, depois reproduz. Treina o hipocampo — o GPS do cérebro.',
+  why:'O hipocampo tem "células de lugar" (John O\'Keefe, Nobel 2014) que mapeiam posições no espaço. Treino de memória espacial fortalece o hipocampo — a mesma região que primeiro atrofia com Alzheimer.',
+  how:['Memoriza as células iluminadas.','Reproduz depois de a grelha apagar.','A dificuldade aumenta com mais células.'],
+  science:'Motoristas de táxi de Londres (Maguire et al., 2000): têm hipocampo posterior significativamente maior do que a média — resultado de memorizar milhares de rotas. A neuroplasticidade é real e mensurável.',
+  tip:'Técnica de "chunks" espaciais: em vez de memorizar cada célula individualmente, vê o padrão como uma forma (L, T, Z) — muito mais eficaz.'},
+
+'digitspan':{title:'🔢 Digit Span',icon:'🔢',
+  what:'Memoriza e repete sequências de dígitos cada vez mais longas. O teste de memória de trabalho mais usado em neuropsicologia clínica desde Wechsler (1939).',
+  why:'Capacidade de digit span correlaciona directamente com a capacidade de aprender — é uma medida de "largura de banda cognitiva". Média: 7±2 dígitos (George Miller, "The Magical Number Seven", 1956).',
+  how:['Observa os dígitos mostrados um por um.','Quando aparecer "Repete", insere na mesma ordem.','Se errares, a sessão termina — verás o teu recorde.'],
+  science:'Digit span usa a "alça fonológica" (parte da memória de trabalho de Baddeley) — o sistema que mantém sons verbais activos por repetição interna. Treino aumenta a capacidade desta alça.',
+  tip:'Estratégia de chunking: 7-3-8-4-9-2 → [738][492] → 2 grupos de 3 em vez de 6 dígitos. Esta técnica duplica a capacidade efectiva.'},
+
+'wordchain':{title:'🔗 Word Chain',icon:'🔗',
+  what:'Cada palavra começa com a última letra da anterior. 60 segundos. Testa fluência verbal e velocidade de acesso lexical.',
+  why:'Fluência verbal mede a velocidade com que o sistema semântico acede ao léxico. Reduz com: fadiga, privação de sono, e é um dos primeiros sinais de declínio cognitivo. Treinar mantém-no activo.',
+  how:['Escreve qualquer palavra para começar.','Cada palavra seguinte começa com a última letra da anterior.','Sem repetições — velocidade é tudo.'],
+  examples:['Casa → Avião → Oceano → Ontem → Mapa → Abacate...'],
+  science:'Acesso lexical envolve o giro temporal superior (armazenamento semântico) e o giro frontal inferior (selecção sob restrição). É uma medida directa da "velocidade de pesquisa" da memória semântica.',
+  tip:'Com prática, o vocabulário activo expande — palavras que "sabias mas não usavas" passam a estar mais acessíveis no dia-a-dia.'},
+
+'dualnback':{title:'🧠 Dual N-Back',icon:'🧠',
+  what:'N-Back duplo: posição visual + letra auditiva em simultâneo. O mais desafiante e o mais estudado para aumento de memória de trabalho e QI fluido.',
+  why:'Jaeggi et al. (2008): após 19 dias de prática de Dual N-Back, houve aumento significativo de QI fluido — um dos poucos estudos de transferência positiva de treino cognitivo publicados em PNAS.',
+  how:['Usa FONES para ouvir a letra e ver a posição.','Responde separadamente para posição e letra.','Começa no nível 2 — é difícil no início. Normal.'],
+  science:'O Dual N-Back sobre-carrega intencionalmente a memória de trabalho, forçando o cérebro a expandir a sua capacidade — similar ao overload progressivo no treino físico.',
+  tip:'20 minutos por dia durante 4+ semanas é o protocolo. Menos de 10 sessões não mostra transferência para outros domínios cognitivos.'},
+
+// ────────────── ACADEMIA ──────────────
+'academia':{title:'🎓 Academia',icon:'🎓',
+  what:'Base de conhecimento científico completa para cada funcionalidade do app. Cada tema inclui origem, mecanismo, erros comuns, estudos reais e evolução esperada.',
+  why:'Não basta fazer o hábito — entender o porquê profundo aumenta a adesão, a qualidade de execução e a satisfação. É a diferença entre seguir uma dieta por prescrição vs entender a bioquímica.',
+  how:['Toca em qualquer tema para abrir o artigo completo.','O Quiz testa se absorseste os conceitos.','Flashcards: frente/verso para memorização dos termos-chave.'],
+  science:'Meta-análise sobre comportamento de saúde (2015): pessoas com maior literacia científica têm 60% mais probabilidade de manter hábitos saudáveis a longo prazo vs motivação puramente emocional.',
+  tip:'Um facto do dia científico diferente aparece cada vez que abres a Academia. São 25 factos rotativos baseados em investigação publicada.'},
+
+'quiz':{title:'🔬 Quiz Científico',icon:'🔬',
+  what:'10 perguntas de escolha múltipla sobre os mecanismos neurocientíficos do protocolo. Rotativo — nunca repete a mesma sequência.',
+  why:'Testing effect (Roediger, 2006): ser testado sobre um conteúdo consolida-o mais profundamente do que reler — mesmo que erres. O erro com feedback imediato é um dos mecanismos de aprendizagem mais poderosos.',
+  how:['Responde sem consultar — o esforço de recuperação é o mecanismo.','Quando errares, lê a explicação completa.','Regressa periodicamente — o quiz muda.'],
+  science:'Auto-teste activa os processos de recuperação do hipocampo, forçando a reconstrução activa das memórias em vez da simples reconhecimento passivo. A dificuldade do esforço é proporcional à consolidação.',
+  tip:'+10 XP por cada resposta correcta. Ao longo do tempo, o quiz torna-se progressivamente mais fácil — sinal directo de aprendizagem real.'},
+
+'flashcards':{title:'💬 Flashcards',icon:'💬',
+  what:'Cartões frente/verso que podes criar sobre qualquer tema. Algoritmo de revisão espaçada: "Difícil" → revisas amanhã, "Fácil" → revisas em 7 dias.',
+  why:'Anki (o app de flashcards mais estudado) tem décadas de investigação a mostrar que revisão espaçada é o método mais eficiente de memorização de longo prazo — estudantes de medicina usam-no para memorizar milhares de termos.',
+  how:['Adiciona flashcards sobre qualquer coisa que queiras memorizar.','Ao revelar a resposta, avalia honestamente: Difícil/Ok/Fácil.','Revê diariamente os que aparecem como "para rever".'],
+  examples:['Frente: "O que é o BDNF?" | Verso: "Brain-Derived Neurotrophic Factor — proteína que estimula crescimento neuronal, aumenta com exercício aeróbico."'],
+  science:'Espaçamento e interleaving: misturar flashcards de diferentes temas (não estudar tudo do mesmo tema seguido) aumenta a retenção porque força discriminação activa entre conceitos.',
+  tip:'Importação em lote: escreve pares Q:A separados por linha e adiciona múltiplos flashcards de uma vez. Ideal para preparação de exames.'},
+
+// ────────────── COACH IA ──────────────
+'coachIA':{title:'🤖 Coach IA',icon:'🤖',
+  what:'Assistente IA com 5 modos de conversa (Coach, Terapeuta, Cientista, Personal Trainer, Filósofo) e contexto completo dos teus dados.',
+  why:'A IA tem acesso a: sono dos últimos 7 dias, nível de streak, Brain Score, missões, objetivos e humor. As respostas são contextualizadas ao teu momento real — não são genéricas.',
+  how:['Usa os atalhos rápidos para as perguntas mais comuns.','Muda de modo conforme a conversa que queres ter.','A IA memoriza factos importantes e usa-os nas sessões seguintes.'],
+  examples:['Modo Coach: "O que devo priorizar esta semana com base nos meus dados?"','Modo Terapeuta: "Tenho dificuldade em manter consistência. O que me está a travar?"','Modo Científico: "Explica-me o mecanismo do sono REM na consolidação de memórias."'],
+  science:'O system prompt injeta automaticamente: nome, semana do protocolo, streak, sono de hoje, água, humor, brain food, Pomodoros e conquistas. Permite respostas genuinamente personalizadas.',
+  tip:'Gemini 2.0 Flash é gratuito sem cartão de crédito — o melhor ponto de entrada. Regista a chave em aistudio.google.com.'},
+
+// ────────────── STATS ──────────────
+'actividade':{title:'📅 Actividade 42 dias',icon:'📅',
+  what:'Mapa de calor dos últimos 42 dias com Brain Score codificado por cor — verde escuro = dia excelente.',
+  why:'Visualização de consistência é um dos motivadores mais poderosos para manter hábitos — o "don\'t break the chain" de Jerry Seinfeld. Ver o padrão activado por completo cria pressão positiva para continuar.',
+  how:['Verde escuro: Brain Score > 70.','Verde médio: 50-70.','Verde claro: < 50.','Cinzento: sem dados.'],
+  tip:'O objectivo não é dias perfeitos — é não ter muitos dias cinzentos consecutivos.'},
+
+'progresso':{title:'📈 Progresso por Semana',icon:'📈',
+  what:'Barras de progresso de cada semana do protocolo (S1-S6). Mostra tarefas concluídas vs total.',
+  why:'Feedback de progresso visual activa o circuito de recompensa dopaminérgico — cada barra que cresce é um sinal de avanço que o cérebro processa como recompensa.',
+  tip:'Cada semana pode ser reiniciada — se stagnaste na semana 3, podes recomeçar essa semana especificamente.'},
+
+'recordes':{title:'🎮 Recordes de Jogos',icon:'🎮',
+  what:'Os teus melhores scores em cada jogo cognitivo. Funcionam como baseline para medir melhoria ao longo do tempo.',
+  why:'Medir a baseline cognitiva antes e depois do protocolo é a forma mais concreta de demonstrar que as mudanças de hábito tiveram efeito real no cérebro.',
+  tip:'Testa os mesmos jogos no início e ao fim das 6 semanas — a diferença será mensurável.'},
+
+'objetivos':{title:'🎯 Objetivos Pessoais',icon:'🎯',
+  what:'Objectivos com progresso rastreável (valor actual/meta) e barra de progresso visual.',
+  why:'Objectivos escritos têm 42% mais probabilidade de ser concluídos vs objectivos não escritos (Dr. Gail Matthews, Dominican University, 2015).',
+  how:['Adiciona objectivos com meta numérica.','Actualiza o progresso regularmente (botão +Progresso).','Divide objectivos grandes em marcos menores.'],
+  tip:'Usa a função "Meta SMART com IA" (em Saúde) para converter objectivos vagos em metas precisas.'},
+
+'relatorio':{title:'📖 Relatório Semanal',icon:'📖',
+  what:'Relatório gerado automaticamente com nota geral (A+/F), médias de sono e humor, Pomodoros, treinos e conquistas da semana.',
+  why:'Revisão semanal é um dos hábitos mais impactantes de alta performance (Tim Ferriss, David Allen, Cal Newport usam todos versões disto). Permite ajustar a estratégia antes de perder demasiado tempo.',
+  how:['Abre ao domingo — é a altura ideal.','Lê sem julgamento — os dados são factos, não avaliações morais.','Define 1 coisa a melhorar na semana seguinte.'],
+  tip:'A nota A+ não é o objectivo — é o subproduto de bons hábitos. Foca nos comportamentos, não na nota.'},
+
+'hof':{title:'🏆 Hall of Fame',icon:'🏆',
+  what:'Os teus 10 melhores dias por Brain Score — guardados permanentemente.',
+  why:'Positivity bias: o cérebro tem tendência para lembrar eventos negativos mais vividamente que positivos. O Hall of Fame cria evidência concreta dos melhores dias — refutando a crença de "nunca corro bem".',
+  tip:'Quando tiveres um dia difícil, abre o Hall of Fame — o contraste com os teus melhores dias é poderoso.'},
+
+'compound':{title:'📈 1% Melhor a Cada Dia',icon:'📈',
+  what:'Visualizador do efeito compound: 1% de melhoria diária = 37× melhor em 1 ano. 1% de piora = quase zero.',
+  why:'James Clear (Atomic Habits): "You don\'t rise to the level of your goals, you fall to the level of your systems." O gráfico torna visível o poder do compound que o cérebro humano não consegue intuir.',
+  science:'Cálculo: (1.01)^365 ≈ 37.78× | (0.99)^365 ≈ 0.026×. A matemática exponencial não é intuitiva — ver o gráfico ajuda a interiorizar.',
+  tip:'Não tens de melhorar 1% em tudo. Um hábito consistente numa área crítica (sono, foco, estudo) cria efeito de transferência para as outras.'},
+
+'conquistas':{title:'🏅 Conquistas',icon:'🏅',
+  what:'30+ conquistas desbloqueadas por marcos do protocolo, streak, jogos e hábitos. Ficam permanentes.',
+  why:'Gamificação por marcos (achievements) aumenta a motivação extrínseca enquanto os hábitos ainda não estão consolidados. É o "andaime" que sustenta o comportamento enquanto a motivação intrínseca se desenvolve.',
+  tip:'Algumas conquistas são secretas — descobres ao atingi-las. Há conquistas raras que menos de 5% dos utilizadores têm.'},
+
+'streakfreeze':{title:'❄️ Streak Freeze',icon:'❄️',
+  what:'Permite preservar o streak por 1 dia sem uso do app. Custa 100 XP. Tens no máximo 3 freezes acumulados.',
+  why:'Flexibilidade é mais sustentável que perfeição. A regra do "nunca falhar dois dias seguidos" (James Clear) aplicada: 1 dia de pausa não quebra o hábito, mas 2 dias começa a.',
+  how:['Usa antes de uma viagem, doença ou dia excepcionalmente ocupado.','Activa-se automaticamente se falhares 1 dia e tiveres freeze disponível.','Ganha freezes através de missões especiais.'],
+  tip:'Não uses freezes frequentemente — o streak é mais motivador quando é "real". Reserva para emergências genuínas.'},
+
+// ────────────── CONFIGURAÇÕES ──────────────
+'metasono':{title:'😴 Meta de Sono',icon:'😴',
+  what:'Define quantas horas é a tua meta pessoal de sono. Padrão: 8h. Ajusta conforme o teu cronótipo e necessidades.',
+  why:'A necessidade de sono varia: 6-9h é o intervalo normal. A mutação ADRB1 (short sleeper gene) afecta ~3% da população e reduz genuinamente a necessidade para 4-6h. Para todos os outros, 7-9h é o intervalo óptimo.',
+  how:['Define entre 6 e 10 horas.','Testa: sem alarme, após 2 semanas de regularidade — quantas horas dormes naturalmente? Essa é a tua necessidade real.'],
+  tip:'O Brain Score de sono usa esta meta para calcular os pontos. Ajustar a meta correctamente torna o score mais útil.'},
+
+'digitalsunset':{title:'⏰ Digital Sunset',icon:'⏰',
+  what:'Hora a partir da qual o app mostra o aviso de "digital sunset" — altura de começar a reduzir ecrãs e luz azul.',
+  why:'A luz azul suprime melatonina durante 2-3h após exposição. Para adormecer às 23h, o digital sunset deve ser às 21h. O aviso é um lembrete, não uma obrigação.',
+  how:['Define 2h antes da hora alvo de dormir.','O aviso aparece na barra do topo com countdown.','Combina com o Wind-Down no separador Saúde.'],
+  tip:'Modo escuro do telemóvel + temperatura de cor quente (Night Mode) reduzem o impacto mas não eliminam — o brightness ainda activa os fotorreceptores.'},
+
+'dados':{title:'💾 Dados',icon:'💾',
+  what:'Exportação, importação e limpeza dos teus dados. Todos os dados ficam no dispositivo — nunca saem para nenhum servidor.',
+  why:'Os teus dados são teus. Sem conta, sem cloud, sem empresa a aceder. Se perderes o telemóvel e não tiveres backup, perdes os dados — por isso o backup manual importa.',
+  how:['Exportar: guarda um ficheiro JSON com tudo.','Importar: restaura de um backup anterior.','Limpar: apaga tudo e recomeça do zero.'],
+  tip:'Faz backup mensalmente. Um ficheiro JSON de 3 meses de dados tem ~50-100KB — pode viver num email enviado para ti próprio.'},
+
+// ────────────── ROTINA ──────────────
+'agendaeditor':{title:'📋 Editor de Agenda',icon:'📋',
+  what:'Editor visual da rotina diária. Adiciona, edita e remove itens sem tocar em código.',
+  why:'Uma rotina personalizada tem maior adesão do que uma rotina prescrita. Ao construíres a tua própria, há comprometimento de "identidade" — é a tua rotina, não uma que te foi dada.',
+  how:['Toca em "✏️ Editar" na aba Rotina.','Edita título, hora, duração e descrição de cada item.','Adiciona novos itens em qualquer secção (Manhã, Escola, Tarde, Noite).'],
+  tip:'Começa pela manhã — é onde o controlo é maior. As rotinas matinais têm maior impacto em produtividade e bem-estar do que as nocturnas.'},
+
+'plano_treino':{title:'💪 Plano de Treino',icon:'💪',
+  what:'Editor do plano de calistenia. Personaliza exercícios, séries, reps/segundos e descanso para cada dia.',
+  why:'Um plano escrito e específico tem maior taxa de execução do que um plano mental vago. Cada série marcada activa o sistema de recompensa dopaminérgico.',
+  how:['Toca em "⚙️ Configurações" → "Editar Plano de Treino".','Define exercícios por dia da semana.','Especifica séries, reps/duração e tempo de descanso.'],
+  tip:'Progressão recomendada após 3 semanas de adaptação: +2 reps/série nas flexões, +10s na prancha, +5 reps nos agachamentos.'}
+};
 const BF_EXT=[
 {i:'🐟',n:'Salmão',cat:'Ómega-3',mech:'DHA e EPA: componentes estruturais das membranas neuronais. Deficiência associada a depressão e défice cognitivo.'},
 {i:'🫐',n:'Blueberry',cat:'Antioxidante',mech:'Antocianinas atravessam barreira hematoencefálica → reduzem inflamação neuronal e melhoram sinalização entre neurónios.'},
@@ -829,7 +1299,7 @@ noite:[
 // ════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════
-let S=JSON.parse(localStorage.getItem('cb10')||'{}');
+let S=JSON.parse(localStorage.getItem('cxos')||'{}');
 const D=(k,v)=>{if(S[k]===undefined)S[k]=v};
 D('tasks',{});D('view',0);D('page','home');D('notifTime','08:00');D('notifOn',false);
 D('theme','dark');D('streak',0);D('bestStreak',0);D('lastActive',null);D('name','');
@@ -863,7 +1333,7 @@ D('distractionsAnalysis',[]);D('flowState',{});D('habitStreak',{});
 // Legacy compat
 if(S.apiKey&&!S.apiKeys.anthropic){S.apiKeys.anthropic=S.apiKey}
 
-const save=()=>localStorage.setItem('cb10',JSON.stringify(S));
+const save=()=>localStorage.setItem('cxos',JSON.stringify(S));
 const totalT=()=>WKS.reduce((a,w)=>a+w.days.reduce((b,d)=>b+d.tasks.length,0),0);
 const doneT=(s)=>{s=s||S;return Object.values(s.tasks).filter(Boolean).length};
 const wDn=(s,wi)=>{s=s||S;const w=WKS[wi];const t=w.days.reduce((a,d)=>a+d.tasks.length,0);const d=w.days.reduce((a,d2,di)=>a+d2.tasks.filter((_,ti)=>s.tasks[`${wi}-${di}-${ti}`]).length,0);return{t,d,p:t?Math.round(d/t*100):0}};
@@ -1070,27 +1540,27 @@ h+=`<div class="whdr fu" style="background:${w.c}12;border:1px solid ${w.c}30"><
 
 if(g?.how?.[0])h+=`<div class="ibox tip fu" style="margin-bottom:10px"><strong style="font-size:.72em;text-transform:uppercase;letter-spacing:1px">Dica desta semana:</strong><br><span style="font-size:.8em">${g.how[0].txt.slice(0,110)}... <span style="color:var(--ac);cursor:pointer" onclick="openGuide(${wi})">Ver guia completo →</span></span></div>`;
 
-h+=`<div class="card fu"><div class="ct2">🌅 Intenção de hoje</div><input placeholder="O que queres alcançar hoje?" value="${S.intentions[tk]||''}" style="margin-top:5px" oninput="S.intentions['${tk}']=this.value;save()"/></div>`;
+h+=`<div class="card fu"><div class="ct2">🌅 Intenção de hoje <span class="info-btn" onclick="openHelp('intencao')">ⓘ</span></div><input placeholder="O que queres alcançar hoje?" value="${S.intentions[tk]||''}" style="margin-top:5px" oninput="S.intentions['${tk}']=this.value;save()"/></div>`;
 
 h+=`<div class="dgrid fu">`;
 w.days.forEach((d2,di)=>{h+=`<div class="dcard" style="border-left-color:${w.c}"><div class="dlbl" style="color:${w.c}">${d2.d}</div>`;d2.tasks.forEach((task,ti)=>{const k=`${wi}-${di}-${ti}`,done=S.tasks[k];h+=`<div class="trow" onclick="toggle('${k}','${w.c}')"><div class="cb" id="cb-${k}" style="${done?`background:${w.c};border-color:transparent`:''}">${done?'✓':''}</div><span class="tt ${done?'dn':''}" id="tt-${k}">${task}</span></div>`});h+=`</div>`});
 h+=`</div>`;
 
-if(S.customHabits?.length){h+=`<div class="card fu"><div class="ct2">Hábitos personalizados</div>`;S.customHabits.forEach((hab,idx)=>{const k=`ch-${tk}-${idx}`,done=S.tasks[k];h+=`<div class="trow" onclick="toggle('${k}','${w.c}')"><div class="cb" id="cb-${k}" style="${done?`background:${w.c};border-color:transparent`:''}">${done?'✓':''}</div><span class="tt ${done?'dn':''}" id="tt-${k}">${hab}</span></div>`});h+=`</div>`}
+if(S.customHabits?.length){h+=`<div class="card fu"><div class="ct2">Hábitos personalizados <span class="info-btn" onclick="openHelp('habitosp')">ⓘ</span></div>`;S.customHabits.forEach((hab,idx)=>{const k=`ch-${tk}-${idx}`,done=S.tasks[k];h+=`<div class="trow" onclick="toggle('${k}','${w.c}')"><div class="cb" id="cb-${k}" style="${done?`background:${w.c};border-color:transparent`:''}">${done?'✓':''}</div><span class="tt ${done?'dn':''}" id="tt-${k}">${hab}</span></div>`});h+=`</div>`}
 
-if(S.goals_data?.filter(g=>!g.done).length>0){h+=`<div class="card fu"><div class="ct2">🎯 Objetivos ativos</div>`;S.goals_data.filter(g=>!g.done).slice(0,3).forEach((g,i)=>{const prog=Math.min(100,Math.round((g.current||0)/g.target*100));h+=`<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:.82em;margin-bottom:3px"><span>${g.name}</span><span style="color:var(--tx3)">${g.current||0}/${g.target} ${g.unit}</span></div><div class="goal-bar-bg"><div class="goal-bar-fill" style="width:${prog}%;background:var(--ac)"></div></div></div>`});h+=`<button class="btn" style="font-size:.7em" onclick="go('stats')">Ver todos →</button></div>`}
+if(S.goals_data?.filter(g=>!g.done).length>0){h+=`<div class="card fu"><div class="ct2">🎯 Objetivos ativos <span class="info-btn" onclick="openHelp('objetivos')">ⓘ</span></div>`;S.goals_data.filter(g=>!g.done).slice(0,3).forEach((g,i)=>{const prog=Math.min(100,Math.round((g.current||0)/g.target*100));h+=`<div style="margin-bottom:9px"><div style="display:flex;justify-content:space-between;font-size:.82em;margin-bottom:3px"><span>${g.name}</span><span style="color:var(--tx3)">${g.current||0}/${g.target} ${g.unit}</span></div><div class="goal-bar-bg"><div class="goal-bar-fill" style="width:${prog}%;background:var(--ac)"></div></div></div>`});h+=`<button class="btn" style="font-size:.7em" onclick="go('stats')">Ver todos →</button></div>`}
 
-const fc=genForecast();if(fc){const fcColor=fc>=70?'var(--ac)':fc>=50?'var(--gold)':'var(--rose)';h+=`<div class="card fu" style="border-left:3px solid ${fcColor}"><div style="display:flex;align-items:center;gap:10px"><div style="font-size:1.6em;font-family:Fraunces,serif;color:${fcColor}">${fc}</div><div><div style="font-size:.7em;font-weight:500">🔮 Brain Forecast</div><div style="font-size:.65em;color:var(--tx3)">Previsão para amanhã · baseada em 14 dias</div></div></div></div>`}
+const fc=genForecast();if(fc){const fcColor=fc>=70?'var(--ac)':fc>=50?'var(--gold)':'var(--rose)';h+=`<div class="card fu" style="border-left:3px solid ${fcColor}"><div style="display:flex;align-items:center;gap:10px"><div style="font-size:1.6em;font-family:Fraunces,serif;color:${fcColor}">${fc}</div><div><div style="font-size:.7em;font-weight:500">🔮 Brain Forecast <span class="info-btn" onclick="openHelp('compound')">ⓘ</span></div><div style="font-size:.65em;color:var(--tx3)">Previsão para amanhã · baseada em 14 dias</div></div></div></div>`}
 
 initMissions();
 const ms=S.dailyMissions||[],boss=S.dailyBoss;
-if(ms.length){h+=`<div class="card fu"><div class="ct2">🎯 Missões do dia</div>`;
+if(ms.length){h+=`<div class="card fu"><div class="ct2">🎯 Missões do dia <span class="info-btn" onclick="openHelp('missoes')">ⓘ</span></div>`;
 ms.forEach(m=>{h+=`<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd)"><div style="width:16px;height:16px;border-radius:50%;border:2px solid var(--bd);background:${m.done?'var(--ac)':'transparent'};display:flex;align-items:center;justify-content:center;font-size:.5em;color:#000;flex-shrink:0">${m.done?'✓':''}</div><span style="flex:1;font-size:.78em;${m.done?'text-decoration:line-through;color:var(--tx3)':''}">${m.t}</span><span style="font-size:.65em;color:var(--gold)">+${m.xp}</span></div>`});
 if(boss)h+=`<div style="display:flex;align-items:center;gap:8px;padding:8px 0;background:var(--gold)12;border-radius:8px;margin-top:5px;padding-left:8px"><div style="font-size:.9em">👑</div><div style="flex:1"><div style="font-size:.78em;font-weight:600;color:var(--gold)">${boss.b}</div><div style="font-size:.68em;color:var(--tx3)">${boss.t}</div></div><span style="font-size:.65em;color:var(--gold)">+${boss.xp}</span></div>`;
 h+=`</div>`}
 
 const moodSlots=[['m','☀️ Manhã'],['t','🌤 Tarde'],['n','🌙 Noite']];const mLog=S.moodLog?.[tk]||{};
-h+=`<div class="card fu"><div class="ct2">😊 Como estás? <span class="info-btn" onclick="openKnowledge('water')">ⓘ</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:4px">${moodSlots.map(([sl,lb])=>`<div style="background:var(--bg3);border-radius:10px;padding:8px 4px;text-align:center;border:1px solid var(--bd)"><div style="font-size:.58em;color:var(--tx3);margin-bottom:5px">${lb}</div><div style="display:flex;justify-content:center;gap:3px">${MOODS.map((em,i)=>`<span style="font-size:.9em;cursor:pointer;opacity:${mLog[sl]===i?1:.2};transition:opacity .15s" onclick="logMoodNow(${i},'${sl}')">${em}</span>`).join('')}</div>${mLog[sl]!==undefined?`<div style="font-size:.55em;color:var(--tx3);margin-top:3px">${MLBL[mLog[sl]]}</div>`:''}</div>`).join('')}</div>`;
+h+=`<div class="card fu"><div class="ct2">😊 Como estás? <span class="info-btn" onclick="openHelp('mood')">ⓘ</span> <span class="info-btn" onclick="openHelp('')">ⓘ</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:4px">${moodSlots.map(([sl,lb])=>`<div style="background:var(--bg3);border-radius:10px;padding:8px 4px;text-align:center;border:1px solid var(--bd)"><div style="font-size:.58em;color:var(--tx3);margin-bottom:5px">${lb}</div><div style="display:flex;justify-content:center;gap:3px">${MOODS.map((em,i)=>`<span style="font-size:.9em;cursor:pointer;opacity:${mLog[sl]===i?1:.2};transition:opacity .15s" onclick="logMoodNow(${i},'${sl}')">${em}</span>`).join('')}</div>${mLog[sl]!==undefined?`<div style="font-size:.55em;color:var(--tx3);margin-top:3px">${MLBL[mLog[sl]]}</div>`:''}</div>`).join('')}</div>`;
 const mhist=Object.keys(S.mood||{}).sort().slice(-7);if(mhist.length)h+=`<div style="display:flex;gap:4px;justify-content:center;margin:6px 0">${mhist.map(d=>`<div style="text-align:center"><div style="font-size:.9em">${MOODS[S.mood[d]]||'—'}</div><div style="font-size:.45em;color:var(--tx3)">${d.slice(5)}</div></div>`).join('')}</div>`;
 h+=`<div id="mood-fb" style="display:none"></div></div>`;
 
@@ -1100,7 +1570,7 @@ if(S.mood[tk]!==undefined){h+=`<div class="card fu"><input placeholder="Nota de 
 h+=renderWordCountJournal();
 
 // Physiological Sigh button
-h+=`<div class="sigh-btn" onclick="doPhysioSigh()">💨 Sigh Fisiológico — Reset do Sistema Nervoso (Huberman)</div>`;
+h+=`<div class="sigh-btn" onclick="doPhysioSigh()">💨 Sigh Fisiológico — Reset do Sistema Nervoso <span class="info-btn" onclick="openHelp('sigh')">ⓘ</span></div>`;
 
 h+=`<div class="card fu" style="background:var(--bg3);border:none"><p style="font-size:.85em;color:var(--tx2);line-height:1.7;font-style:italic;font-family:Fraunces,serif">"${QUOTES[(new Date().getDay()+wi)%QUOTES.length]}"</p></div>`;
 document.getElementById('ct').innerHTML=h;
@@ -1126,8 +1596,8 @@ function setMood(i){
 }
 function saveJ(){const v=document.getElementById('jarea')?.value||'';if(!v.trim()){toast('⚠️ Escreve algo!');return}S.journal[tkey()]=v;save();checkAch();addXP(15);toast('📝 Salvo!')}
 function saveJournal(tk){const v=document.getElementById('journalIn')?.value||'';if(!v.trim()){toast('⚠️ Escreve algo primeiro!');return}S.journal[tk]=v;save();checkAch();addXP(15);toast('📝 Diário guardado! +15 XP')}
-function renderMaint(){const ok=WKS.every((_,i)=>wDn(S,i).p===100);let h=`<div class="card fu" style="border-left:3px solid var(--ac)"><h2 style="font-family:Fraunces,serif;font-size:1.05em;font-weight:300;margin-bottom:6px">A partir da semana 7</h2><p style="font-size:.82em;color:var(--tx3);line-height:1.7">Novos padrões instalados. Objetivo: consistência.</p></div>`;if(ok)h+=`<div class="cert fu"><div style="font-size:.6em;letter-spacing:4px;color:var(--ac);text-transform:uppercase;margin-bottom:8px">Certificado de Conclusão</div><h2 style="font-family:Fraunces,serif;font-size:1.3em;font-style:italic;margin-bottom:6px">${S.name}</h2><p style="font-size:.75em;color:var(--tx2);line-height:1.7">Completou o Protocolo Cérebro Saudável<br>6 semanas · ${totalT()} tarefas · 🔥 ${S.bestStreak} dias</p><button class="sav" style="margin-top:12px" onclick="shareCert()">🏆 Partilhar</button></div>`;h+=`<div class="card fu"><p style="font-size:.87em;color:var(--tx3);line-height:1.8">Saúde cerebral não é sorte — <strong style="color:var(--tx)">é escolha diária.</strong></p></div>`;document.getElementById('ct').innerHTML=h}
-function shareCert(){const msg=`🧠 Completei o Protocolo Cérebro Saudável!\n${S.name} — 6 semanas · 🔥 ${S.bestStreak} dias`;if(navigator.share)navigator.share({title:'Cérebro Saudável',text:msg}).catch(()=>{});else window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank')}
+function renderMaint(){const ok=WKS.every((_,i)=>wDn(S,i).p===100);let h=`<div class="card fu" style="border-left:3px solid var(--ac)"><h2 style="font-family:Fraunces,serif;font-size:1.05em;font-weight:300;margin-bottom:6px">A partir da semana 7</h2><p style="font-size:.82em;color:var(--tx3);line-height:1.7">Novos padrões instalados. Objetivo: consistência.</p></div>`;if(ok)h+=`<div class="cert fu"><div style="font-size:.6em;letter-spacing:4px;color:var(--ac);text-transform:uppercase;margin-bottom:8px">Certificado de Conclusão</div><h2 style="font-family:Fraunces,serif;font-size:1.3em;font-style:italic;margin-bottom:6px">${S.name}</h2><p style="font-size:.75em;color:var(--tx2);line-height:1.7">Completou o Protocolo CortexOS<br>6 semanas · ${totalT()} tarefas · 🔥 ${S.bestStreak} dias</p><button class="sav" style="margin-top:12px" onclick="shareCert()">🏆 Partilhar</button></div>`;h+=`<div class="card fu"><p style="font-size:.87em;color:var(--tx3);line-height:1.8">Saúde cerebral não é sorte — <strong style="color:var(--tx)">é escolha diária.</strong></p></div>`;document.getElementById('ct').innerHTML=h}
+function shareCert(){const msg=`⚡ Completei o Protocolo CortexOS!\n${S.name} — 6 semanas · 🔥 ${S.bestStreak} dias`;if(navigator.share)navigator.share({title:'CortexOS',text:msg}).catch(()=>{});else window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank')}
 
 // ════ ROTINA ════
 let roTab='treino',exInt=null,exLeft=0;
@@ -1223,7 +1693,7 @@ function renderTools(){document.getElementById('ct').innerHTML=`<div style="over
 if(_tt==='pom')renderPom();else if(_tt==='sw')renderSWs();else if(_tt==='breath')renderBreath();else if(_tt==='deep')renderDeep();else if(_tt==='flow')renderFlowtime();else if(_tt==='tasks')renderFocusTasks();else if(_tt==='energy')renderEnergy();else if(_tt==='notes')renderFocusNotes();else if(_tt==='nsdr')renderNSDR();else if(_tt==='games')renderGames()}
 
 // POMODORO
-function renderPom(){document.getElementById('tb').innerHTML=`<div class="card fu"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div class="ct2" style="margin-bottom:0">⏱ POMODORO — ${S.pomT} sessões · ${Math.floor((S.focusMin||0)/60)}h foco</div><button class="btn" style="font-size:.65em" onclick="toggleMonkMode()">🧘 Modo Monge</button></div><div style="display:flex;gap:5px;justify-content:center;margin-bottom:10px">${[15,25,50,90].map(m=>`<button class="btn ${pomDur===m?'ac':''}" style="font-size:.68em;padding:5px 9px" onclick="setPomDur(${m})">${m}min</button>`).join('')}</div><div class="dots4">${[...Array(4)].map((_,i)=>`<div class="dot4 ${i<pomSess?'on':''}" id="pd${i}"></div>`).join('')}</div><div class="bigring ${pomInt?(pomMode==='focus'?'run':'brk'):''}" id="pomRing"><div style="font-family:Fraunces,serif;font-size:1.75em;font-weight:300;letter-spacing:-1px" id="ptm">${fmt(pomLeft||pomDur*60)}</div><div style="font-size:.6em;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-top:2px" id="plb">${pomMode==='focus'?'FOCO':'PAUSA'}</div></div><div class="btns"><button class="btn" onclick="pomReset()">↺</button><button class="btn ac" id="pplay" onclick="pomToggle()">${pomInt?'⏸':'▶'}</button><button class="btn" onclick="pomSkip()">⏭</button></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px"><div class="focus-stat"><div class="fs-num">${S.pomT}</div><div class="fs-lbl">Pomodoros</div></div><div class="focus-stat"><div class="fs-num">${Math.floor((S.focusMin||0)/60)}h${Math.floor((S.focusMin||0)%60)}m</div><div class="fs-lbl">Foco total</div></div><div class="focus-stat"><div class="fs-num">${(S.distractions||[]).filter(d=>d.date===tkey()).length}</div><div class="fs-lbl">Distrações hoje</div></div></div><div class="card fu"><div class="ct2">🏺 Pote de Distrações</div><div class="cd">Regista em vez de ceder ao impulso</div><div style="display:flex;gap:6px"><input id="disIn" placeholder="O que te distraiu?" style="margin:0"/><button class="btn ac" style="padding:7px 11px;white-space:nowrap;flex-shrink:0" onclick="addDis()">+</button></div><div id="disList" style="margin-top:8px">${renderDis()}</div></div>`; if(pomInt)updPom()}
+function renderPom(){document.getElementById('tb').innerHTML=`<div class="card fu"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div class="ct2" style="margin-bottom:0">⏱ POMODORO — ${S.pomT} sessões · ${Math.floor((S.focusMin||0)/60)}h foco</div><button class="btn" style="font-size:.65em" onclick="toggleMonkMode()">🧘 Modo Monge</button></div><div style="display:flex;gap:5px;justify-content:center;margin-bottom:10px">${[15,25,50,90].map(m=>`<button class="btn ${pomDur===m?'ac':''}" style="font-size:.68em;padding:5px 9px" onclick="setPomDur(${m})">${m}min</button>`).join('')}</div><div class="dots4">${[...Array(4)].map((_,i)=>`<div class="dot4 ${i<pomSess?'on':''}" id="pd${i}"></div>`).join('')}</div><div class="bigring ${pomInt?(pomMode==='focus'?'run':'brk'):''}" id="pomRing"><div style="font-family:Fraunces,serif;font-size:1.75em;font-weight:300;letter-spacing:-1px" id="ptm">${fmt(pomLeft||pomDur*60)}</div><div style="font-size:.6em;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-top:2px" id="plb">${pomMode==='focus'?'FOCO':'PAUSA'}</div></div><div class="btns"><button class="btn" onclick="pomReset()">↺</button><button class="btn ac" id="pplay" onclick="pomToggle()">${pomInt?'⏸':'▶'}</button><button class="btn" onclick="pomSkip()">⏭</button></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px"><div class="focus-stat"><div class="fs-num">${S.pomT}</div><div class="fs-lbl">Pomodoros</div></div><div class="focus-stat"><div class="fs-num">${Math.floor((S.focusMin||0)/60)}h${Math.floor((S.focusMin||0)%60)}m</div><div class="fs-lbl">Foco total</div></div><div class="focus-stat"><div class="fs-num">${(S.distractions||[]).filter(d=>d.date===tkey()).length}</div><div class="fs-lbl">Distrações hoje</div></div></div><div class="card fu"><div class="ct2">🏺 Pote de Distrações <span class="info-btn" onclick="openHelp('pomodoro')">ⓘ</span></div><div class="cd">Regista em vez de ceder ao impulso</div><div style="display:flex;gap:6px"><input id="disIn" placeholder="O que te distraiu?" style="margin:0"/><button class="btn ac" style="padding:7px 11px;white-space:nowrap;flex-shrink:0" onclick="addDis()">+</button></div><div id="disList" style="margin-top:8px">${renderDis()}</div></div>`; if(pomInt)updPom()}
 const fmt2=s=>`${String(~~(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
 function setPomDur(m){pomDur=m;pomLeft=0;pomMode='focus';clearInterval(pomInt);pomInt=null;updPom();renderPom()}
 function pomToggle(){if(pomInt){clearInterval(pomInt);pomInt=null}else{if(!pomLeft)pomLeft=(pomMode==='focus'?pomDur:pomDur>=50?10:5)*60;pomInt=setInterval(()=>{pomLeft--;if(pomMode==='focus')S.focusMin=(S.focusMin||0)+1;save();updPom();if(pomLeft<=0){clearInterval(pomInt);pomInt=null;snd(660,880,.3);if(navigator.vibrate)navigator.vibrate([100,50,100]);if(pomMode==='focus'){S.pomT++;save();checkAch();addXP(25);pomSess=(pomSess+1)%4;pomMode='break';pomLeft=0;toast('✅ Foco completo!')}else{pomMode='focus';pomLeft=0;toast('▶ Pronto!')}updPom()}},1000)}updPom()}
@@ -1240,7 +1710,7 @@ function activateMonk(){closeModal();document.querySelector('.hdr').style.displa
 
 // ══ FLOWTIME ══
 let ftRunning=false,ftStart=0,ftTotal=0,ftInt=null,ftDistracts=0;
-function renderFlowtime(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">🌊 FLOWTIME — Trabalha sem parar até sentir cansaço</div><div class="ibox sci" style="margin-bottom:12px;font-size:.75em">Alternativa ao Pomodoro. Começas quando quiseres e paras quando sentes que o foco diminuiu. Registas o tempo. Pausa = 20% do tempo trabalhado.</div><div style="font-family:Fraunces,serif;font-size:2.2em;text-align:center;color:var(--ac);margin:10px 0" id="ftDisp">00:00</div><div style="text-align:center;font-size:.7em;color:var(--tx3);margin-bottom:10px">Total hoje: ${Math.floor(ftTotal/60)}min · Distrações: ${ftDistracts}</div><div class="btns"><button class="btn ${ftRunning?'':'ac'}" onclick="ftToggle()">${ftRunning?'⏸ Pausar':'▶ Iniciar'}</button><button class="btn" onclick="ftStop()">⏹ Terminar sessão</button></div></div><div class="card fu"><div class="ct2">⏱ 52/17 — Ritmo de Top Performers</div><div class="cd">52min de foco + 17min de pausa. Padrão identificado pela DeskTime como o dos trabalhadores mais produtivos.</div><div class="btns"><button class="btn ac" onclick="start5217(52,'foco')" id="5217btn">▶ Iniciar 52min</button></div><div style="text-align:center;font-family:Fraunces,serif;font-size:1.8em;color:var(--ac);margin:10px 0;height:40px" id="5217tm"></div></div>`; if(ftRunning)updFT()}
+function renderFlowtime(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">🌊 FLOWTIME <span class="info-btn" onclick="openHelp('flowtime')">ⓘ</span> — Trabalha sem parar até sentir cansaço</div><div class="ibox sci" style="margin-bottom:12px;font-size:.75em">Alternativa ao Pomodoro. Começas quando quiseres e paras quando sentes que o foco diminuiu. Registas o tempo. Pausa = 20% do tempo trabalhado.</div><div style="font-family:Fraunces,serif;font-size:2.2em;text-align:center;color:var(--ac);margin:10px 0" id="ftDisp">00:00</div><div style="text-align:center;font-size:.7em;color:var(--tx3);margin-bottom:10px">Total hoje: ${Math.floor(ftTotal/60)}min · Distrações: ${ftDistracts}</div><div class="btns"><button class="btn ${ftRunning?'':'ac'}" onclick="ftToggle()">${ftRunning?'⏸ Pausar':'▶ Iniciar'}</button><button class="btn" onclick="ftStop()">⏹ Terminar sessão</button></div></div><div class="card fu"><div class="ct2">⏱ 52/17 <span class="info-btn" onclick="openHelp('flowtime')">ⓘ</span> — Ritmo de Top Performers</div><div class="cd">52min de foco + 17min de pausa. Padrão identificado pela DeskTime como o dos trabalhadores mais produtivos.</div><div class="btns"><button class="btn ac" onclick="start5217(52,'foco')" id="5217btn">▶ Iniciar 52min</button></div><div style="text-align:center;font-family:Fraunces,serif;font-size:1.8em;color:var(--ac);margin:10px 0;height:40px" id="5217tm"></div></div>`; if(ftRunning)updFT()}
 let ftTimer=0,ftInt2=null;
 function ftToggle(){if(ftRunning){clearInterval(ftInt);ftRunning=false;ftTotal+=Math.floor((Date.now()-ftStart)/1000);renderFlowtime()}else{ftStart=Date.now();ftRunning=true;ftInt=setInterval(updFT,1000);renderFlowtime()}}
 function updFT(){const el=document.getElementById('ftDisp');if(!el)return;const elapsed=Math.floor((Date.now()-ftStart)/1000);el.textContent=fmt(elapsed)}
@@ -1250,7 +1720,7 @@ function start5217(sec,mode){clearInterval(int5217);let t=sec*60;const b=documen
 
 // ══ NSDR ══
 let nsdrInt=null,nsdrLeft=0;
-function renderNSDR(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">💫 NSDR — Non-Sleep Deep Rest</div><div class="ibox sci" style="margin-bottom:12px">Protocolo de Andrew Huberman. 20min de estado entre vigília e sono restaura dopamina, consolida aprendizagem e recupera o sistema nervoso. Melhor após treino ou estudo intenso.</div><div style="text-align:center;font-family:Fraunces,serif;font-size:2.2em;color:var(--pu);margin:10px 0;height:44px" id="nsdrTm">${nsdrLeft?fmt(nsdrLeft):''}</div><div class="cd" id="nsdrLbl">${nsdrLeft?'Em curso...':'Deita-te, fecha os olhos. Concentra-te no corpo. Não forces o sono.'}</div><div class="btns">${[10,20,30].map(m=>`<button class="btn ${nsdrLeft?'':'ac'}" onclick="startNSDR(${m})">${m}min</button>`).join('')}${nsdrLeft?`<button class="btn red" onclick="stopNSDR()">⏹</button>`:''}</div></div>`}
+function renderNSDR(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">💫 NSDR <span class="info-btn" onclick="openHelp('nsdr')">ⓘ</span> — Non-Sleep Deep Rest</div><div class="ibox sci" style="margin-bottom:12px">Protocolo de Andrew Huberman. 20min de estado entre vigília e sono restaura dopamina, consolida aprendizagem e recupera o sistema nervoso. Melhor após treino ou estudo intenso.</div><div style="text-align:center;font-family:Fraunces,serif;font-size:2.2em;color:var(--pu);margin:10px 0;height:44px" id="nsdrTm">${nsdrLeft?fmt(nsdrLeft):''}</div><div class="cd" id="nsdrLbl">${nsdrLeft?'Em curso...':'Deita-te, fecha os olhos. Concentra-te no corpo. Não forces o sono.'}</div><div class="btns">${[10,20,30].map(m=>`<button class="btn ${nsdrLeft?'':'ac'}" onclick="startNSDR(${m})">${m}min</button>`).join('')}${nsdrLeft?`<button class="btn red" onclick="stopNSDR()">⏹</button>`:''}</div></div>`}
 function startNSDR(min){if(nsdrInt)clearInterval(nsdrInt);nsdrLeft=min*60;snd(196,196,.8);S.nsdrCount=(S.nsdrCount||0)+1;S.medLastDate=tkey();S.medTotal=(S.medTotal||0)+min;save();nsdrInt=setInterval(()=>{nsdrLeft--;const el=document.getElementById('nsdrTm');if(el)el.textContent=fmt(nsdrLeft);if(nsdrLeft<=0){clearInterval(nsdrInt);nsdrInt=null;snd(392,392,1);if(navigator.vibrate)navigator.vibrate([300,100,300,100,300]);addXP(25);toast('💫 NSDR completo! +25 XP');renderNSDR()}},1000);renderNSDR()}
 function stopNSDR(){clearInterval(nsdrInt);nsdrInt=null;nsdrLeft=0;renderNSDR()}
 
@@ -1263,19 +1733,19 @@ function swReset(idx){const sw=sws[idx];if(!sw)return;if(sw.int){clearInterval(s
 function swRemove(idx){if(sws[idx]?.int)clearInterval(sws[idx].int);sws.splice(idx,1);renderSWs()}
 
 // BREATHING
-function renderBreath(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">🌬 RESPIRAÇÃO — ${S.breathT} ciclos</div><div style="display:flex;flex-direction:column;gap:5px;margin-bottom:12px">${BPRESET.map(p=>`<button class="btn" style="font-size:.75em;text-align:left;padding:9px 12px;border-radius:10px;height:auto;white-space:normal" onclick="startBreath(${JSON.stringify(p.d)},'${p.name}')"><strong>${p.name}</strong><br><span style="font-size:.85em;opacity:.7">${p.desc}</span></button>`).join('')}</div><div style="text-align:center;margin:10px 0"><div class="bcirc" id="bcirc">Escolhe</div></div><div style="text-align:center;font-size:.7em;color:var(--tx3);margin:5px 0;height:18px;letter-spacing:2px;text-transform:uppercase" id="bph"></div><div style="text-align:center;font-size:1.4em;color:var(--ac);height:30px" id="bct"></div><div class="btns"><button class="btn ac" id="bbtn" onclick="breathToggle()">${breathOn?'⏹ Parar':'▶ Iniciar'}</button></div></div><div class="card fu"><div class="ct2">🧘 Timer de Meditação</div><div class="btns" style="margin-bottom:10px">${[3,5,10,15,20,30].map(m=>`<button class="btn" onclick="startMed(${m})">${m}min</button>`).join('')}</div><div id="medD" style="text-align:center;font-size:2em;color:var(--ac);min-height:38px"></div><div id="medLbl" style="text-align:center;font-size:.72em;color:var(--tx3)"></div></div>`}
+function renderBreath(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">🌬 RESPIRAÇÃO <span class="info-btn" onclick="openHelp('respiracao')">ⓘ</span> — ${S.breathT} ciclos</div><div style="display:flex;flex-direction:column;gap:5px;margin-bottom:12px">${BPRESET.map(p=>`<button class="btn" style="font-size:.75em;text-align:left;padding:9px 12px;border-radius:10px;height:auto;white-space:normal" onclick="startBreath(${JSON.stringify(p.d)},'${p.name}')"><strong>${p.name}</strong><br><span style="font-size:.85em;opacity:.7">${p.desc}</span></button>`).join('')}</div><div style="text-align:center;margin:10px 0"><div class="bcirc" id="bcirc">Escolhe</div></div><div style="text-align:center;font-size:.7em;color:var(--tx3);margin:5px 0;height:18px;letter-spacing:2px;text-transform:uppercase" id="bph"></div><div style="text-align:center;font-size:1.4em;color:var(--ac);height:30px" id="bct"></div><div class="btns"><button class="btn ac" id="bbtn" onclick="breathToggle()">${breathOn?'⏹ Parar':'▶ Iniciar'}</button></div></div><div class="card fu"><div class="ct2">🧘 Timer de Meditação</div><div class="btns" style="margin-bottom:10px">${[3,5,10,15,20,30].map(m=>`<button class="btn" onclick="startMed(${m})">${m}min</button>`).join('')}</div><div id="medD" style="text-align:center;font-size:2em;color:var(--ac);min-height:38px"></div><div id="medLbl" style="text-align:center;font-size:.72em;color:var(--tx3)"></div></div>`}
 function startBreath(durs,label){bDurs=durs;if(breathOn){clearInterval(breathInt);breathInt=null;breathOn=false}breathOn=true;bPhIdx=0;bPhTime=0;runBreath();const bb=document.getElementById('bbtn');if(bb)bb.textContent='⏹ Parar'}
 function breathToggle(){if(breathOn){clearInterval(breathInt);breathInt=null;breathOn=false;const bc=document.getElementById('bcirc');if(bc){bc.textContent='Escolhe';bc.style.transform='scale(1)'}const p=document.getElementById('bph'),ct=document.getElementById('bct');if(p)p.textContent='';if(ct)ct.textContent='';const bb=document.getElementById('bbtn');if(bb)bb.textContent='▶ Iniciar';return}breathOn=true;runBreath();const bb=document.getElementById('bbtn');if(bb)bb.textContent='⏹ Parar'}
 function runBreath(){const N=['Inspire','Segure','Expire','Pause'];clearInterval(breathInt);breathInt=setInterval(()=>{bPhTime++;const dur=bDurs[bPhIdx]||0;if(dur===0){bPhTime=0;bPhIdx=(bPhIdx+1)%4;if(bPhIdx===0){S.breathT++;save()}return}const rem=dur-bPhTime+1;const bc=document.getElementById('bcirc'),bph=document.getElementById('bph'),bct=document.getElementById('bct');if(bph)bph.textContent=N[bPhIdx].toUpperCase();if(bct)bct.textContent=rem>0?rem:'';if(bc){const prog=bPhTime/dur;const sc=bPhIdx===0?1+prog*.28:1.28-prog*.28;bc.style.transform=`scale(${sc})`;bc.textContent=N[bPhIdx]}if(bPhTime>=dur){bPhTime=0;bPhIdx=(bPhIdx+1)%4;if(bPhIdx===0){S.breathT++;save()}}},1000)}
 function startMed(min){if(medInt){clearInterval(medInt);medInt=null}medLeft=min*60;const d=document.getElementById('medD'),lbl=document.getElementById('medLbl');if(d)d.textContent=fmt(medLeft);if(lbl)lbl.textContent='Meditando...';snd(528,528,.5);medInt=setInterval(()=>{medLeft--;if(d)d.textContent=fmt(medLeft);if(medLeft<=0){clearInterval(medInt);medInt=null;if(d)d.textContent='🙏';if(lbl)lbl.textContent='Concluído! +20 XP';snd(528,440,.8);if(navigator.vibrate)navigator.vibrate([200]);S.medTotal=(S.medTotal||0)+min;S.medLastDate=tkey();save();addXP(20);checkAch();toast('🧘 Meditação concluída!')}},1000)}
 
 // DEEP WORK TIMER (90min blocks)
-function renderDeep(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">🌊 FOCO PROFUNDO — Blocos de 90min</div><div class="ibox sci" style="margin-bottom:12px">Blocos de 90 minutos seguem o ritmo ultradiano natural do cérebro. É o estado de "flow" — onde a produtividade máxima acontece.</div><div class="bigring ${deepMode?'run':''}" id="deepRing" style="${deepMode?'border-color:var(--pu);box-shadow:0 0 22px #a07fe830':''}"><div style="font-family:Fraunces,serif;font-size:1.75em;font-weight:300;letter-spacing:-1px" id="deepTm">${fmt(deepLeft||90*60)}</div><div style="font-size:.6em;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-top:2px">FOCO PROFUNDO</div></div><div class="btns">${deepMode?`<button class="btn" onclick="stopDeep()">⏹ Parar</button>`:`<button class="btn ac" onclick="startDeep(90)">▶ 90min</button><button class="btn" onclick="startDeep(60)">60min</button><button class="btn" onclick="startDeep(45)">45min</button>`}</div></div><div class="ibox tip"><strong>Regras do foco profundo:</strong><br>· Celular desligado ou modo avião<br>· Porta fechada / headphones<br>· Uma única tarefa<br>· Sem pausas — só ao fim do bloco<br>· Água na mesa antes de começar</div>`}
+function renderDeep(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">🌊 FOCO PROFUNDO <span class="info-btn" onclick="openHelp('focoprofundo')">ⓘ</span> — Blocos de 90min</div><div class="ibox sci" style="margin-bottom:12px">Blocos de 90 minutos seguem o ritmo ultradiano natural do cérebro. É o estado de "flow" — onde a produtividade máxima acontece.</div><div class="bigring ${deepMode?'run':''}" id="deepRing" style="${deepMode?'border-color:var(--pu);box-shadow:0 0 22px #a07fe830':''}"><div style="font-family:Fraunces,serif;font-size:1.75em;font-weight:300;letter-spacing:-1px" id="deepTm">${fmt(deepLeft||90*60)}</div><div style="font-size:.6em;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-top:2px">FOCO PROFUNDO</div></div><div class="btns">${deepMode?`<button class="btn" onclick="stopDeep()">⏹ Parar</button>`:`<button class="btn ac" onclick="startDeep(90)">▶ 90min</button><button class="btn" onclick="startDeep(60)">60min</button><button class="btn" onclick="startDeep(45)">45min</button>`}</div></div><div class="ibox tip"><strong>Regras do foco profundo:</strong><br>· Celular desligado ou modo avião<br>· Porta fechada / headphones<br>· Uma única tarefa<br>· Sem pausas — só ao fim do bloco<br>· Água na mesa antes de começar</div>`}
 function startDeep(min){if(deepInt)clearInterval(deepInt);deepLeft=min*60;deepMode=true;snd(220,330,.5);deepInt=setInterval(()=>{deepLeft--;const el=document.getElementById('deepTm');if(el)el.textContent=fmt(deepLeft);if(deepLeft<=0){clearInterval(deepInt);deepInt=null;deepMode=false;snd(440,660,.5);if(navigator.vibrate)navigator.vibrate([200,100,200]);addXP(min>=90?60:min>=60?40:25);toast(`🌊 ${min}min de foco profundo! +${min>=90?60:min>=60?40:25} XP`);renderDeep()}},1000);renderDeep()}
 function stopDeep(){clearInterval(deepInt);deepInt=null;deepMode=false;deepLeft=0;renderDeep()}
 
 // FOCUS TASKS for session
-function renderFocusTasks(){const tk=tkey();document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">✅ TAREFAS DA SESSÃO</div><div class="cd">Define o que vais completar neste bloco de foco. Comprometer-se com tarefas específicas aumenta a conclusão em 40%.</div><div style="display:flex;gap:6px;margin-bottom:10px"><input id="ftIn" placeholder="O que vais fazer..." style="margin:0"/><button class="btn ac" style="padding:7px 11px;white-space:nowrap;flex-shrink:0" onclick="addFT()">+</button></div><div id="ftList">${renderFTList()}</div></div><div class="card fu"><div class="ct2">📊 ANÁLISE DE DISTRAÇÕES</div><div id="disAnalysis">${renderDisAnalysis()}</div></div>`}
+function renderFocusTasks(){const tk=tkey();document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">✅ TAREFAS DA SESSÃO <span class="info-btn" onclick="openHelp('tarefassessao')">ⓘ</span></div><div class="cd">Define o que vais completar neste bloco de foco. Comprometer-se com tarefas específicas aumenta a conclusão em 40%.</div><div style="display:flex;gap:6px;margin-bottom:10px"><input id="ftIn" placeholder="O que vais fazer..." style="margin:0"/><button class="btn ac" style="padding:7px 11px;white-space:nowrap;flex-shrink:0" onclick="addFT()">+</button></div><div id="ftList">${renderFTList()}</div></div><div class="card fu"><div class="ct2">📊 ANÁLISE DE DISTRAÇÕES</div><div id="disAnalysis">${renderDisAnalysis()}</div></div>`}
 function renderFTList(){const tasks=S.focusTasks||[];if(!tasks.length)return`<div style="font-size:.72em;color:var(--tx3)">Sem tarefas. Adiciona acima.</div>`;return tasks.map((t,i)=>`<div class="task-item"><div class="task-cb ${t.done?'on':''}" onclick="toggleFT(${i})">${t.done?'✓':''}</div><span style="flex:1;font-size:.82em;${t.done?'text-decoration:line-through;color:var(--tx3)':''}">${t.text}</span><button onclick="delFT(${i})" style="color:var(--rose);font-size:.9em;cursor:pointer;background:none">✕</button></div>`).join('')}
 function addFT(){const v=document.getElementById('ftIn')?.value?.trim();if(!v)return;S.focusTasks=S.focusTasks||[];S.focusTasks.push({text:v,done:false,date:tkey()});save();document.getElementById('ftIn').value='';const fl=document.getElementById('ftList');if(fl)fl.innerHTML=renderFTList()}
 function toggleFT(i){if(!S.focusTasks?.[i])return;S.focusTasks[i].done=!S.focusTasks[i].done;save();if(S.focusTasks[i].done){snd(700,900,.15);addXP(8);toast('✅ Tarefa completa! +8 XP')}const fl=document.getElementById('ftList');if(fl)fl.innerHTML=renderFTList()}
@@ -1283,16 +1753,16 @@ function delFT(i){S.focusTasks?.splice(i,1);save();const fl=document.getElementB
 function renderDisAnalysis(){const dis=S.distractions||[];const cats={};dis.forEach(d=>{const key=d.text.split(' ')[0];cats[key]=(cats[key]||0)+1});const top=Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,5);if(!top.length)return`<div style="font-size:.72em;color:var(--tx3)">Regista distrações no Pomodoro para ver análise.</div>`;return top.map(([k,v])=>`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--bd)"><span style="flex:1;font-size:.8em">${k}</span><div style="flex:2;height:6px;background:var(--bd);border-radius:10px;overflow:hidden"><div style="width:${Math.round(v/top[0][1]*100)}%;height:100%;background:var(--rose);border-radius:10px"></div></div><span style="font-size:.72em;color:var(--tx3);width:20px;text-align:right">${v}x</span></div>`).join('')}
 
 // ENERGY TRACKER
-function renderEnergy(){const tk=tkey();const e=S.energy?.[tk]||{};document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">⚡ NÍVEL DE ENERGIA — Agora</div><div class="cd">Rastreia a tua energia ao longo do dia para identificar os teus picos naturais de produtividade.</div><div style="display:flex;gap:6px;margin-bottom:12px">${['🪫 1','😴 2','😐 3','💪 4','⚡ 5'].map((lb,i)=>`<div class="energy-btn ${(e.current||0)===i+1?'on':''}" onclick="setEnergy(${i+1},'${tk}')">${lb}</div>`).join('')}</div>${e.current?`<div style="text-align:center;font-size:.82em;color:var(--tx2);margin-bottom:12px">Energia atual: ${['🪫','😴','😐','💪','⚡'][e.current-1]} Nível ${e.current}/5</div>`:''}
+function renderEnergy(){const tk=tkey();const e=S.energy?.[tk]||{};document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">⚡ NÍVEL DE ENERGIA <span class="info-btn" onclick="openHelp('energia')">ⓘ</span> — Agora</div><div class="cd">Rastreia a tua energia ao longo do dia para identificar os teus picos naturais de produtividade.</div><div style="display:flex;gap:6px;margin-bottom:12px">${['🪫 1','😴 2','😐 3','💪 4','⚡ 5'].map((lb,i)=>`<div class="energy-btn ${(e.current||0)===i+1?'on':''}" onclick="setEnergy(${i+1},'${tk}')">${lb}</div>`).join('')}</div>${e.current?`<div style="text-align:center;font-size:.82em;color:var(--tx2);margin-bottom:12px">Energia atual: ${['🪫','😴','😐','💪','⚡'][e.current-1]} Nível ${e.current}/5</div>`:''}
 <div class="ct2" style="margin-top:8px">Histórico de hoje</div><div style="display:flex;gap:4px;align-items:flex-end;margin-top:8px">${(e.log||[]).map(l=>`<div style="flex:1;min-width:0"><div class="chart-bar" style="height:${l.v*16}px;background:var(--ac)"></div><div class="chart-lbl">${l.t}</div></div>`).join('')||`<div style="font-size:.72em;color:var(--tx3)">Nenhum registo hoje</div>`}</div>
 <div class="ct2" style="margin-top:14px">Correlação energia × humor</div><div style="font-size:.78em;color:var(--tx2);margin-top:5px">${renderEnergyCorr()}</div>
-</div><div class="card fu"><div class="ct2">💡 Quando és mais produtivo?</div><div style="font-size:.8em;color:var(--tx2);line-height:1.7">${renderPeakAnalysis()}</div></div>`}
+</div><div class="card fu"><div class="ct2">💡 Quando és mais produtivo? <span class="info-btn" onclick="openHelp('energia')">ⓘ</span></div><div style="font-size:.8em;color:var(--tx2);line-height:1.7">${renderPeakAnalysis()}</div></div>`}
 function setEnergy(v,tk){S.energy=S.energy||{};S.energy[tk]=S.energy[tk]||{current:0,log:[]};S.energy[tk].current=v;S.energy[tk].log.push({v,t:new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})});save();renderEnergy();toast('⚡ Energia registada!')}
 function renderEnergyCorr(){const mv=S.mood,ev=S.energy;const days=Object.keys(mv||{}).filter(d=>(ev||{})[d]?.current);if(days.length<3)return'Regista energia e humor por 3+ dias para ver correlação.';const avgM=days.reduce((a,d)=>a+mv[d],0)/days.length;const avgE=days.reduce((a,d)=>a+ev[d].current,0)/days.length;const corr=avgM>=3&&avgE>=3?'✅ Energia e humor correlacionados positivamente.':avgM<3&&avgE<3?'⚠️ Baixa energia e humor abaixo da média. Prioriza sono.':'📊 Padrão misto — mais dados necessários.';return corr}
 function renderPeakAnalysis(){const ev=S.energy;if(!ev||Object.keys(ev).length<3)return'Regista energia durante 3 dias para descobrir o teu pico natural.';const hourCounts={};Object.values(ev).forEach(day=>{(day.log||[]).forEach(l=>{const h=parseInt(l.t.split(':')[0]);if(l.v>=4){hourCounts[h]=(hourCounts[h]||0)+1}})});const peak=Object.entries(hourCounts).sort((a,b)=>b[1]-a[1])[0];return peak?`O teu pico de energia é geralmente às <strong>${peak[0]}h</strong>. Agenda o teu trabalho mais difícil nesse horário.`:'Continua a registar para ver o teu pico.';}
 
 // FOCUS NOTES
-function renderFocusNotes(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">📝 NOTAS RÁPIDAS DE FOCO</div><div class="cd">Para ideias que surgem durante o foco — escreve sem parar o trabalho.</div><textarea id="fnArea" placeholder="Ideas, insights, coisas para fazer depois..." style="min-height:200px;resize:none;font-size:.85em;line-height:1.7">${S.focusNotes||''}</textarea><div style="display:flex;gap:8px;margin-top:8px"><button class="sav" style="flex:1" onclick="saveFN()">💾 Guardar</button><button class="btn" onclick="clearFN()">↺ Limpar</button></div></div><div class="card fu"><div class="ct2">📅 Notas anteriores</div><div id="prevNotes">${S.focusNotesHistory?.slice(-3).reverse().map(n=>`<div style="background:var(--bg3);border-radius:8px;padding:9px;margin-bottom:6px;font-size:.78em;color:var(--tx2);line-height:1.5"><div style="font-size:.65em;color:var(--tx3);margin-bottom:4px">${n.date}</div>${n.text.slice(0,120)}${n.text.length>120?'...':''}</div>`).join('')||'<div style="font-size:.72em;color:var(--tx3)">Sem notas anteriores</div>'}</div></div>`}
+function renderFocusNotes(){document.getElementById('tb').innerHTML=`<div class="card fu"><div class="ct2">📝 NOTAS RÁPIDAS DE FOCO <span class="info-btn" onclick="openHelp('notas')">ⓘ</span></div><div class="cd">Para ideias que surgem durante o foco — escreve sem parar o trabalho.</div><textarea id="fnArea" placeholder="Ideas, insights, coisas para fazer depois..." style="min-height:200px;resize:none;font-size:.85em;line-height:1.7">${S.focusNotes||''}</textarea><div style="display:flex;gap:8px;margin-top:8px"><button class="sav" style="flex:1" onclick="saveFN()">💾 Guardar</button><button class="btn" onclick="clearFN()">↺ Limpar</button></div></div><div class="card fu"><div class="ct2">📅 Notas anteriores</div><div id="prevNotes">${S.focusNotesHistory?.slice(-3).reverse().map(n=>`<div style="background:var(--bg3);border-radius:8px;padding:9px;margin-bottom:6px;font-size:.78em;color:var(--tx2);line-height:1.5"><div style="font-size:.65em;color:var(--tx3);margin-bottom:4px">${n.date}</div>${n.text.slice(0,120)}${n.text.length>120?'...':''}</div>`).join('')||'<div style="font-size:.72em;color:var(--tx3)">Sem notas anteriores</div>'}</div></div>`}
 function saveFN(){const v=document.getElementById('fnArea')?.value||'';S.focusNotes=v;S.focusNotesHistory=S.focusNotesHistory||[];if(v.trim()){S.focusNotesHistory.push({date:tkey()+' '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}),text:v})}save();toast('💾 Notas guardadas!')}
 function clearFN(){if(confirm('Limpar notas atuais?')){S.focusNotes='';save();renderFocusNotes()}}
 
@@ -1301,14 +1771,14 @@ function renderGames(){document.getElementById('tb').innerHTML=`<div style="over
 if(_gt==='stroop')renderStroop();else if(_gt==='mem')renderMem();else if(_gt==='react')renderReact();else if(_gt==='wm')renderWM();else if(_gt==='nback')renderNBack();else if(_gt==='arith')renderArith();else if(_gt==='spatial')renderSpatial();
 else if(_gt==='digit')startDigitSpan();else if(_gt==='wordchain')startWordChain();else if(_gt==='dualnback')startDualNBack();}
 
-function renderStroop(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🎨 STROOP — Recorde: ${S.stroopR}</div><div class="cd">Seleciona a <strong>COR em que a palavra está escrita</strong>, não o que ela diz. Testa o córtex pré-frontal.</div><div id="sa">${sIdle()}</div></div><div class="ibox tip"><strong>Como jogar:</strong> Vês "AZUL" escrito em <span style="color:#e05050">VERMELHO</span>? Toca em VERMELHO. Ignora o texto — isso activa e treina o CPF!</div>`}
+function renderStroop(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🎨 STROOP <span class="info-btn" onclick="openHelp('stroop')">ⓘ</span> — Recorde: ${S.stroopR}</div><div class="cd">Seleciona a <strong>COR em que a palavra está escrita</strong>, não o que ela diz. Testa o córtex pré-frontal.</div><div id="sa">${sIdle()}</div></div><div class="ibox tip"><strong>Como jogar:</strong> Vês "AZUL" escrito em <span style="color:#e05050">VERMELHO</span>? Toca em VERMELHO. Ignora o texto — isso activa e treina o CPF!</div>`}
 function sIdle(){return`<div class="btns"><button class="btn ac" onclick="startStroop()">▶ Iniciar (30s)</button></div>${S.stroopR>0?`<div style="text-align:center;font-size:.78em;color:var(--tx3);margin-top:8px">Recorde: ${S.stroopR}</div>`:''}`}
 function newSHtml(){sC=~~(Math.random()*4);sW=~~(Math.random()*4);return`<div class="stroop-word" style="color:${SCOLS[sC]}">${SNAMES[sW]}</div>`}
 function sOpts(){return`<div class="sopts">${SCOLS.map((c,i)=>`<button class="sopt" style="color:${c};border-color:${c}40" onclick="ansStroop(${i})">${SNAMES[i]}</button>`).join('')}</div>`}
 function startStroop(){stroopScore=0;stroopTime=30;const sa=document.getElementById('sa');if(!sa)return;sa.innerHTML=`<div style="text-align:center;font-size:.7em;color:var(--tx3);margin-bottom:8px">Tempo: <strong style="color:var(--ac)" id="stm">30s</strong> · Acertos: <strong id="stsc">0</strong></div>${newSHtml()}${sOpts()}`;stroopInt=setInterval(()=>{stroopTime--;const el=document.getElementById('stm');if(el)el.textContent=stroopTime+'s';if(stroopTime<=0){clearInterval(stroopInt);stroopInt=null;if(stroopScore>S.stroopR){S.stroopR=stroopScore;save();checkAch();addXP(stroopScore*2);toast('🏆 Recorde: '+stroopScore+'!')}else toast('Stroop: '+stroopScore);const sa2=document.getElementById('sa');if(sa2)sa2.innerHTML=sIdle()}},1000)}
 function ansStroop(i){if(!stroopInt)return;if(i===sC){stroopScore++;snd(700,900,.1);addXP(1)}else snd(300,200,.1);const ss=document.getElementById('stsc');if(ss)ss.textContent=stroopScore;const sa=document.getElementById('sa');if(sa)sa.innerHTML=`<div style="text-align:center;font-size:.7em;color:var(--tx3);margin-bottom:8px">Tempo: <strong style="color:var(--ac)" id="stm">${stroopTime}s</strong> · Acertos: <strong id="stsc">${stroopScore}</strong></div>${newSHtml()}${sOpts()}`}
 
-function renderMem(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🧩 MEMÓRIA — Recorde: Nível ${S.memLv}</div><div class="cd">Memoriza a sequência de emojis e repete. Treina memória de trabalho.</div><div style="text-align:center;font-size:.75em;color:var(--tx3);margin-bottom:8px">Nível: <strong style="color:var(--ac)">${memLv}</strong></div><div id="ma">${mIdle()}</div></div>`}
+function renderMem(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🧩 MEMÓRIA <span class="info-btn" onclick="openHelp('memoria')">ⓘ</span> — Recorde: Nível ${S.memLv}</div><div class="cd">Memoriza a sequência de emojis e repete. Treina memória de trabalho.</div><div style="text-align:center;font-size:.75em;color:var(--tx3);margin-bottom:8px">Nível: <strong style="color:var(--ac)">${memLv}</strong></div><div id="ma">${mIdle()}</div></div>`}
 function mIdle(){const cols=memLv<=4?2:memLv<=6?3:4;return`<div style="display:grid;grid-template-columns:repeat(${cols},1fr);gap:8px;max-width:220px;margin:0 auto">${MEM_E.slice(0,cols).map((e,i)=>`<div class="mem-cell" id="mc${i}" onclick="memPush(${i})">${e}</div>`).join('')}</div><div style="text-align:center;margin-top:10px;font-size:.78em;color:var(--tx3);height:22px" id="ms">Toca em Iniciar</div><div class="btns" style="margin-top:8px"><button class="btn ac" onclick="startMem()">▶ Nível ${memLv}</button></div>`}
 function startMem(){memSeq=[];memIn=[];memPhase='show';const cols=memLv<=4?2:memLv<=6?3:4;for(let i=0;i<memLv+2;i++)memSeq.push(~~(Math.random()*cols));const st=document.getElementById('ms');if(st)st.textContent='Memoriza...';document.querySelectorAll('[id^=mc]').forEach(c=>c.style.pointerEvents='none');let idx=0;const sh=()=>{if(idx>=memSeq.length){setTimeout(()=>{const s=document.getElementById('ms');if(s)s.textContent='A tua vez!';document.querySelectorAll('[id^=mc]').forEach(c=>c.style.pointerEvents='auto');memPhase='input'},500);return}const cell=document.getElementById('mc'+memSeq[idx]);if(cell){cell.classList.add('lit');setTimeout(()=>{cell.classList.remove('lit');idx++;setTimeout(sh,200)},500)}};setTimeout(sh,400)}
 function memPush(i){if(memPhase!=='input')return;memIn.push(i);const cell=document.getElementById('mc'+i);if(cell){cell.classList.add('hit');setTimeout(()=>cell.classList.remove('hit'),200)}if(memIn[memIn.length-1]!==memSeq[memIn.length-1]){memPhase='idle';snd(200,150,.3);const st=document.getElementById('ms');if(st)st.textContent='Errou!';if(memLv>S.memLv){S.memLv=memLv;save();checkAch()}memLv=Math.max(1,memLv-1);setTimeout(()=>{const ma=document.getElementById('ma');if(ma)ma.innerHTML=mIdle()},900);return}if(memIn.length===memSeq.length){memPhase='idle';memLv++;snd(700,900,.3);addXP(10);if(memLv-1>S.memLv){S.memLv=memLv-1;save();checkAch();toast('🧩 Nível '+(memLv-1)+'!')}const st=document.getElementById('ms');if(st)st.textContent='✓ Correto!';setTimeout(()=>{const ma=document.getElementById('ma');if(ma)ma.innerHTML=mIdle()},700)}}
@@ -1318,11 +1788,11 @@ if(reactState==='wait'){bs='background:#e0707018;border-color:#e07070;color:#e07
 else if(reactState==='go'){bs='background:#4FC3A125;border-color:var(--ac);color:var(--ac)';bc='⚡ TOCA AGORA!';bh=''}
 else if(reactState==='early'){bs='background:#e0707018;border-color:#e07070;color:#e07070';bc='😅 Cedo demais!';bh='Espera pelo verde'}
 else if(reactState==='result'){const ms=S.reactLast||0;bs=`background:${ms<200?'#4FC3A120':ms<300?'#d4a85320':'var(--bg3)'};border-color:${ms<200?'var(--ac)':ms<300?'var(--gold)':'var(--bd)'};`;bc=`${ms}ms`;bh=ms<200?'⚡ Reflexo incrível!':ms<300?'🔥 Rápido!':ms<400?'Bom!':'Podes melhorar!'}
-document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">⚡ TEMPO DE REAÇÃO — Melhor: ${S.reactBest<9000?S.reactBest+'ms':'—'}</div><div class="react-box" style="${bs}" onclick="reactTap()"><div style="font-family:Fraunces,serif;font-size:2em;font-weight:300;margin-bottom:4px">${bc}</div><div style="font-size:.72em;opacity:.7">${bh}</div></div>${best}</div><div class="ibox sci">Mede o tempo entre estímulo visual e resposta motora. Atletas: ~150ms. Média: 200-250ms. Treinar isso activa o córtex motor e atenção sustentada.</div>`}
+document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">⚡ TEMPO DE REAÇÃO <span class="info-btn" onclick="openHelp('reacao')">ⓘ</span> — Melhor: ${S.reactBest<9000?S.reactBest+'ms':'—'}</div><div class="react-box" style="${bs}" onclick="reactTap()"><div style="font-family:Fraunces,serif;font-size:2em;font-weight:300;margin-bottom:4px">${bc}</div><div style="font-size:.72em;opacity:.7">${bh}</div></div>${best}</div><div class="ibox sci">Mede o tempo entre estímulo visual e resposta motora. Atletas: ~150ms. Média: 200-250ms. Treinar isso activa o córtex motor e atenção sustentada.</div>`}
 function reactTap(){if(reactState==='idle'||reactState==='result'||reactState==='early'){reactState='wait';renderReact();reactTimeout=setTimeout(()=>{reactState='go';reactStart=Date.now();renderReact()},1500+Math.random()*3000)}else if(reactState==='wait'){clearTimeout(reactTimeout);reactState='early';renderReact();setTimeout(()=>{reactState='idle';renderReact()},1500)}else if(reactState==='go'){const ms=Date.now()-reactStart;S.reactLast=ms;if(ms<S.reactBest)S.reactBest=ms;save();checkAch();reactState='result';if(ms<200)addXP(20);else if(ms<300)addXP(10);else addXP(5);renderReact();setTimeout(()=>{reactState='idle';renderReact()},2500)}}
 
 function startWM(){wmCards=[...WMPAIRS].sort(()=>Math.random()-.5).slice(0,10);wmIdx=0;wmScore=0;renderWMQ()}
-function renderWM(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🔤 ASSOCIAÇÃO — Total corretas: ${S.wmRight||0}</div><div class="cd">Liga cada termo à definição correcta. Aprende neurociência enquanto jogas.</div><div id="wma">${wmCards.length?'':wmSt()}</div></div>`;if(!wmCards.length)document.getElementById('wma').innerHTML=wmSt()}
+function renderWM(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🔤 ASSOCIAÇÃO <span class="info-btn" onclick="openHelp('palavras')">ⓘ</span> — Total corretas: ${S.wmRight||0}</div><div class="cd">Liga cada termo à definição correcta. Aprende neurociência enquanto jogas.</div><div id="wma">${wmCards.length?'':wmSt()}</div></div>`;if(!wmCards.length)document.getElementById('wma').innerHTML=wmSt()}
 function wmSt(){return`<div class="btns"><button class="btn ac" onclick="startWM()">▶ Iniciar</button></div>`}
 function renderWMQ(){if(wmIdx>=wmCards.length){const ga=document.getElementById('wma');if(ga){S.wmRight=(S.wmRight||0)+wmScore;save();checkAch();addXP(wmScore*5);ga.innerHTML=`<div style="text-align:center;padding:18px"><div style="font-size:2em">${wmScore>=8?'🌟':wmScore>=5?'💪':'📚'}</div><div style="font-size:1.05em;font-weight:500;margin:8px 0">${wmScore}/10 · +${wmScore*5} XP</div><button class="btn ac" style="margin-top:8px" onclick="startWM()">Jogar de novo</button></div>`}return}const card=wmCards[wmIdx];const wrong=[...WMPAIRS].filter(p=>p.w!==card.w).sort(()=>Math.random()-.5).slice(0,3);const opts=[card,...wrong].sort(()=>Math.random()-.5);const ga=document.getElementById('wma');if(!ga)return;ga.innerHTML=`<div style="font-size:.7em;color:var(--tx3);margin-bottom:7px">${wmIdx+1}/10 · Score: ${wmScore}</div><div class="wm-card"><div style="font-family:Fraunces,serif;font-size:1.3em;font-weight:300">${card.def}</div></div><div class="wm-opts">${opts.map(o=>`<button class="wm-btn" onclick="ansWM('${o.w}','${card.w}')">${o.w}</button>`).join('')}</div>`}
 function ansWM(c,ok){document.querySelectorAll('.wm-btn').forEach(b=>{if(b.textContent===ok)b.classList.add('ok');else if(b.textContent===c&&c!==ok)b.classList.add('no');b.onclick=null});if(c===ok){wmScore++;snd(700,900,.15)}else snd(300,200,.15);setTimeout(()=>{wmIdx++;renderWMQ()},1200)}
@@ -1567,7 +2037,7 @@ function stopAllAmb(){Object.keys(ambNodes).forEach(id=>{const nd=ambNodes[id];n
 // ════ N-BACK TASK ════
 let nbSeq=[],nbPos=0,nbN=2,nbPhase='idle',nbScore=0,nbTotal=0,nbInt=null;
 const NBACKL='ABCDEFHKLMNPQRST'.split('');
-function renderNBack(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🔢 N-BACK — Nível: ${S.nbackLevel||1}-Back · Recorde: ${S.nbackScore||0}</div><div class="ibox sci" style="margin-bottom:10px;font-size:.75em">Quando a letra atual = a de ${nbN} posições atrás, toca Sim. O jogo cognitivo mais validado para memória de trabalho e QI fluido.</div><div id="nba">${nbIdle()}</div></div>`}
+function renderNBack(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🔢 N-BACK <span class="info-btn" onclick="openHelp('nback')">ⓘ</span> — Nível: ${S.nbackLevel||1}-Back · Recorde: ${S.nbackScore||0}</div><div class="ibox sci" style="margin-bottom:10px;font-size:.75em">Quando a letra atual = a de ${nbN} posições atrás, toca Sim. O jogo cognitivo mais validado para memória de trabalho e QI fluido.</div><div id="nba">${nbIdle()}</div></div>`}
 function nbIdle(){nbN=S.nbackLevel||2;return`<div style="text-align:center;margin:12px 0"><div style="font-size:.72em;color:var(--tx3);margin-bottom:6px">N = ${nbN}</div><div style="font-family:Fraunces,serif;font-size:2.5em;color:var(--tx3)">—</div></div><div class="btns"><button class="btn" onclick="nbN=Math.max(1,nbN-1);S.nbackLevel=nbN;save();document.getElementById('nba').innerHTML=nbIdle()">N-</button><button class="btn ac" onclick="startNBack()">▶ Iniciar (20 trials)</button><button class="btn" onclick="nbN=Math.min(7,nbN+1);S.nbackLevel=nbN;save();document.getElementById('nba').innerHTML=nbIdle()">N+</button></div>`}
 function startNBack(){nbSeq=[];nbPos=0;nbScore=0;nbTotal=0;nbPhase='running';for(let i=0;i<20+nbN;i++)nbSeq.push(NBACKL[~~(Math.random()*NBACKL.length)]);runNBack()}
 function runNBack(){if(nbPos>=nbSeq.length){const pct=Math.round(nbScore/nbTotal*100);if(nbScore>S.nbackScore){S.nbackScore=nbScore;save();checkAch()}addXP(nbScore*3);const na=document.getElementById('nba');if(na)na.innerHTML=`<div style="text-align:center;padding:14px"><div style="font-size:1.5em;font-family:Fraunces,serif;color:var(--ac)">${pct}%</div><div style="font-size:.82em;color:var(--tx2);margin-top:4px">${nbScore}/${nbTotal} corretos · +${nbScore*3} XP</div><button class="btn ac" style="margin-top:8px" onclick="startNBack()">Jogar de novo</button></div>`;return}
@@ -1578,7 +2048,7 @@ function nbAns(said,actual){clearTimeout(nbInt);if(nbPos>=nbN){if(said===actual)
 
 // ════ ARITHMETIC SPRINT ════
 let arInt=null,arTime=0,arScore=0,arQ=null;
-function renderArith(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">➕ SPRINT ARITMÉTICO</div><div class="cd">Responde o máximo de cálculos em 60 segundos. Treina velocidade de processamento.</div><div id="ara">${arIdle()}</div></div>`}
+function renderArith(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">➕ SPRINT ARITMÉTICO <span class="info-btn" onclick="openHelp('arith')">ⓘ</span></div><div class="cd">Responde o máximo de cálculos em 60 segundos. Treina velocidade de processamento.</div><div id="ara">${arIdle()}</div></div>`}
 function arIdle(){return`<div class="btns"><button class="btn" onclick="startArith('easy')">Fácil</button><button class="btn ac" onclick="startArith('med')">Médio</button><button class="btn" onclick="startArith('hard')">Difícil</button></div>`}
 function genQ(diff){let a,b,op,ans;const ops=['+','-','×'];op=ops[diff==='easy'?~~(Math.random()*2):diff==='med'?~~(Math.random()*3):~~(Math.random()*3)];if(diff==='easy'){a=~~(Math.random()*20)+1;b=~~(Math.random()*20)+1}else if(diff==='med'){a=~~(Math.random()*50)+1;b=~~(Math.random()*50)+1}else{a=~~(Math.random()*100)+1;b=~~(Math.random()*100)+1};if(op==='+')ans=a+b;else if(op==='-'){ans=a-b}else{a=~~(Math.random()*12)+1;b=~~(Math.random()*12)+1;ans=a*b;op='×'};return{q:`${a} ${op} ${b} = ?`,ans,diff}}
 function startArith(diff){arTime=60;arScore=0;arQ=genQ(diff);const aa=document.getElementById('ara');if(!aa)return;const render=()=>{if(!document.getElementById('ara'))return;document.getElementById('ara').innerHTML=`<div style="text-align:center;font-size:.7em;color:var(--tx3);margin-bottom:6px">⏱ ${arTime}s · Score: ${arScore}</div><div style="font-family:Fraunces,serif;font-size:1.8em;text-align:center;margin:10px 0;color:var(--ac)">${arQ.q}</div><input id="arAns" type="number" placeholder="Resposta..." style="text-align:center;font-size:1.1em;margin-bottom:7px" onkeydown="if(event.key==='Enter')checkArith('${diff}')"/><button class="sav full" onclick="checkArith('${diff}')">Confirmar</button>`};render();arInt=setInterval(()=>{arTime--;const tEl=document.getElementById('arAns');if(!tEl||arTime<=0){clearInterval(arInt);arInt=null;addXP(arScore*4);const aa2=document.getElementById('ara');if(aa2)aa2.innerHTML=`<div style="text-align:center;padding:14px"><div style="font-size:1.5em;font-family:Fraunces,serif;color:var(--ac)">${arScore} pts</div><div style="font-size:.78em;color:var(--tx2);margin-top:4px">+${arScore*4} XP</div><button class="btn ac" style="margin-top:8px" onclick="startArith('${diff}')">Jogar de novo</button></div>`}else{// update timer display
@@ -1587,7 +2057,7 @@ function checkArith(diff){const v=parseInt(document.getElementById('arAns')?.val
 
 // ════ SPATIAL MEMORY ════
 let spGrid=[],spSel=[],spN=4,spPhase='idle';
-function renderSpatial(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">📐 MEMÓRIA ESPACIAL</div><div class="cd">Memoriza as posições coloridas, depois toca nas células corretas. Treina o hipocampo.</div><div id="spa">${spIdle()}</div></div>`}
+function renderSpatial(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">📐 MEMÓRIA ESPACIAL <span class="info-btn" onclick="openHelp('espacial')">ⓘ</span></div><div class="cd">Memoriza as posições coloridas, depois toca nas células corretas. Treina o hipocampo.</div><div id="spa">${spIdle()}</div></div>`}
 function spIdle(){return`<div class="btns"><button class="btn ac" onclick="startSpatial()">▶ Começar (${spN} células)</button></div>`}
 function startSpatial(){spPhase='show';spGrid=[];spSel=[];const total=16;const idxs=[];while(idxs.length<spN){const r=~~(Math.random()*total);if(!idxs.includes(r))idxs.push(r)}spGrid=idxs;renderSpGrid('show')}
 function renderSpGrid(phase){const sa=document.getElementById('spa');if(!sa)return;const cells=[...Array(16)].map((_,i)=>{const isTarget=spGrid.includes(i);const hit=spSel.includes(i);const show=(phase==='show'&&isTarget)||(phase==='check'&&hit&&isTarget)||(phase==='fail'&&hit&&!isTarget);const clr=phase==='check'&&hit&&isTarget?'#4FC3A140':phase==='fail'&&hit&&!isTarget?'#e0707040':phase==='show'&&isTarget?'#4FC3A140':'transparent';return`<div style="aspect-ratio:1;border-radius:8px;border:2px solid var(--bd);background:${clr||'var(--bg3)'};cursor:${phase==='input'?'pointer':'default'};transition:background .2s" onclick="${phase==='input'?`spTap(${i})`:''}"></div>`}).join('');sa.innerHTML=`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;max-width:220px;margin:0 auto 10px">${cells}</div><div style="text-align:center;font-size:.78em;color:var(--tx3)">${phase==='show'?'Memoriza...':phase==='input'?`Seleciona ${spN} células (${spSel.length}/${spN})`:phase==='check'?'✅ Correto!':phase==='fail'?'❌ Errado!':''}</div>`;
@@ -1600,7 +2070,7 @@ function renderHealth(){const tk=tkey(),sl=S.sleep[tk]||{h:0,q:0},wt=S.water[tk]
 const sleepScore=calcSleepScore();
 document.getElementById('ct').innerHTML=`
 <div class="card fu"><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-  <div><div class="ct2" style="margin-bottom:0">😴 Sono <span class="info-btn" onclick="openKnowledge('sleep')">ⓘ</span></div></div>
+  <div><div class="ct2" style="margin-bottom:0">😴 Sono <span class="info-btn" onclick="openHelp('sono')">ⓘ</span></div></div>
   <div style="margin-left:auto;text-align:center"><div style="font-family:Fraunces,serif;font-size:1.4em;color:${sleepScore>=70?'var(--ac)':sleepScore>=50?'var(--gold)':'var(--rose)'}">${sleepScore}</div><div style="font-size:.58em;color:var(--tx3)">Sleep Score</div></div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0">
@@ -1620,29 +2090,29 @@ ${renderSleepFactors()}
 ${renderMoodCorrelation()}
 <button class="btn" style="margin-top:10px;font-size:.72em;width:100%" onclick="openPowernap()">💤 Powernap 20min</button></div>
 
-<div class="card fu"><div class="ct2">💧 Hidratação — ${wt}/8 copos <span class="info-btn" onclick="openKnowledge('water')">ⓘ</span></div>
+<div class="card fu"><div class="ct2">💧 Hidratação — ${wt}/8 copos <span class="info-btn" onclick="openHelp('mood')">ⓘ</span></div>
 <div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin:10px 0">${[...Array(10)].map((_,i)=>`<span style="font-size:1.5em;cursor:pointer;opacity:${wt>i?1:.2};transition:all .2s;transform:${wt>i?'scale(1.1)':'scale(1)'}" onclick="setWater(${i+1},'${tk}')">💧</span>`).join('')}</div>
 <div style="text-align:center;font-size:.72em;color:${wt>=8?'var(--ac)':'var(--tx3)'}">${wt>=8?'✓ Meta atingida! Excelente!':wt+'/8 copos — '+(8-wt)+' para a meta'}</div>
 <div style="font-size:.65em;color:var(--tx3);text-align:center;margin-top:4px">Lembrete: 2% de desidratação = 20% menos atenção</div></div>
 
-<div class="card fu"><div class="ct2">🍓 Brain Food — ${Object.values(bf).filter(Boolean).length}/${BF_EXT.length} <span class="info-btn" onclick="openKnowledge('nutrition')">ⓘ</span></div>
+<div class="card fu"><div class="ct2">🍓 Brain Food — ${Object.values(bf).filter(Boolean).length}/${BF_EXT.length} <span class="info-btn" onclick="openHelp('brainfood')">ⓘ</span></div>
 <div style="font-size:.68em;color:var(--tx3);margin-bottom:8px">Toca num alimento para ver o mecanismo neurológico. Hover para detalhes.</div>
 <div class="food-grid-5">${BF_EXT.map((f,i)=>`<div class="food-item-sm ${bf[i]?'on':''}" onclick="toggleBFExt(${i},'${tk}')"><div style="font-size:1.1em;margin-bottom:1px">${f.i}</div><div style="font-size:.48em;color:var(--tx3)">${f.n}</div><div class="food-mech">${f.mech}</div></div>`).join('')}</div>
 <div style="font-size:.72em;color:var(--tx3);margin-top:8px;text-align:center">${Object.values(bf).filter(Boolean).length} alimentos hoje${Object.values(bf).filter(Boolean).length>=6?' 🌟 Acima da meta!':Object.values(bf).filter(Boolean).length>=3?' ✓ Bom progresso':' — meta: 6+'}</div></div>
 
 ${renderCaffeineTracker()}
 
-<div class="card fu"><div class="ct2">🎵 Som Ambiente <span class="info-btn" onclick="openKnowledge('focus')">ⓘ</span></div>
+<div class="card fu"><div class="ct2">🎵 Som Ambiente <span class="info-btn" onclick="openHelp('sons')">ⓘ</span></div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px">
 ${[['🌧','Chuva','rain'],['🌊','Oceano','ocean'],['🌲','Floresta','forest'],['☕','Café','cafe'],['🔥','Fogueira','fire'],['💪','Workout','workout'],['🎶','432Hz','hz432'],['🌌','Cosmos','cosmos'],['💧','Ribeiro','river'],['🌬','Vento','wind'],['🔔','Tibet Bowl','bowl'],['🧠','40Hz','binaural40'],['⛈','Tempestade','storm'],['🌃','Floresta Noturna','nightforest'],['🅰','Alpha 10Hz','alpha'],['🟣','Theta 6Hz','theta'],['💓','Heartbeat','heartbeat']].map(([ic,lb,id])=>`<div id="ab-${id}" class="snd-btn ${ambNodes[id]?'on':''}" onclick="toggleAmb('${id}')"><div style="font-size:1.1em">${ic}</div><div style="font-size:.48em;color:var(--tx3);margin-top:1px">${lb}</div></div>`).join('')}
 </div>
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span style="font-size:.7em">🔈</span><input type="range" style="flex:1;accent-color:var(--ac)" min="0" max="1" step=".05" value="${ambVol}" oninput="setVol(this.value)"/><span style="font-size:.7em">🔊</span></div>
 <button class="btn" style="width:100%;text-align:center;font-size:.72em;margin-bottom:7px" onclick="stopAllAmb()">⏹ Parar todos</button>
-<div style="font-size:.65em;color:var(--tx3);margin-bottom:5px">Presets:</div>
+<div style="font-size:.65em;color:var(--tx3);margin-bottom:5px">Presets: <span class="info-btn" onclick="openHelp('sons')">ⓘ</span></div>
 <div style="display:flex;gap:5px;flex-wrap:wrap;">${[['🎯 Foco',['rain','binaural40']],['🧘 Meditação',['bowl','cosmos']],['😴 Sono',['nightforest','cosmos']],['💪 Treino',['workout']],['🎨 Criativo',['alpha','forest']],['🌊 Profundo',['theta','ocean']]].map(([lb,ids])=>`<button class="btn" style="font-size:.65em" onclick="setPreset(${JSON.stringify(ids)})">${lb}</button>`).join('')}</div>
 <div style="display:flex;align-items:center;gap:8px;margin-top:7px"><span style="font-size:.72em;color:var(--tx3)">⏱ Parar após:</span><select id="sndTimer" style="margin:0;font-size:.75em;width:90px"><option value="0">—</option><option value="1800">30min</option><option value="3600">1h</option><option value="5400">1h30</option></select><button class="btn" style="font-size:.68em;padding:5px 9px" onclick="startSndTimer()">Iniciar</button><span id="sndTmLbl" style="font-size:.68em;color:var(--ac)"></span></div></div>
 
-<div class="card fu"><div class="ct2">💬 Carta de Conversa</div>
+<div class="card fu"><div class="ct2">💬 Carta de Conversa <span class="info-btn" onclick="openHelp('conversa')">ⓘ</span></div>
 <div style="border-radius:var(--r);padding:16px;cursor:pointer;border:1px solid var(--bd);background:${CONV[convIdx].bg};min-height:90px" onclick="nextConv()">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
   <div style="font-size:.6em;font-weight:600;color:${CONV[convIdx].c};letter-spacing:2px;text-transform:uppercase">${CONV[convIdx].lv}</div>
@@ -1652,7 +2122,7 @@ ${[['🌧','Chuva','rain'],['🌊','Oceano','ocean'],['🌲','Floresta','forest'
 <div style="font-size:.65em;color:var(--tx3);margin-top:6px">Toca para outra carta · ${convIdx+1}/${CONV.length}</div></div>
 <button class="sav full" onclick="logConv()">✓ Usei numa conversa real (+10 XP)</button></div>
 
-<div class="card fu"><div class="ct2">🧘 Meditação <span class="info-btn" onclick="openKnowledge('meditation')">ⓘ</span> — ${S.medTotal||0}min total</div>
+<div class="card fu"><div class="ct2">🧘 Meditação <span class="info-btn" onclick="openHelp('meditacao')">ⓘ</span> — ${S.medTotal||0}min total</div>
 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
 ${[3,5,10,15,20,30].map(m=>`<button class="btn" onclick="startMed(${m})">${m}min</button>`).join('')}
 <button class="btn" style="color:var(--pu)" onclick="_tt='nsdr';go('tools')">💫 NSDR →</button>
@@ -1660,13 +2130,13 @@ ${[3,5,10,15,20,30].map(m=>`<button class="btn" onclick="startMed(${m})">${m}min
 <div id="medD" style="text-align:center;font-size:2em;color:var(--ac);min-height:38px"></div>
 <div id="medLbl" style="text-align:center;font-size:.72em;color:var(--tx3)"></div></div>
 
-<div class="card fu"><div class="ct2">🌙 Wind-Down — ${wd.length}/${WIND.length}</div>
+<div class="card fu"><div class="ct2">🌙 Wind-Down <span class="info-btn" onclick="openHelp('winddown')">ⓘ</span> — ${wd.length}/${WIND.length}</div>
 <div class="ibox warn" style="margin-bottom:10px;font-size:.72em">📱 Nota: Para PDFs, modo avião + brilho baixo + modo leitura. O problema são notificações e luz azul.</div>
 ${WIND.map((item,i)=>{const done=wd.includes(i);return`<div class="wdi" onclick="toggleWD(${i},'${tk}')"><div class="wdcb ${done?'on':''}">${done?'✓':''}</div><span style="font-size:.82em;color:${done?'var(--tx3)':'var(--tx2)'};${done?'text-decoration:line-through':''}">${item}</span></div>`}).join('')}</div>
 
 ${renderRelationships()}
 
-<div class="card fu"><div class="ct2">📚 Registo de Leitura</div>
+<div class="card fu"><div class="ct2">📚 Registo de Leitura <span class="info-btn" onclick="openHelp('leitura')">ⓘ</span></div>
 <div style="display:flex;gap:6px;margin-bottom:8px">
   <input id="bookIn" placeholder="Título do livro..." style="margin:0;flex:2"/>
   <input id="pagesIn" type="number" min="1" placeholder="pgs" style="width:65px;margin:0"/>
@@ -1674,7 +2144,7 @@ ${renderRelationships()}
 </div>
 <div id="readList">${renderReadings()}</div></div>
 
-<div class="card fu"><div class="ct2">☀️ Exposição Solar</div>
+<div class="card fu"><div class="ct2">☀️ Exposição Solar <span class="info-btn" onclick="openHelp('solar')">ⓘ</span></div>
 <div class="cd" style="font-size:.72em">Luz solar matinal (primeiros 30-60min do dia) sincroniza o ritmo circadiano e produz vitamina D.</div>
 <div style="display:flex;align-items:center;gap:10px;margin:8px 0">
   <input type="range" min="0" max="60" step="5" value="${S.sunLog?.[tkey()]||0}" oninput="setSun(this.value,'${tkey()}')" style="flex:1;accent-color:var(--gold)"/>
@@ -1683,17 +2153,17 @@ ${renderRelationships()}
 ${(S.sunLog?.[tkey()]||0)>=10?`<div style="font-size:.72em;color:var(--ac)">✓ Meta de sol atingida! +10 XP</div>`:'<div style="font-size:.68em;color:var(--tx3)">Meta: 10min/dia · Esta semana: '+Object.keys(S.sunLog||{}).filter(k=>new Date(k)>new Date(Date.now()-7*86400000)).reduce((a,k)=>a+(S.sunLog[k]||0),0)+'min total</div>'}
 </div>
 
-<div class="card fu"><div class="ct2">🌱 Aprendizados — Revisão Espaçada</div>
+<div class="card fu"><div class="ct2">🌱 Aprendizados <span class="info-btn" onclick="openHelp('aprendizados')">ⓘ</span> — Revisão Espaçada</div>
 ${renderEbbinghaus()}
 <div style="display:flex;gap:6px;margin:10px 0"><input id="learnIn" placeholder="Aprendi que..." style="margin:0"/><button class="btn ac" style="padding:7px 11px;white-space:nowrap;flex-shrink:0" onclick="addLearn()">+</button></div>
 <div id="learnList">${renderLearns()}</div></div>
 
-<div class="card fu"><div class="ct2">🙏 Gratidão</div>
+<div class="card fu"><div class="ct2">🙏 Gratidão <span class="info-btn" onclick="openHelp('gratidao')">ⓘ</span></div>
 ${renderGratitudeJar(gr)}
 ${[0,1,2].map(i=>`<input placeholder="${i+1}. Sou grato por..." value="${gr[i]||''}" style="margin-bottom:7px" oninput="setGrat(${i},this.value,'${tk}')"/>`).join('')}
 <button class="sav" onclick="saveGrat('${tk}')">Salvar</button></div>
 
-<div class="card fu"><div class="ct2">🤖 Meta SMART — com IA</div>
+<div class="card fu"><div class="ct2">🤖 Meta SMART <span class="info-btn" onclick="openHelp('smartgoals')">ⓘ</span> — com IA</div>
 <div class="cd" style="font-size:.72em">Descreve um objetivo vagamente. A IA converte em meta Específica, Mensurável, Atingível, Relevante e Temporal.</div>
 <div style="display:flex;gap:6px;margin-bottom:8px">
   <input id="smartGoalIn" placeholder="Ex: quero estudar mais..." style="margin:0;flex:1"/>
@@ -1701,7 +2171,7 @@ ${[0,1,2].map(i=>`<input placeholder="${i+1}. Sou grato por..." value="${gr[i]||
 </div>
 <div id="smartResult"></div></div>
 
-<div class="card fu"><div class="ct2">➕ Hábitos Personalizados</div>
+<div class="card fu"><div class="ct2">➕ Hábitos Personalizados <span class="info-btn" onclick="openHelp('habitosp')">ⓘ</span></div>
 ${(S.customHabits||[]).map((h,i)=>{const streak=S.habitStreak?.[h]||0;return`<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd)"><span style="flex:1;font-size:.82em">${h}</span>${streak>0?`<span style="font-size:.68em;color:var(--gold)">🔥${streak}</span>`:''}<button onclick="delHabit(${i})" style="color:var(--rose);font-size:.9em;cursor:pointer;background:none">✕</button></div>`}).join('')}
 <div style="display:flex;gap:6px;margin-top:9px"><input id="habIn" placeholder="Nome do hábito" style="margin:0"/><button class="btn ac" style="padding:7px 11px;white-space:nowrap;flex-shrink:0" onclick="addHabit()">+</button></div></div>`}
 
@@ -1773,7 +2243,7 @@ const PROVIDERS={
 function renderCoach(){const p=S.aiProvider||'anthropic',keys=S.apiKeys||{};
 document.getElementById('ct').innerHTML=`
 <div class="card fu" style="border-left:3px solid ${PROVIDERS[p].color}">
-  <div class="ct2">🤖 COACH IA — Selecionar provedor</div>
+  <div class="ct2">🤖 COACH IA <span class="info-btn" onclick="openHelp('coachIA')">ⓘ</span> — Selecionar provedor</div>
   <div style="display:flex;gap:6px;margin-bottom:10px">
     ${Object.entries(PROVIDERS).map(([id,pr])=>`<div class="provider-btn ${p===id?'on':''}" style="${p===id?'border-color:'+pr.color+';color:'+pr.color:'color:var(--tx3)'}" onclick="setProvider('${id}')">${pr.name.split(' ')[0]}</div>`).join('')}
   </div>
@@ -1830,7 +2300,7 @@ if(reply.includes('**')){const facts=reply.match(/\*\*([^*]{5,60})\*\*/g)?.slice
 }
 if(btn){btn.textContent='↑';btn.disabled=false}const box2=document.getElementById('chatBox');if(box2){box2.innerHTML=renderChat();box2.scrollTop=box2.scrollHeight}}
 
-function renderInsights(){const tk=tkey(),sl=S.sleep||{},wt=S.water||{};const days=Object.keys(sl).slice(-7);const avgSl=days.length?days.reduce((a,k)=>a+(sl[k]?.h||0),0)/days.length:0;const avgWt=days.length?days.reduce((a,k)=>a+(wt[k]||0),0)/days.length:0;const its=[];if(avgSl<7&&avgSl>0)its.push({i:'😴',t:'Sono abaixo da meta',d:`Média ${avgSl.toFixed(1)}h (meta: 7h+). Impacto directo na memória e foco.`,c:'var(--rose)'});if(avgWt<5&&avgWt>0)its.push({i:'💧',t:'Pouca hidratação',d:`Média ${avgWt.toFixed(1)} copos/dia. Desidratação reduz performance cognitiva em 10%.`,c:'var(--blue)'});if(S.streak>=7)its.push({i:'🔥',t:'Sequência forte!',d:`${S.streak} dias consecutivos. Hábitos com 66+ dias tornam-se automáticos.`,c:'var(--gold)'});if(S.pomT>=5)its.push({i:'⏱',t:'Bom foco',d:`${S.pomT} Pomodoros completados. ${Math.floor(S.focusMin/60)}h de foco real.`,c:'var(--ac)'});if(!its.length)return'';return`<div class="card fu"><div class="ct2">💡 Insights automáticos</div>${its.map(it=>`<div style="display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--bd)"><div style="font-size:1.2em">${it.i}</div><div><div style="font-size:.82em;font-weight:500;color:${it.c}">${it.t}</div><div style="font-size:.72em;color:var(--tx3);line-height:1.5;margin-top:2px">${it.d}</div></div></div>`).join('')}</div>`}
+function renderInsights(){const tk=tkey(),sl=S.sleep||{},wt=S.water||{};const days=Object.keys(sl).slice(-7);const avgSl=days.length?days.reduce((a,k)=>a+(sl[k]?.h||0),0)/days.length:0;const avgWt=days.length?days.reduce((a,k)=>a+(wt[k]||0),0)/days.length:0;const its=[];if(avgSl<7&&avgSl>0)its.push({i:'😴',t:'Sono abaixo da meta',d:`Média ${avgSl.toFixed(1)}h (meta: 7h+). Impacto directo na memória e foco.`,c:'var(--rose)'});if(avgWt<5&&avgWt>0)its.push({i:'💧',t:'Pouca hidratação',d:`Média ${avgWt.toFixed(1)} copos/dia. Desidratação reduz performance cognitiva em 10%.`,c:'var(--blue)'});if(S.streak>=7)its.push({i:'🔥',t:'Sequência forte!',d:`${S.streak} dias consecutivos. Hábitos com 66+ dias tornam-se automáticos.`,c:'var(--gold)'});if(S.pomT>=5)its.push({i:'⏱',t:'Bom foco',d:`${S.pomT} Pomodoros completados. ${Math.floor(S.focusMin/60)}h de foco real.`,c:'var(--ac)'});if(!its.length)return'';return`<div class="card fu"><div class="ct2">💡 Insights automáticos <span class="info-btn" onclick="openHelp('compound')">ⓘ</span></div>${its.map(it=>`<div style="display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--bd)"><div style="font-size:1.2em">${it.i}</div><div><div style="font-size:.82em;font-weight:500;color:${it.c}">${it.t}</div><div style="font-size:.72em;color:var(--tx3);line-height:1.5;margin-top:2px">${it.d}</div></div></div>`).join('')}</div>`}
 
 // ════ STATS ════
 function renderStats(){const days=Object.keys(S.brainscore||{}).sort().slice(-42),scores=days.map(d=>S.brainscore[d]);const avg=scores.length?Math.round(scores.reduce((a,v)=>a+v,0)/scores.length):0;const avg7=scores.slice(-7).length?Math.round(scores.slice(-7).reduce((a,v)=>a+v,0)/scores.slice(-7).length):0;
@@ -1846,13 +2316,13 @@ document.getElementById('ct').innerHTML=`
   <div class="sc"><div class="snum">${(S.learnings||[]).length}</div><div class="slbl">🌱 Aprendizados</div></div>
 </div>
 
-<div class="card fu"><div class="ct2">📅 Actividade — 42 dias</div>
+<div class="card fu"><div class="ct2">📅 Actividade — 42 dias <span class="info-btn" onclick="openHelp('actividade')">ⓘ</span></div>
 <div class="hmap">${['D','S','T','Q','Q','S','S'].map(d=>`<div style="font-size:.52em;color:var(--tx3);text-align:center;padding-bottom:2px">${d}</div>`).join('')}${(()=>{const cells=[];const tod=new Date();for(let i=41;i>=0;i--){const d=new Date(tod);d.setDate(tod.getDate()-i);const k=d.toISOString().split('T')[0];const sc=S.brainscore?.[k]||0;const lv=sc>=80?'l3':sc>=50?'l2':sc>=20?'l1':'';const isToday=k===tkey();cells.push(`<div class="hcell ${lv} ${isToday?'today':''}" title="${k}: ${sc}%">${isToday?'•':''}</div>`)}return cells.join('')})()} </div></div>
 
-<div class="card fu"><div class="ct2">📈 Progresso por semana</div>
+<div class="card fu"><div class="ct2">📈 Progresso por semana <span class="info-btn" onclick="openHelp('progresso')">ⓘ</span></div>
 ${WKS.map((w,i)=>{const{d,t,p}=wDn(S,i);return`<div class="wbar"><div class="wbl" style="color:${w.c}">${w.i} S${w.n}</div><div class="wbbg"><div class="wbf" style="width:${p}%;background:${w.c}"></div></div><div style="font-size:.65em;color:var(--tx3);width:35px;text-align:right">${p}%</div></div>`}).join('')}</div>
 
-<div class="card fu"><div class="ct2">🎮 Recordes de Jogos</div>
+<div class="card fu"><div class="ct2">🎮 Recordes de Jogos <span class="info-btn" onclick="openHelp('recordes')">ⓘ</span></div>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
 <div style="text-align:center"><div style="font-size:1.3em;font-family:Fraunces,serif;color:var(--ac)">${S.stroopR||0}</div><div style="font-size:.62em;color:var(--tx3)">🎨 Stroop</div></div>
 <div style="text-align:center"><div style="font-size:1.3em;font-family:Fraunces,serif;color:var(--ac)">Nv${S.memLv||0}</div><div style="font-size:.62em;color:var(--tx3)">🧩 Memória</div></div>
@@ -1860,29 +2330,29 @@ ${WKS.map((w,i)=>{const{d,t,p}=wDn(S,i);return`<div class="wbar"><div class="wbl
 <div style="text-align:center"><div style="font-size:1.3em;font-family:Fraunces,serif;color:var(--ac)">${S.wmRight||0}</div><div style="font-size:.62em;color:var(--tx3)">🔤 Palavras</div></div>
 </div></div>
 
-<div class="card fu"><div class="ct2">🎯 Objetivos pessoais</div>
+<div class="card fu"><div class="ct2">🎯 Objetivos pessoais <span class="info-btn" onclick="openHelp('objetivos')">ⓘ</span></div>
 <div id="goalsList">${renderGoals()}</div>
 <button class="btn ac" style="width:100%;text-align:center;margin-top:7px" onclick="openAddGoal()">+ Novo objetivo</button></div>
 
-<div class="card fu"><div class="ct2">📖 Relatório semanal</div>
+<div class="card fu"><div class="ct2">📖 Relatório semanal <span class="info-btn" onclick="openHelp('relatorio')">ⓘ</span></div>
 <button class="sav full" onclick="openWeekReport()">📊 Ver relatório completo</button></div>
 
-<div class="card fu"><div class="ct2">🎯 Missões ativas</div>
+<div class="card fu"><div class="ct2">🎯 Missões ativas <span class="info-btn" onclick="openHelp('missoes')">ⓘ</span></div>
 <div style="margin-bottom:8px">${(S.dailyMissions||[]).map(m=>`<div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid var(--bd);font-size:.78em"><span style="color:${m.done?'var(--ac)':'var(--tx3)'}">${m.done?'✅':'⭕'}</span><span style="flex:1;${m.done?'text-decoration:line-through;color:var(--tx3)':''}">${m.t}</span><span style="font-size:.65em;color:var(--gold)">+${m.xp}</span></div>`).join('')}</div>
 ${S.dailyBoss?`<div style="background:var(--gold)12;border-radius:8px;padding:8px;font-size:.78em"><span style="font-weight:500;color:var(--gold)">👑 Boss: ${S.dailyBoss.b}</span><br><span style="color:var(--tx3)">${S.dailyBoss.t}</span></div>`:''}</div>
 
-<div class="card fu"><div class="ct2">🏆 Hall of Fame — Top 10 dias</div>
+<div class="card fu"><div class="ct2">🏆 Hall of Fame <span class="info-btn" onclick="openHelp('hof')">ⓘ</span> — Top 10 dias</div>
 ${(S.hallOfFame||[]).length?`<div>${(S.hallOfFame||[]).map((d,i)=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--bd)"><span style="font-size:.72em;color:var(--gold);width:20px">#${i+1}</span><span style="flex:1;font-size:.78em">${d.date}</span><div style="font-family:Fraunces,serif;font-size:1.1em;color:var(--ac)">${d.score}</div><span style="font-size:.65em;color:var(--tx3)">🔥${d.streak}</span></div>`).join('')}</div>`:'<div style="font-size:.72em;color:var(--tx3)">Ainda não há dados suficientes.</div>'}</div>
 
-<div class="card fu"><div class="ct2">📈 1% Melhor a cada dia</div>
+<div class="card fu"><div class="ct2">📈 1% Melhor a cada dia <span class="info-btn" onclick="openHelp('compound')">ⓘ</span></div>
 <div style="font-size:.75em;color:var(--tx2);margin-bottom:8px">Crescimento composto baseado nos teus dias activos</div>
 ${(()=>{const days=Math.max(1,S.streak||1);const r=Math.pow(1.01,days);return`<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px"><div style="text-align:center;background:var(--bg3);border-radius:9px;padding:10px"><div style="font-family:Fraunces,serif;font-size:1.2em;color:var(--ac)">${days}</div><div style="font-size:.6em;color:var(--tx3)">dias activos</div></div><div style="text-align:center;background:var(--bg3);border-radius:9px;padding:10px"><div style="font-family:Fraunces,serif;font-size:1.2em;color:var(--gold)">${r.toFixed(2)}×</div><div style="font-size:.6em;color:var(--tx3)">multiplicador</div></div><div style="text-align:center;background:var(--bg3);border-radius:9px;padding:10px"><div style="font-family:Fraunces,serif;font-size:1.2em;color:var(--pu)">${Math.round((r-1)*100)}%</div><div style="font-size:.6em;color:var(--tx3)">crescimento</div></div></div>`;})()}
 <div class="ibox tip" style="margin-top:8px;font-size:.72em">Se melhorares 1% por dia durante 1 ano → <strong>37× melhor</strong>.</div></div>
 
-<div class="card fu"><div class="ct2">🏅 Conquistas (${S.unlocked?.length||0}/${ACH.length})</div>
+<div class="card fu"><div class="ct2">🏅 Conquistas <span class="info-btn" onclick="openHelp('conquistas')">ⓘ</span> (${S.unlocked?.length||0}/${ACH.length})</div>
 <div class="ach-grid">${ACH.map(a=>{const ul=S.unlocked?.includes(a.id);return`<div class="ach-item ${ul?'ul':''}" title="${a.n}"><div style="font-size:1.3em">${a.i}</div><div style="font-size:.55em;color:var(--tx3);margin-top:2px;line-height:1.2;text-align:center">${a.n}</div></div>`}).join('')}</div></div>
 
-<div class="card fu"><div class="ct2">📚 Flashcards — Neurociência</div>
+<div class="card fu"><div class="ct2">📚 Flashcards — Neurociência <span class="info-btn" onclick="openHelp('flashcards')">ⓘ</span></div>
 <div id="fcWrap">${renderFC()}</div></div>
 `;go_n='stats'}
 
@@ -1913,30 +2383,30 @@ function renderSettings(){document.getElementById('ct').innerHTML=`
 <div class="srow"><div><div class="srow-title">Lembretes</div><div class="srow-sub">Notificações para beber água e tarefas</div></div><div class="tgl ${S.notifOn?'on':''}" onclick="toggleNotif()"></div></div>
 <div class="srow"><div class="srow-title">Horário do lembrete</div><input type="time" value="${S.notifTime||'08:00'}" style="margin:0;width:100px" oninput="S.notifTime=this.value;save()"/></div></div>
 
-<div class="card fu"><div class="ct2">⏰ Digital Sunset</div>
+<div class="card fu"><div class="ct2">⏰ Digital Sunset <span class="info-btn" onclick="openHelp('digitalsunset')">ⓘ</span></div>
 <div class="srow"><div class="srow-title">Ativar sunset</div><div class="tgl ${S.sunsetOn?'on':''}" onclick="S.sunsetOn=!S.sunsetOn;save();renderSettings()"></div></div>
 <div style="margin-top:8px"><label style="font-size:.72em;color:var(--tx3)">Horário do sunset</label><input type="time" value="${S.sunsetTime||'21:00'}" style="margin-top:4px" oninput="S.sunsetTime=this.value;save()"/></div></div>
 
-<div class="card fu"><div class="ct2">💪 Editar Plano de Treino</div>
+<div class="card fu"><div class="ct2">💪 Editar Plano de Treino <span class="info-btn" onclick="openHelp('plano_treino')">ⓘ</span></div>
 <button class="sav full" onclick="openWOEditor()">✏️ Editor de treino</button></div>
 
-<div class="card fu"><div class="ct2">📋 Editar Agenda</div>
+<div class="card fu"><div class="ct2">📋 Editar Agenda <span class="info-btn" onclick="openHelp('agendaeditor')">ⓘ</span></div>
 <button class="sav full" onclick="openAgendaEditor()">✏️ Editor visual de agenda</button></div>
 
-<div class="card fu"><div class="ct2">🎯 Desafios & Objetivos</div>
+<div class="card fu"><div class="ct2">🎯 Desafios & Objetivos <span class="info-btn" onclick="openHelp('objetivos')">ⓘ</span></div>
 <div style="font-size:.75em;color:var(--tx2);margin-bottom:8px">Seleciona os teus desafios:</div>
 <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px">${['foco','sono','tela','memoria','estresse','consistencia','estudo','treino','ansiedade','procrastinacao'].map(c=>`<button class="btn ${(S.challenges||[]).includes(c)?'ac':''}" style="font-size:.68em" onclick="toggleChal('${c}')">${c}</button>`).join('')}</div>
 <div style="font-size:.75em;color:var(--tx2);margin-bottom:8px">Os teus objetivos:</div>
 <div style="display:flex;flex-wrap:wrap;gap:5px">${['produtividade','saude','estudos','bem-estar','longevidade','corpo','espiritualidade','disciplina'].map(g=>`<button class="btn ${(S.goals||[]).includes(g)?'ac':''}" style="font-size:.68em" onclick="toggleGoal('${g}')">${g}</button>`).join('')}</div></div>
 
-<div class="card fu"><div class="ct2">😴 Meta de sono</div>
+<div class="card fu"><div class="ct2">😴 Meta de sono <span class="info-btn" onclick="openHelp('metasono')">ⓘ</span></div>
 <div style="display:flex;align-items:center;gap:10px"><input type="range" min="6" max="10" step=".5" value="${S.sleepGoal||8}" oninput="S.sleepGoal=parseFloat(this.value);save();this.nextElementSibling.textContent=this.value+'h'" style="flex:1;accent-color:var(--ac)"/><span style="font-size:.82em;color:var(--ac);min-width:30px">${S.sleepGoal||8}h</span></div></div>
 
-<div class="card fu"><div class="ct2">❄️ Streak Freezes — ${S.freezes||0} restantes</div>
+<div class="card fu"><div class="ct2">❄️ Streak Freezes <span class="info-btn" onclick="openHelp('streakfreeze')">ⓘ</span> — ${S.freezes||0} restantes</div>
 <div class="cd">Protege a tua sequência num dia difícil</div>
 <button class="btn" onclick="addFreeze()">+ Comprar freeze (+5 XP)</button></div>
 
-<div class="card fu"><div class="ct2">💾 Dados</div>
+<div class="card fu"><div class="ct2">💾 Dados <span class="info-btn" onclick="openHelp('dados')">ⓘ</span></div>
 <div style="display:flex;flex-direction:column;gap:7px">
 <button class="sav" onclick="exportData()">📤 Exportar backup</button>
 <button class="btn" onclick="document.getElementById('impFile').click()">📥 Importar backup</button>
@@ -1944,7 +2414,7 @@ function renderSettings(){document.getElementById('ct').innerHTML=`
 <button class="btn red" onclick="resetApp()">🗑 Resetar tudo</button>
 </div></div>
 
-<div class="ibox tip" style="margin-top:5px;font-size:.7em;text-align:center"><strong>v10.0</strong> · Cérebro Saudável · Pines × Claude ✨<br>Protocolo baseado em neurociência aplicada</div>`;
+<div class="ibox tip" style="margin-top:5px;font-size:.7em;text-align:center"><strong>v10.0</strong> · CortexOS · Pines × Claude ✨<br>Protocolo baseado em neurociência aplicada</div>`;
 go_n='settings'}
 
 let go_n='';
@@ -1968,7 +2438,7 @@ function scheduleNotif(){
   const now=new Date(),tgt=new Date();tgt.setHours(h,m,0,0);if(tgt<now)tgt.setDate(tgt.getDate()+1);
   const diff=tgt-now;
   setTimeout(()=>{
-    try{new Notification('🧠 Cérebro Saudável',{body:`Bom dia ${S.name||''}! Bebe água e verifica as tuas tarefas.`,icon:'./icon-192.png',tag:'daily'})}catch(e){}
+    try{new Notification('🧠 CortexOS',{body:`Bom dia ${S.name||''}! Bebe água e verifica as tuas tarefas.`,icon:'./icon-192.png',tag:'daily'})}catch(e){}
     setInterval(()=>{try{new Notification('💧 Hidratação',{body:'Já bebeste água hoje? Meta: 8 copos.',icon:'./icon-192.png',tag:'water'})}catch(e){}},3600000);
   },diff);
 }
@@ -1977,7 +2447,7 @@ function toggleGoal(g){S.goals=S.goals||[];const i=S.goals.indexOf(g);if(i>=0)S.
 function addFreeze(){if((S.xp||0)<100){toast('⚠️ Precisas de 100 XP!');return}S.xp-=100;S.freezes=(S.freezes||0)+1;save();renderSettings();toast('❄️ Freeze comprado! (-100 XP)')}
 function exportData(){const b=JSON.stringify(S,null,2),a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(b);a.download='cerebro-backup-'+tkey()+'.json';a.click();toast('✅ Exportado!')}
 function importData(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{try{const d=JSON.parse(e.target.result);Object.assign(S,d);save();location.reload()}catch(err){toast('⚠️ Ficheiro inválido!')}};r.readAsText(file)}
-function resetApp(){if(confirm('Apagar tudo? Esta ação é irreversível!')){localStorage.removeItem('cb10');location.reload()}}
+function resetApp(){if(confirm('Apagar tudo? Esta ação é irreversível!')){localStorage.removeItem('cxos');location.reload()}}
 
 function openWOEditor(){const wo=getWO();const days=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];let html=`<div style="margin-bottom:12px;font-size:.78em;color:var(--tx3)">Edita o plano de treino de forma visual.</div>`;days.forEach(d=>{const plan=wo[d];html+=`<div style="margin-bottom:14px"><div style="font-size:.85em;font-weight:600;color:var(--ac);margin-bottom:6px">${d} — ${plan?.focus||'Descanso'}</div>`;if(d!=='Dom'&&plan?.exercises?.length){plan.exercises.forEach((ex,ei)=>{html+=`<div class="sch-edit-item"><div style="display:flex;gap:5px;align-items:center;margin-bottom:5px"><span style="flex:1;font-size:.82em;font-weight:500">${ex.name}</span><button onclick="editEx('${d}',${ei})" style="font-size:.68em;color:var(--ac);border:1px solid var(--ac);border-radius:20px;padding:1px 7px;cursor:pointer;background:none">Ed</button><button onclick="delEx('${d}',${ei})" style="color:var(--rose);font-size:.82em;cursor:pointer;background:none">✕</button></div><div style="font-size:.68em;color:var(--tx3)">${ex.sets}×${ex.reps} ${ex.unit} · ${ex.restSec}s descanso</div></div>`})}html+=`<button class="btn" style="font-size:.7em;width:100%;margin-top:4px" onclick="addEx('${d}')">+ Adicionar exercício em ${d}</button></div>`});html+=`<div style="display:flex;gap:8px"><button class="sav" style="flex:1" onclick="saveWO()">💾 Guardar treino</button><button class="btn red" style="white-space:nowrap" onclick="S.workoutPlan=null;save();closeModal();toast('Reposto!')">↺ Repor</button></div>`;openModal('✏️ Editar Plano de Treino',html)}
 let _editWO=null;
@@ -2051,7 +2521,7 @@ function renderMIT(){
   const tk=tkey();S.mit=S.mit||{};
   const mit=S.mit[tk]||{task:'',done:false};
   return`<div class="mit-card">
-  <div class="mit-label">🎯 MIT — Most Important Task</div>
+  <div class="mit-label">🎯 MIT — Most Important Task <span class="info-btn" onclick="openHelp('mit')">ⓘ</span></div>
   <div style="font-size:.75em;color:var(--tx3);margin-bottom:8px">A 1 tarefa que, se concluída, faz o dia ser bem-sucedido.</div>
   <div style="display:flex;gap:6px;align-items:center">
     <div onclick="toggleMIT('${tk}')" style="width:20px;height:20px;border-radius:6px;border:2px solid ${mit.done?'var(--ac)':'var(--bd)'};background:${mit.done?'var(--ac)':'transparent'};flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.7em;color:#000">${mit.done?'✓':''}</div>
@@ -2061,39 +2531,41 @@ function renderMIT(){
 </div>`}
 function toggleMIT(tk){S.mit=S.mit||{};if(!S.mit[tk]?.task)return;S.mit[tk].done=!S.mit[tk].done;save();if(S.mit[tk].done)addXP(25);renderWeek();toast(S.mit[tk].done?'🎯 MIT concluída! +25 XP':'MIT desmarcada')}
 
-// ════ KNOWLEDGE POPUP (Bloco T) ════
-function openKnowledge(key){
-  const k=KB[key];if(!k)return;
-  const content=`
-<div class="kpop-hero">
-  <div class="kpop-badge">${k.icon} ${k.color?`<span style="color:${k.color}">`:''}${k.title}${k.color?'</span>':''}</div>
-  <div style="font-size:.7em;color:var(--tx3);line-height:1.5">${k.origin}</div>
-</div>
-<div class="know-section">
-  <div class="know-title">🧠 Como Funciona no Cérebro</div>
-  <div class="know-body">${k.mechanism}</div>
-</div>
-${k.errors?`<div class="know-section">
-  <div class="know-title">⚠️ Erros Comuns</div>
-  ${k.errors.map(e=>`<div class="know-body" style="margin-bottom:5px">• ${e}</div>`).join('')}
-</div>`:''}
-${k.studies?`<div class="know-section">
-  <div class="know-title">📄 Estudos Reais</div>
-  <div class="know-body">${k.studies}</div>
-</div>`:''}
-${k.timeline?`<div class="know-section">
-  <div class="know-title">📅 Evolução Esperada</div>
-  ${k.timeline.map((t,i)=>`<div class="timeline-row"><div class="tl-dot"></div><div class="tl-content"><span class="tl-time">${t.split(':')[0]}</span>${t.split(':').slice(1).join(':')}</div></div>`).join('')}
-</div>`:''}
-${k.myths?`<div class="know-section">
-  <div class="know-title">🔍 Desmontando Mitos</div>
-  ${k.myths.map(m=>`<div class="know-body" style="margin-bottom:5px">${m}</div>`).join('')}
-</div>`:''}`;
-  document.getElementById('modalTitle').innerHTML=`${k.icon} ${k.title}`;
-  document.getElementById('modalBody').innerHTML=content;
+// ════ UNIVERSAL HELP FUNCTION ════
+function openKnowledge(key){openHelp(key)}// alias
+function openHelp(key){
+  // Try HELP_DB first, then KB
+  const h=HELP_DB[key]||KB[key];
+  if(!h){toast('ⓘ Em breve!');return}
+  let html=`<div style="padding:2px 0 14px">`;
+  // What
+  if(h.what)html+=`<div class="know-section"><div class="know-title">📌 O que é</div><div class="know-body">${h.what}</div></div>`;
+  // Why / Origin
+  if(h.why||h.origin)html+=`<div class="know-section"><div class="know-title">🧬 Porquê funciona</div><div class="know-body">${h.why||h.origin}</div></div>`;
+  // How
+  if(h.how?.length)html+=`<div class="know-section"><div class="know-title">✅ Como fazer</div>${h.how.map(s=>`<div class="know-body" style="display:flex;gap:8px;margin-bottom:6px"><span style="color:var(--ac);flex-shrink:0">→</span><span>${s}</span></div>`).join('')}</div>`;
+  // Mechanism (KB format)
+  if(h.mechanism)html+=`<div class="know-section"><div class="know-title">🧠 Mecanismo cerebral</div><div class="know-body">${h.mechanism}</div></div>`;
+  // Examples
+  if(h.examples?.length)html+=`<div class="know-section"><div class="know-title">💡 Exemplos práticos</div>${h.examples.map(e=>`<div class="know-quote">${e}</div>`).join('')}</div>`;
+  // Science / Studies
+  if(h.science||h.studies)html+=`<div class="know-section"><div class="know-title">🔬 A ciência</div><div class="know-body">${h.science||h.studies}</div></div>`;
+  // Errors
+  if(h.errors?.length)html+=`<div class="know-section"><div class="know-title">⚠️ Erros comuns</div>${h.errors.map(e=>`<div class="know-body" style="display:flex;gap:8px;margin-bottom:5px"><span style="color:var(--rose);flex-shrink:0">✗</span><span>${e}</span></div>`).join('')}</div>`;
+  // Myths
+  if(h.myths?.length)html+=`<div class="know-section"><div class="know-title">🔍 Mitos desmontados</div>${h.myths.map(m=>`<div class="know-body" style="margin-bottom:5px">${m}</div>`).join('')}</div>`;
+  // Timeline
+  if(h.timeline?.length)html+=`<div class="know-section"><div class="know-title">📅 Evolução esperada</div>${h.timeline.map(t=>`<div class="timeline-row"><div class="tl-dot"></div><div class="tl-content"><span class="tl-time">${t.split(':')[0]}</span>${t.includes(':')?t.split(':').slice(1).join(':'):t}</div></div>`).join('')}</div>`;
+  // Tip
+  if(h.tip)html+=`<div class="ibox tip" style="margin-top:8px"><strong>💡 Dica rápida:</strong> ${h.tip}</div>`;
+  html+=`</div>`;
+  const icon=h.icon||'ⓘ';
+  const title=h.title||key;
+  document.getElementById('modalTitle').innerHTML=`${icon} ${title}`;
+  document.getElementById('modalBody').innerHTML=html;
   document.getElementById('modalBg').style.display='flex';
+  snd(500,600,.1);
 }
-
 // ════ ACADEMIA TAB ════
 function renderAcademia(){
   const topics=[
@@ -2114,7 +2586,7 @@ function renderAcademia(){
   <div style="font-family:Fraunces,serif;font-size:.92em;line-height:1.6;font-weight:300;font-style:italic">"${fact}"</div>
 </div>
 <div class="card">
-  <div class="ct2">📚 ACADEMIA — Base de Conhecimento</div>
+  <div class="ct2">📚 ACADEMIA <span class="info-btn" onclick="openHelp('academia')">ⓘ</span> — Base de Conhecimento</div>
   <div class="cd">Cada tema tem mecanismo neurológico, erros comuns, estudos reais e evolução esperada. Toca para abrir.</div>
   <div class="acad-grid">
     ${topics.map(t=>`<div class="acad-card" onclick="openKnowledge('${t.key}')">
@@ -2125,11 +2597,11 @@ function renderAcademia(){
   </div>
 </div>
 <div class="card">
-  <div class="ct2">🔬 QUIZ CIENTÍFICO</div>
+  <div class="ct2">🔬 QUIZ CIENTÍFICO <span class="info-btn" onclick="openHelp('quiz')">ⓘ</span></div>
   <div id="quizBox">${renderQuiz()}</div>
 </div>
 <div class="card">
-  <div class="ct2">💬 FLASHCARDS — Revisão Espaçada</div>
+  <div class="ct2">💬 FLASHCARDS — Revisão Espaçada <span class="info-btn" onclick="openHelp('flashcards')">ⓘ</span></div>
   <div id="fcBox">${renderFlashcardBox()}</div>
   <hr class="sep"/>
   <div style="display:flex;gap:6px;margin-top:8px">
@@ -2219,7 +2691,7 @@ function renderCaffeineTracker(){
   const now=new Date();const halfLifeH=5.5;
   const activeNow=logs.reduce((a,l)=>{const hrs=(now-new Date(l.time))/3600000;return a+l.mg*Math.pow(0.5,hrs/halfLifeH)},0);
   return`<div class="card">
-  <div class="ct2">☕ Tracker de Cafeína <span class="info-btn" onclick="openKnowledge('sleep')">ⓘ</span></div>
+  <div class="ct2">☕ Tracker de Cafeína <span class="info-btn" onclick="openHelp('sono')">ⓘ</span></div>
   <div style="font-size:.72em;color:var(--tx3);margin-bottom:8px">Limite recomendado: 400mg/dia. Semi-vida: 5-6h (evita cafeína após as 14h).</div>
   <div class="caff-bar"><div class="caff-fill" style="width:${pct}%"></div></div>
   <div style="display:flex;justify-content:space-between;font-size:.68em;color:var(--tx3);margin-bottom:8px">
@@ -2236,7 +2708,7 @@ function addCaff(name,mg){const tk=tkey();S.caffeine=S.caffeine||{};S.caffeine[t
 // ════ SLEEP FACTORS ════
 function renderSleepFactors(){
   const tk=tkey();S.sleepFactors=S.sleepFactors||{};const sf=S.sleepFactors[tk]||{};
-  return`<div style="margin-top:10px"><div style="font-size:.72em;color:var(--tx3);margin-bottom:7px">O quê afectou o teu sono esta noite? (honestidade é dado)</div>
+  return`<div style="margin-top:10px"><div style="font-size:.72em;color:var(--tx3);margin-bottom:7px">O quê afectou o teu sono esta noite? <span class="info-btn" onclick="openHelp('sleepfactors')">ⓘ</span> (honestidade é dado)</div>
 <div style="display:flex;flex-wrap:wrap;">${SLEEP_FACTORS.map(f=>`<div class="sf-pill ${sf[f.id]?f.type==='bad'?'on':'good':''}" onclick="toggleSF('${f.id}','${f.type}','${tk}')"><span>${f.label}</span></div>`).join('')}</div></div>`}
 function toggleSF(id,type,tk){S.sleepFactors=S.sleepFactors||{};S.sleepFactors[tk]=S.sleepFactors[tk]||{};S.sleepFactors[tk][id]=!S.sleepFactors[tk][id];save();renderHealth()}
 
@@ -2267,7 +2739,7 @@ function renderRelationships(){
   S.relationships=S.relationships||[];const rs=S.relationships;
   const now=Date.now();
   return`<div class="card">
-  <div class="ct2">🤝 Conexões <span class="info-btn" onclick="openKnowledge('social')">ⓘ</span></div>
+  <div class="ct2">🤝 Conexões <span class="info-btn" onclick="openHelp('conversa')">ⓘ</span></div>
   <div class="cd" style="font-size:.72em">Harvard Study: qualidade relacional é o preditor #1 de saúde cerebral. Meta: 1 contacto presencial/semana.</div>
   ${rs.map((r,i)=>{const daysAgo=r.last?Math.floor((now-new Date(r.last))/(1000*86400)):null;const status=daysAgo===null?'neutral':daysAgo<=3?'ok':daysAgo<=7?'ok':daysAgo<=14?'warn':'alert';const statusLbl=daysAgo===null?'Nunca contactado':daysAgo===0?'Hoje':daysAgo===1?'Ontem':`${daysAgo}d atrás`;return`<div class="rel-card"><div class="rel-avatar">${r.icon||'👤'}</div><div style="flex:1;min-width:0"><div style="font-size:.85em;font-weight:500">${r.name}</div><div style="font-size:.65em;color:var(--tx3)">${r.note||''}</div></div><div class="rel-status rel-${status}">${statusLbl}</div><button onclick="logContact(${i})" style="background:var(--ac);color:#000;border:none;border-radius:20px;padding:4px 10px;font-size:.65em;cursor:pointer;white-space:nowrap">Contactei</button><button onclick="delRelation(${i})" style="color:var(--rose);font-size:.85em;background:none;border:none;cursor:pointer">✕</button></div>`}).join('')}
   <div style="display:flex;gap:5px;margin-top:9px">
@@ -2378,7 +2850,7 @@ function startDigitSpan(){
   document.getElementById('ct').innerHTML=renderDigitSpanUI();
   nextDigitSpan();
 }
-function renderDigitSpanUI(){return`<div class="card"><div class="ct2">🔢 Digit Span — Memória de Trabalho</div><div class="ibox sci" style="font-size:.72em;margin-bottom:10px">Memoriza a sequência de dígitos exibida. Testa memória de trabalho — média: 7±2 dígitos.</div><div class="ds-digit" id="dsDisp">Preparar...</div><div id="dsKeys" style="display:none"><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:260px;margin:0 auto">${[1,2,3,4,5,6,7,8,9,0].map(d=>`<button class="btn" style="font-size:1.1em;padding:10px" onclick="dsKey(${d})">${d}</button>`).join('')}<button class="btn red" style="grid-column:span 2;font-size:.8em" onclick="dsClear()">⌫ Limpar</button></div><div style="text-align:center;margin-top:10px"><div style="font-size:.72em;color:var(--tx3)" id="dsInputLbl">—</div></div></div><div id="dsResult" style="text-align:center;margin-top:10px"></div></div><button class="btn" style="width:100%;text-align:center" onclick="go('tools')">← Voltar</button>`}
+function renderDigitSpanUI(){return`<div class="card"><div class="ct2">🔢 Digit Span <span class="info-btn" onclick="openHelp('digitspan')">ⓘ</span> — Memória de Trabalho</div><div class="ibox sci" style="font-size:.72em;margin-bottom:10px">Memoriza a sequência de dígitos exibida. Testa memória de trabalho — média: 7±2 dígitos.</div><div class="ds-digit" id="dsDisp">Preparar...</div><div id="dsKeys" style="display:none"><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:260px;margin:0 auto">${[1,2,3,4,5,6,7,8,9,0].map(d=>`<button class="btn" style="font-size:1.1em;padding:10px" onclick="dsKey(${d})">${d}</button>`).join('')}<button class="btn red" style="grid-column:span 2;font-size:.8em" onclick="dsClear()">⌫ Limpar</button></div><div style="text-align:center;margin-top:10px"><div style="font-size:.72em;color:var(--tx3)" id="dsInputLbl">—</div></div></div><div id="dsResult" style="text-align:center;margin-top:10px"></div></div><button class="btn" style="width:100%;text-align:center" onclick="go('tools')">← Voltar</button>`}
 function nextDigitSpan(){
   dsSeq=Array.from({length:dsLen},()=>Math.floor(Math.random()*10));dsInput=[];
   const disp=document.getElementById('dsDisp');const keys=document.getElementById('dsKeys');if(keys)keys.style.display='none';
@@ -2401,7 +2873,7 @@ function startWordChain(){
   document.getElementById('ct').innerHTML=renderWordChainUI();
   wcTimer=setInterval(()=>{wcTimeLeft--;const tl=document.getElementById('wcTime');if(tl)tl.textContent=wcTimeLeft+'s';if(wcTimeLeft<=0){clearInterval(wcTimer);endWordChain()}},1000);
 }
-function renderWordChainUI(){return`<div class="card"><div class="ct2">🔗 Word Chain — Fluência Verbal</div><div class="ibox sci" style="font-size:.72em;margin-bottom:8px">Cada palavra começa com a última letra da anterior. Treina fluência semântica e velocidade verbal.</div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div style="font-size:.85em">Pontuação: <strong style="color:var(--ac)" id="wcScore">0</strong></div><div style="font-size:.85em;color:var(--gold)">⏱ <strong id="wcTime">60s</strong></div></div><div class="wc-chain" id="wcChain"></div><div style="font-size:.72em;color:var(--tx3);margin-bottom:8px">Próxima começa com: <strong style="color:var(--ac);font-size:1.2em" id="wcNext">qualquer</strong></div><div style="display:flex;gap:6px"><input id="wcIn" placeholder="Escreve uma palavra..." style="margin:0;flex:1" onkeydown="if(event.key==='Enter')submitWCWord()"/><button class="btn ac" onclick="submitWCWord()">→</button></div><div id="wcMsg" style="font-size:.72em;margin-top:6px;color:var(--rose)"></div></div>`}
+function renderWordChainUI(){return`<div class="card"><div class="ct2">🔗 Word Chain <span class="info-btn" onclick="openHelp('wordchain')">ⓘ</span> — Fluência Verbal</div><div class="ibox sci" style="font-size:.72em;margin-bottom:8px">Cada palavra começa com a última letra da anterior. Treina fluência semântica e velocidade verbal.</div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><div style="font-size:.85em">Pontuação: <strong style="color:var(--ac)" id="wcScore">0</strong></div><div style="font-size:.85em;color:var(--gold)">⏱ <strong id="wcTime">60s</strong></div></div><div class="wc-chain" id="wcChain"></div><div style="font-size:.72em;color:var(--tx3);margin-bottom:8px">Próxima começa com: <strong style="color:var(--ac);font-size:1.2em" id="wcNext">qualquer</strong></div><div style="display:flex;gap:6px"><input id="wcIn" placeholder="Escreve uma palavra..." style="margin:0;flex:1" onkeydown="if(event.key==='Enter')submitWCWord()"/><button class="btn ac" onclick="submitWCWord()">→</button></div><div id="wcMsg" style="font-size:.72em;margin-top:6px;color:var(--rose)"></div></div>`}
 function submitWCWord(){
   const inp=document.getElementById('wcIn');if(!inp)return;const word=inp.value.trim().toLowerCase();if(!word)return;
   const msg=document.getElementById('wcMsg');
@@ -2427,7 +2899,7 @@ function startDualNBack(){
   setTimeout(runDNBStep,1000);
 }
 function generateDNBSeq(len){for(let i=0;i<len;i++){const pos=Math.floor(Math.random()*9);const letter=dnbLetters[Math.floor(Math.random()*dnbLetters.length)];dnbSeq.push({pos,letter});if(i>=dnbN){if(Math.random()<0.3)dnbSeq[i].pos=dnbSeq[i-dnbN].pos;if(Math.random()<0.3)dnbSeq[i].letter=dnbSeq[i-dnbN].letter;}}}
-function renderDNBUI(){return`<div class="card"><div class="ct2">🧠 Dual N-Back — Nível ${dnbN}</div><div class="ibox sci" style="font-size:.72em;margin-bottom:8px">Responde quando a posição ou letra for igual à de ${dnbN} passos atrás. O teste mais validado para memória de trabalho.</div><div class="dnb-grid">${Array.from({length:9},(_,i)=>`<div class="dnb-cell" id="dnb${i}"> </div>`).join('')}</div><div style="text-align:center;font-size:1.4em;font-weight:600;color:var(--ac);margin-bottom:12px;min-height:40px" id="dnbLetter"></div><div style="display:flex;gap:8px;justify-content:center;margin-bottom:10px"><button class="btn" style="flex:1;font-size:.8em" onclick="dnbAnswer('pos')">📍 Posição</button><button class="btn" style="flex:1;font-size:.8em" onclick="dnbAnswer('letter')">🔤 Letra</button></div><div style="display:flex;justify-content:space-between;font-size:.72em;color:var(--tx3)"><span>✅ <span id="dnbHits">0</span></span><span id="dnbStep2">0/${dnbSeq.length}</span><span>❌ <span id="dnbFP">0</span></span></div></div>`}
+function renderDNBUI(){return`<div class="card"><div class="ct2">🧠 Dual N-Back <span class="info-btn" onclick="openHelp('dualnback')">ⓘ</span> — Nível ${dnbN}</div><div class="ibox sci" style="font-size:.72em;margin-bottom:8px">Responde quando a posição ou letra for igual à de ${dnbN} passos atrás. O teste mais validado para memória de trabalho.</div><div class="dnb-grid">${Array.from({length:9},(_,i)=>`<div class="dnb-cell" id="dnb${i}"> </div>`).join('')}</div><div style="text-align:center;font-size:1.4em;font-weight:600;color:var(--ac);margin-bottom:12px;min-height:40px" id="dnbLetter"></div><div style="display:flex;gap:8px;justify-content:center;margin-bottom:10px"><button class="btn" style="flex:1;font-size:.8em" onclick="dnbAnswer('pos')">📍 Posição</button><button class="btn" style="flex:1;font-size:.8em" onclick="dnbAnswer('letter')">🔤 Letra</button></div><div style="display:flex;justify-content:space-between;font-size:.72em;color:var(--tx3)"><span>✅ <span id="dnbHits">0</span></span><span id="dnbStep2">0/${dnbSeq.length}</span><span>❌ <span id="dnbFP">0</span></span></div></div>`}
 let dnbPendingVisual=false,dnbPendingAudio=false;
 function runDNBStep(){
   if(dnbStep>=dnbSeq.length){endDNB();return}
@@ -2455,7 +2927,7 @@ function endDNB(){
 // ════ WORD COUNT DIARY ════
 function renderWordCountJournal(){
   const tk=tkey();const ago7=new Date(Date.now()-7*86400000).toISOString().split('T')[0];const prev=S.journal[ago7]||'';
-  return`<div class="card fu"><div class="ct2">📝 Diário <span class="info-btn" onclick="openKnowledge('sleep')">ⓘ</span><span class="wc-badge" id="wcDiary">0 palavras</span></div>
+  return`<div class="card fu"><div class="ct2">📝 Diário <span class="info-btn" onclick="openHelp('sono')">ⓘ</span><span class="wc-badge" id="wcDiary">0 palavras</span></div>
 ${prev?`<div class="ibox tip" style="font-size:.72em;margin-bottom:8px"><strong>Há 7 dias escreveste:</strong> "${prev.slice(0,80)}..."</div>`:''}
 <div style="font-size:.68em;color:var(--tx3);margin-bottom:5px">Prompt: <em>${getDiaryPrompt()}</em></div>
 <textarea class="jarea" id="journalIn" placeholder="O teu espaço para escrever..." oninput="updateWC(this.value,'${tk}')">${S.journal[tk]||''}</textarea>
@@ -2500,7 +2972,7 @@ function renderEbbinghaus(){
   const done=S.learnings?.filter(l=>l.reviews>=5).length||0;
   const total=S.learnings?.length||0;
   if(!total)return'';
-  return`<div style="margin-top:8px"><div style="font-size:.65em;color:var(--tx3);margin-bottom:6px">Curva de Ebbinghaus — sem revisão, esqueces:</div>
+  return`<div style="margin-top:8px"><div style="font-size:.65em;color:var(--tx3);margin-bottom:6px">Curva de Ebbinghaus — sem revisão, esqueces: <span class="info-btn" onclick="openHelp('aprendizados')">ⓘ</span></div>
 <div class="eb-bar"><div class="eb-label">1h depois</div><div class="eb-track"><div class="eb-fill" style="width:57%;background:var(--rose)"></div></div><div style="font-size:.6em;color:var(--tx3)">43% retido</div></div>
 <div class="eb-bar"><div class="eb-label">1 dia</div><div class="eb-track"><div class="eb-fill" style="width:66%;background:var(--gold)"></div></div><div style="font-size:.6em;color:var(--tx3)">34% retido</div></div>
 <div class="eb-bar"><div class="eb-label">1 semana</div><div class="eb-track"><div class="eb-fill" style="width:75%;background:var(--gold)"></div></div><div style="font-size:.6em;color:var(--tx3)">25% retido</div></div>
@@ -2567,7 +3039,7 @@ function updateGreeting(){
 // ════ BOOT ════
 let _deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();_deferredPrompt=e;setTimeout(()=>{if(!localStorage.getItem('ib_dismissed')){document.getElementById('ibanner').classList.add('show')}},4000)});
-document.getElementById('ibbtn').addEventListener('click',()=>{if(_deferredPrompt){_deferredPrompt.prompt();_deferredPrompt.userChoice.then(r=>{if(r.outcome==='accepted')toast('🎉 App instalado!');_deferredPrompt=null;document.getElementById('ibanner').classList.remove('show')})}else{toast('Abre no Chrome para instalar')}});
+document.getElementById('ibbtn').addEventListener('click',()=>{if(_deferredPrompt){_deferredPrompt.prompt();_deferredPrompt.userChoice.then(r=>{if(r.outcome==='accepted')toast('⚡ CortexOS instalado!');_deferredPrompt=null;document.getElementById('ibanner').classList.remove('show')})}else{toast('Abre no Chrome para instalar')}});
 document.getElementById('ibclose').addEventListener('click',()=>{document.getElementById('ibanner').classList.remove('show');localStorage.setItem('ib_dismissed','1')});
 let _newWorker=null;
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').then(reg=>{reg.addEventListener('updatefound',()=>{_newWorker=reg.installing;_newWorker?.addEventListener('statechange',()=>{if(_newWorker?.state==='installed'&&navigator.serviceWorker.controller){document.getElementById('updBar').classList.add('show')}})})}).catch(()=>{})}
@@ -2578,7 +3050,7 @@ async function reqWakeLock(){try{if('wakeLock' in navigator){_wl=await navigator
 document.addEventListener('visibilitychange',async()=>{
   if(document.visibilityState==='visible'){
     // App came back to foreground - restore state
-    S=JSON.parse(localStorage.getItem('cb10')||'{}');
+    S=JSON.parse(localStorage.getItem('cxos')||'{}');
     updateUI();updateSunset();
     // Re-request wake lock
     if(_wl&&_wl.released){try{if('wakeLock' in navigator)_wl=await navigator.wakeLock.request('screen')}catch(e){}}

@@ -1,14 +1,16 @@
 {
-  "name": "Cérebro Saudável — 6 Semanas",
-  "short_name": "Cérebro Saudável",
-  "description": "Cronograma interativo de saúde cerebral",
+  "name": "CortexOS",
+  "short_name": "CortexOS",
+  "description": "Sistema operativo para o teu cérebro. Protocolo neural de 6 semanas.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0f0f13",
-  "theme_color": "#4FC3A1",
+  "background_color": "#07090F",
+  "theme_color": "#00D4FF",
   "orientation": "portrait-primary",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
-  ]
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "categories": ["health", "education", "productivity"],
+  "lang": "pt-BR"
 }
