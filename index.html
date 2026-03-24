@@ -388,6 +388,105 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .pop{animation:pop .2s ease}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 .shake{animation:shake .3s ease}
+
+/* ═══ MINI ANIMATIONS (CSS "Videos") ═══ */
+.anim-wrap{background:var(--bg3);border-radius:var(--r);padding:14px;margin-bottom:10px;border:1px solid var(--bd);overflow:hidden;position:relative}
+.anim-title{font-size:.65em;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ac);margin-bottom:10px;font-family:'Share Tech Mono',monospace}
+/* Sleep cycles animation */
+.sleep-anim{display:flex;align-items:flex-end;gap:3px;height:60px;margin-bottom:6px}
+.sleep-bar{flex:1;border-radius:3px 3px 0 0;position:relative}
+@keyframes sleepRise{from{height:0}to{height:var(--h)}}
+.sleep-bar{animation:sleepRise 1.5s ease-out forwards;animation-delay:var(--d)}
+.sleep-label{font-size:.48em;color:var(--tx3);text-align:center;margin-top:3px}
+/* Ebbinghaus curve */
+.eb-svg path{stroke-dasharray:300;stroke-dashoffset:300;animation:drawCurve 2s ease-out .5s forwards}
+@keyframes drawCurve{to{stroke-dashoffset:0}}
+/* Dopamine pulse */
+@keyframes dopPulse{0%{r:4}40%{r:12;opacity:.8}100%{r:4;opacity:1}}
+.dop-pulse{animation:dopPulse 1.5s ease-in-out infinite}
+/* BDNF grow */
+@keyframes bdnfGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.bdnf-bar{transform-origin:bottom;animation:bdnfGrow 1s ease-out forwards;animation-delay:var(--d)}
+/* Compound effect */
+@keyframes compGrow{from{stroke-dashoffset:400}to{stroke-dashoffset:0}}
+.comp-line{stroke-dasharray:400;stroke-dashoffset:400;animation:compGrow 2s ease-in forwards}
+/* Ultradiam wave */
+@keyframes waveAnim{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ultra-wave{animation:waveAnim 4s linear infinite}
+/* Neuroplasticity synapse */
+@keyframes synapseGrow{from{stroke-width:1;opacity:.2}to{stroke-width:3;opacity:1}}
+.synapse{animation:synapseGrow 1s ease-out forwards;animation-delay:var(--d)}
+/* Focus vs multitask */
+@keyframes barGrow{from{width:0}to{width:var(--w)}}
+.focus-bar-anim{animation:barGrow 1.5s ease-out forwards;animation-delay:var(--d)}
+/* Glymphatic wash */
+@keyframes glymphWash{0%{opacity:.8;transform:translateY(0)}50%{opacity:.3;transform:translateY(4px)}100%{opacity:.8;transform:translateY(0)}}
+.glyph-dot{animation:glymphWash 2s ease-in-out infinite;animation-delay:var(--d)}
+/* Score ring pulse */
+@keyframes ringPulse{0%,100%{filter:drop-shadow(0 0 4px var(--ac))}50%{filter:drop-shadow(0 0 14px var(--ac))}}
+.ring-fill{animation:ringPulse 3s ease-in-out infinite}
+/* ═══ IMPROVED CARDS ═══ */
+.card{transition:border-color .25s,box-shadow .25s}
+.card:active{border-color:var(--ac)40;box-shadow:0 0 20px var(--ac)08}
+/* ═══ GAME CARDS ═══ */
+.game-select-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.game-card{background:var(--bg3);border:2px solid var(--bd);border-radius:12px;padding:12px 6px;text-align:center;cursor:pointer;transition:all .2s}
+.game-card:active{transform:scale(.95)}
+.game-card.selected{border-color:var(--ac);background:#00D4FF10}
+.game-card .gc-icon{font-size:1.5em;margin-bottom:4px}
+.game-card .gc-name{font-size:.6em;color:var(--tx2);font-weight:500}
+.game-card .gc-desc{font-size:.52em;color:var(--tx3);margin-top:2px}
+/* ═══ TOWER OF HANOI ═══ */
+.toh-wrap{display:flex;gap:8px;margin:14px 0;justify-content:center}
+.toh-peg-wrap{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;min-height:110px}
+.toh-pole{width:4px;height:90px;background:var(--bd);border-radius:2px;position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:0}
+.toh-base{height:8px;width:100%;background:var(--bd);border-radius:4px;margin-top:auto}
+.toh-disk-wrap{position:absolute;bottom:20px;left:0;right:0;display:flex;flex-direction:column-reverse;align-items:center;gap:3px;z-index:1}
+.toh-disk{height:16px;border-radius:4px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;font-size:.55em;font-weight:700;color:#000;border:1px solid #00000020}
+.toh-peg-wrap.selected{background:#00D4FF08;border-radius:10px}
+/* ═══ ALTER EGO ═══ */
+.alter-ego-banner{background:linear-gradient(90deg,#00D4FF15,#A066FF15);border:1px solid #A066FF40;border-radius:var(--r);padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.ae-icon{font-size:1.5em}
+.ae-name{font-family:'Share Tech Mono',monospace;font-size:.85em;color:var(--pu);font-weight:600}
+/* ═══ FLOW STATE ═══ */
+.flow-card{background:linear-gradient(135deg,#00D4FF08,#A066FF05);border:2px solid #00D4FF30;border-radius:var(--r);padding:13px}
+.flow-timer{font-family:'Share Tech Mono',monospace;font-size:2.5em;color:var(--ac);text-align:center;letter-spacing:3px;margin:10px 0}
+.flow-state{text-align:center;font-size:.72em;color:var(--tx3);margin-bottom:8px}
+/* ═══ TIMELINE DIARY ═══ */
+.diary-timeline{position:relative;padding-left:20px}
+.diary-timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--bd)}
+.dt-entry{position:relative;margin-bottom:12px;padding-left:14px}
+.dt-dot{position:absolute;left:-14px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--ac);border:2px solid var(--bg)}
+.dt-date{font-size:.58em;color:var(--tx3);font-family:'Share Tech Mono',monospace;margin-bottom:2px}
+.dt-preview{font-size:.78em;color:var(--tx2);line-height:1.5;background:var(--bg3);border-radius:8px;padding:7px 10px;cursor:pointer;border:1px solid var(--bd)}
+.dt-preview:hover{border-color:var(--ac)}
+/* ═══ IMPROVED MODAL ═══ */
+.modal-bg{backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+/* ═══ IMPROVED HEALTH FOOD ═══ */
+.food-popup{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--bg2);border:2px solid var(--ac);border-radius:14px;padding:14px 16px;max-width:90vw;z-index:200;box-shadow:0 8px 30px #000A;animation:slideUp .2s ease-out}
+@keyframes slideUp{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+/* ═══ ONBOARDING IMPROVED ═══ */
+.ob-progress{display:flex;gap:5px;margin-bottom:16px}
+.ob-prog-dot{width:8px;height:8px;border-radius:50%;background:var(--bd);transition:background .3s}
+.ob-prog-dot.active{background:var(--ac)}
+/* ═══ SCORE IMPROVED ═══ */
+.score-pill{display:inline-flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--bd);border-radius:20px;padding:3px 9px;font-size:.65em;font-family:'Share Tech Mono',monospace}
+/* ═══ GROQ BADGE ═══ */
+.groq-badge{background:#FF6B3520;border:1px solid #FF6B3540;border-radius:20px;padding:2px 8px;font-size:.6em;color:#FF6B35;font-family:'Share Tech Mono',monospace}
+/* ═══ NOTIFICATION QUICK ACTIONS ═══ */
+.quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:10px}
+.qa-btn{background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:10px 4px;text-align:center;cursor:pointer;transition:all .18s;font-size:.62em;color:var(--tx2)}
+.qa-btn:active{border-color:var(--ac);background:#00D4FF10;transform:scale(.95)}
+.qa-btn .qa-icon{font-size:1.4em;display:block;margin-bottom:3px}
+/* ═══ WORD COUNT ═══ */
+.wc-progress{height:3px;background:var(--bd);border-radius:10px;overflow:hidden;margin-top:4px}
+.wc-prog-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--gold),var(--ac));transition:width .4s}
+/* ═══ CHALLENGES ═══ */
+.challenge-card{border-radius:12px;padding:12px;border:1px solid var(--bd);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.chal-icon{font-size:1.6em;flex-shrink:0}
+.chal-bar-bg{height:5px;background:var(--bd);border-radius:10px;overflow:hidden;margin-top:5px}
+.chal-bar-fill{height:100%;border-radius:10px;transition:width .6s}
+
 </style>
 </head>
 <body>
@@ -960,6 +1059,41 @@ const HELP_DB={
   how:['Define 2h antes da hora alvo de dormir.','O aviso aparece na barra do topo com countdown.','Combina com o Wind-Down no separador Saúde.'],
   tip:'Modo escuro do telemóvel + temperatura de cor quente (Night Mode) reduzem o impacto mas não eliminam — o brightness ainda activa os fotorreceptores.'},
 
+
+'toh':{title:'🗼 Torre de Hanói',icon:'🗼',
+  what:'Move todos os discos do pino 1 para o pino 3 sem nunca colocar um disco maior sobre um menor. Começa com 2 discos e aumenta até 7.',
+  why:'Criado pelo matemático Édouard Lucas em 1883. Requer planeamento sequencial multi-passo — activa directamente o córtex pré-frontal dorsolateral, o mesmo que toma decisões complexas.',
+  how:['Toca num pino para seleccionar o disco do topo.','Toca noutro pino para mover o disco.','Nunca podes pôr um disco maior sobre um menor.'],
+  examples:['2 discos = 3 movimentos mínimos','3 discos = 7 movimentos','4 discos = 15 movimentos (fórmula: 2^n - 1)'],
+  science:'Estudos de neuroimagem mostram que a Torre de Hanói activa o CPF ventrolateral e o cerebelo — estruturas de planeamento e sequenciação. Pacientes com lesão frontal têm grande dificuldade, confirmando a localização.',
+  tip:'A estratégia óptima: move sempre o disco mais pequeno para o pino seguinte (em círculo), depois faz o único movimento legal com os outros discos. Alterna.'},
+'ab':{title:'👁 Attention Blink',icon:'👁',
+  what:'Dois alvos aparecem em rápida sequência. O cérebro "pisca" após o primeiro e muitas vezes perde o segundo. Mede a janela de processamento consciente.',
+  why:'Descoberto por Raymond et al. (1992): quando o primeiro alvo é detectado, o sistema atencional fica "ocupado" a processá-lo por 200-500ms — durante este tempo, o segundo alvo é frequentemente invisível mesmo que esteja literalmente à frente dos teus olhos.',
+  how:['Observa a sequência de letras.','Identifica X (primeiro alvo) e Y (segundo alvo).','Reporta se viste cada um.'],
+  science:'O "blink" ocorre porque a atenção é um recurso limitado. O primeiro alvo consome recursos de processamento. Se o segundo aparecer dentro de 200-500ms, "entra" mas não é consolidado na consciência.',
+  tip:'Interessante: se o segundo alvo aparecer imediatamente a seguir ao primeiro (lag-1), é frequentemente detectado. É o "lag-1 sparing" — o sistema ainda não fechou a janela.'},
+'flowstate':{title:'🌊 Flow State',icon:'🌊',
+  what:'Registo de sessões de estado de flow — foco total onde o esforço parece sem esforço e o tempo passa a voar.',
+  why:'Mihaly Csikszentmihalyi (Flow, 1990): o flow é o estado de maior produtividade e satisfação simultâneas. Ocorre quando o desafio corresponde exactamente à capacidade. Pode ser cultivado sistematicamente.',
+  how:['Quando entras em flow, prime o botão.','Quando saíres, regista.','Após várias sessões, identifica as condições comuns.'],
+  examples:['Resolvi 10 problemas de Física seguidos sem olhar para o telemóvel.','Escrevi 3 páginas do projecto em 90min sem me sentir cansado.'],
+  science:'No flow, o CPF pré-frontal "desliga" parcialmente (hipofrontalidade transitória) — reduz a autocrítica e aumenta a velocidade de processamento. O efeito é similar ao de anos de prática comprimidos num único estado.',
+  tip:'Condições que facilitam o flow: desafio ligeiramente acima da capacidade actual, objectivo claro, feedback imediato, sem interrupções.'},
+'alterego':{title:'🎭 Alter Ego',icon:'🎭',
+  what:'Define uma versão de alta performance de ti mesmo para usar durante sessões de foco. O alter ego assume quando o teu eu normal hesita.',
+  why:'Todd Herman (The Alter Ego Effect, 2019): atletas de elite e performers constroem personas que incorporam as qualidades que precisam — separando a identidade do ego das exigências do momento.',
+  how:['Define o nome do teu alter ego.','Atribui-lhe qualidades específicas: "focado, imparável, exacto".','Activa-o antes de sessões difíceis.'],
+  examples:['Beyoncé → Sasha Fierce','Kobe Bryant → Black Mamba','Muhammad Ali → The Greatest'],
+  science:'Efeito Batman (White et al., 2017): crianças que se imaginavam como Batman em vez de si próprias persistiram 80% mais tempo em tarefas difíceis. Auto-distanciamento psicológico reduz o ego depletion.',
+  tip:'O nome importa — escolhe algo que soe poderoso para ti. Não tem de fazer sentido para ninguém mais.'},
+'cf':{title:'💬 Fluência Verbal',icon:'💬',
+  what:'Escreve o máximo de palavras de uma categoria em 60 segundos. Mede a velocidade de acesso ao léxico semântico.',
+  why:'Testes de fluência verbal são usados clinicamente para detectar demência precoce — é um dos primeiros domínios a degradar. Treinar activa e mantém as redes semânticas do temporal superior.',
+  how:['Lê a categoria.','Escreve qualquer palavra que pertença a ela.','Velocidade e quantidade — não penses demasiado.'],
+  examples:['Animais: cão, gato, leão, elefante, zebra...','Frutas: manga, papaia, laranja, banana, morango...'],
+  science:'Norma: 16-22 palavras/minuto para adultos jovens. Abaixo de 10 pode indicar dificuldade de acesso lexical. Acima de 25 é performance de elite. Bilingues têm velocidade ligeiramente menor mas vocabulário total maior.',
+  tip:'A categoria "animais" é a mais usada clinicamente. Treinar listas semânticas expande o vocabulário activo — palavras que sabes mas que demoravas mais a aceder ficam mais disponíveis.'},
 'refs':{title:'📖 Referências',icon:'📖',what:'As obras científicas e estudos em que o CortexOS é baseado. Cada protocolo, cada número, cada conselho tem origem numa destas fontes.',why:'Transparência: deves saber de onde vêm as informações que seguem o teu comportamento. Podes verificar, questionar e aprofundar.',how:['Não precisas de ler tudo.','Se um tema te fascinar, o livro/podcast do autor vai muito mais fundo.','Os mais acessíveis para começar: Atomic Habits (Clear) e Why We Sleep (Walker).'],examples:['Walker — Why We Sleep: toda a secção de sono vem daqui.','Harvard Study — os dados sobre relações sociais e saúde cerebral.','Huberman Lab — os protocolos de luz matinal, NSDR e respiração.'],tip:'Se quiseres ir mais fundo num tema, procura o autor no YouTube. Huberman, Walker e Sapolsky têm conteúdo gratuito excelente.'},
 'dados':{title:'💾 Dados',icon:'💾',
   what:'Exportação, importação e limpeza dos teus dados. Todos os dados ficam no dispositivo — nunca saem para nenhum servidor.',
@@ -1380,20 +1514,70 @@ function updateStreak(){const today=new Date().toDateString();if(S.lastActive!==
 
 // ══ MISSIONS ══
 function initMissions(){
-  const today=tkey(),week=today.slice(0,7);
-  if(S.lastMissionDate!==today){
-    S.lastMissionDate=today;
-    const pool=[...MISSION_POOL].sort(()=>Math.random()-.5).slice(0,3);
-    S.dailyMissions=pool.map(m=>({...m,done:false}));
-    // Daily boss
-    S.dailyBoss={...BOSSES[new Date().getDay()],done:false};
-    S.dailyBossDate=today;save()
+  const today=tkey();const dow=new Date().getDay();
+  if(S.missionsDate===today)return;
+  S.missionsDate=today;
+  // Pool of 30+ daily missions
+  const pool=[
+    {t:'Regista o teu sono de ontem',xp:15,check:S=>!!S.sleep?.[tkey()]?.h},
+    {t:'Bebe 8 copos de água hoje',xp:20,check:S=>(S.water?.[tkey()]||0)>=8},
+    {t:'Regista humor 3× hoje',xp:15,check:S=>Object.keys(S.moodLog?.[tkey()]||{}).length>=3},
+    {t:'Escreve no diário (50+ palavras)',xp:20,check:S=>(S.journal?.[tkey()]||'').split(/\s+/).filter(Boolean).length>=50},
+    {t:'Completa 2 Pomodoros',xp:25,check:S=>(S.pomT||0)>=2},
+    {t:'Adiciona 1 aprendizado',xp:20,check:S=>(S.learnings||[]).some(l=>l.date===tkey())},
+    {t:'Marca 6+ brain foods',xp:25,check:S=>Object.values(S.brainFood?.[tkey()]||{}).filter(Boolean).length>=6},
+    {t:'Meditação ou NSDR hoje',xp:25,check:S=>S.medLastDate===tkey()||S.nsdrCount>0},
+    {t:'Completa 3 itens da agenda',xp:20,check:S=>Object.values(S.schChecks?.[tkey()]||{}).filter(Boolean).length>=3},
+    {t:'Regista gratidão',xp:15,check:S=>(S.gratitude?.[tkey()]||[]).some(g=>g&&g.trim())},
+    {t:'Joga 1 jogo cognitivo',xp:15,check:S=>(S.stroopR||0)>0||(S.memLv||0)>0||(S.reactBest||9999)<9000},
+    {t:'Faz treino hoje',xp:30,check:S=>!!S.exercise?.[tkey()]?.logged},
+    {t:'Marca exposição solar',xp:15,check:S=>(S.sunLog?.[tkey()]||0)>=5},
+    {t:'Usa uma carta de conversa',xp:20,check:S=>(S.convDone||0)>0},
+    {t:'Define a tua MIT do dia',xp:10,check:S=>!!S.mit?.[tkey()]?.task},
+    {t:'Completa a MIT do dia',xp:30,check:S=>!!S.mit?.[tkey()]?.done},
+    {t:'Lê 10+ páginas',xp:20,check:S=>(S.readingLog?.[tkey()]||[]).reduce((a,r)=>a+r.pages,0)>=10},
+    {t:'Faz Powernap de 20min',xp:20,check:S=>(S.powernapCount||0)>0},
+    {t:'Regista 5+ copos de água',xp:10,check:S=>(S.water?.[tkey()]||0)>=5},
+    {t:'Completa wind-down (4+ itens)',xp:20,check:S=>(S.windDown?.[tkey()]||[]).length>=4},
+    {t:'Faz 3 sessões de respiração',xp:15,check:S=>(S.breathT||0)>=3},
+    {t:'Revisa 1 aprendizado antigo',xp:15,check:S=>(S.learnings||[]).some(l=>l.reviews>0&&l.nextReview===tkey())},
+    {t:'Adiciona 1 flashcard',xp:15,check:S=>(S.flashcards||[]).some(f=>f.date===tkey())},
+    {t:'Contacta alguém importante',xp:20,check:S=>(S.relationships||[]).some(r=>r.last&&r.last.startsWith(tkey()))},
+    {t:'Faz 1 Pomodoro de 50min',xp:30,check:S=>false},// manual
+    {t:'Atinge Brain Score 70+',xp:25,check:S=>calcScore()>=70},
+    {t:'Escreve a intenção do dia',xp:10,check:S=>!!(S.intentions?.[tkey()])},
+    {t:'Bebe água logo ao acordar',xp:10,check:S=>false},// manual
+    {t:'Sem redes sociais por 2h',xp:25,check:S=>false},// manual
+    {t:'Pratica o Physiological Sigh',xp:10,check:S=>false}// manual
+  ];
+  // Pick 3 random missions for today
+  const shuffled=[...pool].sort(()=>Math.random()-.5);
+  S.dailyMissions=shuffled.slice(0,3).map(m=>({...m,done:false}));
+  // Weekly missions (2)
+  if(!S.weeklyMissions||S.weeklyMissions.length===0||S.weeklyDate!==new Date().toISOString().slice(0,7)){
+    const wPool=[
+      {t:'7 dias de sono registado',xp:100,check:S=>Object.keys(S.sleep||{}).filter(k=>{const d=new Date(Date.now()-7*86400000);return new Date(k)>=d&&S.sleep[k]?.h>0}).length>=7},
+      {t:'50 Pomodoros no total',xp:100,check:S=>(S.pomT||0)>=50},
+      {t:'Brain Score 80+ por 3 dias',xp:80,check:S=>Object.values(S.brainscore||{}).slice(-7).filter(s=>s>=80).length>=3},
+      {t:'10+ aprendizados registados',xp:80,check:S=>(S.learnings||[]).length>=10},
+      {t:'5 dias de treino esta semana',xp:100,check:S=>Object.keys(S.exercise||{}).filter(k=>new Date(k)>=new Date(Date.now()-7*86400000)&&S.exercise[k]?.logged).length>=5},
+      {t:'Streak de 7 dias',xp:150,check:S=>(S.streak||0)>=7}
+    ];
+    S.weeklyMissions=wPool.sort(()=>Math.random()-.5).slice(0,2).map(m=>({...m,done:false}));
+    S.weeklyDate=new Date().toISOString().slice(0,7);
   }
-  if(S.lastWeekMission!==week){
-    S.lastWeekMission=week;
-    const pool=[...WMISSION_POOL].sort(()=>Math.random()-.5).slice(0,2);
-    S.weeklyMissions=pool.map(m=>({...m,done:false}));save()
-  }
+  // Daily boss by day of week
+  const bosses=[
+    {b:'🌙 Boss de Domingo',t:'Sono 8h+ com qualidade 5/5',xp:150,check:S=>(S.sleep?.[tkey()]?.h||0)>=8&&(S.sleep?.[tkey()]?.q||0)>=5},
+    {b:'⚡ Boss de Segunda',t:'4 Pomodoros + MIT concluída',xp:150,check:S=>(S.pomT||0)>=4&&!!S.mit?.[tkey()]?.done},
+    {b:'💪 Boss de Terça',t:'Treino + 8 copos de água',xp:150,check:S=>!!S.exercise?.[tkey()]?.logged&&(S.water?.[tkey()]||0)>=8},
+    {b:'🧠 Boss de Quarta',t:'Brain Score 85+',xp:150,check:S=>calcScore()>=85},
+    {b:'📚 Boss de Quinta',t:'3 aprendizados + revisão',xp:150,check:S=>(S.learnings||[]).filter(l=>l.date===tkey()).length>=3},
+    {b:'🌿 Boss de Sexta',t:'Sem ecrã 1h + meditação',xp:150,check:S=>S.medLastDate===tkey()},
+    {b:'🏆 Boss de Sábado',t:'Treino + Diário + Gratidão',xp:200,check:S=>!!S.exercise?.[tkey()]?.logged&&!!S.journal?.[tkey()]&&(S.gratitude?.[tkey()]||[]).some(g=>g?.trim())}
+  ];
+  S.dailyBoss={...bosses[dow],done:false};
+  save();
 }
 function checkDailyMissions(){
   if(!S.dailyMissions?.length)return;
@@ -1595,6 +1779,8 @@ const avgSl=sv.length?(sv.reduce((a,v)=>a+v.h,0)/sv.length).toFixed(1):'—';
 // Morning briefing
 let h=getMorningBriefing();
 
+// Quick actions bar
+h+=renderQuickActions();
 // Smart assistant
 h+=renderSmartAssistant();
 // MIT Task
@@ -1638,7 +1824,14 @@ h+=`<div id="mood-fb" style="display:none"></div></div>`;
 if(S.mood[tk]!==undefined){h+=`<div class="card fu"><input placeholder="Nota de humor (opcional)..." value="${S.moodNotes?.[tk]||''}" style="font-size:.8em" oninput="S.moodNotes['${tk}']=this.value;save()"/></div>`}
 
 // Word count diary
-h+=renderWordCountJournal();
+// Diary timeline toggle
+const showTimeline=S.diaryView==='timeline';
+h+=`<div style="display:flex;gap:5px;margin-bottom:6px">
+  <button class="btn ${!showTimeline?'ac':''}" style="font-size:.68em;flex:1" onclick="S.diaryView='write';save();renderWeek()">✏️ Escrever</button>
+  <button class="btn ${showTimeline?'ac':''}" style="font-size:.68em;flex:1" onclick="S.diaryView='timeline';save();renderWeek()">📅 Timeline</button>
+</div>`;
+if(showTimeline){h+=`<div class="card fu"><div class="ct2">📅 Timeline do Diário</div>${renderDiaryTimeline()}</div>`;}
+else{h+=renderWordCountJournal();}
 
 // Physiological Sigh button
 h+=`<div class="sigh-btn" onclick="doPhysioSigh()">💨 Sigh Fisiológico — Reset do Sistema Nervoso <span class="info-btn" onclick="openHelp('sigh')">ⓘ</span></div>`;
@@ -1838,9 +2031,10 @@ function saveFN(){const v=document.getElementById('fnArea')?.value||'';S.focusNo
 function clearFN(){if(confirm('Limpar notas atuais?')){S.focusNotes='';save();renderFocusNotes()}}
 
 // GAMES
-function renderGames(){document.getElementById('tb').innerHTML=`<div style="overflow-x:auto;display:flex;gap:6px;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none">${[['stroop','🎨 Stroop'],['mem','🧩 Memória'],['react','⚡ Reação'],['wm','🔤 Palavras'],['nback','🔢 N-Back'],['arith','➕ Aritmética'],['spatial','📐 Espacial'],['digit','🔢 Digit Span'],['wordchain','🔗 Word Chain'],['dualnback','🧠 Dual N-Back']].map(([k,lb])=>`<button class="btn ${_gt===k?'ac':''}" style="font-size:.7em;white-space:nowrap;flex-shrink:0" onclick="_gt='${k}';renderGames()">${lb}</button>`).join('')}</div><div id="gb"></div>`;
+function renderGames(){document.getElementById('tb').innerHTML=`<div style="overflow-x:auto;display:flex;gap:6px;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none">${[['stroop','🎨 Stroop'],['mem','🧩 Memória'],['react','⚡ Reação'],['wm','🔤 Palavras'],['nback','🔢 N-Back'],['arith','➕ Aritmética'],['spatial','📐 Espacial'],['digit','🔢 Digit Span'],['wordchain','🔗 Word Chain'],['dualnback','🧠 Dual N-Back'],['toh','🗼 Hanói'],['ab','👁 Blink'],['cf','💬 Fluência']].map(([k,lb])=>`<button class="btn ${_gt===k?'ac':''}" style="font-size:.7em;white-space:nowrap;flex-shrink:0" onclick="_gt='${k}';renderGames()">${lb}</button>`).join('')}</div><div id="gb"></div>`;
 if(_gt==='stroop')renderStroop();else if(_gt==='mem')renderMem();else if(_gt==='react')renderReact();else if(_gt==='wm')renderWM();else if(_gt==='nback')renderNBack();else if(_gt==='arith')renderArith();else if(_gt==='spatial')renderSpatial();
-else if(_gt==='digit')startDigitSpan();else if(_gt==='wordchain')startWordChain();else if(_gt==='dualnback')startDualNBack();}
+else if(_gt==='digit')startDigitSpan();else if(_gt==='wordchain')startWordChain();else if(_gt==='dualnback')startDualNBack();
+else if(_gt==='toh'){startTOH(3);}else if(_gt==='ab')startAB();else if(_gt==='cf')startCF();}
 
 function renderStroop(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🎨 STROOP <span class="info-btn" onclick="openHelp('stroop')">ⓘ</span> — Recorde: ${S.stroopR}</div><div class="cd">Seleciona a <strong>COR em que a palavra está escrita</strong>, não o que ela diz. Testa o córtex pré-frontal.</div><div id="sa">${sIdle()}</div></div><div class="ibox tip"><strong>Como jogar:</strong> Vês "AZUL" escrito em <span style="color:#e05050">VERMELHO</span>? Toca em VERMELHO. Ignora o texto — isso activa e treina o CPF!</div>`}
 function sIdle(){return`<div class="btns"><button class="btn ac" onclick="startStroop()">▶ Iniciar (30s)</button></div>${S.stroopR>0?`<div style="text-align:center;font-size:.78em;color:var(--tx3);margin-top:8px">Recorde: ${S.stroopR}</div>`:''}`}
@@ -2032,6 +2226,53 @@ workout:(ctx,vol)=>{
 }
 };
 
+
+AMB.beach=(ctx,vol)=>{
+  const n={srcs:[],oscs:[],gain:null,_ivs:[]};
+  const masterG=ctx.createGain();masterG.gain.value=vol*0.6;masterG.connect(ctx.destination);n.gain=masterG;
+  // Gentle wave (ocean-like but softer)
+  const src=ctx.createBufferSource();src.buffer=mkBrown(ctx,4);src.loop=true;
+  const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=400;
+  const g=ctx.createGain();g.gain.value=vol*0.35;
+  const lfo=ctx.createOscillator();lfo.frequency.value=0.12;const lg=ctx.createGain();lg.gain.value=vol*0.3;
+  src.connect(lp);lp.connect(g);lfo.connect(lg);lg.connect(g.gain);g.connect(masterG);src.start();lfo.start();n.srcs=[src];n.oscs=[lfo];
+  // Birds — tropical chirps
+  const bird=()=>{if(!ambNodes.beach)return;try{
+    const o=ctx.createOscillator(),og=ctx.createGain();o.type='sine';
+    const f=800+Math.random()*1200;o.frequency.setValueAtTime(f,ctx.currentTime);
+    o.frequency.linearRampToValueAtTime(f*1.8,ctx.currentTime+0.1);
+    og.gain.setValueAtTime(vol*0.04,ctx.currentTime);og.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+0.25);
+    o.connect(og);og.connect(masterG);o.start();o.stop(ctx.currentTime+0.25);
+  }catch(e){}setTimeout(bird,2000+Math.random()*5000)};
+  setTimeout(bird,1000);n._ivs=[];return n;
+};
+AMB.library=(ctx,vol)=>{
+  const n={srcs:[],oscs:[],gain:null,_ivs:[]};
+  const masterG=ctx.createGain();masterG.gain.value=vol*0.4;masterG.connect(ctx.destination);n.gain=masterG;
+  // Very quiet background hum
+  const src=ctx.createBufferSource();src.buffer=mkPink(ctx,3);src.loop=true;
+  const bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=300;bp.Q.value=0.3;
+  const g=ctx.createGain();g.gain.value=0.06;src.connect(bp);bp.connect(g);g.connect(masterG);src.start();n.srcs=[src];
+  // Page turns
+  const page=()=>{if(!ambNodes.library)return;try{
+    const dur=0.08+Math.random()*0.12;const buf=ctx.createBuffer(1,Math.floor(ctx.sampleRate*dur),ctx.sampleRate);
+    const dd=buf.getChannelData(0);for(let i=0;i<dd.length;i++)dd[i]=(Math.random()*2-1)*Math.exp(-i/(dd.length*0.4));
+    const s=ctx.createBufferSource();s.buffer=buf;const hp=ctx.createBiquadFilter();hp.type='highpass';hp.frequency.value=3000;
+    const g2=ctx.createGain();g2.gain.setValueAtTime(vol*0.06,ctx.currentTime);g2.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+dur);
+    s.connect(hp);hp.connect(g2);g2.connect(masterG);s.start();
+  }catch(e){}setTimeout(page,4000+Math.random()*12000)};
+  setTimeout(page,2000);n.oscs=[];n._ivs=[];return n;
+};
+AMB.drone=(ctx,vol)=>{
+  const n={srcs:[],oscs:[],gain:null,_ivs:[]};
+  const masterG=ctx.createGain();masterG.gain.value=vol*0.25;masterG.connect(ctx.destination);n.gain=masterG;
+  [110,220,330,440].forEach((f,i)=>{
+    const o=ctx.createOscillator();o.frequency.value=f;o.type=i===0?'sawtooth':'sine';
+    const og=ctx.createGain();og.gain.value=0.4/(i+1);o.connect(og);og.connect(masterG);o.start();n.oscs.push(o);
+  });
+  n.srcs=[];n._ivs=[];return n;
+};
+
 function toggleAmb(id){
   if(ambNodes[id]){
     const nd=ambNodes[id];nd._ivs?.forEach(iv=>clearInterval(iv));
@@ -2200,7 +2441,7 @@ ${renderCaffeineTracker()}
 
 <div class="card fu"><div class="ct2">🎵 Som Ambiente <span class="info-btn" onclick="openHelp('sons')">ⓘ</span></div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px">
-${[['🌧','Chuva','rain'],['🌊','Oceano','ocean'],['🌲','Floresta','forest'],['☕','Café','cafe'],['🔥','Fogueira','fire'],['💪','Workout','workout'],['🎶','432Hz','hz432'],['🌌','Cosmos','cosmos'],['💧','Ribeiro','river'],['🌬','Vento','wind'],['🔔','Tibet Bowl','bowl'],['🧠','40Hz','binaural40'],['⛈','Tempestade','storm'],['🌃','Floresta Noturna','nightforest'],['🅰','Alpha 10Hz','alpha'],['🟣','Theta 6Hz','theta'],['💓','Heartbeat','heartbeat']].map(([ic,lb,id])=>`<div id="ab-${id}" class="snd-btn ${ambNodes[id]?'on':''}" onclick="toggleAmb('${id}')"><div style="font-size:1.1em">${ic}</div><div style="font-size:.48em;color:var(--tx3);margin-top:1px">${lb}</div></div>`).join('')}
+${[['🌧','Chuva','rain'],['🌊','Oceano','ocean'],['🌲','Floresta','forest'],['☕','Café','cafe'],['🔥','Fogueira','fire'],['💪','Workout','workout'],['🎶','432Hz','hz432'],['🌌','Cosmos','cosmos'],['💧','Ribeiro','river'],['🌬','Vento','wind'],['🔔','Tibet Bowl','bowl'],['🧠','40Hz','binaural40'],['⛈','Tempestade','storm'],['🌃','Floresta Noturna','nightforest'],['🏝','Praia','beach'],['📚','Biblioteca','library'],['🔊','Drone','drone'],['🅰','Alpha 10Hz','alpha'],['🟣','Theta 6Hz','theta'],['💓','Heartbeat','heartbeat']].map(([ic,lb,id])=>`<div id="ab-${id}" class="snd-btn ${ambNodes[id]?'on':''}" onclick="toggleAmb('${id}')"><div style="font-size:1.1em">${ic}</div><div style="font-size:.48em;color:var(--tx3);margin-top:1px">${lb}</div></div>`).join('')}
 </div>
 <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span style="font-size:.7em">🔈</span><input type="range" style="flex:1;accent-color:var(--ac)" min="0" max="1" step=".05" value="${ambVol}" oninput="setVol(this.value)"/><span style="font-size:.7em">🔊</span></div>
 <button class="btn" style="width:100%;text-align:center;font-size:.72em;margin-bottom:7px" onclick="stopAllAmb()">⏹ Parar todos</button>
@@ -2267,6 +2508,8 @@ ${[0,1,2].map(i=>`<input placeholder="${i+1}. Sou grato por..." value="${gr[i]||
 </div>
 <div id="smartResult"></div></div>
 
+${renderAlterEgo()}
+${renderFlowTracker()}
 <div class="card fu"><div class="ct2">➕ Hábitos Personalizados <span class="info-btn" onclick="openHelp('habitosp')">ⓘ</span></div>
 ${(S.customHabits||[]).map((h,i)=>{const streak=S.habitStreak?.[h]||0;return`<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd)"><span style="flex:1;font-size:.82em">${h}</span>${streak>0?`<span style="font-size:.68em;color:var(--gold)">🔥${streak}</span>`:''}<button onclick="delHabit(${i})" style="color:var(--rose);font-size:.9em;cursor:pointer;background:none">✕</button></div>`}).join('')}
 <div style="display:flex;gap:6px;margin-top:9px"><input id="habIn" placeholder="Nome do hábito" style="margin:0"/><button class="btn ac" style="padding:7px 11px;white-space:nowrap;flex-shrink:0" onclick="addHabit()">+</button></div></div>`}
@@ -2323,11 +2566,12 @@ function setSun(v,tk){S.sunLog=S.sunLog||{};S.sunLog[tk]=parseInt(v)||0;save();i
 // ════ AI COACH — Multi-provider ════
 // AI MODES
 const AI_MODES={
-  coach:{name:'Coach',icon:'💪',sys:'Você é um Coach de alto desempenho, direto e motivador. Foca em acção, estratégia e resultados. Usa dados do utilizador. Responde em PT-BR/PT-MZ.'},
-  terapeuta:{name:'Terapeuta',icon:'🧠',sys:'Você é um terapeuta cognitivo-comportamental empático e calmo. Explora pensamentos, emoções e padrões. Faz perguntas reflexivas. Responde em PT-BR/PT-MZ.'},
-  cientista:{name:'Cientista',icon:'🔬',sys:'Você é um neurocientista que explica mecanismos cerebrais de forma clara e fundamentada. Cita estudos, usa analogias. Responde em PT-BR/PT-MZ.'},
-  trainer:{name:'Trainer',icon:'🏋️',sys:'Você é um personal trainer especialista em calistenia e neurofitness. Foca em progressão, forma correcta e recuperação. Responde em PT-BR/PT-MZ.'},
-  filosofo:{name:'Filósofo',icon:'🏛️',sys:'Você é um filósofo estóico e existencialista que ajuda a reflectir sobre propósito, disciplina e vida boa. Usa Epicteto, Marcus Aurelius, Nietzsche. Responde em PT-BR/PT-MZ.'}
+  coach:{name:'Coach',icon:'💪',sys:'Você é um Coach de alto desempenho, direto e motivador. Foca em acção, estratégia e resultados reais. Nunca genérico — usa os dados concretos do utilizador. Responde em PT-BR/PT-MZ. Máx 280 palavras, **negrito** em pontos-chave.'},
+  terapeuta:{name:'Terapeuta',icon:'🧠',sys:'Você é um terapeuta cognitivo-comportamental empático e calmo. Explora pensamentos, emoções e padrões com técnicas CBT. Faz perguntas reflexivas. Valida antes de sugerir. Responde em PT-BR/PT-MZ.'},
+  cientista:{name:'Cientista',icon:'🔬',sys:'Você é um neurocientista que explica mecanismos cerebrais de forma precisa e fascinante. Cita estudos com autores e anos reais. Usa analogias criativas. Responde em PT-BR/PT-MZ.'},
+  trainer:{name:'Trainer',icon:'🏋️',sys:'Você é um personal trainer especialista em calistenia, progressão e neurofitness. Foca em forma correcta, progressão segura e recuperação. Adapta ao nível actual. Responde em PT-BR/PT-MZ.'},
+  filosofo:{name:'Filósofo',icon:'🏛️',sys:'Você é um filósofo estóico e existencialista. Usa Marcus Aurelius, Epicteto, Nietzsche, Frankl. Ajuda a encontrar propósito, disciplina e sabedoria prática. Responde em PT-BR/PT-MZ.'},
+  socratico:{name:'Socrático',icon:'🤔',sys:'Você é Sócrates. Nunca responde directamente — faz perguntas que guiam o utilizador à sua própria resposta. Questiona premissas. Leva à clareza através do diálogo. Nunca opines directamente. Responde em PT-BR/PT-MZ.'}
 };
 
 const PROVIDERS={
@@ -2341,8 +2585,9 @@ function renderCoach(){const p=S.aiProvider||'anthropic',keys=S.apiKeys||{};
 document.getElementById('ct').innerHTML=`
 <div class="card fu" style="border-left:3px solid ${PROVIDERS[p].color}">
   <div class="ct2">🤖 COACH IA <span class="info-btn" onclick="openHelp('coachIA')">ⓘ</span> — Selecionar provedor</div>
-  <div style="display:flex;gap:6px;margin-bottom:10px">
-    ${Object.entries(PROVIDERS).map(([id,pr])=>`<div class="provider-btn ${p===id?'on':''}" style="${p===id?'border-color:'+pr.color+';color:'+pr.color:'color:var(--tx3)'}" onclick="setProvider('${id}')">${pr.name.split(' ')[0]}</div>`).join('')}
+  <div class="ibox tip" style="font-size:.7em;margin-bottom:8px">💡 <strong>Groq Cloud</strong> é o mais rápido e gratuito (<1 segundo por resposta). <span class="groq-badge">RECOMENDADO</span></div>
+  <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
+    ${Object.entries(PROVIDERS).map(([id,pr])=>`<div class="provider-btn ${p===id?'on':''}" style="${p===id?'border-color:'+pr.color+';color:'+pr.color+';font-weight:600':'color:var(--tx3)'}" onclick="setProvider('${id}')">${pr.name.split(' ')[0]}${id==='groq'?'<span style="font-size:.7em;opacity:.8"> ⚡</span>':''}</div>`).join('')}
   </div>
   <div style="font-size:.7em;color:var(--tx3);margin-bottom:7px">🔑 API Key — <a href="${getKeyUrl(p)}" target="_blank" style="color:var(--ac);text-decoration:none">Obter gratuitamente →</a></div>
   <div style="display:flex;gap:6px"><input id="apiKeyIn" type="password" placeholder="Cole aqui a tua chave..." value="${keys[p]||''}" style="margin:0;font-size:.8em"/><button class="btn ac" style="padding:7px 10px;font-size:.7em;white-space:nowrap;flex-shrink:0" onclick="saveApiKey()">💾</button></div>
@@ -2352,7 +2597,7 @@ document.getElementById('ct').innerHTML=`
   ${Object.entries(AI_MODES).map(([k,m])=>`<button class="btn ${(S.aiMode||'coach')===k?'ac':''}" style="font-size:.68em" onclick="S.aiMode='${k}';save();renderCoach()">${m.icon} ${m.name}</button>`).join('')}
 </div>
 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px">
-  ${[['📊 Análise semanal','Analisa o meu progresso desta semana e dá-me 3 recomendações específicas.'],['😴 Sono','Como posso melhorar a qualidade do meu sono com base nos meus dados?'],['💪 Treino','Avalia o meu plano de treino e sugere progressões realistas para a minha fase.'],['📚 Estudo','Como posso melhorar a minha forma de estudar? Quero aprender mais em menos tempo.'],['🎯 Foco','Estou com dificuldade de manter o foco. O que devo fazer baseado nos meus dados?'],['🔥 Motivação','Preciso de motivação para continuar. O que me dizes?']].map(([lb,q])=>`<button class="btn" style="font-size:.7em;padding:8px;text-align:left;height:auto;white-space:normal" onclick="quickAI('${q.replace(/'/g,"\\'")}'')">${lb}</button>`).join('')}
+  ${[['📊 Análise semanal','Analisa o meu progresso desta semana. O quê funcionou, o quê não funcionou, e dá-me 3 acções concretas para esta semana.'],['😴 Sono','Baseado nos meus dados de sono, quais são as mudanças mais impactantes que devo fazer HOJE à noite?'],['💪 Treino','Sou um estudante com pouco tempo. Dá-me o treino de calistenia mais eficiente para hoje em 20-30min.'],['📚 Estudo','Estou a estudar para exames. Como devo organizar as próximas 2 horas de estudo para máxima retenção?'],['🧠 Explain','Explica-me como funciona a neuroplasticidade de forma que eu consiga entender e aplicar hoje.'],['🔥 Bloqueio','Estou procrastinando e não consigo começar. O quê está a acontecer no meu cérebro e como saio disso agora?'],['🌊 Flow','Como entro em estado de flow? Dá-me um protocolo específico para a próxima hora.'],['💡 Hoje','Com base nos meus dados, o quê é a coisa mais importante que devo fazer nas próximas 2 horas?']].map(([lb,q])=>`<button class="btn" style="font-size:.7em;padding:8px;text-align:left;height:auto;white-space:normal" onclick="quickAI('${q.replace(/'/g,"\\'")}'')">${lb}</button>`).join('')}
 </div>
 <div id="chatBox" style="min-height:120px;max-height:380px;overflow-y:auto;margin-bottom:10px;display:flex;flex-direction:column;gap:8px">${renderChat()}</div>
 <div style="display:flex;gap:6px"><textarea id="aiIn" placeholder="Faz uma pergunta ao Coach..." style="flex:1;margin:0;min-height:42px;font-size:.82em;resize:none;border-radius:12px" rows="2" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAI()}"></textarea><button id="aiBtn" class="btn ac" style="padding:9px 12px;align-self:flex-end;font-size:.8em" onclick="sendAI()">↑</button></div>
@@ -2720,6 +2965,7 @@ function renderAcademia(){
     <button class="btn ac" style="padding:7px 10px;white-space:nowrap" onclick="addFlashcard()">+</button>
   </div>
 </div>
+${renderSciAnimsSection()}
 <div class="card">
   <div class="ct2">📖 REFERÊNCIAS <span class="info-btn" onclick="openHelp('refs')">ⓘ</span></div><div style="font-size:.72em;color:var(--tx3);margin-bottom:10px">Estas são as obras e estudos científicos nos quais o CortexOS é baseado. Tudo que o app ensina vem destas fontes reais — não é inventado.</div>
   <div style="font-size:.77em;color:var(--tx2);line-height:2">
@@ -3042,11 +3288,20 @@ ${prev?`<div class="ibox tip" style="font-size:.72em;margin-bottom:8px"><strong>
 <div style="font-size:.68em;color:var(--tx3);margin-bottom:5px">Prompt: <em>${getDiaryPrompt()}</em></div>
 <textarea class="jarea" id="journalIn" placeholder="O teu espaço para escrever..." oninput="updateWC(this.value,'${tk}')">${S.journal[tk]||''}</textarea>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:5px">
-  <div style="font-size:.6em;color:var(--tx3)" id="jWC">0 palavras</div>
+  <div style="font-size:.6em;color:var(--tx3)" id="jWC">0 palavras</div><div class="wc-progress"><div class="wc-prog-fill" id="jProgFill" style="width:0%"></div></div>
   <button class="sav" onclick="saveJournal('${tk}')">Salvar +15 XP</button>
 </div>
 </div>`}
-function updateWC(txt,tk){const wc=txt.trim()?txt.trim().split(/\s+/).length:0;const el=document.getElementById('jWC');if(el)el.textContent=wc+' palavras';if(wc>=100&&!S.journalStreak100?.[tk]){toast('🎉 100 palavras!');S.journalStreak100=S.journalStreak100||{};S.journalStreak100[tk]=true;addXP(10);}S.journal[tk]=txt;save()}
+function updateWC(txt,tk){
+  const wc=txt.trim()?txt.trim().split(/\s+/).length:0;
+  const el=document.getElementById('jWC');if(el)el.textContent=wc+' palavras';
+  // Progress bar towards 750 (morning pages goal)
+  const prog=Math.min(100,Math.round(wc/100*100));
+  const pfill=document.getElementById('jProgFill');if(pfill)pfill.style.width=prog+'%';
+  if(wc>=100&&!S.journalStreak100?.[tk]){toast('📝 100 palavras!');S.journalStreak100=S.journalStreak100||{};S.journalStreak100[tk]=true;addXP(10);}
+  if(wc>=250&&!S.journal250?.[tk]){toast('✍️ 250 palavras! +5 XP extra');S.journal250=S.journal250||{};S.journal250[tk]=true;addXP(5);}
+  S.journal[tk]=txt;save()
+}
 function getDiaryPrompt(){const wi=S.view;const prompts=[['O quê interferiu mais com o teu sono esta semana?','O que aprendeste sobre os teus padrões de sono?','Descreveste um ritual de sono que funciona para ti.'],['Em que tarefa estiveste completamente focado hoje?','O que mais te distrai durante o trabalho?','Qual foi a tua sessão de foco mais produtiva?'],['Quais aplicações usaste mais hoje? Foi intencional?','O que sentiste durante o dia analógico?','Como te sentiste sem scroll por um período?'],['Quando surgiu a tua melhor ideia do dia?','O que fizeste sem propósito definido hoje?','Qual pensamento recorrente tiveste durante o ócio?'],['O que aprendeste hoje e como aprendeste?','Que ligação descobriste entre dois conceitos diferentes?','O que queres memorizar permanentemente desta semana?'],['Quem contactaste de forma mais profunda hoje?','O que descobriste sobre alguém que já conhecias?','Qual conversa foi mais significativa esta semana?']];return prompts[wi]?.[new Date().getDay()%3]||'Como foi o teu dia? O quê sentiste, aprendeste, queres recordar?'}
 
 // PHYSIOLOGICAL SIGH
@@ -3137,6 +3392,285 @@ function toggleVoice(inputId){
 // ════ MORNING BRIEFING AUTO ════
 function checkMorningBriefing(){const h=new Date().getHours();const tk=tkey();if(h>=5&&h<10&&!S.morningBriefingShown?.[tk]){S.morningBriefingShown=S.morningBriefingShown||{};S.morningBriefingShown[tk]=true;save();// Show in home page
 }}
+
+
+// ════ TOWER OF HANOI ════
+let tohPegs=[[],[],[]],tohN=3,tohSelected=null,tohMoves=0,tohMinMoves=7;
+function startTOH(n){
+  tohN=n||3;tohMoves=0;tohMinMoves=Math.pow(2,tohN)-1;
+  tohPegs=[[],[],[]];
+  for(let i=tohN;i>=1;i--)tohPegs[0].push(i);
+  tohSelected=null;
+  renderTOH();
+}
+function renderTOH(){
+  const colors=['#00D4FF','#FF6B35','#A066FF','#FFB830','#4F8BFF','#FF5C7A','#4FC3A1'];
+  const maxW=88;
+  let h=`<div class="card"><div class="ct2">🗼 Torre de Hanói <span class="info-btn" onclick="openHelp('toh')">ⓘ</span></div>
+  <div class="ibox sci" style="font-size:.72em;margin-bottom:10px">Move todos os discos do pino 1 para o pino 3. Nunca podes pôr um disco maior sobre um menor. Treina planeamento e raciocínio (CPF).</div>
+  <div style="display:flex;justify-content:space-between;font-size:.72em;color:var(--tx3);margin-bottom:8px"><span>Movimentos: <strong style="color:var(--ac)">${tohMoves}</strong></span><span>Mínimo: <strong>${tohMinMoves}</strong></span><span>Discos: ${tohN}</span></div>`;
+  h+=`<div class="toh-wrap">`;
+  ['1','2','3'].forEach((label,pi)=>{
+    const disks=tohPegs[pi];const isSelected=tohSelected===pi;
+    h+=`<div class="toh-peg-wrap ${isSelected?'selected':''}" onclick="tohClick(${pi})" style="${isSelected?'outline:2px solid var(--ac);border-radius:10px':''}">
+    <div style="font-size:.6em;color:${isSelected?'var(--ac)':'var(--tx3)'};text-align:center;margin-bottom:4px;font-family:'Share Tech Mono',monospace">P${label}</div>
+    <div class="toh-pole"></div>
+    <div class="toh-disk-wrap">`;
+    disks.forEach(disk=>{
+      const w=30+disk*(maxW-30)/tohN;const color=colors[disk-1]||'var(--ac)';
+      h+=`<div class="toh-disk" style="width:${w}%;background:${color}">${disk}</div>`;
+    });
+    h+=`</div><div class="toh-base"></div></div>`;
+  });
+  h+=`</div>`;
+  if(tohPegs[2].length===tohN){
+    h+=`<div class="ibox tip" style="text-align:center"><strong>🏆 Concluído!</strong> ${tohMoves} movimentos (mínimo: ${tohMinMoves})</div>`;
+    addXP(Math.max(20,100-Math.max(0,(tohMoves-tohMinMoves)*3)));
+  }
+  h+=`<div style="display:flex;gap:5px;justify-content:center;margin-top:10px">
+  ${[2,3,4,5].map(n=>`<button class="btn ${tohN===n?'ac':''}" style="font-size:.72em" onclick="startTOH(${n})">${n} discos</button>`).join('')}
+  <button class="btn" style="font-size:.72em" onclick="startTOH(${tohN})">↺ Reset</button>
+  </div></div>
+  <button class="btn" style="width:100%;text-align:center;margin-top:8px" onclick="go('tools')">← Voltar</button>`;
+  const ct=document.getElementById('ct')||document.getElementById('gb');if(ct)ct.innerHTML=h;
+}
+function tohClick(peg){
+  if(tohSelected===null){if(tohPegs[peg].length===0)return;tohSelected=peg;}
+  else if(tohSelected===peg){tohSelected=null;}
+  else{
+    const from=tohPegs[tohSelected],to=tohPegs[peg];
+    if(to.length===0||from[from.length-1]<to[to.length-1]){
+      to.push(from.pop());tohMoves++;tohSelected=null;snd(400+peg*100,500+peg*100,.1);
+    }else{toast('⚠️ Não podes colocar um disco maior sobre um menor!');tohSelected=null;}
+  }
+  renderTOH();
+}
+
+// ════ ATTENTION BLINK ════
+let abSeq=[],abStep=0,abPhase='idle',abT1idx=-1,abT2idx=-1,abResult={t1:false,t2:false};
+const LETTERS='BCDFGHJKLMNPQRSTVWXZ';
+function startAB(){
+  abSeq=[];abStep=0;abPhase='show';abResult={t1:false,t2:false};
+  const len=14;abT1idx=3+Math.floor(Math.random()*3);
+  abT2idx=abT1idx+1+Math.floor(Math.random()*3);// 1-3 items after T1
+  for(let i=0;i<len;i++){
+    const isT1=i===abT1idx,isT2=i===abT2idx;
+    abSeq.push({char:isT1?'X':isT2?'Y':LETTERS[Math.floor(Math.random()*LETTERS.length)],target:isT1?1:isT2?2:0});
+  }
+  renderABGame();showABItem();
+}
+function renderABGame(){
+  const gb=document.getElementById('gb');if(!gb)return;
+  gb.innerHTML=`<div class="card"><div class="ct2">👁 Attention Blink <span class="info-btn" onclick="openHelp('ab')">ⓘ</span></div>
+  <div class="ibox sci" style="font-size:.72em;margin-bottom:10px">Dois alvos aparecem em sequência rápida. O cérebro "pisca" após o primeiro e muitas vezes perde o segundo. Mede a janela de processamento consciente (200-500ms).</div>
+  <div style="text-align:center;font-size:.72em;color:var(--tx3);margin-bottom:8px">Procura <strong>X</strong> e <strong>Y</strong> na sequência</div>
+  <div style="font-family:'Share Tech Mono',monospace;font-size:3em;color:var(--ac);text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center;background:var(--bg3);border-radius:12px;margin-bottom:10px" id="abDisp">●</div>
+  <div id="abResult" style="text-align:center;min-height:60px"></div></div>`;
+}
+function showABItem(){
+  if(abStep>=abSeq.length){endAB();return}
+  const item=abSeq[abStep];const disp=document.getElementById('abDisp');
+  if(disp){disp.textContent=item.char;disp.style.color=item.target?'var(--rose)':'var(--ac)';}
+  abStep++;setTimeout(showABItem,item.target?300:120);
+}
+function endAB(){
+  const disp=document.getElementById('abDisp');if(disp)disp.textContent='●';
+  const res=document.getElementById('abResult');if(!res)return;
+  res.innerHTML=`<div style="font-size:.82em;margin-bottom:10px">Viste o X (T1)?</div>
+  <div style="display:flex;gap:8px;justify-content:center;margin-bottom:10px">
+    <button class="btn ac" onclick="abAnswer(1,true)">✅ Sim</button>
+    <button class="btn" onclick="abAnswer(1,false)">❌ Não</button>
+  </div>`;
+}
+function abAnswer(target,val){
+  if(target===1){abResult.t1=val;const res=document.getElementById('abResult');if(res)res.innerHTML=`<div style="font-size:.82em;margin-bottom:10px">Viste o Y (T2)?</div><div style="display:flex;gap:8px;justify-content:center"><button class="btn ac" onclick="abAnswer(2,true)">✅ Sim</button><button class="btn" onclick="abAnswer(2,false)">❌ Não</button></div>`;}
+  else{abResult.t2=val;const t1ok=abResult.t1,t2ok=abResult.t2;const xp=t1ok&&t2ok?30:t1ok?15:5;addXP(xp);const res=document.getElementById('abResult');if(res)res.innerHTML=`<div class="ibox ${t1ok&&t2ok?'tip':'warn'}" style="margin-bottom:10px"><strong>${t1ok&&t2ok?'🏆 Ambos detectados!':t1ok?'👁 T1 ok, T2 perdido (blink!)':'❌ T1 perdido'}</strong><br><div style="font-size:.85em">XP: +${xp}</div></div><button class="btn ac" onclick="startAB()">Jogar novamente</button>`;}
+}
+
+// ════ CATEGORY FLUENCY ════
+let cfTimer=null,cfWords=[],cfTimeLeft=60,cfCategory='';
+const CF_CATEGORIES=['animais','frutas','profissões','países','cores','desportos','alimentos','objectos de casa'];
+function startCF(){
+  cfCategory=CF_CATEGORIES[Math.floor(Math.random()*CF_CATEGORIES.length)];
+  cfWords=[];cfTimeLeft=60;
+  const gb=document.getElementById('gb');if(!gb)return;
+  gb.innerHTML=`<div class="card"><div class="ct2">💬 Fluência Verbal <span class="info-btn" onclick="openHelp('palavras')">ⓘ</span></div>
+  <div class="ibox sci" style="font-size:.72em;margin-bottom:8px">Escreve o máximo de palavras da categoria em 60 segundos. Mede fluência semântica — velocidade de acesso ao léxico. Norma: 16-22 palavras/min.</div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="font-size:.85em;font-weight:600;color:var(--ac)">${cfCategory.toUpperCase()}</span><span style="font-family:'Share Tech Mono',monospace;font-size:.85em;color:var(--gold)" id="cfTime">60s</span></div>
+  <div style="display:flex;gap:6px;margin-bottom:8px"><input id="cfIn" placeholder="Escreve uma palavra..." style="margin:0;flex:1" onkeydown="if(event.key==='Enter')cfSubmit()"/><button class="btn ac" onclick="cfSubmit()">→</button></div>
+  <div id="cfWords" style="display:flex;flex-wrap:wrap;gap:4px;min-height:40px"></div>
+  <div id="cfMsg" style="font-size:.7em;color:var(--rose);margin-top:4px"></div></div>`;
+  cfTimer=setInterval(()=>{cfTimeLeft--;const el=document.getElementById('cfTime');if(el)el.textContent=cfTimeLeft+'s';if(cfTimeLeft<=0){clearInterval(cfTimer);endCF()}},1000);
+  setTimeout(()=>document.getElementById('cfIn')?.focus(),100);
+}
+function cfSubmit(){
+  const inp=document.getElementById('cfIn');if(!inp)return;
+  const w=inp.value.trim().toLowerCase();if(!w)return;
+  if(cfWords.includes(w)){const msg=document.getElementById('cfMsg');if(msg)msg.textContent='Já usaste essa palavra!';inp.value='';return;}
+  cfWords.push(w);inp.value='';
+  const wdiv=document.getElementById('cfWords');if(wdiv)wdiv.innerHTML=cfWords.map(w=>`<span style="background:var(--ac)20;border:1px solid var(--ac)40;border-radius:20px;padding:2px 8px;font-size:.72em">${w}</span>`).join('');
+  snd(500+cfWords.length*10,600+cfWords.length*10,.06);
+  const msg=document.getElementById('cfMsg');if(msg)msg.textContent='';
+}
+function endCF(){
+  const score=cfWords.length;addXP(score*3);
+  const gb=document.getElementById('gb');if(gb)gb.innerHTML=`<div class="card"><div class="ct2">💬 Resultado — Fluência Verbal</div>
+  <div style="text-align:center;padding:16px"><div style="font-family:Fraunces,serif;font-size:3em;color:var(--ac)">${score}</div><div style="font-size:.8em;color:var(--tx3)">${cfCategory} · norma: 16-22</div><div style="font-size:.72em;color:var(--tx2);margin-top:6px">XP: +${score*3}</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px">${cfWords.map(w=>`<span style="background:var(--bg3);border:1px solid var(--bd);border-radius:20px;padding:2px 8px;font-size:.72em">${w}</span>`).join('')}</div>
+  <div class="btns"><button class="btn ac" onclick="startCF()">Nova categoria</button><button class="btn" onclick="go('tools')">← Voltar</button></div></div>`;
+}
+
+// ════ ALTER EGO ════
+function renderAlterEgo(){
+  const ae=S.alterEgo||{name:'',activated:false};
+  return`<div class="card fu"><div class="ct2">🎭 Alter Ego <span class="info-btn" onclick="openHelp('alterego')">ⓘ</span></div>
+  <div class="cd" style="font-size:.72em">Define uma versão de alta performance de ti mesmo para sessões de foco. Beyoncé usa "Sasha Fierce". Kobe Bryant usava "Black Mamba".</div>
+  <input placeholder="Nome do teu alter ego..." value="${ae.name||''}" oninput="S.alterEgo=S.alterEgo||{};S.alterEgo.name=this.value;save()" style="margin-bottom:8px"/>
+  ${ae.name?`<div class="alter-ego-banner" ${ae.activated?'style="border-color:#A066FF;background:#A066FF15"':''}><div class="ae-icon">🎭</div><div><div class="ae-name">${ae.name.toUpperCase()}</div><div style="font-size:.65em;color:var(--tx3)">Activado durante sessões de foco</div></div><div class="tgl ${ae.activated?'on':''}" onclick="S.alterEgo.activated=!S.alterEgo.activated;save();renderHealth()"></div></div>`:''}
+  </div>`;
+}
+
+// ════ FLOW STATE TRACKER ════
+let flowActive=false,flowStartTime=null,flowInt=null;
+function renderFlowTracker(){
+  const flows=S.flowLog||[];const todayFlows=flows.filter(f=>f.date===tkey());
+  const totalMin=todayFlows.reduce((a,f)=>a+f.dur,0);
+  return`<div class="card fu"><div class="ct2">🌊 Flow State Tracker <span class="info-btn" onclick="openHelp('flowstate')">ⓘ</span></div>
+  <div class="cd" style="font-size:.72em">Regista quando entras em estado de flow — foco total, esforço sem esforço, tempo a voar. Correlaciona condições para identificar o teu "receita de flow".</div>
+  ${flowActive?`<div class="flow-card"><div style="font-size:.65em;color:var(--ac);font-family:'Share Tech Mono',monospace;text-align:center;margin-bottom:4px">⚡ EM FLOW</div><div class="flow-timer" id="flowDisplay">00:00</div><div class="flow-state">Concentração total activa</div><button class="sav full" onclick="endFlow()">⏹ Saí do Flow</button></div>`:`<button class="sav full" onclick="startFlow()">⚡ Entrei em Flow</button>`}
+  ${totalMin>0?`<div style="font-size:.72em;color:var(--tx3);margin-top:8px">Hoje: ${totalMin}min de flow em ${todayFlows.length} sessão${todayFlows.length>1?'ões':''}</div>`:''}
+  ${todayFlows.length?`<div style="margin-top:8px">${todayFlows.map(f=>`<div style="display:flex;justify-content:space-between;font-size:.72em;padding:4px 0;border-bottom:1px solid var(--bd);color:var(--tx2)"><span>${f.time}</span><span>${f.dur}min</span><span style="font-size:.85em;color:var(--tx3)">${f.task||'—'}</span></div>`).join('')}</div>`:''}</div>`;
+}
+function startFlow(){flowActive=true;flowStartTime=Date.now();flowInt=setInterval(()=>{const elapsed=Math.floor((Date.now()-flowStartTime)/1000);const el=document.getElementById('flowDisplay');if(el)el.textContent=fmt(elapsed)},1000);toast('⚡ Flow iniciado!');renderHealth()}
+function endFlow(){
+  clearInterval(flowInt);flowActive=false;const dur=Math.floor((Date.now()-flowStartTime)/60000);
+  if(dur<2){toast('Flow muito curto — ignora');renderHealth();return}
+  S.flowLog=S.flowLog||[];S.flowLog.push({date:tkey(),dur,time:ptTime(),task:S.mit?.[tkey()]?.task||''});
+  save();addXP(dur*2);toast(`🌊 Flow de ${dur}min! +${dur*2} XP`);renderHealth();
+}
+
+// ════ ANIMATED SCIENCE INFOGRAPHICS ════
+function renderSciAnim(type){
+  const anims={
+    sleep:`<div class="anim-wrap"><div class="anim-title">💤 Ciclos de Sono — 90min cada</div>
+<svg width="100%" height="70" viewBox="0 0 300 70" style="overflow:visible">
+  ${[0,1,2,3,4].map((c,i)=>{
+    const x=i*58+10;const depths=[['N1',60,4],['N2',40,12],['N3',10,24],['REM',35,14]];
+    return depths.map(([lbl,y,h],j)=>`<rect x="${x+j*12}" y="${y}" width="10" height="${h}" rx="2" fill="${j===3?'#A066FF':j===2?'#00D4FF':j===1?'#4F8BFF':'#FFB830'}" opacity=".8"/>`).join('');
+  }).join('')}
+  <text x="10" y="68" fill="#7A8AB0" font-size="8" font-family="monospace">N1</text>
+  <text x="30" y="68" fill="#7A8AB0" font-size="8" font-family="monospace">N2</text>
+  <text x="50" y="68" fill="#7A8AB0" font-size="8" font-family="monospace">N3</text>
+  <text x="70" y="68" fill="#A066FF" font-size="8" font-family="monospace">REM</text>
+</svg>
+<div style="display:flex;gap:10px;font-size:.6em;color:var(--tx3);flex-wrap:wrap">
+  <span>🟡 N1: adormecer</span><span>🔵 N2: sono leve</span><span>🩵 N3: glinfático activo</span><span>🟣 REM: memórias</span>
+</div></div>`,
+    ebbinghaus:`<div class="anim-wrap"><div class="anim-title">📉 Curva de Esquecimento (Ebbinghaus)</div>
+<svg width="100%" height="80" viewBox="0 0 300 80">
+  <defs><linearGradient id="ebGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00D4FF"/><stop offset="100%" style="stop-color:#FF5C7A"/></linearGradient></defs>
+  <path d="M10,10 Q60,60 100,65 Q150,70 300,72" fill="none" stroke="url(#ebGrad)" stroke-width="3" class="eb-svg" style="animation:drawCurve 2s ease-out .5s forwards;stroke-dasharray:400;stroke-dashoffset:400"/>
+  <path d="M10,10 Q60,18 100,22 Q150,28 300,32" fill="none" stroke="#4FC3A1" stroke-width="2" stroke-dasharray="5,4" opacity=".6" class="eb-svg" style="animation:drawCurve 2.5s ease-out 1s forwards;stroke-dasharray:400;stroke-dashoffset:400"/>
+  <text x="10" y="78" fill="#7A8AB0" font-size="8">Agora</text>
+  <text x="90" y="78" fill="#7A8AB0" font-size="8">1h</text>
+  <text x="170" y="78" fill="#7A8AB0" font-size="8">1 dia</text>
+  <text x="255" y="78" fill="#7A8AB0" font-size="8">1 sem</text>
+  <text x="200" y="25" fill="#4FC3A1" font-size="8">Com revisão</text>
+  <text x="200" y="65" fill="#FF5C7A" font-size="8">Sem revisão</text>
+</svg></div>`,
+    compound:`<div class="anim-wrap"><div class="anim-title">📈 Efeito Composto — 1% por dia</div>
+<svg width="100%" height="80" viewBox="0 0 300 80">
+  <path d="M10,70 L50,68 L90,64 L130,57 L170,44 L210,25 L250,8 L290,4" fill="none" stroke="#00D4FF" stroke-width="2.5" class="comp-line"/>
+  <path d="M10,70 L50,70 L90,69 L130,68 L170,67 L210,66 L250,67 L290,68" fill="none" stroke="#FF5C7A" stroke-width="2" stroke-dasharray="4,3" class="comp-line" style="animation-delay:.5s"/>
+  <text x="255" y="6" fill="#00D4FF" font-size="7">+37×</text>
+  <text x="255" y="66" fill="#FF5C7A" font-size="7">≈0</text>
+  <text x="8" y="78" fill="#7A8AB0" font-size="7">Hoje</text>
+  <text x="140" y="78" fill="#7A8AB0" font-size="7">6 meses</text>
+  <text x="260" y="78" fill="#7A8AB0" font-size="7">1 ano</text>
+</svg>
+<div style="font-size:.65em;color:var(--tx3)">🟢 1% melhor/dia vs 🔴 1% pior/dia</div></div>`,
+    ultradiam:`<div class="anim-wrap"><div class="anim-title">🌊 Ritmo Ultradiano — ciclos de 90min</div>
+<svg width="100%" height="60" viewBox="0 0 300 60" style="overflow:hidden">
+  <defs><clipPath id="clip"><rect width="300" height="60"/></clipPath></defs>
+  <g clip-path="url(#clip)" class="ultra-wave">
+    <path d="M0,30 Q37,5 75,30 Q112,55 150,30 Q187,5 225,30 Q262,55 300,30 Q337,5 375,30 Q412,55 450,30 Q487,5 525,30 Q562,55 600,30" fill="none" stroke="#00D4FF" stroke-width="2.5"/>
+    <rect x="0" y="0" width="75" height="60" fill="#00D4FF" opacity=".08"/>
+    <rect x="150" y="0" width="75" height="60" fill="#00D4FF" opacity=".08"/>
+    <rect x="300" y="0" width="75" height="60" fill="#00D4FF" opacity=".08"/>
+    <rect x="450" y="0" width="75" height="60" fill="#00D4FF" opacity=".08"/>
+  </g>
+  <text x="5" y="55" fill="#00D4FF" font-size="7">FOCO</text>
+  <text x="80" y="55" fill="#FFB830" font-size="7">PAUSA</text>
+  <text x="155" y="55" fill="#00D4FF" font-size="7">FOCO</text>
+  <text x="230" y="55" fill="#FFB830" font-size="7">PAUSA</text>
+</svg>
+<div style="font-size:.65em;color:var(--tx3)">O teu cérebro oscila naturalmente entre 🔵 foco alto e 🟡 descanso a cada 90min</div></div>`,
+    focus:`<div class="anim-wrap"><div class="anim-title">🎯 Foco vs Multitarefa</div>
+<div style="margin-bottom:6px">
+  <div style="font-size:.65em;color:var(--tx3);margin-bottom:3px">Deep Work (4h)</div>
+  <div style="background:var(--bd);border-radius:4px;height:14px;overflow:hidden">
+    <div class="focus-bar-anim" style="height:100%;background:var(--ac);border-radius:4px;--w:95%;--d:0.2s"></div>
+  </div>
+  <div style="font-size:.6em;color:var(--ac)">95% produtividade real</div>
+</div>
+<div>
+  <div style="font-size:.65em;color:var(--tx3);margin-bottom:3px">Multitarefa (4h)</div>
+  <div style="background:var(--bd);border-radius:4px;height:14px;overflow:hidden">
+    <div class="focus-bar-anim" style="height:100%;background:var(--rose);border-radius:4px;--w:43%;--d:0.8s"></div>
+  </div>
+  <div style="font-size:.6em;color:var(--rose)">~43% produtividade (43min perdidos por mudança)</div>
+</div></div>`
+  };
+  return anims[type]||'';
+}
+
+// Render in Academia
+function renderSciAnimsSection(){
+  return`<div class="card fu"><div class="ct2">🎬 Infografias Científicas Animadas</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+    ${[['sleep','💤 Sono'],['ebbinghaus','📉 Memória'],['compound','📈 Composto'],['ultradiam','🌊 Foco'],['focus','🎯 Multitarefa']].map(([k,lb])=>`<button class="btn" style="font-size:.7em" onclick="showSciAnim('${k}')">${lb}</button>`).join('')}
+  </div>
+  <div id="sciAnimBox">${renderSciAnim('sleep')}</div>
+</div>`;
+}
+function showSciAnim(type){const box=document.getElementById('sciAnimBox');if(box)box.innerHTML=renderSciAnim(type);snd(400,500,.08)}
+
+// ════ QUICK ACTIONS ════
+function renderQuickActions(){
+  const tk=tkey();const sl=S.sleep[tk]||{};const wt=S.water[tk]||0;
+  const qa=[
+    {icon:'😴',label:'Sono',done:sl.h>0,action:`openHelp('sono')`},
+    {icon:'💧',label:'Água '+(wt||0),done:wt>=8,action:`setWater(${Math.min(10,(wt||0)+1)},'${tk}')`},
+    {icon:'😊',label:'Humor',done:Object.keys(S.moodLog?.[tk]||{}).length>0,action:`go('home')`},
+    {icon:'⏱',label:'Foco',done:false,action:`_tt='pom';go('tools')`},
+    {icon:'📝',label:'Diário',done:!!(S.journal?.[tk]),action:`go('home')`},
+    {icon:'💪',label:'Treino',done:!!(S.exercise?.[tk]?.logged),action:`go('rotina')`},
+    {icon:'🌱',label:'Aprender',done:(S.learnings||[]).some(l=>l.date===tk),action:`go('health')`},
+    {icon:'🙏',label:'Gratidão',done:(S.gratitude?.[tk]||[]).some(g=>g?.trim()),action:`go('health')`}
+  ];
+  return`<div class="quick-actions">
+  ${qa.map(a=>`<div class="qa-btn" onclick="${a.action}" style="${a.done?'border-color:var(--ac);background:#00D4FF10':''}">
+    <span class="qa-icon">${a.icon}</span>
+    <span style="color:${a.done?'var(--ac)':'var(--tx3)'}">${a.label}</span>
+    ${a.done?'<div style="font-size:.5em;color:var(--ac)">✓</div>':''}
+  </div>`).join('')}</div>`;
+}
+
+// ════ DIARY TIMELINE ════
+function renderDiaryTimeline(){
+  const entries=Object.entries(S.journal||{}).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,10);
+  if(!entries.length)return`<div style="font-size:.78em;color:var(--tx3);text-align:center;padding:12px">Nenhuma entrada ainda. Começa a escrever ⬆️</div>`;
+  return`<div class="diary-timeline">${entries.map(([date,text])=>{
+    const words=text.split(/\s+/).filter(Boolean).length;
+    const moodKey=date;const mood=S.mood?.[moodKey];
+    return`<div class="dt-entry"><div class="dt-dot"></div>
+    <div class="dt-date">${date} · ${words} palavras ${mood!==undefined?MOODS[mood]:''}</div>
+    <div class="dt-preview" onclick="expandEntry('${date}')">${text.slice(0,100)}${text.length>100?'...':''}</div>
+    </div>`;
+  }).join('')}</div>`;
+}
+function expandEntry(date){const text=S.journal?.[date];if(text)openModal('📝 '+date,`<div style="font-size:.85em;line-height:1.8;color:var(--tx2)">${text.replace(/\n/g,'<br>')}</div>`)}
+
 
 // ════ GREETING ════
 function updateGreeting(){
