@@ -1555,40 +1555,26 @@ textarea{resize:none;min-height:100px;line-height:1.7}
     </div>
   </div>
   <div class="score-bar" id="sbar">
-  <div class="bs-ring" id="scoreRing">
-    <svg width="50" height="50" viewBox="0 0 50 50">
-      <circle cx="25" cy="25" r="20" fill="none" stroke="var(--bd)" stroke-width="3"/>
-      <circle id="ringFill" cx="25" cy="25" r="20" fill="none" stroke="var(--ac)" stroke-width="3"
-        stroke-linecap="round" transform="rotate(-90 25 25)"
-        stroke-dasharray="125.6" stroke-dashoffset="125.6"
-        style="transition:stroke-dashoffset .5s ease,stroke .3s;filter:drop-shadow(0 0 4px var(--ac))"/>
-    </svg>
-    <div class="bs-ring-num" id="scoreNum">0</div>
-  </div>
-  <div class="xp-section">
-    <div class="xp-row">
-      <span class="xp-lv" id="levelDisp">Nv 1</span>
-      <span class="xp-title" id="titleDisp">Iniciante</span>
+    <div class="bs-ring">
+      <svg width="46" height="46" viewBox="0 0 46 46">
+        <circle cx="23" cy="23" r="18" fill="none" stroke="var(--bd)" stroke-width="3"/>
+        <circle id="ringFill" cx="23" cy="23" r="18" fill="none" stroke="var(--ac)" stroke-width="3"
+          stroke-linecap="round" transform="rotate(-90 23 23)"
+          stroke-dasharray="113.1" stroke-dashoffset="113.1"
+          style="transition:stroke-dashoffset .5s,stroke .3s"/>
+      </svg>
+      <div class="bs-ring-num" id="scoreNum">0</div>
     </div>
-    <div class="xp-bar-bg"><div class="xp-bar-fill" id="xpBar" style="width:0%"></div></div>
-    <div style="font-size:.52em;color:var(--tx3);margin-top:2px;font-family:'Share Tech Mono',monospace" id="xpDisp">0/200 XP</div>
-  </div>
-  <div class="streak-pill"><span>🔥</span><span id="streakDisp">0</span></div>
-  <div class="freeze-pill" onclick="openHelp('streakfreeze')" title="Streak Freezes">❄️<span id="freezeDisp">0</span></div>
-</div>
+    <div class="xp-section">
+      <div class="xp-row">
+        <span class="xp-lv" id="levelDisp">Nv 1</span>
+        <span class="xp-title" id="titleDisp">Iniciante</span>
+      </div>
+      <div class="xp-bar-bg"><div class="xp-bar-fill" id="xpBar" style="width:0%"></div></div>
+      <div style="font-size:.5em;color:var(--tx3);margin-top:2px;font-family:'Share Tech Mono',monospace" id="xpDisp">0/200 XP</div>
     </div>
-    <div style="flex:1;min-width:0">
-      <div style="font-size:.6em;color:var(--tx3);margin-bottom:1px">Brain Score</div>
-      <div style="font-size:.8em;color:var(--tx2)" id="scoreTitle">Calculando...</div>
-      <div class="xp-bg" style="margin-top:4px"><div class="xp-fill" id="xpBar" style="width:0%"></div></div>
-      <div class="momentum-bar" style="margin-top:2px"><div class="momentum-fill" id="momentumFill" style="width:0%"></div></div>
-    </div>
-    <div style="text-align:right;min-width:60px">
-      <div style="display:flex;align-items:center;gap:4px"><div style="font-size:.7em;color:var(--gold);font-weight:600" id="stkEl">🔥 0</div><div style="font-size:.62em;background:var(--bd);border-radius:20px;padding:1px 6px;color:var(--tx2)" id="rcEl">—</div></div>
-      <div style="font-size:.6em;color:var(--tx3);margin-top:2px" id="lvlEl">Nível 1</div>
-      <div style="font-size:.55em;color:var(--ac)" id="titleEl">Iniciante</div>
-      <div style="font-size:.55em;color:var(--tx3)" id="xpLbl">0 XP</div>
-    </div>
+    <div class="streak-pill">🔥<span id="streakDisp">0</span></div>
+    <div class="freeze-pill" onclick="openHelp('streakfreeze')">❄️<span id="freezeDisp">0</span></div>
   </div>
   <div id="modeBanner" class="mode-banner" style="display:none"></div>
   <div class="sunset" id="sunsetBar">
@@ -2502,30 +2488,48 @@ function calcScore(){const tk=tkey();let sc=0,mx=0;const sl=S.sleep[tk];if(sl?.h
 
 function updateUI(){
   const score=calcScore();S.brainscore[tkey()]=score;
-  const fill=document.getElementById('ringFill');if(!fill)return;
-  const circ=2*Math.PI*19;fill.style.strokeDasharray=circ;fill.style.strokeDashoffset=circ-(score/100)*circ;
-  const col=score>=80?'#4FC3A1':score>=60?'#F0C040':score>=40?'#E07B54':'#e05050';
-  fill.style.stroke=col;document.getElementById('ringNum').textContent=score;
-  document.getElementById('scoreTitle').textContent=score>=90?'Excelente 🌟':score>=75?'Muito bom 💪':score>=60?'Bom 📈':score>=40?'Regular 🌱':'Começando ⭐';
-  const x=document.getElementById('xpBar');if(x)x.style.width=((S.xp%200)/200*100)+'%';
-  const lv=document.getElementById('lvlEl');if(lv)lv.textContent=`Nível ${S.level}`;
-  const xl=document.getElementById('xpLbl');if(xl)xl.textContent=`${S.xp%200}/200 XP`;
-  const sk=document.getElementById('stkEl');if(sk)sk.textContent='🔥 '+S.streak;
-  // Update title
+  // Score ring (new IDs)
+  const fill=document.getElementById('ringFill');
+  if(fill){
+    const circ=2*Math.PI*18;
+    fill.style.strokeDasharray=circ;
+    fill.style.strokeDashoffset=circ-(score/100)*circ;
+    const col=score>=80?'var(--green)':score>=60?'var(--gold)':score>=40?'var(--rose)':'var(--bd)';
+    fill.style.stroke=col;
+  }
+  const sn=document.getElementById('scoreNum');if(sn)sn.textContent=score;
+  // XP bar
+  const xp=document.getElementById('xpBar');if(xp)xp.style.width=((S.xp%200)/200*100)+'%';
+  // Level
+  const lv=document.getElementById('levelDisp');if(lv)lv.textContent='Nv '+(S.level||1);
+  // XP display
+  const xd=document.getElementById('xpDisp');if(xd)xd.textContent=(S.xp%200)+'/200 XP';
+  // Title
   const newTitle=getTitle(S.level||1);
-  if(newTitle!==S.userTitle){S.userTitle=newTitle;save();if(!S.titles_earned.includes(newTitle)){S.titles_earned.push(newTitle);toast('🏷️ Novo título: '+newTitle);}}
-  const tl=document.getElementById('titleEl');if(tl)tl.textContent=S.userTitle;
-  // Check daily missions
-  checkDailyMissions();
-  // Update report card
-  genReportCard();
+  if(newTitle!==S.userTitle){S.userTitle=newTitle;save()}
+  const td=document.getElementById('titleDisp');if(td)td.textContent=newTitle;
+  // Streak
+  const sk=document.getElementById('streakDisp');if(sk)sk.textContent=S.streak||0;
+  // Freeze
+  const fz=document.getElementById('freezeDisp');if(fz)fz.textContent=S.freezes||0;
+  // Nav highlight
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('on'));
+  const ni=document.getElementById('ni-'+(S.page||'home'));if(ni)ni.classList.add('on');
+  // Missions check
+  try{checkDailyMissions();}catch(e){}
+  // Current page re-render
+  if(document.getElementById('ct')&&document.getElementById('ct').innerHTML){
+    // update score title in page if present
+    const st=document.getElementById('scoreTitle');
+    if(st)st.textContent=score>=90?'Excelente 🌟':score>=75?'Muito bom 💪':score>=60?'Bom 📈':score>=40?'Regular 🌱':'Começando ⭐';
+  }
 }
 
 function updateSunset(){const bar=document.getElementById('sunsetBar');if(!bar)return;if(!S.sunsetOn){bar.style.display='none';return}bar.style.display='flex';const[h,m]=S.sunsetTime.split(':').map(Number);const now=new Date(),tgt=new Date();tgt.setHours(h,m,0,0);if(tgt<now){document.getElementById('sunsetTxt').textContent='🌙 Hora de desligar';document.getElementById('sunsetTimer').textContent='Passou!';bar.className='sunset over';return}const diff=tgt-now;document.getElementById('sunsetTxt').textContent=`🌅 Sunset às ${S.sunsetTime}`;document.getElementById('sunsetTimer').textContent=`${Math.floor(diff/3600000)}h ${Math.floor((diff%3600000)/60000)}m`;bar.className=`sunset ${diff<3600000?'over':diff<7200000?'warn':''}`}
 
 function applyFont(){document.documentElement.style.setProperty('--fs',S.fontSize==='big'?'19px':S.fontSize==='small'?'14px':'16px')}
-function applyTheme(){const themes={'dark':'','light':'lt','sepia':'th-sepia','forest':'th-forest'};document.body.className='';if(themes[S.theme||'dark'])document.body.classList.add(themes[S.theme]);document.getElementById('themeBtn').textContent=S.theme==='light'?'🌙':S.theme==='sepia'?'📜':S.theme==='forest'?'🌿':'☀️';applyFont()}
-document.getElementById('themeBtn').addEventListener('click',()=>{const ts=['dark','light','sepia','forest'];const idx=ts.indexOf(S.theme||'dark');S.theme=ts[(idx+1)%ts.length];save();applyTheme();toast('Tema: '+S.theme)});
+function applyTheme(){const themes={'dark':'','light':'lt','sepia':'th-sepia','forest':'th-forest'};document.body.className='';if(themes[S.theme||'dark'])document.body.classList.add(themes[S.theme]);const tb=document.getElementById('themeBtn');if(tb)tb.textContent=S.theme==='light'?'🌙':S.theme==='sepia'?'📜':S.theme==='forest'?'🌿':'☀️';applyFont()}
+const _tbEl=document.getElementById('themeBtn');if(_tbEl)_tbEl.addEventListener('click',()=>{const ts=['dark','light','sepia','forest'];const idx=ts.indexOf(S.theme||'dark');S.theme=ts[(idx+1)%ts.length];save();applyTheme();toast('Tema: '+S.theme)});
 
 let _ch=[],_go=[];
 function obM(btn,v,type){const arr=type==='ch'?_ch:_go;const idx=arr.indexOf(v);if(idx>=0){arr.splice(idx,1);btn.classList.remove('sel')}else{arr.push(v);btn.classList.add('sel')}if(type==='ch'&&_ch.length>0){const n=document.getElementById('obN2');n.style.opacity='1';n.style.pointerEvents='auto'}if(type==='go'&&_go.length>0){const n=document.getElementById('obF');n.style.opacity='1';n.style.pointerEvents='auto'}}
