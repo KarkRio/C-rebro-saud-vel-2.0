@@ -2106,8 +2106,7 @@ function updateUI(){
   // Current page re-render
   if(document.getElementById('ct')&&document.getElementById('ct').innerHTML){
     // update score title in page if present
-    const st=document.getElementById('scoreTitle');
-    if(st)st.textContent=score>=90?'Excelente 🌟':score>=75?'Muito bom 💪':score>=60?'Bom 📈':score>=40?'Regular 🌱':'Começando ⭐';
+
   }
 }
 
@@ -2121,7 +2120,7 @@ let _ch=[],_go=[];
 function obM(btn,v,type){const arr=type==='ch'?_ch:_go;const idx=arr.indexOf(v);if(idx>=0){arr.splice(idx,1);btn.classList.remove('sel')}else{arr.push(v);btn.classList.add('sel')}if(type==='ch'&&_ch.length>0){const n=document.getElementById('obN2');n.style.opacity='1';n.style.pointerEvents='auto'}if(type==='go'&&_go.length>0){const n=document.getElementById('obF');n.style.opacity='1';n.style.pointerEvents='auto'}}
 function obNext(s){if(s===1){const n=document.getElementById('obName').value.trim();if(!n){document.getElementById('obName').classList.add('shake');setTimeout(()=>document.getElementById('obName').classList.remove('shake'),300);return}S.name=n}document.getElementById('ob'+s).classList.remove('act');document.getElementById('ob'+(s+1)).classList.add('act')}
 function obFinish(){S.challenges=_ch;S.goals=_go;S.startDate=tkey();save();document.getElementById('obScreen').style.display='none';document.getElementById('app').style.display='block';boot()}
-document.getElementById('obName').addEventListener('keydown',e=>{if(e.key==='Enter')obNext(1)});
+document.addEventListener('DOMContentLoaded',()=>{const _on=document.getElementById('obName');if(_on)_on.addEventListener('keydown',e=>{if(e.key==='Enter')obNext(1)})});
 
 function updateStreak(){const today=new Date().toDateString();if(S.lastActive!==today){const yest=new Date(Date.now()-86400000).toDateString();if(S.lastActive===yest)S.streak++;else if(S.lastActive&&S.lastActive!==today){if(S.freezes>0){S.freezes--;S.streak++;toast('❄️ Freeze usado! Restam '+S.freezes)}else{if(S.streak>0)toast('💔 Sequência de '+S.streak+' perdida');S.streak=0}}if(S.streak>S.bestStreak)S.bestStreak=S.streak;S.lastActive=today;save()}}
 
@@ -4350,8 +4349,8 @@ function updateGreeting(){
 // ════ BOOT ════
 let _deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();_deferredPrompt=e;setTimeout(()=>{if(!localStorage.getItem('ib_dismissed')){document.getElementById('ibanner').classList.add('show')}},4000)});
-document.getElementById('ibbtn').addEventListener('click',()=>{if(_deferredPrompt){_deferredPrompt.prompt();_deferredPrompt.userChoice.then(r=>{if(r.outcome==='accepted')toast('⚡ CortexOS instalado!');_deferredPrompt=null;document.getElementById('ibanner').classList.remove('show')})}else{toast('Abre no Chrome para instalar')}});
-document.getElementById('ibclose').addEventListener('click',()=>{document.getElementById('ibanner').classList.remove('show');localStorage.setItem('ib_dismissed','1')});
+document.addEventListener('DOMContentLoaded',()=>{const _ib=document.getElementById('ibbtn');if(_ib)_ib.addEventListener('click',()=>{if(_deferredPrompt){_deferredPrompt.prompt();_deferredPrompt.userChoice.then(r=>{if(r.outcome==='accepted')toast('⚡ CortexOS instalado!');_deferredPrompt=null;const _ibn=document.getElementById('ibanner');if(_ibn)_ibn.classList.remove('show')})}else{toast('Abre no Chrome para instalar')}})});
+document.addEventListener('DOMContentLoaded',()=>{const _ic=document.getElementById('ibclose');if(_ic)_ic.addEventListener('click',()=>{const _ibn=document.getElementById('ibanner');if(_ibn)_ibn.classList.remove('show');localStorage.setItem('ib_dismissed','1')})});
 let _newWorker=null;
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').then(reg=>{reg.addEventListener('updatefound',()=>{_newWorker=reg.installing;_newWorker?.addEventListener('statechange',()=>{if(_newWorker?.state==='installed'&&navigator.serviceWorker.controller){document.getElementById('updBar').classList.add('show')}})})}).catch(()=>{})}
 
