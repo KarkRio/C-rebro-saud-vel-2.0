@@ -285,7 +285,7 @@ select{cursor:pointer}
 .mit-card{background:linear-gradient(135deg,#4FC3A115,#5B8DEF10);border:2px solid var(--ac);border-radius:var(--r);padding:14px;margin-bottom:10px}
 .mit-label{font-size:.55em;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ac);margin-bottom:5px}
 /* TEMPORAL MODES */
-.mode-banner{padding:6px 16px;font-size:.68em;display:flex;align-items:center;gap:6px;font-weight:500;transition:all .5s}
+.mode-banner{flex-shrink:0;padding:6px 16px;font-size:.68em;display:flex;align-items:center;gap:6px;font-weight:500;transition:all .5s}
 .mode-morning{background:#d4a85318;color:var(--gold);border-bottom:1px solid #d4a85330}
 .mode-focus{background:#5B8DEF18;color:var(--blue);border-bottom:1px solid #5B8DEF30}
 .mode-dip{background:#B07FE818;color:var(--pu);border-bottom:1px solid #B07FE830}
@@ -517,8 +517,13 @@ html{height:100%;overflow:hidden}
 body{
   margin:0;font-family:'DM Sans',system-ui,sans-serif;
   font-size:var(--fs);background:var(--bg);color:var(--tx);
-  min-height:100%;height:100%;overflow:hidden;
-  display:flex;flex-direction:column;
+  height:100%;height:100dvh;overflow:hidden;
+}
+#app{
+  display:none;
+  flex-direction:column;
+  height:100vh;height:100dvh;
+  overflow:hidden;
 }
 body::before{
   content:'';position:fixed;inset:0;
@@ -526,9 +531,12 @@ body::before{
   pointer-events:none;z-index:9999;opacity:.6
 }
 
+/* ── APP LAYOUT ── */
+#app.show,#app[style*="block"],#app[style*="flex"]{display:flex!important}
+#ct{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;min-height:0;padding:12px 14px calc(env(safe-area-inset-bottom,0px)+16px)}
 /* ── HEADER ── */
 .hdr{
-  position:fixed;top:0;left:0;right:0;
+  flex-shrink:0;
   height:var(--hdr);z-index:100;
   background:rgba(7,9,15,.92);
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
@@ -547,7 +555,7 @@ body::before{
 
 /* ── SCORE BAR ── */
 .score-bar{
-  position:fixed;top:var(--hdr);left:0;right:0;z-index:99;
+  flex-shrink:0;position:static;
   background:rgba(11,15,23,.85);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid var(--bd);
@@ -592,7 +600,7 @@ body::before{
 
 /* ── NAV BAR (ALWAYS VISIBLE, NEVER DISAPPEARS) ── */
 .nav{
-  position:fixed;bottom:0;left:0;right:0;
+  flex-shrink:0;position:sticky;bottom:0;
   height:var(--nav);z-index:100;
   background:rgba(7,9,15,.95);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
@@ -1434,7 +1442,7 @@ textarea{resize:none;min-height:100px;line-height:1.7}
 
 /* ── SUNSET BAR ── */
 .sunset{
-  background:rgba(255,184,48,.08);border-bottom:1px solid rgba(255,184,48,.15);
+  flex-shrink:0;background:rgba(255,184,48,.08);border-bottom:1px solid rgba(255,184,48,.15);
   padding:5px 14px;display:flex;align-items:center;gap:6px;
   font-size:.68em;color:var(--gold);font-family:'Share Tech Mono',monospace;
 }
@@ -1538,7 +1546,7 @@ textarea{resize:none;min-height:100px;line-height:1.7}
 </div>
 
 <!-- APP -->
-<div id="app" style="display:none">
+<div id="app" style="display:none;flex-direction:column;height:100vh;height:100dvh;overflow:hidden">
   <div class="hdr">
     <div class="hdr-r">
       <div>
@@ -1582,7 +1590,7 @@ textarea{resize:none;min-height:100px;line-height:1.7}
     <span style="flex:1;color:var(--tx3)" id="sunsetTxt">Digital Sunset</span>
     <span style="font-weight:500;color:var(--tx2)" id="sunsetTimer">--:--</span>
   </div>
-  <div id="ct" style="flex:1;overflow-y:auto;overflow-x:hidden;padding-top:108px;padding-bottom:calc(68px + env(safe-area-inset-bottom,0px));-webkit-overflow-scrolling:touch"></div>
+  <div id="ct" style="flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;min-height:0"></div>
   <nav class="nav" id="nav">
     <div class="nav-item on" id="ni-home" onclick="go('home')"><span class="nav-icon">📅</span><span class="nav-label">Início</span></div>
     <div class="nav-item" id="ni-rotina" onclick="go('rotina')"><span class="nav-icon">📋</span><span class="nav-label">Rotina</span></div>
@@ -1832,6 +1840,7 @@ const PROTOCOL_DEEP={'s1':{week:1,title:'Sono: A Base de Tudo',deep:`O sono é o
 const QUOTES_BANK=["O cérebro não descansa — ele processa.","Consistência > Perfeição.","Sono: manutenção do hardware cerebral.","Atenção é o recurso mais valioso do séc. XXI.","Neuroplasticidade: podes sempre mudar.","Cada página lida fortalece a mente.","Faz o difícil enquanto é fácil.","Disciplina é liberdade silenciosa.","O teu futuro é construído nos teus hábitos de hoje.","O músculo mais importante é o que está entre as tuas orelhas.","A mente que se expande nunca volta ao tamanho original. — Oliver Wendell Holmes","Aprende como se fosses viver para sempre, vive como se fosses morrer amanhã. — Gandhi","A inteligência é a capacidade de adaptar-se à mudança. — Stephen Hawking","O único modo de fazer um grande trabalho é amar o que fazes. — Steve Jobs","A vida que não é examinada não vale a pena ser vivida. — Sócrates","Conhece-te a ti mesmo. — Sócrates","A qualidade da tua vida é determinada pela qualidade das tuas perguntas.","Neurons that fire together, wire together. — Donald Hebb","O cérebro que aprende é o cérebro que vive. — Marian Diamond","Cada vez que aprendes algo novo, o teu cérebro muda. — Michael Merzenich","A excelência nunca é um acidente. — Aristóteles","Não procures a fama, procura a excelência. — David Ogilvy","A maior descoberta da minha geração é que um ser humano pode mudar a sua vida mudando a sua atitude. — William James","Age de forma a seres feliz tanto se vivas mais um dia como mais cinquenta anos. — Marcus Aurelius","A disciplina é a ponte entre os objectivos e a realização. — Jim Rohn","O exercício é o Prozac da natureza. — John Ratey","Dorme, come bem, exercita-te. Tudo o resto é secundário.","A saúde é a maior riqueza. A contentamento, a maior riqueza. A fidelidade, a melhor relação. — Buda","A mente saudável está num corpo saudável. — Juvenal","Primeiro cuida do corpo, depois cuida da mente. Pois ambos são necessários."];
 const QUOTES=QUOTES_BANK;
 const QUIZ_POOL_MEGA=[{q:`Qual neurotransmissor é o principal mediador do foco e aprendizagem?`,opts:[`Dopamina`,`Acetilcolina`,`Serotonina`,`GABA`],a:1,e:`Acetilcolina, libertada por neurónios colinérgicos do núcleo basal de Meynert, é o 'holofote' da atenção. Défice está directamente ligado ao Alzheimer.`},{q:`Durante qual fase do sono o sistema glinfático é mais activo?`,opts:[`N1`,`N2`,`N3 (sono profundo)`,`REM`],a:2,e:`N3 (delta sleep): os espaços extracelulares expandem 60%, permitindo que o LCR lave beta-amiloide e tau. Nedergaard (2013) descobriu este mecanismo.`},{q:`O que é o 'cortisol awakening response'?`,opts:[`Cortisol baixo ao acordar`,`Pico de cortisol 30-45min após acordar`,`Cortisol constante ao longo do dia`,`Queda de cortisol à noite`],a:1,e:`O CAR é um aumento de 50-100% no cortisol nos primeiros 30-45 minutos após acordar. Prepara o corpo para o dia, mobiliza energia e aguça a atenção.`},{q:`Qual é a semi-vida típica da cafeína?`,opts:[`2-3 horas`,`5-7 horas`,`10-12 horas`,`1-2 horas`],a:1,e:`Com semi-vida de 5-7 horas, cafeína às 14h significa ~50% activa à meia-noite. Suprime sono profundo mesmo que adormeças normalmente.`},{q:`Onde ocorre a neurogénese adulta no cérebro humano?`,opts:[`Amígdala`,`Córtex pré-frontal`,`Giro dentado do hipocampo`,`Tálamo`],a:2,e:`O giro dentado é uma das únicas regiões com neurogénese activa em adultos. BDNF (induzido por exercício) é o principal promotor. Eriksson & Gage (1998).`},{q:`O que descobriu o Harvard Study of Adult Development após 85 anos?`,opts:[`Exercício é o factor #1`,`Qualidade das relações prediz saúde cognitiva`,`QI determina envelhecimento`,`Dieta é o factor mais importante`],a:1,e:`Waldinger: qualidade das relações aos 50 anos prediz saúde física e cognitiva aos 80 melhor que colesterol, exercício ou QI.`},{q:`O que é a LTP (Long-Term Potentiation)?`,opts:[`Sono profundo prolongado`,`Fortalecimento sináptico por activação repetida`,`Efeito da dopamina no núcleo accumbens`,`Aumento de cortisol por stress`],a:1,e:`LTP é o mecanismo molecular da memória. Quando neurónios disparam em sincronização, a sinapse fortalece-se. Hebb (1949): 'neurons that fire together, wire together'.`},{q:`Qual estrutura cerebral é o 'centro emocional' que processa medo?`,opts:[`Hipocampo`,`Tálamo`,`Amígdala`,`Insula`],a:2,e:`A amígdala processa respostas emocionais, especialmente medo. Responde a faces ameaçadoras em <100ms. Privação de sono aumenta a sua reactividade em 60%.`},{q:`Que percentagem da serotonina do corpo é produzida no intestino?`,opts:[`10%`,`30%`,`70%`,`90-95%`],a:3,e:`90-95% da serotonina é produzida por células enterocromafins no intestino via o eixo intestino-cérebro. O microbioma influencia directamente o estado de humor.`},{q:`Qual o efeito do exercício aeróbico regular no hipocampo?`,opts:[`Reduz o volume`,`Sem efeito`,`Aumenta volume em ~2%`,`Apenas melhora memória a curto prazo`],a:2,e:`Erickson et al. (2011): adultos sedentários que fizeram caminhada aeróbica 3x/semana durante 1 ano mostraram crescimento de 2% no hipocampo, revertendo 1-2 anos de declínio.`}];
+const QUIZ_POOL=QUIZ_POOL_MEGA;
 const FC_STARTERS=[{q:`O que é o BDNF?`,a:`Brain-Derived Neurotrophic Factor — proteína que estimula crescimento neuronal, fortalece sinapses e é o 'fertilizante' do hipocampo. Aumenta com exercício aeróbico.`,date:'starter',score:0},{q:`O que é o sistema glinfático?`,a:`Sistema de limpeza cerebral descoberto em 2013. Activo durante sono profundo: remove beta-amiloide e tau através de canais ao redor dos vasos sanguíneos. Essencial para prevenção de Alzheimer.`,date:'starter',score:0},{q:`Por que a dopamina é sobre 'querer' e não 'gostar'?`,a:`Berridge (Michigan): dopamina medeia antecipação e motivação (wanting). O sistema do 'liking' usa opioides endógenos. Isto explica o scroll compulsivo: queres mais mesmo sem estar a gostar.`,date:'starter',score:0},{q:`O que é a LTP?`,a:`Long-Term Potentiation: fortalecimento sináptico por activação repetida. É o mecanismo molecular da memória. Regra de Hebb: 'neurons that fire together, wire together' (1949).`,date:'starter',score:0},{q:`Qual é a semi-vida da cafeína e a sua implicação?`,a:`5-7 horas. Cafeína às 14h = 50% activa à meia-noite. Suprime sono profundo mesmo que adormeças. O sistema glinfático não funciona completamente. Limita a cafeína às 13h.`,date:'starter',score:0},{q:`O que é o cortisol awakening response (CAR)?`,a:`Pico de cortisol 30-45 minutos após acordar: mobiliza energia, aguça atenção. Luz solar matinal amplifica este efeito. Sinal de saúde do eixo hipotálamo-hipófise-suprarrenal.`,date:'starter',score:0},{q:`Quantas horas de sono reduz a retenção de memórias em 40%?`,a:`Qualquer privação significativa de uma noite. Walker (Berkeley): uma noite de privação reduz a capacidade do hipocampo de formar novas memórias em 40%.`,date:'starter',score:0},{q:`O que é a neuroplasticidade?`,a:`Capacidade do sistema nervoso de reorganizar estrutura, função e conexões em resposta à experiência. Universal em todas as idades. A base de todo o aprendizado e recuperação de lesões.`,date:'starter',score:0},{q:`O que faz o córtex pré-frontal?`,a:`Tomada de decisões, controlo de impulsos, memória de trabalho, planeamento, regulação emocional. Última região a amadurecer (~25 anos). Mais vulnerável à privação de sono e stress crónico.`,date:'starter',score:0},{q:`O que é o task-switching cost?`,a:`Custo cognitivo de mudar de tarefa: 200-2000ms de performance reduzida. Nunca há multitarefa real — apenas alternância com custo em cada troca. Gloria Mark: 23min para recuperar foco após interrupção.`,date:'starter',score:0},{q:`O que é neurogénese adulta?`,a:`Produção de novos neurónios em adultos. Ocorre principalmente no giro dentado do hipocampo. Promovida por exercício aeróbico (BDNF), aprendizagem, sono, jeium. Eriksson & Gage (1998).`,date:'starter',score:0},{q:`O que é adenosina?`,a:`Composto que cria 'pressão de sono' — acumula-se durante a vigília. A cafeína bloqueia os seus receptores (sem eliminá-la). Durante o sono, é removida pelo sistema glinfático.`,date:'starter',score:0},{q:`O que é o Harvard Study of Adult Development?`,a:`Estudo longitudinal de 85 anos com 700+ pessoas. Conclusão principal (Waldinger): qualidade das relações é o maior preditor de saúde cognitiva na velhice — acima de QI, renda e dieta.`,date:'starter',score:0},{q:`O que é REM sleep e por que importa para estudantes?`,a:`Rapid Eye Movement: hipocampo reproduz memórias em alta velocidade (10-20×), transferindo-as para armazenamento permanente. Perder REM (últimas horas da manhã) = perder 40% do que estudaste.`,date:'starter',score:0},{q:`O que é o default mode network (DMN)?`,a:`Rede cerebral activa durante ócio, introspecção e criatividade. Suprimida pelo scroll constante. Essencial para processamento emocional, insights criativos e consolidação de memórias. Necessita de 'vazio'.`,date:'starter',score:0}];
 
 const GUIDE_EXTRAS={};
@@ -2119,7 +2128,7 @@ const _tbEl=document.getElementById('themeBtn');if(_tbEl)_tbEl.addEventListener(
 let _ch=[],_go=[];
 function obM(btn,v,type){const arr=type==='ch'?_ch:_go;const idx=arr.indexOf(v);if(idx>=0){arr.splice(idx,1);btn.classList.remove('sel')}else{arr.push(v);btn.classList.add('sel')}if(type==='ch'&&_ch.length>0){const n=document.getElementById('obN2');if(n){n.style.opacity='1';n.style.pointerEvents='auto'}}if(type==='go'&&_go.length>0){const n=document.getElementById('obF');if(n){n.style.opacity='1';n.style.pointerEvents='auto'}}}
 function obNext(s){if(s===1){const n=document.getElementById('obName').value.trim();if(!n){document.getElementById('obName').classList.add('shake');setTimeout(()=>document.getElementById('obName').classList.remove('shake'),300);return}S.name=n}document.getElementById('ob'+s).classList.remove('act');document.getElementById('ob'+(s+1)).classList.add('act')}
-function obFinish(){S.challenges=_ch;S.goals=_go;S.startDate=tkey();save();const _obs=document.getElementById('obScreen');if(_obs)_obs.style.display='none';const _app=document.getElementById('app');if(_app)_app.style.display='block';boot()}
+function obFinish(){S.challenges=_ch;S.goals=_go;S.startDate=tkey();save();const _obs=document.getElementById('obScreen');if(_obs)_obs.style.display='none';const _app=document.getElementById('app');if(_app)_app.style.display='flex';boot()}
 document.addEventListener('DOMContentLoaded',()=>{const _on=document.getElementById('obName');if(_on)_on.addEventListener('keydown',e=>{if(e.key==='Enter')obNext(1)})});
 
 function updateStreak(){const today=new Date().toDateString();if(S.lastActive!==today){const yest=new Date(Date.now()-86400000).toDateString();if(S.lastActive===yest)S.streak++;else if(S.lastActive&&S.lastActive!==today){if(S.freezes>0){S.freezes--;S.streak++;toast('❄️ Freeze usado! Restam '+S.freezes)}else{if(S.streak>0)toast('💔 Sequência de '+S.streak+' perdida');S.streak=0}}if(S.streak>S.bestStreak)S.bestStreak=S.streak;S.lastActive=today;save()}}
@@ -2303,8 +2312,13 @@ function go(p){
     else if(p==='academia')renderAcademia();
   }catch(err){
     console.error('Render error in',p,':',err);
-    const ct=document.getElementById('ct');
-    if(ct)ct.innerHTML='<div style="padding:20px;color:#E0E8FF"><p style="color:#FF5C7A">Erro ao renderizar '+p+': '+err.message+'</p><button onclick="go(\'home\')" style="background:var(--ac);color:#000;border:none;padding:8px 16px;border-radius:8px;cursor:pointer">← Início</button></div>';
+    // Try to recover by going home
+    if(p!=='home'){
+      setTimeout(()=>go('home'),100);
+    } else {
+      const ct=document.getElementById('ct');
+      if(ct)ct.innerHTML='<div style="padding:20px;color:#E0E8FF;font-family:monospace"><p style="color:#FF5C7A;font-size:.85em">Erro ao renderizar '+p+': '+err.message+'</p><button onclick="location.reload()" style="background:var(--ac);color:#000;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;margin-top:8px">Recarregar</button></div>';
+    }
   }
   updateUI();updateStreak();checkDailyMissions()
 }
@@ -3052,7 +3066,7 @@ ${sl.h>0?renderMoodCorrelation():''}
 
 <div class="card fu"><div class="ct2">🍓 Brain Food — ${Object.values(bf).filter(Boolean).length}/${BF_EXT.length} <span class="info-btn" onclick="openHelp('brainfood')">ⓘ</span></div>
 <div style="font-size:.68em;color:var(--tx3);margin-bottom:8px">Toca num alimento para ver o mecanismo neurológico. Hover para detalhes.</div>
-<div class="food-grid-5">${BF_EXT.map((f,i)=>`<div class="food-item-sm ${bf[i]?'on':''}" onclick="toggleBFExt(${i},'${tk}')"><div style="font-size:1.1em;margin-bottom:1px">${f.i}</div><div style="font-size:.48em;color:var(--tx3)">${f.n}</div><div class="food-mech">${f.mech}</div></div>`).join('')}</div>
+<div class="food-grid-5">${(typeof BF_EXT!=="undefined"?BF_EXT:[]).map((f,i)=>`<div class="food-item-sm ${bf[i]?'on':''}" onclick="toggleBFExt(${i},'${tk}')"><div style="font-size:1.1em;margin-bottom:1px">${f.i}</div><div style="font-size:.48em;color:var(--tx3)">${f.n}</div><div class="food-mech">${f.mech}</div></div>`).join('')}</div>
 <div style="font-size:.72em;color:var(--tx3);margin-top:8px;text-align:center">${Object.values(bf).filter(Boolean).length} alimentos hoje${Object.values(bf).filter(Boolean).length>=6?' 🌟 Acima da meta!':Object.values(bf).filter(Boolean).length>=3?' ✓ Bom progresso':' — meta: 6+'}</div></div>
 
 ${renderCaffeineTracker()}
@@ -3660,7 +3674,7 @@ ${renderSciAnimsSection()}
 // ════ QUIZ ════
 let quizIdx=0;
 function renderQuiz(){
-  const q=QUIZ_POOL[quizIdx%QUIZ_POOL.length];
+  const _qp=typeof QUIZ_POOL!=="undefined"?QUIZ_POOL:QUIZ_POOL_MEGA;const q=_qp[quizIdx%_qp.length];
   return`<div style="font-size:.85em;font-weight:500;margin-bottom:10px;line-height:1.5">${q.q}</div>
 <div style="display:flex;flex-direction:column;gap:6px" id="quizOpts">
 ${q.opts.map((o,i)=>`<div onclick="answerQuiz(${i},${q.a})" style="padding:9px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg3);font-size:.8em;cursor:pointer;transition:all .2s" id="qo${i}">${o}</div>`).join('')}
@@ -3668,7 +3682,7 @@ ${q.opts.map((o,i)=>`<div onclick="answerQuiz(${i},${q.a})" style="padding:9px 1
 function answerQuiz(chosen,correct){
   const qo=document.querySelectorAll('[id^="qo"]');
   qo.forEach((el,i)=>{if(i===correct)el.style.cssText='padding:9px 12px;border-radius:10px;border:1px solid var(--ac);background:#4FC3A120;color:var(--ac);font-size:.8em';else if(i===chosen&&chosen!==correct)el.style.cssText='padding:9px 12px;border-radius:10px;border:1px solid var(--rose);background:#e0707015;color:var(--rose);font-size:.8em';el.onclick=null});
-  if(chosen===correct){addXP(10);toast('✅ Correto! +10 XP')}else toast('❌ Incorreto — resposta: '+QUIZ_POOL[quizIdx%QUIZ_POOL.length].opts[correct]);
+  if(chosen===correct){addXP(10);toast('✅ Correto! +10 XP')}else toast('❌ Incorreto — '+_qp[quizIdx%_qp.length].opts[correct]);
   setTimeout(()=>{quizIdx++;const qb=document.getElementById('quizBox');if(qb)qb.innerHTML=renderQuiz()},2000)
 }
 
@@ -4430,12 +4444,12 @@ window.addEventListener('load',()=>{
     if(!S.startDate){
       const _obs2=document.getElementById('obScreen');if(_obs2)_obs2.style.display='flex';
     } else {
-      const _app2=document.getElementById('app');if(_app2)_app2.style.display='block';
+      const _app2=document.getElementById('app');if(_app2){_app2.style.display='flex';_app2.style.flexDirection='column'}
       boot();
     }
   } catch(e) {
     console.error('Boot error:', e);
-    const _appErr=document.getElementById('app');if(_appErr)_appErr.style.display='block';
+    const _appErr=document.getElementById('app');if(_appErr)_appErr.style.display='flex';
     var ct = document.getElementById('ct');
     if(ct) ct.innerHTML = '<div style="padding:20px;color:#E0E8FF"><h2 style="color:#00D4FF">⚡ CortexOS</h2><p style="color:#FF5C7A">Erro de arranque: '+e.message+'</p><button onclick="location.reload()" style="background:#00D4FF;color:#000;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;margin-top:10px">Recarregar</button></div>';
   }
