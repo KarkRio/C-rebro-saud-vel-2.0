@@ -533,7 +533,7 @@ body::before{
 
 /* ── APP LAYOUT ── */
 #app.show,#app[style*="block"],#app[style*="flex"]{display:flex!important}
-#ct{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;min-height:0;padding:12px 14px calc(env(safe-area-inset-bottom,0px)+16px)}
+#ct{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;min-height:0;padding:10px 12px 20px}
 /* ── HEADER ── */
 .hdr{
   flex-shrink:0;
@@ -1470,6 +1470,54 @@ textarea{resize:none;min-height:100px;line-height:1.7}
 }
 .update-bar.show{display:flex}
 
+
+/* ── MISSING COMPONENTS ── */
+.hbtns{display:flex;align-items:center;gap:5px}
+.ib{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--bg3);border:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:.95em;transition:all .15s;
+}
+.ib:active{transform:scale(.88);background:var(--bd)}
+.mode-banner{
+  padding:5px 14px;font-size:.72em;
+  font-family:'Share Tech Mono',monospace;
+  display:none;align-items:center;gap:6px;
+}
+.mode-morning{background:rgba(255,184,48,.08);color:var(--gold);border-bottom:1px solid rgba(255,184,48,.15)}
+.mode-focus{background:rgba(0,212,255,.08);color:var(--ac);border-bottom:1px solid rgba(0,212,255,.15)}
+.mode-dip{background:rgba(255,92,122,.06);color:var(--rose);border-bottom:1px solid rgba(255,92,122,.1)}
+.mode-creative{background:rgba(160,102,255,.08);color:var(--pu);border-bottom:1px solid rgba(160,102,255,.15)}
+.mode-night{background:rgba(79,143,255,.06);color:var(--blue);border-bottom:1px solid rgba(79,143,255,.1)}
+.groq-badge{background:#FF6B3520;border:1px solid #FF6B3540;border-radius:20px;padding:2px 8px;font-size:.6em;color:#FF6B35}
+.pom-dist{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--bd)}
+.wc-chain{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}
+.wc-word{background:var(--bg3);border:1px solid var(--bd);border-radius:20px;padding:3px 9px;font-size:.75em}
+.ds-digit{font-family:'Share Tech Mono',monospace;font-size:2em;color:var(--ac);text-align:center;letter-spacing:4px;padding:20px 0;min-height:80px;display:flex;align-items:center;justify-content:center}
+.brief-card{background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.15);border-radius:var(--r);padding:12px;margin-bottom:10px}
+.acad-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:8px 0}
+.sep{border:none;border-top:1px solid var(--bd);margin:10px 0}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.cd{font-size:.78em;color:var(--tx3);line-height:1.6;margin-bottom:8px}
+.srow-title{font-size:.85em;color:var(--tx);font-weight:500}
+.srow-sub{font-size:.7em;color:var(--tx3);margin-top:2px}
+.energy-bar{height:8px;border-radius:10px;background:var(--bd);overflow:hidden;margin:4px 0}
+.energy-fill{height:100%;border-radius:10px;background:var(--g-ac);transition:width .5s}
+.streak-flame{font-size:.9em}
+.tbtn{background:var(--bg3);border:2px solid var(--bd);color:var(--tx2);border-radius:10px;padding:6px 10px;font-size:.72em;cursor:pointer;transition:all .15s;white-space:nowrap}
+.tbtn.on{font-weight:600}
+.tbtn:active{transform:scale(.92)}
+.mission-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd)}
+.mission-row:last-child{border:none}
+.m-icon{font-size:1.1em;flex-shrink:0}
+.m-info{flex:1}
+.m-title{font-size:.8em;color:var(--tx);font-weight:500}
+.m-xp{font-size:.65em;color:var(--ac);font-family:'Share Tech Mono',monospace}
+.m-done{font-size:.85em;color:var(--green)}
+.notes-list{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.note-item{background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:10px;font-size:.8em;color:var(--tx2);line-height:1.5}
+
 </style>
 </head>
 <body>
@@ -1546,7 +1594,7 @@ textarea{resize:none;min-height:100px;line-height:1.7}
 </div>
 
 <!-- APP -->
-<div id="app" style="display:none;flex-direction:column;height:100vh;height:100dvh;overflow:hidden">
+<div id="app" style="display:none;flex-direction:column;height:100svh;overflow:hidden">
   <div class="hdr">
     <div class="hdr-r">
       <div>
@@ -2293,6 +2341,14 @@ function doSearch(q){if(q.length<2){document.getElementById('sr').innerHTML='';r
 
 function toggle(key,color){S.tasks[key]=!S.tasks[key];save();if(navigator.vibrate)navigator.vibrate(8);const cb=document.getElementById('cb-'+key),tt=document.getElementById('tt-'+key);if(!cb)return;if(S.tasks[key]){cb.style.cssText=`background:${color};border-color:transparent`;cb.textContent='✓';tt.classList.add('dn');cb.classList.add('pop');setTimeout(()=>cb.classList.remove('pop'),200);snd(700,900,.15);addXP(5);const wi=parseInt(key.split('-')[0]);if(wi>=0&&wi<6&&wDn(S,wi).p===100)setTimeout(()=>{confetti();toast('🎉 Semana '+WKS[wi].n+' completa!');addXP(200)},300)}else{cb.style.cssText='';cb.textContent='';tt.classList.remove('dn');snd(500,350,.12)}updateUI();checkAch()}
 
+function goBack(){
+  // Smart back navigation
+  const p=S.page||'home';
+  if(_tt==='games'||_gt){_gt='';renderGames();return}
+  if(_tt&&_tt!=='pom'){_tt='pom';renderTools();return}
+  if(p==='tools'){go('home');return}
+  go('home');
+}
 function go(p){
   // Stop exercise timer when leaving rotina
   if(S.page==='rotina'&&p!=='rotina'&&exInt){clearInterval(exInt);exInt=null}
@@ -2663,13 +2719,13 @@ function saveFN(){const v=document.getElementById('fnArea')?.value||'';S.focusNo
 function clearFN(){if(confirm('Limpar notas atuais?')){S.focusNotes='';save();renderFocusNotes()}}
 
 // GAMES
-function renderGames(){document.getElementById('tb').innerHTML=`<div style="overflow-x:auto;display:flex;gap:6px;padding-bottom:4px;margin-bottom:12px;scrollbar-width:none">${[['stroop','🎨 Stroop'],['mem','🧩 Memória'],['react','⚡ Reação'],['wm','🔤 Palavras'],['nback','🔢 N-Back'],['arith','➕ Aritmética'],['spatial','📐 Espacial'],['digit','🔢 Digit Span'],['wordchain','🔗 Word Chain'],['dualnback','🧠 Dual N-Back'],['toh','🗼 Hanói'],['ab','👁 Blink'],['cf','💬 Fluência']].map(([k,lb])=>`<button class="btn ${_gt===k?'ac':''}" style="font-size:.7em;white-space:nowrap;flex-shrink:0" onclick="_gt='${k}';renderGames()">${lb}</button>`).join('')}</div><div id="gb"></div>`;
+function renderGames(){document.getElementById('tb').innerHTML=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><button class="btn" style="font-size:.68em;flex-shrink:0;padding:6px 10px" onclick="_tt='pom';renderTools()">← Foco</button><div style="overflow-x:auto;display:flex;gap:5px;scrollbar-width:none;flex:1">${[['stroop','🎨 Stroop'],['mem','🧩 Memória'],['react','⚡ Reação'],['wm','🔤 Palavras'],['nback','🔢 N-Back'],['arith','➕ Aritmética'],['spatial','📐 Espacial'],['digit','🔢 Digit Span'],['wordchain','🔗 Word Chain'],['dualnback','🧠 Dual N-Back'],['toh','🗼 Hanói'],['ab','👁 Blink'],['cf','💬 Fluência']].map(([k,lb])=>`<button class="btn ${_gt===k?'ac':''}" style="font-size:.7em;white-space:nowrap;flex-shrink:0" onclick="_gt='${k}';renderGames()">${lb}</button>`).join('')}</div></div><div id="gb"></div>`;
 if(_gt==='stroop')renderStroop();else if(_gt==='mem')renderMem();else if(_gt==='react')renderReact();else if(_gt==='wm')renderWM();else if(_gt==='nback')renderNBack();else if(_gt==='arith')renderArith();else if(_gt==='spatial')renderSpatial();
 else if(_gt==='digit')startDigitSpan();else if(_gt==='wordchain')startWordChain();else if(_gt==='dualnback')startDualNBack();
 else if(_gt==='toh'){startTOH(3);}else if(_gt==='ab')startAB();else if(_gt==='cf')startCF();}
 
 function renderStroop(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🎨 STROOP <span class="info-btn" onclick="openHelp('stroop')">ⓘ</span> — Recorde: ${S.stroopR}</div><div class="cd">Seleciona a <strong>COR em que a palavra está escrita</strong>, não o que ela diz. Testa o córtex pré-frontal.</div><div id="sa">${sIdle()}</div></div><div class="ibox tip"><strong>Como jogar:</strong> Vês "AZUL" escrito em <span style="color:#e05050">VERMELHO</span>? Toca em VERMELHO. Ignora o texto — isso activa e treina o CPF!</div>`}
-function sIdle(){return`<div class="btns"><button class="btn ac" onclick="startStroop()">▶ Iniciar (30s)</button></div>${S.stroopR>0?`<div style="text-align:center;font-size:.78em;color:var(--tx3);margin-top:8px">Recorde: ${S.stroopR}</div>`:''}`}
+function sIdle(){return`<div style='text-align:right;margin-bottom:4px'><button class='btn' style='font-size:.65em' onclick='_gt="";renderGames()'>← Jogos</button></div><div class="btns"><button class="btn ac" onclick="startStroop()">▶ Iniciar (30s)</button></div>${S.stroopR>0?`<div style="text-align:center;font-size:.78em;color:var(--tx3);margin-top:8px">Recorde: ${S.stroopR}</div>`:''}`}
 function newSHtml(){sC=~~(Math.random()*4);sW=~~(Math.random()*4);return`<div class="stroop-word" style="color:${SCOLS[sC]}">${SNAMES[sW]}</div>`}
 function sOpts(){return`<div class="sopts">${SCOLS.map((c,i)=>`<button class="sopt" style="color:${c};border-color:${c}40" onclick="ansStroop(${i})">${SNAMES[i]}</button>`).join('')}</div>`}
 function startStroop(){stroopScore=0;stroopTime=30;const sa=document.getElementById('sa');if(!sa)return;sa.innerHTML=`<div style="text-align:center;font-size:.7em;color:var(--tx3);margin-bottom:8px">Tempo: <strong style="color:var(--ac)" id="stm">30s</strong> · Acertos: <strong id="stsc">0</strong></div>${newSHtml()}${sOpts()}`;stroopInt=setInterval(()=>{stroopTime--;const el=document.getElementById('stm');if(el)el.textContent=stroopTime+'s';if(stroopTime<=0){clearInterval(stroopInt);stroopInt=null;if(stroopScore>S.stroopR){S.stroopR=stroopScore;save();checkAch();addXP(stroopScore*2);toast('🏆 Recorde: '+stroopScore+'!')}else toast('Stroop: '+stroopScore);const sa2=document.getElementById('sa');if(sa2)sa2.innerHTML=sIdle()}},1000)}
@@ -2685,11 +2741,11 @@ if(reactState==='wait'){bs='background:#e0707018;border-color:#e07070;color:#e07
 else if(reactState==='go'){bs='background:#4FC3A125;border-color:var(--ac);color:var(--ac)';bc='⚡ TOCA AGORA!';bh=''}
 else if(reactState==='early'){bs='background:#e0707018;border-color:#e07070;color:#e07070';bc='😅 Cedo demais!';bh='Espera pelo verde'}
 else if(reactState==='result'){const ms=S.reactLast||0;bs=`background:${ms<200?'#4FC3A120':ms<300?'#d4a85320':'var(--bg3)'};border-color:${ms<200?'var(--ac)':ms<300?'var(--gold)':'var(--bd)'};`;bc=`${ms}ms`;bh=ms<200?'⚡ Reflexo incrível!':ms<300?'🔥 Rápido!':ms<400?'Bom!':'Podes melhorar!'}
-document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">⚡ TEMPO DE REAÇÃO <span class="info-btn" onclick="openHelp('reacao')">ⓘ</span> — Melhor: ${S.reactBest<9000?S.reactBest+'ms':'—'}</div><div class="react-box" style="${bs}" onclick="reactTap()"><div style="font-family:Fraunces,serif;font-size:2em;font-weight:300;margin-bottom:4px">${bc}</div><div style="font-size:.72em;opacity:.7">${bh}</div></div>${best}</div><div class="ibox sci">Mede o tempo entre estímulo visual e resposta motora. Atletas: ~150ms. Média: 200-250ms. Treinar isso activa o córtex motor e atenção sustentada.</div>`}
+document.getElementById('gb').innerHTML=`<div style=\"text-align:right;margin-bottom:4px\"><button class=\"btn\" style=\"font-size:.65em\" onclick=\"_gt=\"\"\";renderGames()\">← Jogos</button></div><div class="card"><div class="ct2">⚡ TEMPO DE REAÇÃO <span class="info-btn" onclick="openHelp('reacao')">ⓘ</span> — Melhor: ${S.reactBest<9000?S.reactBest+'ms':'—'}</div><div class="react-box" style="${bs}" onclick="reactTap()"><div style="font-family:Fraunces,serif;font-size:2em;font-weight:300;margin-bottom:4px">${bc}</div><div style="font-size:.72em;opacity:.7">${bh}</div></div>${best}</div><div class="ibox sci">Mede o tempo entre estímulo visual e resposta motora. Atletas: ~150ms. Média: 200-250ms. Treinar isso activa o córtex motor e atenção sustentada.</div>`}
 function reactTap(){if(reactState==='idle'||reactState==='result'||reactState==='early'){reactState='wait';renderReact();reactTimeout=setTimeout(()=>{reactState='go';reactStart=Date.now();renderReact()},1500+Math.random()*3000)}else if(reactState==='wait'){clearTimeout(reactTimeout);reactState='early';renderReact();setTimeout(()=>{reactState='idle';renderReact()},1500)}else if(reactState==='go'){const ms=Date.now()-reactStart;S.reactLast=ms;if(ms<S.reactBest)S.reactBest=ms;save();checkAch();reactState='result';if(ms<200)addXP(20);else if(ms<300)addXP(10);else addXP(5);renderReact();setTimeout(()=>{reactState='idle';renderReact()},2500)}}
 
 function startWM(){wmCards=[...WMPAIRS].sort(()=>Math.random()-.5).slice(0,10);wmIdx=0;wmScore=0;renderWMQ()}
-function renderWM(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🔤 ASSOCIAÇÃO <span class="info-btn" onclick="openHelp('palavras')">ⓘ</span> — Total corretas: ${S.wmRight||0}</div><div class="cd">Liga cada termo à definição correcta. Aprende neurociência enquanto jogas.</div><div id="wma">${wmCards.length?'':wmSt()}</div></div>`;if(!wmCards.length)document.getElementById('wma').innerHTML=wmSt()}
+function renderWM(){document.getElementById('gb').innerHTML=`<div style=\"text-align:right;margin-bottom:4px\"><button class=\"btn\" style=\"font-size:.65em\" onclick=\"_gt=\"\"\";renderGames()\">← Jogos</button></div><div class="card"><div class="ct2">🔤 ASSOCIAÇÃO <span class="info-btn" onclick="openHelp('palavras')">ⓘ</span> — Total corretas: ${S.wmRight||0}</div><div class="cd">Liga cada termo à definição correcta. Aprende neurociência enquanto jogas.</div><div id="wma">${wmCards.length?'':wmSt()}</div></div>`;if(!wmCards.length)document.getElementById('wma').innerHTML=wmSt()}
 function wmSt(){return`<div class="btns"><button class="btn ac" onclick="startWM()">▶ Iniciar</button></div>`}
 function renderWMQ(){if(wmIdx>=wmCards.length){const ga=document.getElementById('wma');if(ga){S.wmRight=(S.wmRight||0)+wmScore;save();checkAch();addXP(wmScore*5);ga.innerHTML=`<div style="text-align:center;padding:18px"><div style="font-size:2em">${wmScore>=8?'🌟':wmScore>=5?'💪':'📚'}</div><div style="font-size:1.05em;font-weight:500;margin:8px 0">${wmScore}/10 · +${wmScore*5} XP</div><button class="btn ac" style="margin-top:8px" onclick="startWM()">Jogar de novo</button></div>`}return}const card=wmCards[wmIdx];const wrong=[...WMPAIRS].filter(p=>p.w!==card.w).sort(()=>Math.random()-.5).slice(0,3);const opts=[card,...wrong].sort(()=>Math.random()-.5);const ga=document.getElementById('wma');if(!ga)return;ga.innerHTML=`<div style="font-size:.7em;color:var(--tx3);margin-bottom:7px">${wmIdx+1}/10 · Score: ${wmScore}</div><div class="wm-card"><div style="font-family:Fraunces,serif;font-size:1.3em;font-weight:300">${card.def}</div></div><div class="wm-opts">${opts.map(o=>`<button class="wm-btn" onclick="ansWM('${o.w}','${card.w}')">${o.w}</button>`).join('')}</div>`}
 function ansWM(c,ok){document.querySelectorAll('.wm-btn').forEach(b=>{if(b.textContent===ok)b.classList.add('ok');else if(b.textContent===c&&c!==ok)b.classList.add('no');b.onclick=null});if(c===ok){wmScore++;snd(700,900,.15)}else snd(300,200,.15);setTimeout(()=>{wmIdx++;renderWMQ()},1200)}
@@ -2981,7 +3037,7 @@ function stopAllAmb(){Object.keys(ambNodes).forEach(id=>{const nd=ambNodes[id];n
 // ════ N-BACK TASK ════
 let nbSeq=[],nbPos=0,nbN=2,nbPhase='idle',nbScore=0,nbTotal=0,nbInt=null;
 const NBACKL='ABCDEFHKLMNPQRST'.split('');
-function renderNBack(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">🔢 N-BACK <span class="info-btn" onclick="openHelp('nback')">ⓘ</span> — Nível: ${S.nbackLevel||1}-Back · Recorde: ${S.nbackScore||0}</div><div class="ibox sci" style="margin-bottom:10px;font-size:.75em">Quando a letra atual = a de ${nbN} posições atrás, toca Sim. O jogo cognitivo mais validado para memória de trabalho e QI fluido.</div><div id="nba">${nbIdle()}</div></div>`}
+function renderNBack(){document.getElementById('gb').innerHTML=`<div style=\"text-align:right;margin-bottom:4px\"><button class=\"btn\" style=\"font-size:.65em\" onclick=\"_gt=\"\"\";renderGames()\">← Jogos</button></div><div class="card"><div class="ct2">🔢 N-BACK <span class="info-btn" onclick="openHelp('nback')">ⓘ</span> — Nível: ${S.nbackLevel||1}-Back · Recorde: ${S.nbackScore||0}</div><div class="ibox sci" style="margin-bottom:10px;font-size:.75em">Quando a letra atual = a de ${nbN} posições atrás, toca Sim. O jogo cognitivo mais validado para memória de trabalho e QI fluido.</div><div id="nba">${nbIdle()}</div></div>`}
 function nbIdle(){nbN=S.nbackLevel||2;return`<div style="text-align:center;margin:12px 0"><div style="font-size:.72em;color:var(--tx3);margin-bottom:6px">N = ${nbN}</div><div style="font-family:Fraunces,serif;font-size:2.5em;color:var(--tx3)">—</div></div><div class="btns"><button class="btn" onclick="nbN=Math.max(1,nbN-1);S.nbackLevel=nbN;save();document.getElementById('nba').innerHTML=nbIdle()">N-</button><button class="btn ac" onclick="startNBack()">▶ Iniciar (20 trials)</button><button class="btn" onclick="nbN=Math.min(7,nbN+1);S.nbackLevel=nbN;save();document.getElementById('nba').innerHTML=nbIdle()">N+</button></div>`}
 function startNBack(){nbSeq=[];nbPos=0;nbScore=0;nbTotal=0;nbPhase='running';for(let i=0;i<20+nbN;i++)nbSeq.push(NBACKL[~~(Math.random()*NBACKL.length)]);runNBack()}
 function runNBack(){if(nbPos>=nbSeq.length){const pct=Math.round(nbScore/nbTotal*100);if(nbScore>S.nbackScore){S.nbackScore=nbScore;save();checkAch()}addXP(nbScore*3);const na=document.getElementById('nba');if(na)na.innerHTML=`<div style="text-align:center;padding:14px"><div style="font-size:1.5em;font-family:Fraunces,serif;color:var(--ac)">${pct}%</div><div style="font-size:.82em;color:var(--tx2);margin-top:4px">${nbScore}/${nbTotal} corretos · +${nbScore*3} XP</div><button class="btn ac" style="margin-top:8px" onclick="startNBack()">Jogar de novo</button></div>`;return}
@@ -2992,7 +3048,7 @@ function nbAns(said,actual){clearTimeout(nbInt);if(nbPos>=nbN){if(said===actual)
 
 // ════ ARITHMETIC SPRINT ════
 let arInt=null,arTime=0,arScore=0,arQ=null;
-function renderArith(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">➕ SPRINT ARITMÉTICO <span class="info-btn" onclick="openHelp('arith')">ⓘ</span></div><div class="cd">Responde o máximo de cálculos em 60 segundos. Treina velocidade de processamento.</div><div id="ara">${arIdle()}</div></div>`}
+function renderArith(){document.getElementById('gb').innerHTML=`<div style=\"text-align:right;margin-bottom:4px\"><button class=\"btn\" style=\"font-size:.65em\" onclick=\"_gt=\"\"\";renderGames()\">← Jogos</button></div><div class="card"><div class="ct2">➕ SPRINT ARITMÉTICO <span class="info-btn" onclick="openHelp('arith')">ⓘ</span></div><div class="cd">Responde o máximo de cálculos em 60 segundos. Treina velocidade de processamento.</div><div id="ara">${arIdle()}</div></div>`}
 function arIdle(){return`<div class="btns"><button class="btn" onclick="startArith('easy')">Fácil</button><button class="btn ac" onclick="startArith('med')">Médio</button><button class="btn" onclick="startArith('hard')">Difícil</button></div>`}
 function genQ(diff){let a,b,op,ans;const ops=['+','-','×'];op=ops[diff==='easy'?~~(Math.random()*2):diff==='med'?~~(Math.random()*3):~~(Math.random()*3)];if(diff==='easy'){a=~~(Math.random()*20)+1;b=~~(Math.random()*20)+1}else if(diff==='med'){a=~~(Math.random()*50)+1;b=~~(Math.random()*50)+1}else{a=~~(Math.random()*100)+1;b=~~(Math.random()*100)+1};if(op==='+')ans=a+b;else if(op==='-'){ans=a-b}else{a=~~(Math.random()*12)+1;b=~~(Math.random()*12)+1;ans=a*b;op='×'};return{q:`${a} ${op} ${b} = ?`,ans,diff}}
 function startArith(diff){arTime=60;arScore=0;arQ=genQ(diff);const aa=document.getElementById('ara');if(!aa)return;const render=()=>{if(!document.getElementById('ara'))return;document.getElementById('ara').innerHTML=`<div style="text-align:center;font-size:.7em;color:var(--tx3);margin-bottom:6px">⏱ ${arTime}s · Score: ${arScore}</div><div style="font-family:Fraunces,serif;font-size:1.8em;text-align:center;margin:10px 0;color:var(--ac)">${arQ.q}</div><input id="arAns" type="number" placeholder="Resposta..." style="text-align:center;font-size:1.1em;margin-bottom:7px" onkeydown="if(event.key==='Enter')checkArith('${diff}')"/><button class="sav full" onclick="checkArith('${diff}')">Confirmar</button>`};render();arInt=setInterval(()=>{arTime--;const tEl=document.getElementById('arAns');if(!tEl||arTime<=0){clearInterval(arInt);arInt=null;addXP(arScore*4);const aa2=document.getElementById('ara');if(aa2)aa2.innerHTML=`<div style="text-align:center;padding:14px"><div style="font-size:1.5em;font-family:Fraunces,serif;color:var(--ac)">${arScore} pts</div><div style="font-size:.78em;color:var(--tx2);margin-top:4px">+${arScore*4} XP</div><button class="btn ac" style="margin-top:8px" onclick="startArith('${diff}')">Jogar de novo</button></div>`}else{// update timer display
@@ -3001,7 +3057,7 @@ function checkArith(diff){const v=parseInt(document.getElementById('arAns')?.val
 
 // ════ SPATIAL MEMORY ════
 let spGrid=[],spSel=[],spN=4,spPhase='idle';
-function renderSpatial(){document.getElementById('gb').innerHTML=`<div class="card"><div class="ct2">📐 MEMÓRIA ESPACIAL <span class="info-btn" onclick="openHelp('espacial')">ⓘ</span></div><div class="cd">Memoriza as posições coloridas, depois toca nas células corretas. Treina o hipocampo.</div><div id="spa">${spIdle()}</div></div>`}
+function renderSpatial(){document.getElementById('gb').innerHTML=`<div style=\"text-align:right;margin-bottom:4px\"><button class=\"btn\" style=\"font-size:.65em\" onclick=\"_gt=\"\"\";renderGames()\">← Jogos</button></div><div class="card"><div class="ct2">📐 MEMÓRIA ESPACIAL <span class="info-btn" onclick="openHelp('espacial')">ⓘ</span></div><div class="cd">Memoriza as posições coloridas, depois toca nas células corretas. Treina o hipocampo.</div><div id="spa">${spIdle()}</div></div>`}
 function spIdle(){return`<div class="btns"><button class="btn ac" onclick="startSpatial()">▶ Começar (${spN} células)</button></div>`}
 function startSpatial(){spPhase='show';spGrid=[];spSel=[];const total=16;const idxs=[];while(idxs.length<spN){const r=~~(Math.random()*total);if(!idxs.includes(r))idxs.push(r)}spGrid=idxs;renderSpGrid('show')}
 function renderSpGrid(phase){const sa=document.getElementById('spa');if(!sa)return;const cells=[...Array(16)].map((_,i)=>{const isTarget=spGrid.includes(i);const hit=spSel.includes(i);const show=(phase==='show'&&isTarget)||(phase==='check'&&hit&&isTarget)||(phase==='fail'&&hit&&!isTarget);const clr=phase==='check'&&hit&&isTarget?'#4FC3A140':phase==='fail'&&hit&&!isTarget?'#e0707040':phase==='show'&&isTarget?'#4FC3A140':'transparent';return`<div style="aspect-ratio:1;border-radius:8px;border:2px solid var(--bd);background:${clr||'var(--bg3)'};cursor:${phase==='input'?'pointer':'default'};transition:background .2s" onclick="${phase==='input'?`spTap(${i})`:''}"></div>`}).join('');sa.innerHTML=`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;max-width:220px;margin:0 auto 10px">${cells}</div><div style="text-align:center;font-size:.78em;color:var(--tx3)">${phase==='show'?'Memoriza...':phase==='input'?`Seleciona ${spN} células (${spSel.length}/${spN})`:phase==='check'?'✅ Correto!':phase==='fail'?'❌ Errado!':''}</div>`;
@@ -3226,10 +3282,10 @@ document.getElementById('ct').innerHTML=`
   ${keys[p]?`<div style="font-size:.65em;color:var(--ac);margin-top:5px">✓ Chave guardada · ${p==='anthropic'?'console.anthropic.com':p==='gemini'?'aistudio.google.com':p==='groq'?'console.groq.com':'platform.openai.com'}</div>`:``}
 </div>
 <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
-  ${Object.entries(AI_MODES).map(([k,m])=>`<button class="btn ${(S.aiMode||'coach')===k?'ac':''}" style="font-size:.68em" onclick="S.aiMode='${k}';save();renderCoach()">${m.icon} ${m.name}</button>`).join('')}
+  ${Object.entries(AI_MODES).map(([k,m])=>`<button class="btn ${(S.aiMode||'coach')===k?'ac':''}" style="font-size:.68em" onclick="setAIMode('${k}')">${m.icon} ${m.name}</button>`).join('')}
 </div>
 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px">
-  ${[['📊 Análise semanal','Analisa o meu progresso desta semana. O quê funcionou, o quê não funcionou, e dá-me 3 acções concretas para esta semana.'],['😴 Sono','Baseado nos meus dados de sono, quais são as mudanças mais impactantes que devo fazer HOJE à noite?'],['💪 Treino','Sou um estudante com pouco tempo. Dá-me o treino de calistenia mais eficiente para hoje em 20-30min.'],['📚 Estudo','Estou a estudar para exames. Como devo organizar as próximas 2 horas de estudo para máxima retenção?'],['🧠 Explain','Explica-me como funciona a neuroplasticidade de forma que eu consiga entender e aplicar hoje.'],['🔥 Bloqueio','Estou procrastinando e não consigo começar. O quê está a acontecer no meu cérebro e como saio disso agora?'],['🌊 Flow','Como entro em estado de flow? Dá-me um protocolo específico para a próxima hora.'],['💡 Hoje','Com base nos meus dados, o quê é a coisa mais importante que devo fazer nas próximas 2 horas?']].map(([lb,q])=>`<button class="btn" style="font-size:.7em;padding:8px;text-align:left;height:auto;white-space:normal" onclick="quickAI('${q.replace(/'/g,"\\'")}'')">${lb}</button>`).join('')}
+  ${(()=>{window._QP=[['📊 Análise semanal','Analisa o meu progresso desta semana. O quê funcionou e o quê não funcionou? Dá-me 3 acções concretas.'],['😴 Sono','Baseado nos meus dados de sono, quais são as mudanças mais impactantes que devo fazer HOJE à noite?'],['💪 Treino','Sou estudante com pouco tempo. Dá-me o treino de calistenia mais eficiente para hoje em 20-30min.'],['📚 Estudo','Estou a estudar para exames. Como organizar as próximas 2 horas para máxima retenção?'],['🧠 Neuroplasticidade','Explica-me como funciona a neuroplasticidade de forma que eu consiga aplicar hoje.'],['🔥 Bloqueio','Estou procrastinando e não consigo começar. O quê acontece no meu cérebro e como saio disso agora?'],['🌊 Flow','Como entro em estado de flow? Dá-me um protocolo específico para a próxima hora.'],['💡 Agora','Com base nos meus dados, o quê é a coisa mais importante que devo fazer nas próximas 2 horas?']];return window._QP.map(([lb],i)=>`<button class="btn" style="font-size:.7em;padding:8px;text-align:left;height:auto;white-space:normal" onclick="if(window._QP)quickAI(window._QP[${i}][1])">${lb}</button>`).join('')})()}
 </div>
 <div id="chatBox" style="min-height:120px;max-height:380px;overflow-y:auto;margin-bottom:10px;display:flex;flex-direction:column;gap:8px">${renderChat()}</div>
 <div style="display:flex;gap:6px"><textarea id="aiIn" placeholder="Faz uma pergunta ao Coach..." style="flex:1;margin:0;min-height:42px;font-size:.82em;resize:none;border-radius:12px" rows="2" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAI()}"></textarea><button id="aiBtn" class="btn ac" style="padding:9px 12px;align-self:flex-end;font-size:.8em" onclick="sendAI()">↑</button></div>
@@ -3237,9 +3293,11 @@ document.getElementById('ct').innerHTML=`
 requestAnimationFrame(()=>{const cb=document.getElementById('chatBox');if(cb)cb.scrollTop=cb.scrollHeight})}
 
 function getKeyUrl(p){return{anthropic:'https://console.anthropic.com',gemini:'https://aistudio.google.com/app/apikey',openai:'https://platform.openai.com/api-keys',groq:'https://console.groq.com/keys'}[p]||'#'}
+function setAIMode(k){S.aiMode=k;save();renderCoach();toast(AI_MODES[k]?.icon+' Modo: '+AI_MODES[k]?.name)}
 function setProvider(id){S.aiProvider=id;save();renderCoach();toast('Provider: '+PROVIDERS[id].name)}
 function saveApiKey(){const k=document.getElementById('apiKeyIn')?.value?.trim();if(!k){toast('⚠️ Cola a chave!');return}S.apiKeys=S.apiKeys||{};S.apiKeys[S.aiProvider||'anthropic']=k;save();renderCoach();toast('✅ Chave guardada!')}
 function quickAI(q){const el=document.getElementById('aiIn');if(el)el.value=q;sendAI()}
+function qaBtn(i){if(window._QP&&window._QP[i])quickAI(window._QP[i][1])}
 function renderChat(){if(!S.aiHistory?.length)return`<div style="text-align:center;color:var(--tx3);font-size:.78em;padding:20px 10px">Olá ${S.name||'amigo'}! Sou o teu Coach IA. Faz-me uma pergunta ou usa os atalhos acima.</div>`;return S.aiHistory.map(m=>m.role==='user'?`<div style="display:flex;justify-content:flex-end"><div class="user-bub">${m.content}</div></div>`:`<div style="display:flex;gap:7px;align-items:flex-start"><div class="ai-av">🧠</div><div class="ai-bub">${m.content.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>')}</div></div>`).join('')}
 function buildCtx(){const tk=tkey(),sl=S.sleep[tk]||{},wt=S.water[tk]||0,md=S.mood[tk],bf=S.brainFood[tk]||{};
   const mode=AI_MODES[S.aiMode||'coach'];
@@ -4422,6 +4480,10 @@ if(!S.tutorialSeen){S.tutorialSeen=true;save();setTimeout(openTutorial,800)}
 _safe('go_home',()=>go(S.page||'home'));}
 
 
+// ════ HARDWARE BACK BUTTON (Android) ════
+window.addEventListener('popstate', ()=>{goBack();history.pushState(null,'',location.href)});
+history.pushState(null,'',location.href);
+
 // ════ SWIPE NAVIGATION ════
 (()=>{
   let tx=0,ty=0,tEl=null;
@@ -4444,7 +4506,7 @@ window.addEventListener('load',()=>{
     if(!S.startDate){
       const _obs2=document.getElementById('obScreen');if(_obs2)_obs2.style.display='flex';
     } else {
-      const _app2=document.getElementById('app');if(_app2){_app2.style.display='flex';_app2.style.flexDirection='column'}
+      const _app2=document.getElementById('app');if(_app2){_app2.style.cssText='display:flex;flex-direction:column;height:100svh;overflow:hidden'}
       boot();
     }
   } catch(e) {
